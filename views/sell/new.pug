@@ -1,0 +1,20 @@
+extends ./../partials/header
+block main
+  .--s_new_product_wrapper
+    span.--s_new_product_title Enter the information and sell a new item!
+    span.--s_new_product_subtitle You may add pictures to your product once you create it
+    form.--s_new_product_input_wrapper#new-product-form(action="/sell/new" method="post")
+      span Your product's name:
+      input.--s_text_input#name-input(type="text" autofocus name="name" autocomplete="off" placeholder="ex: 2005 Red Volkswagen")
+      span Your average price:
+      input.--s_text_input#price-input(type="text" name="price" autocomplete="off" placeholder="ex: 50.000 $")
+      span A short description for your product:
+      textarea.--s_textarea_input#description-input(name="description" cols="30" rows="5" placeholder="ex: 2005 model red Volkswagen, second-hand. I used it for a year and now sell it because of financial reasons. It is like new.")
+      span Keyword's for your product:
+      textarea.--s_textarea_input#keywords-input(name="keywords" cols="30" rows="3" placeholder="ex: red Volkswagen 2005 car second-hand new")
+      span.--s_keywords_explanation To increase availability, you can write up to 10 keywords. You should seperate each word with a space.
+      .--s_form_send_line
+        .--g_form_button#form-send-button Done
+        .--s_error_wrapper
+          span.--s_error_line#form-error
+    

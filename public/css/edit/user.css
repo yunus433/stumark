@@ -1,0 +1,21 @@
+.--g_content_wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} 
+.--s_edit_wrapper {
+  width: 50%;
+  min-height: 300px;
+  border: 1px solid black;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.--s_image_edit_wrapper {
+  flex: 1;
+}
+.--s_user_image {
+}
+.--s_content_edit_wrapper {
+  flex: 1;
+}

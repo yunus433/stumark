@@ -1,0 +1,13 @@
+extends ./../partials/head
+block content
+  .--g_wrapper
+    span.--g_header Please enter your email and password 
+    form#register-form(method="post" action="/auth/login")
+      input.--g_text_input#email-input(type="text" placeholder="Email" autofocus autocomplete="off" name="email")
+      input.--g_text_input#password-input(type="password" placeholder="Password" autocomplete="off" name="password")
+      button.--g_form_button Ok
+    .--auth_g_error_wrapper#error-wrapper
+      span.--auth_g_error_line#error-line-not-exist(style="display:none;") Please write your email and your password
+      - if (err && err == 100) {
+        span.--auth_g_error_line#error-line-not-valid Sorry, your email or password is wrong
+      - }

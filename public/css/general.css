@@ -1,0 +1,102 @@
+/* General tag items css */
+body, html {
+  overflow: hidden;
+  margin: 0px;
+  padding: 0px;
+  width: 100vw;
+  height: 100vh;
+}
+.--g_wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.--g_header {
+  font-size: 2em;
+  margin-bottom: 5px;
+}
+.--g_display_none {
+  display: none;
+}
+.--g_form_button {
+  color: black;
+  padding: 10px;
+  margin: 5px;
+  border: 1px solid black;
+  border-radius: 10px;
+  font-size: 1.1em;
+  background: white;
+  outline: none;
+  cursor: pointer;
+}
+.--g_link_button {
+  color: black;
+  padding: 10px;
+  margin: 5px;
+  border: 1px solid black;
+  border-radius: 10px;
+  text-decoration: none;
+  font-size: 1.1em;
+  background: white;
+  cursor: pointer;
+}
+.--g_form_button:hover, .--g_link_button:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
+.--g_text_input {
+  outline: none;
+  font-size: 1.2em;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 7px 5px;
+  margin: 2px;
+}
+
+/* Header items css*/
+.--g_header_wrapper {
+  flex: 1;
+  border-bottom: 1px solid black;
+  width: 100%;
+  display: flex;
+}
+.--g_content_wrapper {
+  flex: 6;
+  width: 100%;
+}
+.--g_header_content_wrapper, .--g_header_user_wrapper {
+  flex: 50%;
+  padding: 10px;
+  display: flex;
+}
+.--g_header_content_wrapper {
+  align-items: center;
+}
+.--g_header_title {
+  font-size: 1.5em;
+  margin-right: 15px;
+}
+.--g_header_user_wrapper {
+  justify-content: flex-end;
+  align-items: center;
+  width: 10%;
+}
+.--g_user_edit_link {
+  display: flex;
+  align-items: center;
+ color: black;
+  text-decoration: none;
+}
+.--g_header_user_name {
+  font-size: 1.3em;
+}
+.--g_header_user_photo {
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  margin-left: 10px;
+  border: 1px solid black;
+}

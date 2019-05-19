@@ -1,0 +1,8 @@
+extends ./../partials/header
+block main
+  .--s_edit_wrapper 
+    label.--s_image_edit_wrapper
+      img.--s_user_image(src=user.profilePhoto)
+      input.--g_display_none(type="file")
+    .--s_content_edit_wrapper
+      span content

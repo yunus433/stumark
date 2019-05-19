@@ -1,0 +1,23 @@
+form {
+  display: flex;
+  flex-direction: column;
+}
+.--auth_g_error_wrapper {
+  justify-content: center;
+  align-items: center;
+}
+.--auth_g_error_line {
+  color: red;
+}
+.--auth_g_animation_class {
+  -webkit-animation: shake 0.1s ease-in-out 0.1s infinite alternate;
+}
+
+@-webkit-keyframes shake {
+  from {
+    color: red;
+  }
+  to {
+    color: rgba(255, 51, 51, 0.7);
+  }
+}

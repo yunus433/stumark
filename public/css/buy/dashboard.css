@@ -1,0 +1,116 @@
+.--g_content_wrapper {
+  padding: 10px;
+  display: inline-flex;
+  flex-direction: column;
+}
+.--s_header_wrapper {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  flex: 1;
+  justify-content: space-between;
+}
+.--s_header_title  {
+  font-size: 1.4em;
+}
+.--s_change_page_title {
+  margin-right: 5px;
+  font-size: 1.1em;
+}
+.--s_change_page_arrow_allow {
+  margin: 0px 5px;
+  color: rgba(0, 0, 0, 0.7);
+  cursor: pointer;
+}
+.--s_change_page_arrow_not_allow {
+  margin: 0px 5px;
+  color: rgba(0, 0, 0, 0.7);
+  cursor: not-allowed;
+}
+.--s_content_wrapper {
+  padding: 25px;
+  padding-top: 0px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 25px;
+  overflow: scroll;
+  flex: 12;
+}
+.--s_each_product {
+  border: 1px solid black;
+  padding: 10px;
+  border-radius: 10px;
+  display: flex;
+  height: 60%;
+}
+.--s_messages_line {
+  align-items: center;
+}
+.--s_messages_line i {
+  font-size: 1.2em;
+  color: rgba(0, 0, 0, 0.5);
+  margin-left: 5px;
+}
+.--s_messages_line i:hover {
+  color: black;
+}
+.--s_each_product_left_side {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.--s_each_product_title {
+  font-weight: bold;
+  font-size: 1.3em;
+  margin: 5px 0px;
+}
+.--s_each_product_right_side {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.--s_product_image_wrapper {
+  flex: 4;
+  height: 80%;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+}
+.--s_each_product_img {
+  max-width: 100%;
+  max-height: 100%;
+}
+.--s_product_images_menu {
+  flex: 1;
+  height: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.--s_product_image_change {
+  max-height: 100%;
+  max-width: 18%;
+  cursor: pointer;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+.--s_product_image_change:hover {
+  border: 1px solid rgb(0, 128, 255);
+}
+.--s_selected_photo {
+  border: 1px solid rgb(0, 128, 255);
+}
+.--s_search_input_wrapper {
+  display: flex;
+  align-items: center;
+}
+.--s_search_input_wrapper input {
+  padding-right: 13%;
+}
+.--s_search_input_wrapper i {
+  color: rgba(0, 0, 0, 0.7);
+  right: 13%;
+  z-index: 2;
+  position: relative;
+  cursor: pointer;
+}

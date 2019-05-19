@@ -1,0 +1,14 @@
+extends ./head
+block content
+  .--g_wrapper 
+    .--g_header_wrapper
+      .--g_header_content_wrapper
+        span.--g_header_title Welcome to Sell&Buy:
+        a.--g_link_button(href="/sell") Sell
+        a.--g_link_button(href="/buy/?page=1") Buy
+      .--g_header_user_wrapper
+        a.--g_user_edit_link(href="/edit/user")
+          span.--g_header_user_name Hi, #{user.email}!
+          img.--g_header_user_photo(src=user.profilePhoto)
+    .--g_content_wrapper
+      block main

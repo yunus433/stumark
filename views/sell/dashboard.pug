@@ -1,0 +1,39 @@
+extends ./../partials/header
+block main
+  .--s_header_wrapper
+    span.--s_header_title Your products:
+    a.--g_link_button(href="/sell/new") Sell a new item
+  .--s_content_wrapper
+    - if (products.length > 0) {
+      each product in products
+        .--s_each_product
+          .--s_each_product_left_side
+            .--s_edit_line
+              a(href="/edit/product/?id=" + product._id)
+                i.fas.fa-cog
+              a(href="/sell/messages/?id=" + product._id)
+               i.fas.fa-comments
+            span.--s_each_product_title Product Name:
+            span= product.name
+            span.--s_each_product_title Created At:
+            span= product.createdAt
+            span.--s_each_product_title Product Price:
+            span= product.price
+            span.--s_each_product_title Product Description:
+            span= product.description
+            span.--s_each_product_title Keywords:
+            span= product.keywords.join(" ")
+            span.--s_each_product_title Messages:
+            span There is #{product.messages.length} message(s) right now
+          .--s_each_product_right_side
+            .--s_product_image_wrapper
+              img.--s_each_product_img(src=product.productPhotoArray[0].source)
+            .--s_product_images_menu
+              img.--s_product_image_change.--s_selected_photo(src=product.productPhotoArray[0].source)
+              img.--s_product_image_change(src=product.productPhotoArray[1].source)
+              img.--s_product_image_change(src=product.productPhotoArray[2].source)
+              img.--s_product_image_change(src=product.productPhotoArray[3].source)
+              img.--s_product_image_change(src=product.productPhotoArray[4].source)
+    - } else {
+      span.--s_no_product_span Currently you don't have any products on sell. Why don't you start selling now?
+    - }
