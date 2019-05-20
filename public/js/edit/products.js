@@ -9,6 +9,6 @@ window.onload = () => {
   });
 
   document.querySelector('.--g_display_none').onchange = (event) => {
-    document.querySelector('.--s_product_image_form').submit();
+    document.querySelector('.--s_left_side_wrapper').submit();
   };
 };
