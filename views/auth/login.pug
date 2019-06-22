@@ -1,13 +1,17 @@
 extends ./../partials/head
 block content
-  .--g_wrapper
-    span.--g_header Please enter your email and password 
-    form#register-form(method="post" action="/auth/login")
-      input.--g_text_input#email-input(type="text" placeholder="Email" autofocus autocomplete="off" name="email")
-      input.--g_text_input#password-input(type="password" placeholder="Password" autocomplete="off" name="password")
-      button.--g_form_button Ok
-    .--auth_g_error_wrapper#error-wrapper
-      span.--auth_g_error_line#error-line-not-exist(style="display:none;") Please write your email and your password
-      - if (err && err == 100) {
-        span.--auth_g_error_line#error-line-not-valid Sorry, your email or password is wrong
-      - }
+  .form-main-wrapper
+    img.login-logo(src="/res/images/logo.png")
+    form.form-wrapper(action="/auth/login" method="post")
+      .form-header
+        span.form-header-title Einloggen
+        a.lost-password-link(href="/auth/login") 
+          span Passwort 
+          span vergessen?
+      input.form-input(type="text" autocomplete="off" autofocus required placeholder="Email" name="email")
+      input.form-input(type="text" autocomplete="off" autofocus required placeholder="Passwort" name="password")
+      button.form-send-button Einloggen
+      .error-line
+    .form-bottom-info
+      span Noch nicht registriert?
+      a.bottom-link(href="/auth/register") In 30 Sekunden registrieren

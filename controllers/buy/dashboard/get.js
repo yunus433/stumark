@@ -2,74 +2,17 @@ const async = require("async");
 const Product = require("../../../models/product/Product");
 
 module.exports = (req, res, next) => {
-  if (req.query) {
-    const beforeNumber = req.query.page - 1;
-    let afterNumber = 0;
-    Product.estimatedDocumentCount({}, (err, number) => {
-      if (err) return res.redirect("/");
+  if (req.query && req.query.category) {
+    Product.getNumberOfProducts(req.query.category, req.query.keywords, (err, number) => {
+      if (err) return res.redirect('/');
 
-      if (number > req.query.page * 50) {
-        afterNumber = Number(req.query.page) + 1;
-      }
-    });
-
-    if (req.query.keywords) {
-      Product.getLatestWithKeywords(
-        (req.query.page - 1) * 50,
-        req.query.keywords,
-        (err, latestProducts) => {
-          if (err)
-            return res.render("buy/dashboard", {
-              page: "buy/dashboard",
-              title: "Buy",
-              includes: {
-                external: ["css", "js", "fontawesome"]
-              },
-              products,
-              beforeNumber,
-              afterNumber,
-              user: req.session.user
-            });
-
-          async.times(
-            latestProducts.length,
-            (time, next) => {
-              Product.findById(latestProducts[time], (err, returnedProduct) => {
-                next(err, returnedProduct);
-              });
-            },
-            (err, products) => {
-              if (err) return res.redirect("/");
-
-              return res.render("buy/dashboard", {
-                page: "buy/dashboard",
-                title: "Buy",
-                includes: {
-                  external: ["css", "js", "fontawesome"]
-                },
-                products,
-                beforeNumber,
-                afterNumber,
-                user: req.session.user
-              });
-            }
-          );
-        }
-      );
-    } else {
-      Product.getLatest((req.query.page - 1) * 50, (err, latestProducts) => {
-        if (err)
-          return res.render("buy/dashboard", {
-            page: "buy/dashboard",
-            title: "Buy",
-            includes: {
-              external: ["css", "js", "fontawesome"]
-            },
-            products,
-            beforeNumber,
-            afterNumber,
-            user: req.session.user
-          });
+      Product.getLatest({
+        keywords: req.query.keywords,
+        category: req.query.category,
+        docsToSkip: parseInt(req.query.page) * parseInt(req.query.limit),
+        limit: parseInt(req.query.limit)
+      }, (err, latestProducts) => {
+        if (err) return res.redirect('/');
 
         async.times(
           latestProducts.length,
@@ -80,7 +23,7 @@ module.exports = (req, res, next) => {
           },
           (err, products) => {
             if (err) return res.redirect("/");
-
+        
             return res.render("buy/dashboard", {
               page: "buy/dashboard",
               title: "Buy",
@@ -88,15 +31,18 @@ module.exports = (req, res, next) => {
                 external: ["css", "js", "fontawesome"]
               },
               products,
-              beforeNumber,
-              afterNumber,
-              user: req.session.user
+              number,
+              user: req.session.user,
+              productPage: req.query.page,
+              category: req.query.category,
+              keywords: req.query.keywords,
+              limit: req.query.limit
             });
           }
         );
       });
-    }
+    });
   } else {
-    return res.redirect("/");
+    return res.redirect('/');
   }
 };

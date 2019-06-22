@@ -1,17 +1,20 @@
 extends ./../partials/head
 block content
-  .--g_wrapper
-    span.--g_header Please write your email and choose a password 
-    form#register-form(method="post" action="/auth/register")
-      input.--g_text_input#email-input(type="text" placeholder="Email" autofocus autocomplete="off" name="email")
-      input.--g_text_input#password-input(type="password" placeholder="Password" autocomplete="off" name="password")
-      button.--g_form_button Ok
-    .--auth_g_error_wrapper#error-wrapper
-      span.--auth_g_error_line#error-line-not-exist(style="display: none;") Please write your email and your password
-      span.--auth_g_error_line#error-line-short-password(style="display: none;") Your password should be longer than 5 digits 
-      - if (err && err == 100) {
-        span.--auth_g_error_line#error-line-not-valid Sorry, your email is not valid
-      - }
-      - if (err && err == 200) {
-        span.--auth_g_error_line#error-line-taken-email Sorry, this email is already taken
-      - }
+  .form-main-wrapper
+    form.form-wrapper(action="/auth/register" method="post")
+      .form-header
+        span.form-header-title Registrieren
+      input.form-input(type="text" autocomplete="off" autofocus required placeholder="Name" name="name")
+      input.form-input(type="text" autocomplete="off" autofocus required placeholder="Email" name="email")
+      input.form-input(type="password" autocomplete="off" autofocus required placeholder="Passwort" name="password")
+      input.form-input(type="password" autocomplete="off" autofocus required placeholder="Passwort wiederholen" name="password2")
+      span.user-agrement-link
+        span Mit der Registrierung erklärst du dich einverstanden mit unseren
+        a(href="/auth/agreement/two")  Nutzungsbedingungen
+        span  und unserer 
+        a(href="/auth/agreement/one") Datenschutzerklärung
+      button.form-send-button Registrieren
+      .error-line
+    .form-bottom-info
+      span Schon registriert?
+      a.bottom-link(href="/auth/login") Einloggen

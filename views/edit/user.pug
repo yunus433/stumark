@@ -1,8 +1,10 @@
 extends ./../partials/header
 block main
   .--s_edit_wrapper 
-    label.--s_image_edit_wrapper
-      img.--s_user_image(src=user.profilePhoto)
-      input.--g_display_none(type="file")
+    .--s_image_edit_wrapper
+      label
+        img.--s_user_image(src=user.profilePhoto)
+        input.--g_display_none(type="file")
     .--s_content_edit_wrapper
-      span content
+      input.--s_edit_input(type="text" name="email" value=user.email placeholder="Your email" autofocus autocomplete="off")
+      button.--s_edit_password_button Change your password

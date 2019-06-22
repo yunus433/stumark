@@ -1,4 +1,7 @@
 window.onload = () => {
+  if ( !/iPad|iPadPro/i.test(navigator.userAgent) )
+    responsiveDesign(document);
+
   const form = document.getElementById('register-form');
   const emailInput = document.getElementById('email-input');
   const passwordInput = document.getElementById('password-input');

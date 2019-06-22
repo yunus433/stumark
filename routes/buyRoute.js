@@ -10,7 +10,6 @@ const messagesPostController = require('../controllers/buy/messages/post');
 
 router.get(
   '/', 
-  isLoggedIn,
   dashboardGetController
 );
 router.get(

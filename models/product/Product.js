@@ -16,6 +16,10 @@ const ProductSchema = new Schema({
     type: Number,
     default: Date.now()
   },
+  location: {
+    type: String,
+    required: true
+  },
   productPhotoArray: {
     type: Array,
     default: [
@@ -51,75 +55,116 @@ const ProductSchema = new Schema({
   }
 });
 
-ProductSchema.statics.getLatest = function (docsToSkip, callback) {
-  let Product = this;
+ProductSchema.statics.getNumberOfProducts = function (category, keywordsForProduct, callback) {
+  const Product = this;
 
-  if (docsToSkip > 0) {
-    Product
-      .find({})
-      .sort({"createdAtSecond": -1})
-      .skip(docsToSkip)
-      .limit(50)
-      .then((products) => {
-        if (products) return callback(null, products);
-        
-        return callback(true);
-      })
-      .catch(err => {
-        callback(err);
-      });
+  if (keywordsForProduct) {
+    const keywordsArr = keywordsForProduct.split(" ");
+
+    if (category != "all") {
+      Product
+        .estimatedDocumentCount({keywords: {$all: keywordsArr}, category}, (err, number) => {
+          if (err) callback(true);
+
+          callback(null, number);
+        });
+    } else {
+      Product
+        .estimatedDocumentCount({keywords: {$all: keywordsArr}}, (err, number) => {
+          if (err) callback(true);
+
+          callback(null, number);
+        });
+    }
   } else {
-    Product
-      .find({})
-      .sort({"createdAtSecond": -1})
-      .limit(50)
-      .then((products) => {
-        if (products) return callback(null, products);
-        
-        return callback(true);
-      })
-      .catch(err => {
-        callback(err);
+    if (category != "all") {
+      Product
+      .estimatedDocumentCount({category}, (err, number) => {
+        if (err) callback(true);
+
+        callback(null, number);
       });
+    } else {
+      Product
+      .estimatedDocumentCount({}, (err, number) => {
+        if (err) callback(true);
+
+        callback(null, number);
+      });
+    }
   }
-};
+}
 
-ProductSchema.statics.getLatestWithKeywords = function (docsToSkip, keywords, callback) {
-  let Product = this;
-  const keywordsArr = keywords.split(" ");
+ProductSchema.statics.getLatest = function (params, callback) {
+  const Product = this;
 
-  if (docsToSkip > 0) {
-    Product
-      .find({keywords: {$all: keywordsArr}})
-      .sort({"createdAtSecond": -1})
-      .skip(docsToSkip)
-      .limit(50)
-      .then((products) => {
-        if (products) return callback(null, products);
-        
-        return callback(true);
-      })
-      .catch(err => {
-        callback(err);
-      });
+  if (params.keywords) {
+    const keywordsArr = params.keywords.split(" ");
+
+    if (params.category != "all") {
+      Product
+        .find({keywords: {$all: keywordsArr}, category: params.category})
+        .sort({"createdAtSecond": -1})
+        .skip(params.docsToSkip)
+        .limit(params.limit)
+        .then((products) => {
+          if (products) return callback(null, products);
+          
+          return callback(true);
+        })
+        .catch(err => {
+          callback(err);
+        });
+    } else {
+      Product
+        .find({keywords: {$all: keywordsArr}})
+        .sort({"createdAtSecond": -1})
+        .skip(params.docsToSkip)
+        .limit(products.limit)
+        .then((products) => {
+          if (products) return callback(null, products);
+          
+          return callback(true);
+        })
+        .catch(err => {
+          callback(err);
+        });
+    }
   } else {
-    Product
-      .find({keywords: {$all: keywordsArr}})
-      .sort({"createdAtSecond": -1})
-      .limit(50)
-      .then((products) => {
-        if (products) return callback(null, products);
-        
-        return callback(true);
-      })
-      .catch(err => {
-        callback(err);
-      });
+    if (params.category != "all") {
+      Product
+        .find({category: params.category})
+        .sort({"createdAtSecond": -1})
+        .skip(params.docsToSkip)
+        .limit(params.limit)
+        .then((products) => {
+          if (products) return callback(null, products);
+          
+          return callback(true);
+        })
+        .catch(err => {
+          callback(err);
+        });
+    } else {
+      Product
+        .find({})
+        .sort({"createdAtSecond": -1})
+        .skip(params.docsToSkip)
+        .limit(params.limit)
+        .then((products) => {
+          if (products) return callback(null, products);
+          
+          return callback(true);
+        })
+        .catch(err => {
+          callback(err);
+        });
+    }
   }
 };
 
 ProductSchema.statics.sortByProductPhotoIndex = function (id, callback) {
-  let Product = this;
+  const Product = this;
   
   Product
     .findById(id, (err, product) => {
@@ -129,7 +174,6 @@ ProductSchema.statics.sortByProductPhotoIndex = function (id, callback) {
       array.sort((a, b) => {
         return a.productIndex > b.productIndex
       });
-      console.log(array);
 
       Product
         .findByIdAndUpdate(id, {$set: {

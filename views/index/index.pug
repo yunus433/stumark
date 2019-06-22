@@ -1,6 +1,14 @@
-extends ./../partials/head
-block content
-  .--g_wrapper
-    span.--g_header Hello, please login or register before move on
-    a.--g_link_button(href="/auth/register") Register
-    a.--g_link_button(href="/auth/login") Login
+extends ./../partials/header
+block main
+  .general-info-wrapper
+    span Merke dein Produkt, schick deine Nachricht und einfach kauf!
+  span.latest-product-title Latest Products
+  .latest-product-wrapper
+    each product in products
+      .each-product
+        img.product-image(src=product.productPhotoArray[0].source)
+        span.product-name #{product.name}
+        .product-location
+          i.fas.fa-map-marker-alt
+          span Location
+        span.product-price #{product.price}

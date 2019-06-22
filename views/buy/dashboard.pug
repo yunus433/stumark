@@ -1,44 +1,26 @@
 extends ./../partials/header
 block main
-  .--s_header_wrapper
-    .--s_change_page_wrapper
-      span.--s_change_page_title Change page:
-      - if (beforeNumber) {
-        a(href=`/buy/?page=${beforeNumber}`)
-          i.fas.fa-arrow-left.--s_change_page_arrow_allow
-      - } else {
-        i.fas.fa-arrow-left.--s_change_page_arrow_not_allow
-      - }
-      - if (afterNumber) {
-        a(href=`/buy/?page=${afterNumber}`)
-          i.fas.fa-arrow-right.--s_change_page_arrow_allow
-      - } else {
-        i.fas.fa-arrow-right.--s_change_page_arrow_not_allow
-      - }
-    .--s_search_input_wrapper
-      input.--g_text_input(type="text" placeholder="Type a keyword" autocomplete="off" autofocus)
-      i.fas.fa-search
-  .--s_content_wrapper
+  .product-header
+    .root-info
+      if keywords
+        span #{number} products found for the category "#{category}" with the keywords "#{keywords}". Showing #{limit} products per page
+      else
+        span #{number} products found for the category "#{category}". Showing #{limit} products per page
+    .change-page-wrapper 
+      if keywords
+        - for (let i = 0; i < number; i += limit) {
+          a(href=`/buy/?category=${category}&page=${i}&keywords=${keywords}&limit=${limit}`)= i+1
+        - }
+      else
+        - for (let i = 0; i < number; i += limit) {
+          a(href=`/buy/?category=${category}&page=${i}&limit=${limit}`)= i+1
+        - }
+  .products-wrapper
     each product in products
-      .--s_each_product
-        .--s_each_product_left_side
-          .--s_messages_line
-            a(href="/buy/messages/?id=" + product._id)
-               i.fas.fa-comments
-          span.--s_each_product_title Product Name:
-          span= product.name
-          span.--s_each_product_title Created At:
-          span= product.createdAt
-          span.--s_each_product_title Product Price:
-          span= product.price
-          span.--s_each_product_title Product Description:
-          span= product.description
-        .--s_each_product_right_side
-          .--s_product_image_wrapper
-            img.--s_each_product_img(src=product.productPhotoArray[0].source)
-          .--s_product_images_menu
-            img.--s_product_image_change.--s_selected_photo(src=product.productPhotoArray[0].source)
-            img.--s_product_image_change(src=product.productPhotoArray[1].source)
-            img.--s_product_image_change(src=product.productPhotoArray[2].source)
-            img.--s_product_image_change(src=product.productPhotoArray[3].source)
-            img.--s_product_image_change(src=product.productPhotoArray[4].source)
+      .each-product
+        img.product-image(src=product.productPhotoArray[0].source)
+        span.product-name #{product.name}
+        .product-location
+          i.fas.fa-map-marker-alt
+          span Location
+        span.product-price #{product.price}

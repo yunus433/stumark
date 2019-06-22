@@ -1,15 +1,116 @@
-form {
+.form-main-wrapper {
+  margin-left: 50vw;
+  margin-top: 50vh;
+  transform: translate(-50%, -50%);
+  width: 50%;
+}
+.login-logo {
+  height: 5%;
+  margin-left: 5%;
+  margin-bottom: 2%;
+}
+.form-wrapper {
+  background: white;
+  width: 100%;
+  border-radius: 15px;
+  border: 3px solid rgb(236, 235, 235);
   display: flex;
   flex-direction: column;
+  padding: 2%;
 }
-.--auth_g_error_wrapper {
+.form-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+.form-header-title {
+  font-size: 62px;
+  color: rgb(112, 112, 112);
+  font-weight: 300;
+}
+.lost-password-link {
+  font-size: 22px;
+  color: rgb(255, 61, 148);
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  font-family: "Source Sans Pro";
+}
+.lost-password-link:hover {
+  text-decoration: underline;
+}
+.form-input {
+  background: rgb(248, 248, 248);
+  padding: 2%;
+  height: 8vh;
+  border: 3px solid rgb(236, 235, 235);
+  outline: none;
+  margin-bottom: 25px;
+  border-radius: 15px;
+  font-size: 30px;
+  font-weight: 300;
+  color: rgb(112, 112, 112);
+  font-family: "Source Sans Pro";
+}
+.user-agrement-link {
+  color: rgb(112, 112, 112);
+  font-size: 42px;
+  font-weight: 300;
+  line-height: 42px;
+  margin-bottom: 25px;
+}
+.user-agrement-link a {
+  color: rgb(255, 61, 148);
+}
+.form-send-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 8vh;
+  width: 100%;
+  background: rgba(255, 108, 128, 0.3);
+  border: 3px solid rgba(255, 61, 148, 0.34);
+  color: rgb(255, 61, 148);
+  font-size: 32px;
+  font-weight: 700;
+  font-family: "Source Sans Pro";
+  border-radius: 15px;
+  outline: none;
+  cursor: pointer;
+  margin-bottom: 25px;
+}
+.form-send-button:hover {
+  border: 3px solid rgba(255, 61, 148, 0.5);
+}
+.error-line {
+  display: flex;
   justify-content: center;
   align-items: center;
+  height: 15px;
+  margin-bottom: 10px;
+  width: 100%;
 }
-.--auth_g_error_line {
-  color: red;
+.form-bottom-info {
+  display: flex;
+  flex-direction: column;
+  margin-top: 25px;
+  padding-left: 25px;
+  color: rgb(112, 112, 112);
+  font-size: 35px;
+  font-weight: 400;
 }
-.--auth_g_animation_class {
+.bottom-link {
+  color: rgb(255, 61, 148);
+  text-decoration: none;
+  font-weight: 700;
+}
+.bottom-link:hover {
+  text-decoration: underline;
+}
+
+.animation_class {
   -webkit-animation: shake 0.1s ease-in-out 0.1s infinite alternate;
 }
 
