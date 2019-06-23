@@ -23,6 +23,41 @@ module.exports = (req, res, next) => {
           },
           (err, products) => {
             if (err) return res.redirect("/");
+
+            let category = "Andre";
+
+            switch(req.query.category) {
+              case "rented": 
+                category = "Mietwonhung und Nachmiete";
+                break;
+              case "hobby":
+                category = "Freizet, Hobby";
+                break;
+              case "home":
+                category = "Möbel, Haus";
+                break;
+              case "fashion":
+                category = "Mode, Kleidung";
+                break;
+              case "electronic":
+                category = "Elektronik";
+                break;
+              case "fun":
+                category = "Music, Filme, Bücher";
+                break;
+              case "tickets":
+                category = "Eintrittskarten, tickets";
+                break;
+              case "exchange":
+                category = "Zu verschenken, tauschen";
+                break;
+              case "lesson":
+                category = "Unterricht, Kurse";
+                break;
+              case "other":
+                category = "Alle";
+                break;
+            }
         
             return res.render("buy/dashboard", {
               page: "buy/dashboard",
@@ -34,7 +69,7 @@ module.exports = (req, res, next) => {
               number,
               user: req.session.user,
               productPage: req.query.page,
-              category: req.query.category,
+              category,
               keywords: req.query.keywords,
               limit: req.query.limit
             });

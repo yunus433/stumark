@@ -29,13 +29,14 @@
 .latest-product-wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 25px;
+  grid-gap: 1vw;
   width: 90%;
   height: 50%;
   margin: 25px 0px;
 }
 .each-product {
   height: 40vh;
+  width: 100%;
   padding: 2%;
   background: white;
   display: flex;
@@ -43,6 +44,7 @@
   border: 3px solid rgb(236, 235, 235);
   border-radius: 15px;
   cursor: pointer;
+  text-decoration: none;
 }
 .product-image {
   max-height: 50%;
@@ -50,10 +52,16 @@
   border-radius: 15px;
 }
 .product-name {
-  font-size: 35px;
+  font-size: 30px;
   font-weight: 700;
   color: rgb(112, 112, 112);
   margin-top: 15px;
+  width: 21vw;
+  white-space: nowrap;
+  overflow: hidden;
+  word-wrap: break-word;
+  text-overflow: ellipsis;
+  margin-bottom: 10px;
 }
 .product-price {
   color: rgb(255, 61, 148);

@@ -1,10 +1,13 @@
-const User = require('../../../models/user/User');
 const validator = require('validator');
+
+const User = require('../../../models/user/User');
+const sendMail = require('../../../utils/sendMail');
 
 module.exports = (req, res, next) => {
   if (validator.isEmail(req.body.email)) {
     const newUserData = {
       email: req.body.email,
+      name: req.body.name,
       password: req.body.password
     }; 
 
@@ -15,7 +18,15 @@ module.exports = (req, res, next) => {
       if (err) return res.redirect('/');
 
       req.session.user = user;
-      return res.redirect('/buy/?page=1');
+
+      sendMail({
+        email: user.email,
+        userId: user._id 
+      }, 'userRegister', () => {
+        req.session.user = user;
+
+        return res.redirect('/auth/verify');
+      });
     });
 
   } else {

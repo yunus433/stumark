@@ -1,0 +1,34 @@
+extends ./../partials/header
+block main
+  .main-product-wrapper
+    .product-left-side
+      .product-image-wrapper
+        img.main-product-image(src=product.productPhotoArray[0].source)
+      .product-images-menu
+        img.product-menu-image.selected-menu-image(src=product.productPhotoArray[0].source)
+        img.product-menu-image(src=product.productPhotoArray[1].source)
+        img.product-menu-image(src=product.productPhotoArray[2].source)
+        img.product-menu-image(src=product.productPhotoArray[3].source)
+        img.product-menu-image(src=product.productPhotoArray[4].source)
+    .product-right-side
+      span.main-product-created-at Added #{product.createdAt}
+      span.main-product-title= product.name
+      .main-product-location
+          i.fas.fa-map-marker-alt
+          span= product.location
+      span.main-product-description= product.description
+      span.main-product-price= product.price
+  form.send-message-wrapper(action="/buy/details/?id=" + product._id method="post")
+    span.send-message-title Nachricht schreiben
+    textarea.message-input(name="message" placeholder="Nachricht")
+    button.send-message-button Nachricht Senden
+  span.other-products-title Similar Products
+  .other-products-wrapper
+    each product in similarProducts
+      a.each-product(href="/buy/details/?id=" + product._id)
+        img.product-image(src=product.productPhotoArray[0].source)
+        span.product-name #{product.name}
+        .product-location
+          i.fas.fa-map-marker-alt
+          span= product.location
+        span.product-price #{product.price}

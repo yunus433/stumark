@@ -63,34 +63,46 @@ ProductSchema.statics.getNumberOfProducts = function (category, keywordsForProdu
 
     if (category != "all") {
       Product
-        .estimatedDocumentCount({keywords: {$all: keywordsArr}, category}, (err, number) => {
-          if (err) callback(true);
-
-          callback(null, number);
+        .find({category, keywords: {$all: keywordsArr}})
+        .countDocuments()
+        .then(number => {
+          return callback(null, number);
+        })
+        .catch(err => {
+          return callback(err);
         });
     } else {
       Product
-        .estimatedDocumentCount({keywords: {$all: keywordsArr}}, (err, number) => {
-          if (err) callback(true);
-
-          callback(null, number);
+        .find({keywords: {$all: keywordsArr}})
+        .countDocuments()
+        .then(number => {
+          return callback(null, number);
+        })
+        .catch(err => {
+          return callback(err);
         });
     }
   } else {
     if (category != "all") {
       Product
-      .estimatedDocumentCount({category}, (err, number) => {
-        if (err) callback(true);
-
-        callback(null, number);
-      });
+        .find({category})
+        .countDocuments()
+        .then(number => {
+          return callback(null, number);
+        })
+        .catch(err => {
+          return callback(err);
+        });
     } else {
       Product
-      .estimatedDocumentCount({}, (err, number) => {
-        if (err) callback(true);
-
-        callback(null, number);
-      });
+        .find({})
+        .countDocuments()
+        .then(number => {
+          return callback(null, number);
+        })
+        .catch(err => {
+          return callback(err);
+        });
     }
   }
 }
@@ -120,7 +132,7 @@ ProductSchema.statics.getLatest = function (params, callback) {
         .find({keywords: {$all: keywordsArr}})
         .sort({"createdAtSecond": -1})
         .skip(params.docsToSkip)
-        .limit(products.limit)
+        .limit(params.limit)
         .then((products) => {
           if (products) return callback(null, products);
           

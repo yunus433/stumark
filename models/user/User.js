@@ -19,7 +19,12 @@ const UserSchema = new Schema({
     minlength: 6
   },
   name: {
-    type: String
+    type: String,
+    required: true
+  },
+  verified: {
+    type: Boolean,
+    default: false
   },
   profilePhoto: {
     type: String,

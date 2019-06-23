@@ -10,10 +10,10 @@
 .product-header {
   width: 90%;
   display: flex;
+  flex-direction: column;
 }
 .root-info {
-  flex: 1;
-  height: 100%;
+  width: 100%;
   display: flex;
   align-items: center;
   font-size: 23px;
@@ -21,19 +21,29 @@
   font-weight: 600;
 }
 .change-page-wrapper {
-  flex: 1;
+  width: 100%;
   display: flex;
   align-items: center;
+  justify-content: flex-end;
   font-size: 30px;
   color: rgb(112, 112, 112);
 }
+.fa-angle-left a {
+  color: rgb(112, 112, 112);
+  text-decoration: none;
+}
+.each-page-link {
+  margin: 0px 2.5px;
+  color: rgb(255, 61, 148);
+  text-decoration: none;
+}
+.each-page-link:hover {
+  text-decoration: underline;
+}
 .change-page-wrapper i {
   font-size: 25px;
-  margin-left: 5px;
-  cursor: pointer;
-  color: rgba(112, 112, 112, 0.5);
-}
-.change-page-wrapper i:hover {
+  margin: 0px 5px;
+  cursor: not-allowed;
   color: rgb(112, 112, 112);
 }
 
@@ -55,6 +65,7 @@
   border: 3px solid rgb(236, 235, 235);
   border-radius: 15px;
   cursor: pointer;
+  text-decoration: none;
 }
 .each-product:hover {
   border: 3px solid rgb(220, 220, 220);
@@ -65,10 +76,16 @@
   border-radius: 15px;
 }
 .product-name {
-  font-size: 35px;
+  font-size: 30px;
   font-weight: 700;
   color: rgb(112, 112, 112);
   margin-top: 15px;
+  width: 21vw;
+  white-space: nowrap;
+  overflow: hidden;
+  word-wrap: break-word;
+  text-overflow: ellipsis;
+  margin-bottom: 10px;
 }
 .product-price {
   color: rgb(255, 61, 148);

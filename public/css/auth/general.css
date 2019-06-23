@@ -5,7 +5,7 @@
   width: 50%;
 }
 .login-logo {
-  height: 5%;
+  height: 10vh;
   margin-left: 5%;
   margin-bottom: 2%;
 }
@@ -22,15 +22,15 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
 }
 .form-header-title {
-  font-size: 62px;
+  font-size: 60px;
   color: rgb(112, 112, 112);
   font-weight: 300;
 }
 .lost-password-link {
-  font-size: 22px;
+  font-size: 18px;
   color: rgb(255, 61, 148);
   text-decoration: none;
   display: flex;
@@ -47,18 +47,18 @@
   height: 8vh;
   border: 3px solid rgb(236, 235, 235);
   outline: none;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
   border-radius: 15px;
-  font-size: 30px;
+  font-size: 25px;
   font-weight: 300;
   color: rgb(112, 112, 112);
   font-family: "Source Sans Pro";
 }
 .user-agrement-link {
   color: rgb(112, 112, 112);
-  font-size: 42px;
+  font-size: 30px;
   font-weight: 300;
-  line-height: 42px;
+  line-height: 32px;
   margin-bottom: 25px;
 }
 .user-agrement-link a {
@@ -79,7 +79,7 @@
   border-radius: 15px;
   outline: none;
   cursor: pointer;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
 }
 .form-send-button:hover {
   border: 3px solid rgba(255, 61, 148, 0.5);
@@ -95,10 +95,10 @@
 .form-bottom-info {
   display: flex;
   flex-direction: column;
-  margin-top: 25px;
+  margin-top: 20px;
   padding-left: 25px;
   color: rgb(112, 112, 112);
-  font-size: 35px;
+  font-size: 30px;
   font-weight: 400;
 }
 .bottom-link {

@@ -8,19 +8,35 @@ block main
         span #{number} products found for the category "#{category}". Showing #{limit} products per page
     .change-page-wrapper 
       if keywords
+        if page > 0
+          a.fas.fa-angle-left(href=`/buy/?category=${category}&page=${page-1}&keywords=${keywords}&limit=${limit}`)
+        else
+          i.fas.fa-angle-left
         - for (let i = 0; i < number; i += limit) {
-          a(href=`/buy/?category=${category}&page=${i}&keywords=${keywords}&limit=${limit}`)= i+1
+          a.each-page-link(href=`/buy/?category=${category}&page=${i}&keywords=${keywords}&limit=${limit}`)= i+1
         - }
+        if (page * limit) < number
+          a.fas.fa-angle-right(href=`/buy/?category=${category}&page=${page+1}&keywords=${keywords}&limit=${limit}`)
+        else
+          i.fas.fa-angle-right
       else
+        if page > 0
+          a.fas.fa-angle-left(href=`/buy/?category=${category}&page=${page-1}&limit=${limit}`)
+        else
+          i.fas.fa-angle-left
         - for (let i = 0; i < number; i += limit) {
-          a(href=`/buy/?category=${category}&page=${i}&limit=${limit}`)= i+1
+          a(.each-page-linkhref=`/buy/?category=${category}&page=${i}&limit=${limit}`)= i+1
         - }
+        if (page * limit) < number
+          a.fas.fa-angle-right(href=`/buy/?category=${category}&page=${page+1}&limit=${limit}`)
+        else
+          i.fas.fa-angle-right
   .products-wrapper
     each product in products
-      .each-product
+      a.each-product(href="/buy/details/?id=" + product._id)
         img.product-image(src=product.productPhotoArray[0].source)
         span.product-name #{product.name}
         .product-location
           i.fas.fa-map-marker-alt
-          span Location
+          span= product.location
         span.product-price #{product.price}

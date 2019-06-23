@@ -1,0 +1,7 @@
+extends ./../partials/head
+block content
+  .verify-main-wrapper
+    span.verify-text Bitte Ihre E-mail Adresse gucken und Ihre Registrierung bestätigen! Wenn Sie die Bestätigung-Email nicht bekommt haben, bitte clicken sie unten.
+    form(action="/auth/verify/new/?id=" + user._id method="POST")
+      button.send-new-verify-email Schick eine neue E-mail!
+    a.verify-go-back-link(href="/auth/login") Zurück

@@ -1,11 +1,14 @@
 extends ./../partials/header
 block main
   .general-info-wrapper
-    span Merke dein Produkt, schick deine Nachricht und einfach kauf!
-  span.latest-product-title Latest Products
+    if user
+      span Hallo, #{user.name}
+    else
+      span Merke dein Produkt, schick deine Nachricht und einfach kauf!
+  span.latest-product-title Actuelle Angebote
   .latest-product-wrapper
     each product in products
-      .each-product
+      a.each-product(href="/buy/details/?id=" + product._id)
         img.product-image(src=product.productPhotoArray[0].source)
         span.product-name #{product.name}
         .product-location

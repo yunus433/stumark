@@ -1,0 +1,215 @@
+.main-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Main product design*/
+.main-product-wrapper {
+  display: flex;
+  width: 90%;
+  background: white;
+  border: 3px solid rgb(236, 235, 235);
+  border-radius: 15px;
+  padding: 25px;
+  margin-top: 25px;
+}
+/* Left side design */
+.product-left-side {
+  flex: 1;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.product-image-wrapper {
+  width: 90%;
+  height: 85%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.main-product-image {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 15px;
+}
+.product-images-menu {
+  height: 15%;
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.product-menu-image {
+  width: 19%;
+  height: 100%;
+  border: 2px solid rgb(236, 235, 235);
+  cursor: pointer;
+  border-radius: 5px;
+}
+.selected-menu-image {
+  border: 2px solid blue;
+}
+/* Right side design */
+.product-right-side {
+  flex: 1;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+.main-product-created-at {
+  margin-bottom: 10px;
+  color: rgb(112, 112, 112);
+  font-size: 19px;
+  font-weight: 300; 
+}
+.main-product-title {
+  margin-bottom: 5px;
+  color: rgb(112, 112, 112);
+  font-size: 35px;
+  font-weight: 700; 
+}
+.main-product-location {
+  font-size: 19px;
+  font-weight: 300;
+  color: rgb(112, 112, 112);
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.main-product-location i {
+  margin-right: 5px;
+}
+.main-product-description {
+  font-size: 21px;
+  color: rgb(112, 112, 112);
+  margin-bottom: 20px;
+}
+.main-product-price {
+  color: rgb(255, 61, 148);
+  font-size: 49px;
+  font-weight: 700;
+}
+
+/* Send message wrapper and content design */
+.send-message-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 90%;
+  background: white;
+  border: 3px solid rgb(236, 235, 235);
+  border-radius: 15px;
+  padding: 25px;
+  margin-top: 25px;
+  min-height: 50vh;
+}
+.send-message-title {
+  color: rgb(112, 112, 112);
+  font-size: 62px;
+  font-weight: 300;
+  margin-bottom: 10px;
+}
+.message-input {
+  height: 30vh; 
+  width: 100%;
+  font-size: 30px;
+  font-weight: 300;
+  background: rgb(248, 248, 248);
+  border: 3px solid rgb(236, 235, 235);
+  border-radius: 15px;
+  color: rgb(112, 112, 112);
+  padding: 15px;
+  outline: none;
+}
+.send-message-button {
+  margin-top: 25px;
+  margin-left: 100%;
+  transform: translateX(-100%);
+  background: rgba(255, 108, 128, 0.3);
+  border: 3px solid rgba(255, 61, 148, 0.34);
+  color: rgb(255, 61, 148);
+  font-size: 30px;
+  font-weight: 700;
+  outline: none;
+  padding: 10px 0px;
+  width: 25%;
+  cursor: pointer;
+  border-radius: 15px;
+}
+.send-message-button:hover {
+  border-color: rgba(255, 61, 148, 0.5);
+}
+
+/* Similar products design */
+.other-products-title {
+  color: rgb(112, 112, 112);
+  font-size: 62px;
+  font-weight: 300;
+  margin-bottom: 10px;
+  align-self: flex-start;
+  margin-left: 5%;
+  margin-top: 25px;
+}
+.other-products-wrapper {
+  min-height: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 25px;
+  width: 90%;
+  margin-bottom: 25px;
+  margin-top: 10px;
+}
+.each-product {
+  height: 40vh;
+  padding: 2%;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  border: 3px solid rgb(236, 235, 235);
+  border-radius: 15px;
+  cursor: pointer;
+  text-decoration: none;
+}
+.each-product:hover {
+  border: 3px solid rgb(220, 220, 220);
+}
+.product-image {
+  max-height: 50%;
+  max-width: 100%;
+  border-radius: 15px;
+}
+.product-name {
+  font-size: 30px;
+  font-weight: 700;
+  color: rgb(112, 112, 112);
+  margin-top: 15px;
+  width: 21vw;
+  white-space: nowrap;
+  overflow: hidden;
+  word-wrap: break-word;
+  text-overflow: ellipsis;
+  margin-bottom: 10px;
+}
+.product-price {
+  color: rgb(255, 61, 148);
+  font-size: 36px;
+  font-weight: 700;
+}
+.product-location {
+  font-size: 19px;
+  font-weight: 300;
+  color: rgb(112, 112, 112);
+  display: flex;
+  align-items: center;
+}
+.product-location i {
+  margin-right: 5px;
+}
