@@ -16,6 +16,10 @@ const ProductSchema = new Schema({
     type: Number,
     default: Date.now()
   },
+  category: {
+    type: String,
+    required: true
+  },
   location: {
     type: String,
     required: true
@@ -37,11 +41,11 @@ const ProductSchema = new Schema({
     required: true
   },
   owner: {
-    type: Object,
+    type: String,
     required: true
   },
   buyer: {
-    type: Object
+    type: String
   },
   messages: {
     type: Object,
