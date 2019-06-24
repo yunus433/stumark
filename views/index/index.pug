@@ -1,10 +1,7 @@
 extends ./../partials/header
 block main
   .general-info-wrapper
-    if user
-      span Hallo, #{user.name}
-    else
-      span Merke dein Produkt, schick deine Nachricht und einfach kauf!
+    span Merke dein Produkt, schick deine Nachricht und einfach kauf!
   span.latest-product-title Actuelle Angebote
   .latest-product-wrapper
     each product in products
@@ -13,5 +10,5 @@ block main
         span.product-name #{product.name}
         .product-location
           i.fas.fa-map-marker-alt
-          span Location
+          span= product.location
         span.product-price #{product.price}

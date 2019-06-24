@@ -1,14 +1,42 @@
-const User = require('../../../models/user/User');
+const async = require('async');
+
 const Product = require('../../../models/product/Product');
 
+function uploadToCloudinary(req, nameArray) {
+  nameArray.forEach(name => {
+    req.cloudinary.v2.uploader.upload(
+      "./public/res/uploads/" + name,
+      {
+        public_id: "stumarkt/image_folder/" + name,
+        quality: 25,
+        format: "JPG"
+      }
+    );
+  });
+};
+
 module.exports = (req, res, next) => {
-  const keywordsArr = req.body.keywords.trim().split(" ");
+  const productPhotoArray = [
+    {productIndex: 0, source: "/res/images/notAvailablePhoto.jpg"},
+    {productIndex: 1, source: "/res/images/notAvailablePhoto.jpg"},
+    {productIndex: 2, source: "/res/images/notAvailablePhoto.jpg"},
+    {productIndex: 3, source: "/res/images/notAvailablePhoto.jpg"},
+    {productIndex: 4, source: "/res/images/notAvailablePhoto.jpg"}
+  ];
+  req.body.productPhotoNameArray.split(",").forEach((photoName, index) => {
+    productPhotoArray[index].source = "http://res.cloudinary.com/dvnac86j8/image/upload/v1558412742/stumarkt/image_folder/" + photoName + ".jpg";
+  });
+  uploadToCloudinary(req, req.body.productPhotoNameArray.split(","));
+
   const newProductData = {
+    category: req.body.category,
     name: req.body.name,
-    price: req.body.price,
-    keywords: keywordsArr,
     description: req.body.description,
-    owner: req.session.user,
+    price: req.body.price,
+    productPhotoArray,
+    keywords: req.body.description.split(" "),
+    location: req.body.address1 + " " + req.body.address2 + " " + req.body.address3,
+    owner: req.session.user._id,
     documentIndex: -1
   };
 
@@ -25,14 +53,7 @@ module.exports = (req, res, next) => {
       }}, {upsert: true, new: true}, err => {
         if (err) return res.redirect('/');
         
-        User.findByIdAndUpdate(req.session.user._id, {$push: {
-          "products": product._id
-        }}, {upsert: true, new: true}, (err, user) => {
-          if (err) res.redirect('/');
-    
-          req.session.user = user;
-          return res.redirect('/sell');
-        });
+        return res.redirect('/sell');
       });
     });
   });

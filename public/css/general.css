@@ -32,6 +32,9 @@ body {
   display: flex;
   flex-direction: column;
 }
+.display-none {
+  display: none;
+}
 
 /* All header design*/
 .all-header {
@@ -44,10 +47,14 @@ body {
   background: white;
   border-bottom: 3px solid rgb(236, 235, 235);
 }
-.all-header-logo {
-  max-height: 100%;
+.all-header-logo-wrapper {
+  height: 100%;
   padding: 1% 0%;
 }
+.all-header-logo {
+  max-height: 100%;
+}
+
 .search-bar-wrapper {
   display: flex;
   width: 50%;
@@ -86,6 +93,7 @@ body {
   align-items: flex-end;
   height: 50%;
   cursor: pointer;
+  text-decoration: none;
 }
 .messages-icon-image {
   height: 100%;
@@ -97,10 +105,35 @@ body {
   color: rgb(112, 112, 112);
   font-size: 19px;
 }
+
 .header-login-wrapper {
   display: flex;
   align-items: flex-end;
   height: 50%;
+}
+.user-name-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+  height: 100%;
+  margin-right: 10px;
+  cursor: pointer;
+}
+.user-profile-icon {
+  border-radius: 100%;
+  height: 100%;
+  max-width: 50%;
+}
+.user-name-title {
+  color: rgb(255, 61, 148);
+  font-size: 29px;
+  font-weight: 600;
+}
+.user-name {
+  color: rgb(112, 112, 112);
+  font-size: 25px;
+  font-weight: 600;
 }
 .login-link-wrapper {
   display: flex;
@@ -131,6 +164,49 @@ body {
 }
 .user-login-icon {
   height: 100%;
+}
+
+/* All header user menu design*/
+.user-menu {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  background: white;
+  width: 24vh;
+  margin-left: -1vw;
+  top: 9.5vh;
+  border: 3px solid rgb(236, 235, 235);
+  border-top: 0px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  z-index: 10;
+}
+.user-menu-each {
+  padding: 15px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 3px solid rgb(236, 235, 235);
+  font-size: 25px;
+  text-decoration: none;
+  color: rgb(112, 112, 112);
+  font-weight: 700;
+}
+.user-menu-each-last {
+  padding: 15px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+  text-decoration: none;
+  color: rgb(112, 112, 112);
+  font-weight: 700;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+.user-menu-each:hover, 
+.user-menu-each-last:hover {
+  background: rgb(248, 248, 248);
 }
 
 /* All content and content bar design*/

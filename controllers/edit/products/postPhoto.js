@@ -6,7 +6,7 @@ module.exports = (req, res, next) => {
     req.cloudinary.v2.uploader.upload(
       "./public/res/uploads/" + req.file.filename,
       {
-        public_id: "secondhand_data_base/image_folder/" + req.file.filename,
+        public_id: "stumarkt/image_folder/" + req.file.filename,
         quality: 25,
         format: "JPG"
       },

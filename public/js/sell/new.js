@@ -1,25 +1,68 @@
-window.onload = () => {
-  const form = document.getElementById('new-product-form');
-  const nameInput = document.getElementById('name-input');
-  const priceInput = document.getElementById('price-input');
-  const descriptionInput = document.getElementById('description-input');
-  const keywordsInput = document.getElementById('keywords-input');
-  const sendButton = document.getElementById('form-send-button');
-  const errorLine = document.getElementById('form-error');
+const productPhotoNameArray = [];
 
-  document.addEventListener('click', (event) => {
-    if (event.target.className == '--g_form_button') {
-      if (!nameInput.value || !priceInput.value || !descriptionInput.value) {
-        errorLine.innerHTML = "Please write all the information";
-      } else if (!keywordsInput.value) {
-        errorLine.innerHTML = "You should write at least one keyword for your product";
-      } else {
-        if (keywordsInput.value.trim().split(" ").length > 10) {
-          errorLine.innerHTML = "You may write 10 keywords at most";
-        } else {
-          form.submit();
-        }
-      }
-    }
-  });
+function createNewProductPhoto(imageSrc) {  
+  productPhotoNameArray.push(imageSrc);
+
+  const imageWrapper = document.createElement('div');
+  imageWrapper.classList.add('each-product-photo');
+  const image = document.createElement('img');
+  image.src= "/res/uploads/" +imageSrc;
+  imageWrapper.appendChild(image);
+
+  if (productPhotoNameArray.length >= 5) {
+    document.querySelector('.add-new-button').style.display = 'none';
+  }
+
+  document.getElementById('file-name-array').value = productPhotoNameArray.join();
+  document.querySelector('.images-wrapper').appendChild(imageWrapper);
+  document.querySelector('.images-wrapper').insertBefore(imageWrapper, imageWrapper.previousElementSibling);
+}
+
+window.onload = () => {
+  if ( !/iPad|iPadPro/i.test(navigator.userAgent) )
+    responsiveDesign(document);
+
+  const searchBar = document.querySelector('.search-bar-wrapper');
+  searchBar.onsubmit = (event) => {
+    event.preventDefault();
+    window.location.href = '/buy/?page=0&category=all&limit=50&keywords=' + searchBar.childNodes[0].value;
+  };
+
+  const productPhotoInput = document.getElementById('product-image-input');
+  productPhotoInput.onchange = (event) => {
+    const file = productPhotoInput.files[0];
+    productPhotoInput.files
+    var formdata = new FormData();
+    formdata.append('file', file);
+
+    const xhr = new XMLHttpRequest();
+    xhr.open("POST", "/sell/new/photo");
+    xhr.send(formdata);
+    
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState == 4 && xhr.responseText){
+        if (xhr.status == 500)
+          alert("Entschuldigung, dass es ein Error gibt. Versuchen Sie es nochmal bitte!");
+          productPhotoInput.value = ''
+          if (!/safari/i.test(navigator.userAgent)){
+            productPhotoInput.type = ''
+            productPhotoInput.type = 'file'
+          }
+        else
+          createNewProductPhoto(xhr.responseText);
+          productPhotoInput.value = ''
+          if (!/safari/i.test(navigator.userAgent)){
+            productPhotoInput.type = ''
+            productPhotoInput.type = 'file'
+          }
+      };
+    };
+  };
+
+  const priceInput = document.querySelector('.price-input');
+  const priceInputButton = document.getElementById('custom-price-input');
+  priceInput.oninput = (event) => {
+    priceInputButton.checked = true;
+    priceInputButton.value = priceInput.value;
+  }
 };

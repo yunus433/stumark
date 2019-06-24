@@ -4,7 +4,7 @@ module.exports = (req, res, next) => {
       page: 'auth/verify',
       title: 'Verify',
       includes: {
-        external: ['auth_css']
+        external: ['auth_css', 'js']
       },
       user: req.session.notVerifiedUser
     });

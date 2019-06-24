@@ -2,29 +2,33 @@ extends ./head
 block content
   .all-wrapper
     .all-header
-      img.all-header-logo(src="/res/images/logo.png")
+      a.all-header-logo-wrapper(href="/")
+        img.all-header-logo(src="/res/images/logo.png")
       form.search-bar-wrapper
         input.search-bar-input(type="text" placeholder="Was suchst du?" autocomplete="off" autofocus)
         button.search-bar-button
           span Suche
-      .header-messages-wrapper
+      a.header-messages-wrapper(href="/sell/new")
         img.messages-icon-image(src="/res/images/messagesIcon.png")
         .header-messages-explanation
           span Anzeige 
           span aufgeben
       .header-login-wrapper
         if user
-          .login-link-wrapper
-            a.login-link(href="/sell") Sell a new item
-            span oder
-            a.register-link(href="/edit") Edit your account
-          img.user-login-icon(src=user.profilePhoto)
+          .user-name-wrapper
+            span.user-name-title Willkommen
+            span.user-name= user.name.split(" ")[0]
+          img.user-profile-icon(src=user.profilePhoto)
         else
           .login-link-wrapper
             a.login-link(href="/auth/login") Einloggen
             span oder
             a.register-link(href="/auth/register") Registrieren
           img.user-login-icon(src="/res/images/userIcon.png")
+        .user-menu
+          a.user-menu-each(href="/sell") Anzeige
+          a.user-menu-each(href="/buy/messages") Nachrichten
+          a.user-menu-each-last(href="/edit") Einstellungen
     .all-content
       .content-bar
         span.category-header Kategorien:

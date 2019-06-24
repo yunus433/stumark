@@ -22,13 +22,7 @@ const ProductSchema = new Schema({
   },
   productPhotoArray: {
     type: Array,
-    default: [
-      {productIndex: 0, source: "/res/images/notAvailablePhoto.jpg"},
-      {productIndex: 1, source: "/res/images/notAvailablePhoto.jpg"},
-      {productIndex: 2, source: "/res/images/notAvailablePhoto.jpg"},
-      {productIndex: 3, source: "/res/images/notAvailablePhoto.jpg"},
-      {productIndex: 4, source: "/res/images/notAvailablePhoto.jpg"}
-    ]
+    required: true
   },
   keywords: {
     type: Array,

@@ -50,7 +50,7 @@
 /* Products wrapper and content design */
 .products-wrapper {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 25px;
   width: 90%;
   height: 50%;
@@ -80,7 +80,7 @@
   font-weight: 700;
   color: rgb(112, 112, 112);
   margin-top: 15px;
-  width: 21vw;
+  width: 15vw;
   white-space: nowrap;
   overflow: hidden;
   word-wrap: break-word;

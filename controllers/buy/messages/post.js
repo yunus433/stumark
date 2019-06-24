@@ -7,7 +7,10 @@ module.exports = (req, res, next) => {
   Product.findByIdAndUpdate(req.query.id, {$push: {
     [newProductName]: {
         content: req.body.message,
-        sender: req.session.user, 
+        sender: {
+          _id: req.session.user._id,
+          name: req.session.user.name
+        }, 
         createdAt: moment(Date.now()).format("dddd, MMMM Do YYYY")
       } 
   }}, {upsert: true}, err => {

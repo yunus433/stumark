@@ -5,8 +5,9 @@ const isLoggedIn = require('../middleware/isLoggedin');
 
 const dashboardGetController = require('../controllers/buy/dashboard/get');
 const detailsGetController = require('../controllers/buy/details/get');
+const messagesGetController = require('../controllers/buy/messages/get');
 
-const detailsPostController = require('../controllers/buy/details/post');
+const messagesPostController = require('../controllers/buy/messages/post');
 
 router.get(
   '/', 
@@ -17,11 +18,16 @@ router.get(
   isLoggedIn,
   detailsGetController
 );
+router.get(
+  '/messages',
+  isLoggedIn,
+  messagesGetController
+);
 
 router.post(
-  '/details',
+  '/messages',
   isLoggedIn,
-  detailsPostController
+  messagesPostController
 );
 
 module.exports = router;

@@ -36,10 +36,6 @@ const UserSchema = new Schema({
   completed: {
     type: Boolean,
     default: false
-  },
-  products: {
-    type: Array,
-    default: []
   }
 });
 

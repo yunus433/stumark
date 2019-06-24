@@ -1,20 +1,64 @@
 extends ./../partials/header
 block main
-  .--s_new_product_wrapper
-    span.--s_new_product_title Enter the information and sell a new item!
-    span.--s_new_product_subtitle You may add pictures to your product once you create it
-    form.--s_new_product_input_wrapper#new-product-form(action="/sell/new" method="post")
-      span Your product's name:
-      input.--s_text_input#name-input(type="text" autofocus name="name" autocomplete="off" placeholder="ex: 2005 Red Volkswagen")
-      span Your average price:
-      input.--s_text_input#price-input(type="text" name="price" autocomplete="off" placeholder="ex: 50.000 $")
-      span A short description for your product:
-      textarea.--s_textarea_input#description-input(name="description" cols="30" rows="5" placeholder="ex: 2005 model red Volkswagen, second-hand. I used it for a year and now sell it because of financial reasons. It is like new.")
-      span Keyword's for your product:
-      textarea.--s_textarea_input#keywords-input(name="keywords" cols="30" rows="3" placeholder="ex: red Volkswagen 2005 car second-hand new")
-      span.--s_keywords_explanation To increase availability, you can write up to 10 keywords. You should seperate each word with a space.
-      .--s_form_send_line
-        .--g_form_button#form-send-button Done
-        .--s_error_wrapper
-          span.--s_error_line#form-error
-    
+  form.new-product-form(method="POST" action="/sell/new") 
+    span.form-title Kategorisierung
+    .category-wrapper
+      .each-category
+        input(type="radio" name="category" value="rented" required) 
+        span Mietwonhung und Nachmiete
+      .each-category
+        input(type="radio" name="category" value="hobby" required) 
+        span Freizet, Hobby
+      .each-category
+        input(type="radio" name="category" value="home" required) 
+        span Möbel, Haus 
+      .each-category
+        input(type="radio" name="category" value="fashion" required) 
+        span Mode, Kleidung
+      .each-category
+        input(type="radio" name="category" value="electronic" required) 
+        span Elektronik
+      .each-category
+        input(type="radio" name="category" value="fun" required) 
+        span Music, Filme, Bücher
+      .each-category
+        input(type="radio" name="category" value="tickets" required) 
+        span Eintrittskarten, tickets
+      .each-category
+        input(type="radio" name="category" value="exchange" required) 
+        span Zu verschenken, tauschen
+      .each-category
+        input(type="radio" name="category" value="lesson" required) 
+        span Unterricht, Kurse
+      .each-category
+        input(type="radio" name="category" value="other" required) 
+        span Alle
+    span.form-title Anzeigendetails
+    input.product-name(type="text" name="name" placeholder="Titel" autocomplete="off")
+    textarea.product-description(name="description" placeholder="Beschreibung")
+    span.form-title Preis
+    .price-wrapper
+      .each-price-line
+        input.price-radio-input#custom-price-input(type="radio" name="price" value="0.00€" required)
+        input.price-input(type="text" placeholder="Preis €")
+      .each-price-line
+        input.price-radio-input(type="radio" name="price" value="FREE" required)
+        span Zu Verschenken
+    span.form-title Bilder
+    .images-wrapper
+      input.display-none#file-name-array(type="text" name="productPhotoNameArray")
+      label.add-new-button
+        i.fas.fa-plus
+        input.display-none#product-image-input(type="file" name="photo" accept="image/*")
+    span.form-title Ort
+    .form-line
+      input.address-input.address-input-small(type="text" name="address1" placeholder="PLZ" required)
+      input.address-input.address-input-big(type="text" name="address2" placeholder="Ort" required)
+    input.address-input(type="text" name="address3" placeholder="Straße/Nummer" required)
+    span.form-title Veröffentliche deine Anzeige
+    span.user-agrement-link
+      span Mit der Registrierung erklärst du dich einverstanden mit unseren 
+      a(href="/auth/agreement/two") Nutzungsbedingungen
+      span  und unserer 
+      a(href="/auth/agreement/one") Datenschutzerklärung
+    button.form-send-button Anzeige aufgeben

@@ -38,7 +38,7 @@ router.get(
 
 router.post(
   '/new/photo',
-  upload.single('image'),
+  upload.single('file'),
   isLoggedIn,
   sellNewProfilePostController
 );

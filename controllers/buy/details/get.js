@@ -24,23 +24,20 @@ module.exports = (req, res, next) => {
             if (err) return res.redirect("/");
 
             const messageName = "messages_" + req.session.user._id;
-            let messages = [];
 
             if (product.messages[messageName])
-              messages = product.messages[messageName];
-              
-            product.messages = {};
-            res.render("buy/details", {
-              page: "buy/details",
-              title: product.name,
-              includes: {
-                external: ["css", "js", "fontawesome"]
-              },
-              product,
-              similarProducts,
-              messages,
-              user: req.session.user
-            });
+              res.redirect('/buy/messages/?id=' + product._id)
+            else 
+              res.render("buy/details", {
+                page: "buy/details",
+                title: product.name,
+                includes: {
+                  external: ["css", "js", "fontawesome"]
+                },
+                product,
+                similarProducts,
+                user: req.session.user
+              });
         });
       });   
     });
