@@ -23,7 +23,7 @@ module.exports = (req, res, next) => {
         email: user.email,
         userId: user._id 
       }, 'userRegister', () => {
-        req.session.user = user;
+        req.session.notVerifiedUser = user;
 
         return res.redirect('/auth/verify');
       });

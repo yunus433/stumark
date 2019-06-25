@@ -1,47 +1,292 @@
-.--g_content_wrapper {
+.main-wrapper {
+  display: flex;
+  padding: 0px;
+}
+
+/* Left side design */
+.messages-left-side {
   display: flex;
   flex-direction: column;
+  background: rgb(252, 249, 247);
+  flex: 2;
   height: 100%;
+  border-bottom: 1px solid rgb(219, 219, 219);
+  border-left: 1px solid rgb(219, 219, 219);
 }
-.--s_header {
-  border-bottom: 1px solid black;
-  display: inline-flex;
-  flex: 1;
+.reopen-right-side-button {
+  position: absolute;
+  right: 0px;
+  margin-top: 10px;
+  padding: 10px;
+  padding-right: 20px;
+  background: white;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: 1px solid rgb(219, 219, 219);
+}
+.reopen-right-side-button i {
+  font-size: 30px;
+  color: rgb(112, 112, 112);
+}
+/* Left side header design */
+.messages-header {
+  height: 10%;
+  background: rgb(254, 254, 254);
+  border-bottom: 1px solid rgb(219, 219, 219);
+  display: flex;
   align-items: center;
   padding-left: 25px;
+  font-size: 20px;
+  color: rgb(112, 112, 112);
+  font-weight: 300;
 }
-.--s_content {
-  flex: 15;
-  display: inline-flex;
-  flex-direction: column;
-  padding: 25px;
+.messages-header strong {
+  margin: 0px 5px;
+  font-weight: 600;
 }
-.--s_header_title {
-  font-size: 1.2em;
-}
-.--s_user_list {
+/* Message wrapper and each message design */
+.messages-content {
+  height: 80%;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+  padding: 25px;
+}
+.each-message {
+  width: 90%;
+  display: flex;
+  margin-bottom: 50px;
+}
+.buyer {
+  align-self: flex-end;
+  text-align: right;
+}
+.message-left-side {
+  flex: 9;
+  display: flex;
+  flex-direction: column;
+  margin-left: 25px;
+}
+.message-left-side-buyer {
+  flex: 9;
+  display: flex;
+  flex-direction: column;
+  margin-right: 25px;
+}
+.message-header {
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 25px;
+} 
+.message-header-buyer {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
   width: 100%;
-  padding-top: 25px;
+  margin-bottom: 25px;
 }
-.--s_each_user {
-  width: 75%;
-  border: 1px solid black;
-  padding: 25px;
-  border-radius: 10px;
-  margin-bottom: 10px;
+.message-time {
+  font-size: 25px;
+  font-weight: 700;
+  color: rgb(219, 219, 219);
+  margin: 0px 10px;
+}
+.message-sender {
+  font-size: 35px;
+  font-weight: 700;
+  color: rgb(127, 127, 127);
+}
+.message-content {
+  font-size: 25px;
+  font-weight: 300;
+  color: rgb(160, 169, 177);
+}
+.message-right-side {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+.message-sender-profile {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 100%;
+}
+/* Send message design */
+.message-send-wrapper {
+  height: 10%;
+  border-top: 1px solid rgb(193, 193, 193);
   display: flex;
   align-items: center;
-  font-size: 1.2em;
+  background: white;
+}
+.new-message-input {
+  border: none;
+  height: 95%;
+  width: 90%; 
+  outline: none;
+  font-size: 25px;
+  padding-left: 25px;
+  color: rgb(112, 112, 112);
+}
+.send-button {
+  width: 10%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
   cursor: pointer;
-  color: black;
-  text-decoration: none;
+  border: 0px;
+  outline: none;
 }
-.--s_user_image {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  margin-right: 10px;
+.send-button img {
+  max-height: 80%;
+  max-width: 80%;
 }
+
+/* Right side design */
+.messages-right-side {
+  position: absolute;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  width: 33.33%;
+  height: 100%;
+  right: 0;
+  border: 1px solid rgb(219, 219, 219);
+  border-top: 0px;
+  background: white;
+  padding-top: 5px;
+  padding-bottom: 100px;
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+.right-side-title {
+  font-size: 62px;
+  color: rgb(112, 112, 112);
+  font-weight: 300;
+  margin-bottom: 25px;
+  border-bottom: 2px solid rgb(112, 112, 112);
+  line-height: 60px;
+}
+.close-right-side-line {
+  width: 95%;
+  font-size: 21px;
+  color: rgb(112, 112, 112);
+  margin-bottom: 25px;
+}
+.close-right-side-line i {
+  cursor: pointer;
+}
+/* Owner wrapper and content design */
+.owner-wrapper {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.owner-profile {
+  border: 1px solid rgb(219, 219, 219);
+  width: 100%;
+  border-radius: 100%;
+}
+.owner-name {
+  margin-top: 15px;
+  color: rgb(127, 127, 127);
+  font-weight: 700;
+  font-size: 23px;
+  margin-bottom: 25px;
+}
+/* Product wrapper and content design */
+.product-wrapper {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.product-image-wrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.main-product-image {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 15px;
+}
+.product-images-menu {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+  margin-bottom: 25px;
+}
+.product-menu-image {
+  width: 19%;
+  height: 100%;
+  border: 2px solid rgb(236, 235, 235);
+  cursor: pointer;
+  border-radius: 5px;
+}
+.selected-menu-image {
+  border: 2px solid blue;
+}
+.main-product-created-at {
+  margin-bottom: 10px;
+  color: rgb(112, 112, 112);
+  font-size: 19px;
+  font-weight: 300; 
+}
+.main-product-title {
+  margin-bottom: 5px;
+  color: rgb(112, 112, 112);
+  font-size: 35px;
+  font-weight: 700; 
+}
+.main-product-location {
+  font-size: 19px;
+  font-weight: 300;
+  color: rgb(112, 112, 112);
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.main-product-location i {
+  margin-right: 5px;
+}
+.main-product-description {
+  font-size: 21px;
+  color: rgb(112, 112, 112);
+  margin-bottom: 20px;
+}
+.main-product-price {
+  color: rgb(255, 61, 148);
+  font-size: 49px;
+  font-weight: 700;
+  margin-bottom: 100px;
+}
+
+
+/* 
+.animation-class-close-to-right {
+  -webkit-animation: moveRight 1.3s 1 forwards ease-out;
+}
+
+@-webkit-keyframes moveRight {
+  from {
+    display: flex;
+  }
+  to {
+    transform: translateX(100%);
+    display: none;
+  }
+} 
+*/

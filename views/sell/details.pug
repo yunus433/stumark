@@ -7,7 +7,7 @@ block main
     else
       span.form-title Product Options
       .form-line
-        a.go-to-messages-button(href="/sell/messages/?id=" + product._id) 
+        a.go-to-messages-button(href="/sell/messages/dashboard/?id=" + product._id) 
           if (product.messages.filter((message) => { return !message.read }).length > 0)
             .not-read-message-icon
               span= product.messages.filter((message) => { return !message.read }).length

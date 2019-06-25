@@ -1,5 +1,5 @@
 const moment = require('moment');
-const Product = require('../../../../models/product/Product');
+const Product = require('../../../models/product/Product');
 
 module.exports = (req, res, next) => {
   const newProductName = "messages." + "messages_" + req.query.user;

@@ -20,10 +20,10 @@ block main
         else
           .each-message
             .message-right-side
-              img.message-sender-profile(src=user.profilePhoto)
+              img.message-sender-profile(src=owner.profilePhoto)
             .message-left-side
               .message-header
-                span.message-sender= user.name
+                span.message-sender= owner.name
                 span.message-time= message.createdAt
               span.message-content= message.content
     form.message-send-wrapper(action="/buy/messages/?id=" + product._id method="POST")

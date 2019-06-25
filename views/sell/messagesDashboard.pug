@@ -1,0 +1,30 @@
+extends ./../partials/header
+block main
+  .product-header
+    span.header-title Anzeigen
+    span.header-content These are you messages for your products
+  .products-wrapper
+    each product in products
+      if product.price == "SOLD"
+        .each-product
+          img.product-image(src=product.productPhotoArray[0].source)
+          span.product-name #{product.name}
+          .product-location
+            i.fas.fa-map-marker-alt
+            span= product.location
+          span.product-price #{product.price}
+      else
+        a.each-product(href="/sell/messages/?id=" + product._id)
+          img.product-image(src=product.productPhotoArray[0].source)
+          span.product-name #{product.name}
+          .product-location
+            i.fas.fa-map-marker-alt
+            span= product.location
+          span.product-price #{product.price}
+          if (product.messages.filter((message) => { return !message.read }).length > 0) 
+            .not-read-message-icon
+              span= product.messages.filter((message) => { return !message.read }).length
+    if products.length <= 0
+      .no-product-warning 
+        span Du hast nun keine Anzeige, gib jetzt eine Anzeige auf!
+        a.no-product-warning-button(href="/sell/new") Anzeige Aufgeben
