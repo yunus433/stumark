@@ -1,9 +1,2 @@
 extends ./../partials/header
 block main
-  .--s_content
-    span.--s_header_title Click a message list from bottom to see messages:
-    .--s_user_list
-      each user in users
-        a.--s_each_user(href="/sell/messages/details/?id=" + product._id + "&user=" + user._id)
-          img.--s_user_image(src=user.profilePhoto)
-          span #{user.email}

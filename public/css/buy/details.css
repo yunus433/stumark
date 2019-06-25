@@ -4,6 +4,7 @@
   align-items: center;
   overflow: scroll;
   -webkit-overflow-scrolling: touch;
+  padding: 25px 0px;
 }
 
 /* Main product design*/

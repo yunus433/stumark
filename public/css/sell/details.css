@@ -27,26 +27,8 @@
 .form-line {
   display: flex;
   align-items: center;
-}
-
-/* Category design */
-.category-wrapper {
-  padding-left: 25px;
-  display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   margin-bottom: 25px;
-}
-.each-category {
-  font-size: 30px;
-  color: rgb(112, 112, 112);
-  display: flex;
-  align-items: center;
-  margin: 3px 0px;
-}
-.each-category input {
-  margin-right: 5px;
-  width: 20px;
-  height: 20px;
 }
 
 /* Product name and description design */
@@ -156,26 +138,6 @@
   outline: none;
   margin-bottom: 25px;
 }
-.address-input-small {
-  flex: 1;
-  margin-right: 5px;
-}
-.address-input-big {
-  flex: 2;
-  margin-left: 5px;
-}
-
-/* User agreement design */
-.user-agrement-link {
-  color: rgb(112, 112, 112);
-  font-size: 30px;
-  font-weight: 300;
-  line-height: 32px;
-  margin-bottom: 25px;
-}
-.user-agrement-link a {
-  color: rgb(255, 61, 148);
-}
 
 /* Form buttons */
 .form-send-button {
@@ -192,5 +154,46 @@
   width: 50%;
 }
 .form-send-button:hover {
+  border-color: rgba(255, 61, 148, 0.5);
+}
+.not-read-message-icon {
+  position: relative;
+  width: 2vw;
+  height: 2vw;
+  border-radius: 100%;
+  background: rgb(255, 61, 148);
+  transform: translate(-150%, -100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 700;
+  font-size: 20px;
+  white-space: nowrap;
+  z-index: 2;
+}
+.go-to-messages-button,
+.delete-product-button,
+.marked-as-sold-product-button {
+  background: white;
+  border: 3px solid rgba(255, 61, 148, 0.34);
+  color: rgb(255, 61, 148);
+  font-size: 30px;
+  font-weight: 700;
+  outline: none;
+  padding: 10px 0px;
+  width: 30%;
+  margin-right: 5px;
+  cursor: pointer;
+  border-radius: 15px;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-top: 15px;
+}
+.go-to-messages-button:hover,
+.delete-product-button:hover,
+.marked-as-sold-product-button:hover {
   border-color: rgba(255, 61, 148, 0.5);
 }

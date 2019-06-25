@@ -8,11 +8,14 @@ const isLoggedIn = require('../middleware/isLoggedin');
 
 const dashboardGetController = require('../controllers/sell/dashboard/get');
 const sellNewGetController = require('../controllers/sell/new/get');
+const sellDetailsGetController = require('../controllers/sell/details/get');
 const sellMessagesGetController = require('../controllers/sell/messages/get');
 const sellMessageDetailsGetController = require('../controllers/sell/messages/details/get');
 
 const sellNewPostController = require('../controllers/sell/new/post');
 const sellNewProfilePostController = require('../controllers/sell/new/postPhoto');
+const sellDeletePostController = require('../controllers/sell/details/delete');
+const sellMarkAsSoldPostController = require('../controllers/sell/details/sold');
 const sellMessageDetailsPostController = require('../controllers/sell/messages/details/post');
 
 router.get(
@@ -24,6 +27,11 @@ router.get(
   '/new',
   isLoggedIn,
   sellNewGetController
+);
+router.get(
+  '/details',
+  isLoggedIn,
+  sellDetailsGetController
 );
 router.get(
   '/messages',
@@ -46,6 +54,16 @@ router.post(
   '/new',
   isLoggedIn,
   sellNewPostController
+);
+router.get(
+  '/details/delete',
+  isLoggedIn,
+  sellDeletePostController
+);
+router.get(
+  '/details/sold',
+  isLoggedIn,
+  sellMarkAsSoldPostController
 );
 router.post(
   '/messages/details',

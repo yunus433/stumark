@@ -1,0 +1,41 @@
+extends ./../partials/header
+block main
+  form.new-product-form(method="POST" action="/sell/new") 
+    span.form-title Product Options
+    .form-line
+      a.go-to-messages-button(href="/sell/messages/?id=" + product._id) 
+        if (product.messages.filter((message) => { return !message.read }).length > 0)
+          .not-read-message-icon
+            span= product.messages.filter((message) => { return !message.read }).length
+        span Product Messages
+      a.delete-product-button(href="/sell/details/delete/?id=" + product._id) Delete Product
+      a.marked-as-sold-product-button(href="/sell/details/sold/?id=" + product._id) Mark Product as Sold
+    span.form-title Anzeigendetails
+    input.product-name(type="text" name="name" placeholder="Titel" autocomplete="off" value=product.name)
+    textarea.product-description(name="description" placeholder="Beschreibung")= product.description
+    span.form-title Preis
+    .price-wrapper
+      if product.price == "FREE"
+        .each-price-line
+          input.price-radio-input#custom-price-input(type="radio" name="price" value="0.00€" required)
+          input.price-input(type="text" placeholder="Preis €")
+        .each-price-line
+          input.price-radio-input(type="radio" name="price" value="FREE" required checked)
+          span Zu Verschenken
+      else
+        .each-price-line
+          input.price-radio-input#custom-price-input(type="radio" name="price" value="0.00€" required checked)
+          input.price-input(type="text" placeholder="Preis €" value=product.price)
+        .each-price-line
+          input.price-radio-input(type="radio" name="price" value="FREE" required)
+          span Zu Verschenken
+    span.form-title Bilder
+    .images-wrapper
+      input.display-none#file-name-array(type="text" name="productPhotoNameArray")
+      label.add-new-button
+        i.fas.fa-plus
+        input.display-none#product-image-input(type="file" name="photo" accept="image/*")
+    span.form-title Ort
+    .form-line
+    input.address-input(type="text" name="location" placeholder="Ort" value=product.location required)
+    button.form-send-button Edit

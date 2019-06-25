@@ -1,35 +1,28 @@
-const async = require('async');
+const mongoose = require('mongoose');
+const _ = require('lodash');
+
 const Product = require("../../../models/product/Product");
-const User = require("../../../models/user/User");
 
 module.exports = (req, res, next) => {
   if (req.query && req.query.id) {
-    Product.findById(req.query.id, (err, product) => {
+    Product.findOne({
+      "_id": mongoose.Types.ObjectId(req.query.id),
+      "owner": req.session.user._id.toString()
+    }, (err, product) => {
       if (err) return res.redirect("/buy");
-      const messages = Object.entries(product.messages);
 
-      async.times(
-        messages.length,
-        (time, next) => {
-          User.findById(messages[time][0].split("_")[1], (err, user) => {
-            next(err, user);
-          });
+      const messages = _.groupBy(product.messages, message => { return message.senderId });
+
+      return res.render("sell/messages", {
+        page: "sell/messages",
+        title: "Your messages",
+        includes: {
+          external: ["js" ,"css", "fontawesome"]
         },
-        (err, users) => {
-          if (err) return res.redirect("/");
-
-          res.render("sell/messages", {
-            page: "sell/messages",
-            title: "Your messages",
-            includes: {
-              external: ["css", "fontawesome"]
-            },
-            product,
-            users,
-            user: req.session.user
-          });
-        }
-      );
+        product,
+        messages,
+        user: req.session.user
+      });
     });
   } else {
     res.redirect("/sell");

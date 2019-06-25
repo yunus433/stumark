@@ -17,12 +17,22 @@ window.onload = () => {
       userMenu.style.display = 'none';
     }
   });
-  
+
   document.addEventListener('click', (event) => {
     if (event.target.className == 'product-menu-image') {
       event.target.parentNode.parentNode.childNodes[0].childNodes[0].src = event.target.src;
       event.target.parentNode.querySelector('.selected-menu-image').classList.remove('selected-menu-image');
       event.target.classList.add('selected-menu-image');
+    }
+
+    if (event.target.classList.contains('fa-times')) {
+      document.querySelector('.messages-right-side').style.display = 'none';
+      document.querySelector('.reopen-right-side-button').style.display = 'flex';
+    }
+
+    if (event.target.className == 'reopen-right-side-button' || event.target.parentNode.className == 'reopen-right-side-button') {
+      document.querySelector('.messages-right-side').style.display = 'flex';
+      document.querySelector('.reopen-right-side-button').style.display = 'none';
     }
   });
 };

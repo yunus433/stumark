@@ -48,8 +48,8 @@ const ProductSchema = new Schema({
     type: String
   },
   messages: {
-    type: Object,
-    default: {}
+    type: Array,
+    default: []
   }
 });
 
