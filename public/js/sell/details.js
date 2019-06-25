@@ -17,4 +17,11 @@ window.onload = () => {
       userMenu.style.display = 'none';
     }
   });
+
+  const priceInput = document.querySelector('.price-input');
+  const priceInputButton = document.getElementById('custom-price-input');
+  priceInput.oninput = (event) => {
+    priceInputButton.checked = true;
+    priceInputButton.value = priceInput.value;
+  }
 };

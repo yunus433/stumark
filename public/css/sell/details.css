@@ -24,6 +24,14 @@
   font-weight: 300;
   margin-bottom: 10px;
 }
+.form-info {
+  font-size: 35px;  
+  color: rgb(112, 112, 112);
+  font-weight: 300;
+  margin-bottom: 25px;
+  width: 100%;
+  text-align: center;
+}
 .form-line {
   display: flex;
   align-items: center;
@@ -185,6 +193,25 @@
   width: 30%;
   margin-right: 5px;
   cursor: pointer;
+  border-radius: 15px;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-top: 15px;
+  font-family: "Source Sans Pro";
+}
+.marked-as-sold-product-button-not-allow {
+  background: white;
+  border: 3px solid rgba(255, 61, 148, 0.34);
+  color: rgb(255, 61, 148);
+  font-size: 30px;
+  font-weight: 700;
+  outline: none;
+  padding: 10px 0px;
+  width: 30%;
+  margin-right: 5px;
+  cursor: not-allowed;
   border-radius: 15px;
   text-decoration: none;
   display: flex;

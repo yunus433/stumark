@@ -33,7 +33,15 @@ block main
           i.fas.fa-angle-right
   .products-wrapper
     each product in products
-      if user && product.owner == user._id.toString()
+      if product.price == "SOLD"
+        .each-product(href="/sell/details/?id=" + product._id)
+          img.product-image(src=product.productPhotoArray[0].source)
+          span.product-name #{product.name}
+          .product-location
+            i.fas.fa-map-marker-alt
+            span= product.location
+          span.product-price #{product.price}
+      else if user && product.owner == user._id.toString()
         a.each-product(href="/sell/details/?id=" + product._id)
           img.product-image(src=product.productPhotoArray[0].source)
           span.product-name #{product.name}
