@@ -8,6 +8,7 @@ module.exports = (req, res, next) => {
     const newUserData = {
       email: req.body.email,
       name: req.body.name,
+      university: req.body.university,
       password: req.body.password
     }; 
 
