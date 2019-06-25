@@ -11,12 +11,13 @@ const sellNewGetController = require('../controllers/sell/new/get');
 const sellDetailsGetController = require('../controllers/sell/details/get');
 const sellMessagesGetController = require('../controllers/sell/messages/get');
 const sellMessagesDashboardGetController = require('../controllers/sell/messages/dashboardGet');
+const sellMessagesDetailsGetController = require('../controllers/sell/messages/detailsGet');
 
 const sellNewPostController = require('../controllers/sell/new/post');
 const sellNewProfilePostController = require('../controllers/sell/new/postPhoto');
 const sellDeletePostController = require('../controllers/sell/details/delete');
 const sellMarkAsSoldPostController = require('../controllers/sell/details/sold');
-const sellMessageDetailsPostController = require('../controllers/sell/messages/post');
+const sellMessagesPostController = require('../controllers/sell/messages/post');
 
 router.get(
   '/', 
@@ -43,6 +44,11 @@ router.get(
   isLoggedIn,
   sellMessagesDashboardGetController
 );
+router.get(
+  '/messages/details',
+  isLoggedIn,
+  sellMessagesDetailsGetController
+);
 
 router.post(
   '/new/photo',
@@ -66,9 +72,9 @@ router.get(
   sellMarkAsSoldPostController
 );
 router.post(
-  '/messages/details',
+  '/messages',
   isLoggedIn,
-  sellMessageDetailsPostController
+  sellMessagesPostController
 );
 
 module.exports = router;

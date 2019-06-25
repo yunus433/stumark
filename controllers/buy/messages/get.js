@@ -11,7 +11,7 @@ const User = require('../../../models/user/User');
       if (product.owner == req.session.user._id.toString()) return res.redirect('/sell/details/?id=' + req.query.id);
       
       const messages = product.messages.filter(message => {
-        if (message.senderId == req.session.user._id)
+        if (message.buyerId == req.session.user._id)
           return message;
       });
       product.messages = {};

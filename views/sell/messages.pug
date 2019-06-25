@@ -1,32 +1,14 @@
 extends ./../partials/header
 block main
-  .messages-left-side
-    .messages-header
-      span Your messages from the customer 
-      strong #{buyer.name} 
-      span for your product 
-      strong #{product.name}
-    .messages-content
-      each message in messages
-        if (message.senderId == user._id)
-          .each-message.buyer
-            .message-left-side-buyer
-              .message-header-buyer
-                span.message-time= message.createdAt
-                span.message-sender= user.name
-              span.message-content= message.content
-            .message-right-side
-              img.message-sender-profile(src=user.profilePhoto)
-        else
-          .each-message
-            .message-right-side
-              img.message-sender-profile(src=buyer.profilePhoto)
-            .message-left-side
-              .message-header
-                span.message-sender= buyer.name
-                span.message-time= message.createdAt
-              span.message-content= message.content
-    form.message-send-wrapper(action="/buy/messages/?id=" + product._id method="POST")
-      input.new-message-input(type="text" name="message" autofocus autocomplete="off" placeholder="Type your message")
-      button.send-button
-        img.send-button-image(src="/res/images/sendButton.png")
+  .messages-wrapper
+    span.messages-header Users who send a message for this product (#{product.name})
+    each message in messages
+      a.each-user(href="/sell/messages/details/?id=" + product._id + "&user=" + message[0].buyerId)
+        img.each-user-profile(src=message[0].buyerProfile)
+        span.each-user-name= message[0].buyerName
+        if (message.filter((message) => { return !message.read }).length > 0) 
+          .not-read-message-icon
+            span= message.filter((message) => { return !message.read }).length
+    if messages.length <= 0
+      .no-product-warning
+        span There is no user who send a message to this product

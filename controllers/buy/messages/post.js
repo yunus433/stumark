@@ -4,8 +4,10 @@ const Product = require('../../../models/product/Product');
 module.exports = (req, res, next) => {
   const newMessage = {
     content: req.body.message,
-    senderId: req.session.user._id,
-    senderName: req.session.user.name,
+    buyerId: req.session.user._id,
+    buyerName: req.session.user.name,
+    buyerProfile: req.session.user.profilePhoto,
+    sendedBy: "buyer",
     read: false,
     createdAt: moment(Date.now()).format("[at] HH[:]mm A [/] DD[.]MM[.]YYYY")
   };

@@ -8,7 +8,7 @@ block main
       strong #{product.name}
     .messages-content
       each message in messages
-        if (message.senderId == user._id)
+        if message.sendedBy == "buyer"
           .each-message.buyer
             .message-left-side-buyer
               .message-header-buyer
