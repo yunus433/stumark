@@ -132,9 +132,9 @@ block content
       button.form-send-button Registrieren
       .error-line
         if err && err == "already taken email"
-          span.each-error-line Sorry, this email has already been taken
+          span.each-error-line Diese E-mail ist bereits registriert
         else if err && err == "not valid email"
-          span.each-error-line Your email doesn't seem to be valid
+          span.each-error-line Diese E-mail ist nicht verfügbar
         else 
           span.each-error-line
     .form-bottom-info

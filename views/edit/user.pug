@@ -1,10 +1,9 @@
 extends ./../partials/header
 block main
-  .--s_edit_wrapper 
-    .--s_image_edit_wrapper
-      label
-        img.--s_user_image(src=user.profilePhoto)
-        input.--g_display_none(type="file")
-    .--s_content_edit_wrapper
-      input.--s_edit_input(type="text" name="email" value=user.email placeholder="Your email" autofocus autocomplete="off")
-      button.--s_edit_password_button Change your password
+  form.form-wrapper(action="/edit/user" method="post")
+    .form-title Einstellungen
+    .profile-photo-wrapper
+      img(src=user.profilePhoto)
+      span click to change
+    .form-line
+      input.form-input(type="text" autocomplete="off" autofocus required placeholder="Name" name="name" value=user.name)

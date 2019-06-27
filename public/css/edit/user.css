@@ -1,32 +1,78 @@
-.--g_content_wrapper {
+.main-wrapper {
   display: flex;
-  justify-content: center;
   align-items: center;
-} 
-.--s_edit_wrapper {
-  height: 300px;
-  border: 1px solid black;
-  border-radius: 10px;
+  justify-content: center;
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+  padding: 25px 0px;
+  flex-wrap: nowrap;
+}
+
+/* Form wrapper and content design */
+.form-wrapper {
+  background: white;
+  width: 50%;
+  border-radius: 15px;
+  border: 3px solid rgb(236, 235, 235);
   display: flex;
   flex-direction: column;
+  padding: 2%;
+  height: 50vh;
 }
-.--s_image_edit_wrapper {
-  flex: 1;
-  height: 50%;
-  padding: 25px;
+.form-title {
+  font-size: 50px;
+  color: rgb(112, 112, 112);
+  font-weight: 300;
+  margin-bottom: 10px;
+  align-self: center;
 }
-.--s_image_edit_wrapper label {
-  width: 100%;
-  height: 100%;
+.form-line {
   display: flex;
+  align-items: center;
   justify-content: center;
 }
-.--s_user_image {
-  max-width: 100%;
-  max-height: 100%;
-  cursor: pointer;
+.form-input {
+  width: 50%;
+  border: 2px solid rgb(236, 235, 235);
+  font-size: 25px;
+  font-weight: 300;
+  color: rgb(112, 112, 112);
+  font-family: "Source Sans Pro";
+  outline: none;
+  padding: 3px;
 }
-.--s_content_edit_wrapper {
-  flex: 1;
+.profile-photo-wrapper {
   height: 50%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+  font-weight: 300;
+  color: rgb(112, 112, 112);
+  margin-bottom: 15px;
+}
+.profile-photo-wrapper img {
+  max-height: 90%;
+  max-width: 100%;
+  border-radius: 100%;
+}
+
+/* Form buttons */
+.form-send-button {
+  background: rgba(255, 108, 128, 0.3);
+  border: 3px solid rgba(255, 61, 148, 0.34);
+  color: rgb(255, 61, 148);
+  font-size: 30px;
+  font-weight: 700;
+  outline: none;
+  padding: 10px 0px;
+  width: 25%;
+  cursor: pointer;
+  border-radius: 15px;
+  width: 50%;
+}
+.form-send-button:hover {
+  border-color: rgba(255, 61, 148, 0.5);
 }

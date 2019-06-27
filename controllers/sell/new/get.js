@@ -2,7 +2,7 @@ module.exports = (req, res, next) => {
   if (req.query.image)
     return res.render('sell/new', {
       page: 'sell/new',
-      title: 'New Product',
+      title: 'Neue Anzeige',
       includes: {
         external: ['css', 'js', 'fontawesome']
       },
@@ -12,7 +12,7 @@ module.exports = (req, res, next) => {
   else
     return res.render('sell/new', {
       page: 'sell/new',
-      title: 'New Product',
+      title: 'Neue Anzeige',
       includes: {
         external: ['css', 'js', 'fontawesome']
       },

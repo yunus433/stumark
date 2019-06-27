@@ -1,7 +1,7 @@
 extends ./../partials/header
 block main
   form.new-product-form(method="POST" action="/sell/new") 
-    span.form-title Kategorisierung
+    span.form-title Kategorie
     .category-wrapper
       .each-category
         input(type="radio" name="category" value="rented" required) 

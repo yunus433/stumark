@@ -2,7 +2,7 @@ module.exports = (req, res, next) => {
   if (req.query.err)
     res.render('auth/login', {
       page: 'auth/login',
-      title: 'Login',
+      title: 'Einloggen',
       includes: {
         external: ['auth_css', 'js']
       },

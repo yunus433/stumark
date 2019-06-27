@@ -24,7 +24,7 @@ module.exports = (req, res, next) => {
 
         return res.render('index/index', {
           page: 'index/index',
-          title: 'Der Markt für Studenten',
+          title: 'Startseite',
           includes: {
             external: ['js', 'css', 'fontawesome']
           },

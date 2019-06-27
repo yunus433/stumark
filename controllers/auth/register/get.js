@@ -4,7 +4,7 @@ module.exports = (req, res, next) => {
     req.session.destroy();
     res.render('auth/register', {
       page: 'auth/register',
-      title: 'Register',
+      title: 'Registrierung',
       includes: {
         external: ['auth_css', 'js']
       },

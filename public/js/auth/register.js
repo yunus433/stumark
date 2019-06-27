@@ -163,13 +163,13 @@ window.onload = () => {
     event.preventDefault();
     
     if (universityList.indexOf(universityInput.value) === -1) {
-      error.innerHTML = 'Please select a valid university';
+      error.innerHTML = 'Bitte wähle eine Hochschule!';
     }
     else if (document.getElementById('password-input-one').value.length < 6 || document.getElementById('password-input-two').value.length < 6) {
-      error.innerHTML = 'Your password should be longer than 5 digits';
+      error.innerHTML = 'Dein Passwort muss mindestens 6-stellig sein!';
     }
     else if (document.getElementById('password-input-one').value != document.getElementById('password-input-two').value) {
-      error.innerHTML = 'Please confirm your password';
+      error.innerHTML = 'Bitte bestätige dein Passwort!';
     }
     else {
       form.submit();

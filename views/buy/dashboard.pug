@@ -3,9 +3,9 @@ block main
   .product-header
     .root-info
       if keywords
-        span #{number} products found for the category "#{category}" with the keywords "#{keywords}". Showing #{limit} products per page
+        span #{number} Produkte in dieser Kategorie verfügbar (#{category}) with the keywords "#{keywords}". #{limit} Anzeigen pro Seite
       else
-        span #{number} products found for the category "#{category}". Showing #{limit} products per page
+        span #{number} Produkte in dieser Kategorie verfügbar (#{category}). #{limit} Anzeigen pro Seite
     .change-page-wrapper 
       if keywords
         if page > 0

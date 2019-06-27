@@ -1,7 +1,7 @@
 module.exports = (req, res, next) => {
     return res.render('edit/user', {
       page: 'edit/user',
-      title: 'Edit Your Account',
+      title: 'Einstellungen',
       includes: {
         external: ['css', 'js', 'fontawesome']
       },
