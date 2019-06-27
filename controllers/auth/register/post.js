@@ -22,15 +22,15 @@ module.exports = (req, res, next) => {
       if (err) return res.redirect('/');
 
       req.session.user = user;
+      return res.redirect('/');
+      // sendMail({
+      //   email: user.email,
+      //   userId: user._id 
+      // }, 'userRegister', () => {
+      //   req.session.notVerifiedUser = user;
 
-      sendMail({
-        email: user.email,
-        userId: user._id 
-      }, 'userRegister', () => {
-        req.session.notVerifiedUser = user;
-
-        return res.redirect('/auth/verify');
-      });
+      //   return res.redirect('/auth/verify');
+      // });
     });
 
   } else {

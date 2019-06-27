@@ -28,7 +28,7 @@ const UserSchema = new Schema({
   },
   verified: {
     type: Boolean,
-    default: false
+    default: true
   },
   profilePhoto: {
     type: String,
