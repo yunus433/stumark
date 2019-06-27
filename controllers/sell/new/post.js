@@ -34,7 +34,7 @@ module.exports = (req, res, next) => {
     description: req.body.description,
     price: req.body.price,
     productPhotoArray,
-    keywords: req.body.description.split(" "),
+    keywords: req.body.description.replace('.', '').replace('!', '').replace('?', '').replace('-', ' ').toLowerCase().split(" ") + req.body.name.replace('.', '').replace('!', '').replace('?', '').replace('-', ' ').toLowerCase().split(" "),
     location: req.body.address1 + " " + req.body.address2 + " " + req.body.address3,
     owner: req.session.user._id,
     documentIndex: -1
