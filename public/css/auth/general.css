@@ -43,7 +43,7 @@
 }
 .form-input {
   background: rgb(248, 248, 248);
-  padding: 2%;
+  padding: 1vh;
   height: 8vh;
   border: 3px solid rgb(236, 235, 235);
   outline: none;
@@ -53,6 +53,31 @@
   font-weight: 300;
   color: rgb(112, 112, 112);
   font-family: "Source Sans Pro";
+}
+.university-input-values {
+  width: 95.25%;
+  background: white;
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  margin-top: -3.7vh;
+  border: 3px solid rgb(236, 235, 235);
+  border-top: 0px;
+  height: 20vh;
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+.university-input-values span {
+  font-size: 24px;
+  font-weight: 300;
+  color: rgb(112, 112, 112);
+  font-family: "Source Sans Pro";
+  min-height: 4vh;
+  padding-left: 5px;
+  cursor: pointer;
+}
+.university-input-values span:hover {
+  background: rgb(248, 248, 248);
 }
 .user-agrement-link {
   color: rgb(112, 112, 112);
@@ -91,6 +116,10 @@
   height: 15px;
   margin-bottom: 10px;
   width: 100%;
+}
+.each-error-line {
+  color: rgb(255, 61, 148);
+  font-size: 25px;
 }
 .form-bottom-info {
   display: flex;

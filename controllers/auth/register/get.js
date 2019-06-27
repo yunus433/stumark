@@ -1,19 +1,21 @@
 module.exports = (req, res, next) => {
-  if (req.query.err)
+  if (req.session.error) {
+    const err = req.session.error;
+    req.session.destroy();
     res.render('auth/register', {
       page: 'auth/register',
       title: 'Register',
       includes: {
         external: ['auth_css', 'js']
       },
-      err: req.query.err
+      err
     });
-  else
-  res.render('auth/register', {
-    page: 'auth/register',
-    title: 'Register',
-    includes: {
-      external: ['auth_css', 'js']
-    }
-  });
+  } else
+    res.render('auth/register', {
+      page: 'auth/register',
+      title: 'Register',
+      includes: {
+        external: ['auth_css', 'js']
+      }
+    });
 }

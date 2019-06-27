@@ -15,7 +15,10 @@ module.exports = (req, res, next) => {
     const newUser = new User(newUserData);
 
     newUser.save((err, user) => {
-      if (err && err.code == 11000) return res.redirect('/auth/register/?err=200');
+      if (err && err.code == 11000) {
+        req.session.error = 'already taken email';
+        return res.redirect('/auth/register');
+      }
       if (err) return res.redirect('/');
 
       req.session.user = user;
@@ -31,6 +34,7 @@ module.exports = (req, res, next) => {
     });
 
   } else {
-    return res.redirect('/auth/register/?err=100');
+    req.session.error = 'not valid email';
+    return res.redirect('/auth/register');
   }
 }
