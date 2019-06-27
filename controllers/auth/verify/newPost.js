@@ -10,7 +10,7 @@ module.exports = (req, res, next) => {
       sendMail({
         email: user.email,
         userId: user._id 
-      }, 'userRegister', () => {
+      }, 'userRegister', (err) => {
         req.session.user = user;
   
         return res.redirect('/auth/verify');

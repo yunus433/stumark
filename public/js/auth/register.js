@@ -3,8 +3,6 @@ window.onload = () => {
     responsiveDesign(document);
 
   const universityList = [
-    "123 Studiengänge ▪ 11 Erfahrungsberichte",
-    "53 Studiengänge ▪ 4 Erfahrungsberichte",
     "Albert-Ludwigs-Universität Freiburg",
     "Bard College Berlin, A Liberal Arts University",
     "Bauhaus-Universität Weimar",
@@ -139,7 +137,7 @@ window.onload = () => {
     if (universityInput.value) {
       universityValueWrapper.innerHTML = "";
       universityList.forEach(university => {
-        if (university.indexOf(universityInput.value) !== -1) {
+        if (university.toLowerCase().indexOf(universityInput.value.toLowerCase()) !== -1) {
           const newSpan = document.createElement('span');
           newSpan.classList.add('input-value-each-span');
           newSpan.innerHTML = university;

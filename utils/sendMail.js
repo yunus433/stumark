@@ -5,11 +5,11 @@ const transporter = nodemailer.createTransport({
   direct: true,
   host: 'smtp.gmail.com',
   port: 465,
-  auth: { 
+  secure: true,
+  auth: {
     user: 'stumarktcom@gmail.com', 
     pass: 'stumarkt123LOY321'
-  },
-  secure: true
+  }
 });
 transporter.use('compile', htmlToText());
 
@@ -21,7 +21,8 @@ const templates = {
       Liebe/r Nutzerin/Nutzer,
       <br />
       <br />
-      Mit diesem Link bestätigst du deine Registrierung: <a href='www.stumarkt.com/auth/verify/post/?id=${data.userId}'> stumarkt.com <a />
+      Mit diesem Link bestätigst du deine Registrierung: <a href='www.stumarkt.com/auth/verify/post/?id=${data.userId}'>www.stumarkt.com/auth/verify/post/?id=${data.userId}<a />
+      <br />
       <br />
       Mit deiner E-Mail-Adresse und deinem Passwort kannst du dich jederzeit bei Stumarkt einloggen, um dein Anzeigen zu bearbeiten oder zu löschen. 
       <br />
@@ -36,7 +37,7 @@ const templates = {
 
 module.exports = (data, template, callback) => {
   const mailOptions = {
-    from: process.env.MAIL_USERNAME,
+    from: "stumarktcom@gmail.com",
     ...templates[template](data)
   };
   transporter.sendMail(mailOptions, callback);
