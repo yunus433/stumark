@@ -2,7 +2,7 @@ extends ./../partials/header
 block main
   form.new-product-form(method="POST" action="/edit/product/?id=" + product._id) 
     if product.price == "SOLD"
-      span.form-info You marked this product as sold
+      span.form-info Du hast deine Anzeigen als “verkauft” markiert.
       a.delete-product-button(href="/sell/details/delete/?id=" + product._id) Lösch die Anzeige
     else
       span.form-title Product Options

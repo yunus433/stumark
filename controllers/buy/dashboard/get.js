@@ -24,11 +24,11 @@ module.exports = (req, res, next) => {
           (err, products) => {
             if (err) return res.redirect("/");
 
-            let category = "Andre";
+            let category = "Alle Kategorien";
 
             switch(req.query.category) {
               case "rented": 
-                category = "Mietwonhung und Nachmiete";
+                category = "Mitwohnung, Nachmiete";
                 break;
               case "hobby":
                 category = "Freizet, Hobby";
@@ -43,19 +43,19 @@ module.exports = (req, res, next) => {
                 category = "Elektronik";
                 break;
               case "fun":
-                category = "Music, Filme, Bücher";
+                category = "Musik, Filme, Bücher";
                 break;
               case "tickets":
-                category = "Eintrittskarten, tickets";
+                category = "Eintrittskarten, Tickets";
                 break;
               case "exchange":
-                category = "Zu verschenken, tauschen";
+                category = "Zu Verschenken, Tauschen";
                 break;
               case "lesson":
                 category = "Unterricht, Kurse";
                 break;
               case "other":
-                category = "Alle";
+                category = "Sonstige";
                 break;
             }
         

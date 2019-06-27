@@ -2,7 +2,7 @@ extends ./../partials/header
 block main
   .product-header
     span.header-title Anzeigen
-    span.header-content Hier du kannst deine Anzeigen einstellen, als gekauft markieren oder löschen wenn du darauf klickst.
+    span.header-content Hier kannst du deine Anzeigen bearbeiten, wenn du darauf klickst.
   .products-wrapper
     each product in products
       a.each-product(href="/sell/details/?id=" + product._id)
