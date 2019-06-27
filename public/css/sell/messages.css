@@ -3,7 +3,7 @@
   flex-direction: column;
   overflow: scroll;
   -webkit-overflow-scrolling: touch;
-  padding: 25px 0px;
+  padding: 25px 25px;
 }
 
 /* Header design */
@@ -52,12 +52,12 @@
   align-self: center;
 }
 .not-read-message-icon {
-  position: absolute;
+  position: relative;
   width: 2vw;
   height: 2vw;
   border-radius: 100%;
   background: rgb(255, 61, 148);
-  transform: translate(-100%, -100%);
+  transform: translate(-125%, -125%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -65,6 +65,10 @@
   font-weight: 700;
   font-size: 20px;
   white-space: nowrap;
+  z-index: 2;
+}
+.not-read-empty {
+  height: 1vw;
 }
 .no-product-warning {
   display: flex;

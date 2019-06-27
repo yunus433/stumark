@@ -5,11 +5,13 @@
   overflow: scroll;
   -webkit-overflow-scrolling: touch;
   padding: 25px 0px;
+  flex-wrap: nowrap;
 }
 
 /* Form wrapper and content design */
 .new-product-form {
   width: 90%;
+  min-height: fit-content;
   background: white;
   border: 3px solid rgb(236, 235, 235);
   border-radius: 15px;
@@ -32,9 +34,9 @@
 /* Category design */
 .category-wrapper {
   padding-left: 25px;
+  margin-bottom: 25px;
   display: flex;
   flex-direction: column;
-  margin-bottom: 25px;
 }
 .each-category {
   font-size: 30px;
@@ -72,6 +74,7 @@
   outline: none;
   margin-bottom: 25px;
   height: 30vh;
+  min-height: 0;
 }
 
 /* Price design */

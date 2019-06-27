@@ -9,8 +9,11 @@ block main
       .form-line
         a.go-to-messages-button(href="/sell/messages/dashboard/?id=" + product._id) 
           if (product.messages.filter((message) => { return !message.read }).length > 0)
-            .not-read-message-icon
-              span= product.messages.filter((message) => { return !message.read }).length
+            .not-read-empty
+              .not-read-message-icon
+                span= product.messages.filter((message) => { return !message.read }).length
+          else
+            .not-read-empty
           span Anzeige Nacrichten
         a.delete-product-button(href="/sell/details/delete/?id=" + product._id) Lösch die Anzeige
         a.marked-as-sold-product-button(href="/sell/details/sold/?id=" + product._id) Markiere das Produkt als Verkauft

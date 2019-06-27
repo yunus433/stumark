@@ -82,7 +82,7 @@
   margin-right: 5px;
 }
 .not-read-message-icon {
-  position: absolute;
+  position: relative;
   width: 2vw;
   height: 2vw;
   border-radius: 100%;
@@ -95,6 +95,10 @@
   font-weight: 700;
   font-size: 20px;
   white-space: nowrap;
+  z-index: 2;
+}
+.not-read-empty {
+  height: 1vw;
 }
 .no-product-warning {
   display: flex;

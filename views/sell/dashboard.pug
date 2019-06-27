@@ -6,15 +6,18 @@ block main
   .products-wrapper
     each product in products
       a.each-product(href="/sell/details/?id=" + product._id)
+        if (product.messages.filter((message) => { return !message.read }).length > 0) 
+          .not-read-empty
+            .not-read-message-icon
+              span= product.messages.filter((message) => { return !message.read }).length
+        else 
+          .not-read-empty
         img.product-image(src=product.productPhotoArray[0].source)
         span.product-name #{product.name}
         .product-location
           i.fas.fa-map-marker-alt
           span= product.location
         span.product-price #{product.price}
-        if (product.messages.filter((message) => { return !message.read }).length > 0) 
-          .not-read-message-icon
-            span= product.messages.filter((message) => { return !message.read }).length
     if products.length <= 0
       .no-product-warning 
         span Du hast nun keine Anzeige, gib jetzt eine Anzeige auf!
