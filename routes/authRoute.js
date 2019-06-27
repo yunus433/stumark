@@ -11,6 +11,7 @@ const registerPostController = require('../controllers/auth/register/post');
 const loginPostController = require('../controllers/auth/login/post');
 const verifyPostController = require('../controllers/auth/verify/post');
 const verifyNewPostController = require('../controllers/auth/verify/newPost');
+const logoutPostController = require('../controllers/auth/logout/post');
 
 router.get(
   '/register', 
@@ -48,6 +49,10 @@ router.post(
 router.post(
   '/verify/new',
   verifyNewPostController
+);
+router.get(
+  '/logout',
+  logoutPostController
 );
 
 module.exports = router;
