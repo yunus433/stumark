@@ -274,6 +274,11 @@
   margin-bottom: 100px;
 }
 
+@media only screen and (orientation: portrait) {
+  .messages-right-side {
+    width: 90%;
+  }
+}
 
 /* 
 .animation-class-close-to-right {

@@ -2,10 +2,6 @@ extends ./../partials/header
 block main
   .messages-left-side
     .messages-header
-      span Your messages to the seller 
-      strong #{owner.name} 
-      span for his/her product 
-      strong #{product.name}
     .messages-content
       each message in messages
         if message.sendedBy == "buyer"

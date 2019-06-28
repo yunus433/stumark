@@ -27,6 +27,9 @@ window.onload = () => {
     }
   });
 
+  const messagesBlock = document.querySelector('.messages-content');
+  messagesBlock.scrollTop = messagesBlock.scrollHeight;
+
   document.addEventListener('click', (event) => {
     if (event.target.className == 'product-menu-image') {
       event.target.parentNode.parentNode.childNodes[0].childNodes[0].src = event.target.src;
