@@ -16,8 +16,10 @@ window.onload = () => {
     if (event.target.className == 'user-name-wrapper' || event.target.parentNode.className == 'user-name-wrapper' || event.target.className == 'user-menu' || event.target.parentNode.className == 'user-menu') {
       userMenu.style.display = 'flex';
       userMenuResponsive.style.display = 'flex';
+      contentBarResponsive.style.display = 'none';
     } else if (event.target.className == 'change-category-button' || event.target.parentNode.className == 'change-category-button' || event.target.className == 'content-bar-responsive' || event.target.parentNode.className == 'content-bar-responsive') {
       contentBarResponsive.style.display = 'flex';
+      userMenuResponsive.style.display = 'none';
     } else {
       contentBarResponsive.style.display = 'none';
       userMenu.style.display = 'none';
