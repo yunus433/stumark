@@ -82,3 +82,27 @@
 .product-location i {
   margin-right: 5px;
 }
+
+@media only screen and (max-width: 900px) and (min-width: 600px) {
+  .each-product {
+    height: 35vh;
+  }
+  .product-name {
+    width: 27vw;
+  }
+  .latest-product-wrapper {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media only screen and (max-width: 600px) and (min-width: 300px) {
+  .each-product {
+    height: 33vh;
+  }
+  .product-name {
+    width: 40vw;
+  }
+  .latest-product-wrapper {
+    grid-template-columns: 1fr 1fr;
+  }
+}

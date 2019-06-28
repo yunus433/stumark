@@ -9,26 +9,26 @@ block main
     .change-page-wrapper 
       if keywords
         if page > 0
-          a.fas.fa-angle-left(href=`/buy/?category=${category}&page=${page-1}&keywords=${keywords}&limit=${limit}`)
+          a.fas.fa-angle-left(href=`/buy/?category=${realCategory}&page=${page-1}&keywords=${keywords}&limit=${limit}`)
         else
           i.fas.fa-angle-left
         - for (let i = 0; i < number; i += limit) {
-          a.each-page-link(href=`/buy/?category=${category}&page=${i}&keywords=${keywords}&limit=${limit}`)= i+1
+          a.each-page-link(href=`/buy/?category=${realCategory}&page=${i}&keywords=${keywords}&limit=${limit}`)= i+1
         - }
         if (page * limit) < number
-          a.fas.fa-angle-right(href=`/buy/?category=${category}&page=${page+1}&keywords=${keywords}&limit=${limit}`)
+          a.fas.fa-angle-right(href=`/buy/?category=${realCategory}&page=${page+1}&keywords=${keywords}&limit=${limit}`)
         else
           i.fas.fa-angle-right
       else
         if page > 0
-          a.fas.fa-angle-left(href=`/buy/?category=${category}&page=${page-1}&limit=${limit}`)
+          a.fas.fa-angle-left(href=`/buy/?category=${realCategory}&page=${page-1}&limit=${limit}`)
         else
           i.fas.fa-angle-left
         - for (let i = 0; i < number; i += limit) {
-          a(.each-page-linkhref=`/buy/?category=${category}&page=${i}&limit=${limit}`)= i+1
+          a(.each-page-linkhref=`/buy/?category=${realCategory}&page=${i}&limit=${limit}`)= i+1
         - }
         if (page * limit) < number
-          a.fas.fa-angle-right(href=`/buy/?category=${category}&page=${page+1}&limit=${limit}`)
+          a.fas.fa-angle-right(href=`/buy/?category=${realCategory}&page=${page+1}&limit=${limit}`)
         else
           i.fas.fa-angle-right
   .products-wrapper

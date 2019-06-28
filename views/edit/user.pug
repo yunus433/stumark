@@ -2,8 +2,13 @@ extends ./../partials/header
 block main
   form.form-wrapper(action="/edit/user" method="post")
     .form-title Einstellungen
-    .profile-photo-wrapper
+    label.profile-photo-wrapper
       img(src=user.profilePhoto)
       span click to change
+      input.display-none(type="file" accept="image/*")
+    input.form-input(type="text" autocomplete="off" autofocus required placeholder="Name" name="name" value=user.name)
     .form-line
-      input.form-input(type="text" autocomplete="off" autofocus required placeholder="Name" name="name" value=user.name)
+      .change-password-button
+        span Einstellungen Passwort
+      .send-form-button
+        span Ok

@@ -109,7 +109,7 @@ ProductSchema.statics.getLatest = function (params, callback) {
   const Product = this;
 
   if (params.keywords) {
-    const keywordsArr = params.keywords.split(" ");
+    const keywordsArr = params.keywords.replace('.', '').replace('!', '').replace('?', '').replace('-', ' ').split(" ");
 
     if (params.category != "all") {
       Product
