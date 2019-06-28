@@ -102,6 +102,7 @@ body {
   font-size: 25px;
   color: rgb(193, 193, 193);
   border: 2px solid rgb(236, 235, 235);
+  box-shadow: 0px;
 }
 .search-bar-button {
   display: flex;
