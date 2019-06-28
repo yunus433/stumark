@@ -20,6 +20,13 @@
   height: 70vh;
   align-items: center;
 }
+.form-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 80%;
+  width: 100%;
+}
 .form-title {
   font-size: 50px;
   color: rgb(112, 112, 112);
@@ -37,13 +44,15 @@
 }
 .form-input {
   width: 50%;
-  border: 2px solid rgb(236, 235, 235);
+  border: 3px solid rgb(236, 235, 235);
   font-size: 25px;
   font-weight: 300;
   color: rgb(112, 112, 112);
   font-family: "Source Sans Pro";
   outline: none;
-  padding: 3px;
+  padding: 5px;
+  margin-bottom: 15px;
+  border-radius: 15px;
 }
 .profile-photo-wrapper {
   height: 50%;
@@ -62,6 +71,39 @@
   max-height: 90%;
   max-width: 100%;
   border-radius: 100%;
+}
+.error-line {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 15px;
+  margin-bottom: 10px;
+  width: 100%;
+  color: rgb(255, 61, 148);
+  font-size: 25px;
+}
+.password-error-line {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 15px;
+  margin-bottom: 10px;
+  width: 100%;
+  color: rgb(255, 61, 148);
+  font-size: 25px;
+}
+
+/* Password form wrapper and content design */
+.password-form-wrapper {
+  background: white;
+  width: 50%;
+  border-radius: 15px;
+  border: 3px solid rgb(236, 235, 235);
+  display: none;
+  flex-direction: column;
+  padding: 2%;
+  height: 70vh;
+  align-items: center;
 }
 
 /* Form buttons */
@@ -84,6 +126,25 @@
 .send-form-button:hover {
   border-color: rgba(255, 61, 148, 0.5);
 }
+.send-form-button-password {
+  background: rgba(255, 108, 128, 0.3);
+  border: 3px solid rgba(255, 61, 148, 0.34);
+  color: rgb(255, 61, 148);
+  font-size: 30px;
+  font-weight: 700;
+  outline: none;
+  height: 100%;
+  width: 45%;
+  cursor: pointer;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 5px;
+}
+.send-form-button-password:hover {
+  border-color: rgba(255, 61, 148, 0.5);
+}
 .change-password-button {
   background: white;
   border: 3px solid rgba(255, 61, 148, 0.34);
@@ -101,5 +162,24 @@
   margin-right: 5px;
 }
 .change-password-button:hover {
+  border-color: rgba(255, 61, 148, 0.5);
+}
+.back-password-button {
+  background: white;
+  border: 3px solid rgba(255, 61, 148, 0.34);
+  color: rgb(255, 61, 148);
+  font-size: 25px;
+  font-weight: 700;
+  outline: none;
+  height: 100%;
+  width: 45%;
+  cursor: pointer;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 5px;
+}
+.back-password-button:hover {
   border-color: rgba(255, 61, 148, 0.5);
 }

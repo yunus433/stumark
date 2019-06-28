@@ -1,14 +1,28 @@
 extends ./../partials/header
 block main
   form.form-wrapper(action="/edit/user" method="post")
-    .form-title Einstellungen
-    label.profile-photo-wrapper
-      img(src=user.profilePhoto)
-      span click to change
-      input.display-none(type="file" accept="image/*")
-    input.form-input(type="text" autocomplete="off" autofocus required placeholder="Name" name="name" value=user.name)
+    .form-content
+      .form-title Einstellungen
+      label.profile-photo-wrapper
+        img.user-profile-image(src=user.profilePhoto)
+        span.user-profile-image-span click to change
+        input.display-none#user-image-input(type="file" name="photo" accept="image/*")
+      input.form-input#name-input(type="text" autocomplete="off" autofocus required placeholder="Name" name="name" value=user.name)
+      span.error-line
     .form-line
       .change-password-button
         span Einstellungen Passwort
       .send-form-button
+        span Ok
+  form.password-form-wrapper(action="/edit/user/password" method="post")  
+    .form-content
+      .form-title Einstellungen Passwort
+      input.form-input#old-password-input(type="password" name="oldPassword" autofocus placeholder="Old passwort")
+      input.form-input#new-password-input(type="password" name="password" autofocus placeholder="Neue passwort (min 6-stelling)")
+      input.form-input#new-password-two(type="password" name="password2" autofocus placeholder="Neue passwort wiederholen")
+      span.password-error-line
+    .form-line
+      .back-password-button
+        span Zurück
+      .send-form-button-password
         span Ok

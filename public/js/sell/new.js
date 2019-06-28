@@ -41,7 +41,6 @@ window.onload = () => {
   const productPhotoInput = document.getElementById('product-image-input');
   productPhotoInput.onchange = (event) => {
     const file = productPhotoInput.files[0];
-    productPhotoInput.files
     var formdata = new FormData();
     formdata.append('file', file);
 
@@ -51,20 +50,21 @@ window.onload = () => {
     
     xhr.onreadystatechange = function () {
       if (xhr.readyState == 4 && xhr.responseText){
-        if (xhr.status == 500)
+        if (xhr.status == 500) {
           alert("Entschuldigung, dass es ein Error gibt. Versuchen Sie es nochmal bitte!");
           productPhotoInput.value = ''
           if (!/safari/i.test(navigator.userAgent)){
             productPhotoInput.type = ''
             productPhotoInput.type = 'file'
           }
-        else
+        } else {
           createNewProductPhoto(xhr.responseText);
           productPhotoInput.value = ''
           if (!/safari/i.test(navigator.userAgent)){
             productPhotoInput.type = ''
             productPhotoInput.type = 'file'
           }
+        }
       };
     };
   };
