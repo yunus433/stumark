@@ -49,10 +49,12 @@ body {
 }
 .all-header-logo-wrapper {
   height: 100%;
+  width: 20%;
   padding: 1% 0%;
 }
 .all-header-logo {
   max-height: 100%;
+  max-width: 100%;
 }
 
 /* All header responsive design*/
@@ -125,7 +127,8 @@ body {
   text-decoration: none;
 }
 .messages-icon-image {
-  height: 100%;
+  max-height: 100%;
+  max-width: 30%;
 }
 .header-messages-explanation {
   display: flex;
@@ -138,7 +141,9 @@ body {
 .header-login-wrapper {
   display: flex;
   align-items: flex-end;
+  justify-content: flex-end;
   height: 50%;
+  width: 20%;
 }
 .user-name-wrapper {
   display: flex;
@@ -152,7 +157,7 @@ body {
 .user-profile-icon {
   border-radius: 100%;
   height: 100%;
-  max-width: 50%;
+  max-width: 20%;
 }
 .user-name-title {
   color: rgb(255, 61, 148);
@@ -174,7 +179,7 @@ body {
 }
 .login-link-wrapper span {
   color: rgb(112, 112, 112);
-  font-size: 13px;
+  font-size: 20px;
 }
 .login-link-wrapper a:hover {
   text-decoration: underline;
@@ -182,17 +187,18 @@ body {
 .login-link {
   color: rgb(255, 61, 148);
   text-decoration: none;
-  font-size: 29px;
+  font-size: 32px;
   font-weight: 600;
 }
 .register-link {
   color: rgb(112, 112, 112);
   text-decoration: none;
-  font-size: 17px;
+  font-size: 22px;
   font-weight: 600;
 }
 .user-login-icon {
-  height: 100%;
+  max-height: 100%;
+  max-width: 50%;
 }
 
 /* All header user menu design*/
@@ -318,7 +324,7 @@ body {
   width: 30vw;
   height: 5vh;
   border-radius: 15px;
-  font-size: 30px;
+  font-size: 33px;
   display: flex;
   align-items: center;
   padding-left: 25px;
@@ -339,16 +345,18 @@ body {
   -webkit-overflow-scrolling: touch;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
+  z-index: 3;
 }
 .category-link-responsive {
   min-height: 5vh;
+  padding: 10px 0px;
   padding-left: 15px;
   text-decoration: none;
   display: flex;
   align-items: center;
-  font-size: 28px;
+  font-size: 29px;
   color: rgb(112, 112, 112);
-  font-weight: 300;
+  font-weight: 500;
 }
 .category-link-responsive:hover {
   background: rgb(248, 248, 248);
@@ -376,5 +384,14 @@ body {
   .main-wrapper {
     flex: initial;
     width: 100vw;
+  }
+  .search-bar-button {
+    font-size: 25px;
+  }
+  .search-bar-input {
+    padding: 3%;
+  }
+  .login-link-wrapper span {
+    display: none;
   }
 }
