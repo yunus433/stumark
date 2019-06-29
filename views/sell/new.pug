@@ -45,18 +45,19 @@ block main
         input.price-radio-input(type="radio" name="price" value="FREE" required)
         span Zu Verschenken
     span.form-title Bilder
-    .images-wrapper
-      input.display-none#file-name-array(type="text" name="productPhotoNameArray")
-      label.add-new-button
-        i.fas.fa-plus
-        input.display-none#product-image-input(type="file" name="photo" accept="image/*")
+    .images-outer-wrapper
+      .images-wrapper
+        input.display-none#file-name-array(type="text" name="productPhotoNameArray")
+        label.add-new-button
+          i.fas.fa-plus
+          input.display-none#product-image-input(type="file" name="photo" accept="image/*")
     span.form-title Ort
     .form-line
       input.address-input.address-input-small(type="text" name="address1" placeholder="PLZ" required)
       input.address-input.address-input-big(type="text" name="address2" placeholder="Ort" required)
     input.address-input(type="text" name="address3" placeholder="Straße/Nummer" required)
     span.form-title Veröffentliche deine Anzeige
-    span.user-agrement-link
+    .user-agrement-link
       span Mit der Registrierung erklärst du dich einverstanden mit unseren 
       a(href="/auth/agreement/two") Nutzungsbedingungen
       span  und unserer 

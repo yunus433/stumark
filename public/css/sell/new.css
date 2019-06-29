@@ -111,19 +111,27 @@
 /* Photo design */
 .images-wrapper {
   height: 20vh;
+  padding-right: 15px;
   background: rgb(248, 248, 248);
   border: 3px solid rgb(236, 235, 235);
   display: flex;
+  flex-direction: row;
   align-items: center;
   border-radius: 15px;
+  min-width: fit-content;
+}
+.images-outer-wrapper {
+  height: 20vh;
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
 }
 .add-new-button {
   display: flex;
   align-items: center;
   justify-content: center;
   margin-left: 15px;
-  height: 15vh;
-  width: 15vh;
+  min-height: 15vh;
+  min-width: 15vh;
   background: rgba(255, 108, 128, 0.3);
   color: rgb(112, 112, 112);
   font-weight: 700;
@@ -136,8 +144,10 @@
   align-items: center;
   justify-content: center;
   margin-left: 15px;
-  height: 15vh;
-  width: 15vh;
+  min-height: 15vh;
+  min-width: 15vh;
+  max-height: 15vh;
+  max-width: 15vh;
   font-weight: 700;
   font-size: 40px;
 }
@@ -196,4 +206,17 @@
 }
 .form-send-button:hover {
   border-color: rgba(255, 61, 148, 0.5);
+}
+
+@media only screen and (orientation: portrait) {
+  .new-product-form {
+    padding: 25px;
+  }
+  .category-wrapper, .price-wrapper {
+    padding-left: 15px;
+  }
+  .product-name, .product-description, .address-input {
+    margin-bottom: 15px;
+    padding: 2% 3%;
+  }
 }
