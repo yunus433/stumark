@@ -11,7 +11,7 @@ module.exports = (req, res, next) => {
     }, (err, product) => {
       if (err) return res.redirect("/buy");
 
-      const messages = _.groupBy(product.messages, message => { return message.senderId });
+      const messages = _.groupBy(product.messages, message => { return message.buyerId });
 
       return res.render("sell/messages", {
         page: "sell/messages",

@@ -68,7 +68,7 @@
   z-index: 2;
 }
 .not-read-empty {
-  height: 1vw;
+  width: 1vw;
 }
 .no-product-warning {
   display: flex;
@@ -81,4 +81,32 @@
   color: rgb(112, 112, 112);
   font-weight: 300;
   margin-top: 25px;
+}
+
+@media only screen and (max-width: 900px) and (min-width: 600px) {
+  .not-read-message-icon {
+    width: 5vw;
+    height: 5vw;
+    font-size: 23px;
+  }
+}
+
+@media only screen and (max-width: 600px) and (min-width: 300px) {
+  .not-read-message-icon {
+    width: 7vw;
+    height: 7vw;
+    font-size: 30px;
+  }
+}
+
+@media only screen and (orientation: portrait) {
+  .each-user {
+    width: 95%;
+  }
+  .each-user-name {
+    width: 50vw;
+  }
+  .not-read-message-icon {
+    transform: translate(-50%, -50%);
+  }
 }

@@ -56,7 +56,7 @@
 }
 .profile-photo-wrapper {
   height: 50%;
-  width: 100%;
+  width: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -182,4 +182,13 @@
 }
 .back-password-button:hover {
   border-color: rgba(255, 61, 148, 0.5);
+}
+
+@media only screen and (orientation: portrait) {
+  .form-title {
+    text-align: center;
+  }
+  .form-wrapper, .password-form-wrapper {
+    width: 95%;
+  }
 }
