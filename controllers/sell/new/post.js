@@ -17,14 +17,14 @@ function uploadToCloudinary(req, nameArray) {
 
 module.exports = (req, res, next) => {
   const productPhotoArray = [
-    {productIndex: 0, source: "/res/images/notAvailablePhoto.jpg"},
-    {productIndex: 1, source: "/res/images/notAvailablePhoto.jpg"},
-    {productIndex: 2, source: "/res/images/notAvailablePhoto.jpg"},
-    {productIndex: 3, source: "/res/images/notAvailablePhoto.jpg"},
-    {productIndex: 4, source: "/res/images/notAvailablePhoto.jpg"}
+    "/res/images/notAvailablePhoto.jpg",
+    "/res/images/notAvailablePhoto.jpg",
+    "/res/images/notAvailablePhoto.jpg",
+    "/res/images/notAvailablePhoto.jpg",
+    "/res/images/notAvailablePhoto.jpg"
   ];
   req.body.productPhotoNameArray.split(",").forEach((photoName, index) => {
-    productPhotoArray[index].source = "http://res.cloudinary.com/dvnac86j8/image/upload/v1558412742/stumarkt/image_folder/" + photoName + ".jpg";
+    productPhotoArray[index] = "http://res.cloudinary.com/dvnac86j8/image/upload/v1558412742/stumarkt/image_folder/" + photoName + ".jpg";
   });
   uploadToCloudinary(req, req.body.productPhotoNameArray.split(","));
 

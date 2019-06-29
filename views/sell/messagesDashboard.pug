@@ -7,7 +7,7 @@ block main
     each product in products
       if product.price == "SOLD"
         .each-product
-          img.product-image(src=product.productPhotoArray[0].source)
+          img.product-image(src=product.productPhotoArray[0])
           span.product-name #{product.name}
           .product-location
             i.fas.fa-map-marker-alt
@@ -21,7 +21,7 @@ block main
                 span= product.messages.filter((message) => { return !message.read }).length
           else
             .not-read-empty
-          img.product-image(src=product.productPhotoArray[0].source)
+          img.product-image(src=product.productPhotoArray[0])
           span.product-name #{product.name}
           .product-location
             i.fas.fa-map-marker-alt

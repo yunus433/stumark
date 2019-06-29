@@ -100,11 +100,19 @@
 /* Photo design */
 .images-wrapper {
   height: 20vh;
+  padding-right: 15px;
   background: rgb(248, 248, 248);
   border: 3px solid rgb(236, 235, 235);
   display: flex;
+  flex-direction: row;
   align-items: center;
   border-radius: 15px;
+  min-width: fit-content;
+}
+.images-outer-wrapper {
+  height: 20vh;
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
 }
 .add-new-button {
   display: flex;
@@ -134,6 +142,15 @@
   max-height: 100%;
   max-width: 100%;
   border-radius: 15px;
+}
+.each-product-edit-icon {
+  align-self: flex-start;
+  font-size: 20px;
+  color: rgba(112, 112, 112, 0.7);
+  cursor: pointer;
+}
+.each-product-edit-icon:hover {
+  color: rgb(112, 112, 112);
 }
 
 /* Address design */
@@ -226,4 +243,20 @@
 .delete-product-button:hover,
 .marked-as-sold-product-button:hover {
   border-color: rgba(255, 61, 148, 0.5);
+}
+
+@media only screen and (orientation: portrait) {
+  .new-product-form {
+    padding: 25px;
+  }
+  .form-info {
+    margin-bottom: 15px;
+  }
+  .product-name, .product-description, .address-input {
+    margin-bottom: 15px;
+    padding: 2% 3%;
+  }
+  .price-wrapper {
+    padding-left: 15px;
+  }
 }

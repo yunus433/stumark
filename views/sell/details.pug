@@ -1,5 +1,6 @@
 extends ./../partials/header
 block main
+  input.display-none#product-id(value=product._id)
   form.new-product-form(method="POST" action="/edit/product/?id=" + product._id) 
     if product.price == "SOLD"
       span.form-info Du hast deine Anzeigen als “verkauft” markiert.
@@ -37,12 +38,18 @@ block main
             input.price-radio-input(type="radio" name="price" value="FREE" required)
             span Zu Verschenken
       span.form-title Bilder
-      .images-wrapper
-        input.display-none#file-name-array(type="text" name="productPhotoNameArray")
-        label.add-new-button
-          i.fas.fa-plus
-          input.display-none#product-image-input(type="file" name="photo" accept="image/*")
+      .images-outer-wrapper
+        .images-wrapper
+          input.display-none#file-name-array(type="text" name="productPhotoNameArray")
+          each photo in product.productPhotoArray
+            if photo != "/res/images/notAvailablePhoto.jpg"
+              .each-product-photo
+                img(src=photo)
+                i.each-product-edit-icon.fas.fa-trash(onclick="return confirm('Are you sure you want to delete this picture?')")
+          if product.productPhotoArray.filter(photo => { return photo != "/res/images/notAvailablePhoto.jpg" }).length < 5
+            label.add-new-button
+              i.fas.fa-plus
+              input.display-none#product-image-input(type="file" name="photo" accept="image/*")
       span.form-title Ort
-      .form-line
       input.address-input(type="text" name="location" placeholder="Ort" value=product.location required)
       button.form-send-button Edit

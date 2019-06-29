@@ -10,6 +10,7 @@ const editUserGetController = require('../controllers/edit/user/get');
 
 const editProductPostController = require('../controllers/edit/products/post');
 const editProductPhotoPostController = require('../controllers/edit/products/postPhoto');
+const deleteProductPhotoPostController = require('../controllers/edit/products/deletePhoto');
 const editUserPostController = require('../controllers/edit/user/post');
 const editUserPostPasswordController = require('../controllers/edit/user/postPassword');
 const editUserPhotoPostController = require('../controllers/edit/user/postPhoto');
@@ -27,9 +28,14 @@ router.post(
 );
 router.post(
   '/product/photo',
-  upload.single('picture'),
+  upload.single('file'),
   isLoggedIn,
   editProductPhotoPostController
+);
+router.post(
+  '/product/photoDelete/',
+  isLoggedIn,
+  deleteProductPhotoPostController
 );
 router.post(
   '/user',

@@ -3,13 +3,13 @@ block main
   .main-product-wrapper
     .product-left-side
       .product-image-wrapper
-        img.main-product-image(src=product.productPhotoArray[0].source)
+        img.main-product-image(src=product.productPhotoArray[0])
       .product-images-menu
-        img.product-menu-image.selected-menu-image(src=product.productPhotoArray[0].source)
-        img.product-menu-image(src=product.productPhotoArray[1].source)
-        img.product-menu-image(src=product.productPhotoArray[2].source)
-        img.product-menu-image(src=product.productPhotoArray[3].source)
-        img.product-menu-image(src=product.productPhotoArray[4].source)
+        img.product-menu-image.selected-menu-image(src=product.productPhotoArray[0])
+        img.product-menu-image(src=product.productPhotoArray[1])
+        img.product-menu-image(src=product.productPhotoArray[2])
+        img.product-menu-image(src=product.productPhotoArray[3])
+        img.product-menu-image(src=product.productPhotoArray[4])
     .product-right-side
       span.main-product-created-at Added #{product.createdAt}
       span.main-product-title= product.name
@@ -26,7 +26,7 @@ block main
   .other-products-wrapper
     each product in similarProducts
       a.each-product(href="/buy/details/?id=" + product._id)
-        img.product-image(src=product.productPhotoArray[0].source)
+        img.product-image(src=product.productPhotoArray[0])
         span.product-name #{product.name}
         .product-location
           i.fas.fa-map-marker-alt

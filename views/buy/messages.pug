@@ -38,13 +38,13 @@ block main
     span.right-side-title Product
     .product-wrapper
       .product-image-wrapper
-        img.main-product-image(src=product.productPhotoArray[0].source)
+        img.main-product-image(src=product.productPhotoArray[0])
       .product-images-menu
-        img.product-menu-image.selected-menu-image(src=product.productPhotoArray[0].source)
-        img.product-menu-image(src=product.productPhotoArray[1].source)
-        img.product-menu-image(src=product.productPhotoArray[2].source)
-        img.product-menu-image(src=product.productPhotoArray[3].source)
-        img.product-menu-image(src=product.productPhotoArray[4].source)
+        img.product-menu-image.selected-menu-image(src=product.productPhotoArray[0])
+        img.product-menu-image(src=product.productPhotoArray[1])
+        img.product-menu-image(src=product.productPhotoArray[2])
+        img.product-menu-image(src=product.productPhotoArray[3])
+        img.product-menu-image(src=product.productPhotoArray[4])
       span.main-product-created-at Added #{product.createdAt}
       span.main-product-title= product.name
       .main-product-location
