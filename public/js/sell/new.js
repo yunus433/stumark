@@ -34,7 +34,7 @@ window.onload = () => {
   const contentBarResponsive = document.querySelector('.content-bar-responsive');
 
   document.addEventListener('mouseover', (event) => {
-    if (event.target.className == 'user-name-wrapper' || event.target.parentNode.className == 'user-name-wrapper' || event.target.className == 'user-menu' || event.target.parentNode.className == 'user-menu') {
+    if (event.target.className == 'user-name-wrapper' || event.target.parentNode.className == 'user-name-wrapper' || event.target.className == 'user-menu' || event.target.parentNode.className == 'user-menu' || event.target.className == 'user-menu-responsive' || event.target.parentNode.className == 'user-menu-responsive') {
       userMenu.style.display = 'flex';
       userMenuResponsive.style.display = 'flex';
       contentBarResponsive.style.display = 'none';

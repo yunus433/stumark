@@ -133,3 +133,37 @@
 .no-product-warning-button:hover {
   border-color: rgba(255, 61, 148, 0.5);
 }
+
+@media only screen and (max-width: 900px) and (min-width: 600px) {
+  .each-product {
+    height: 35vh;
+  }
+  .product-name {
+    width: 27vw;
+  }
+  .products-wrapper {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .not-read-message-icon {
+    width: 5vw;
+    height: 5vw;
+    font-size: 23px;
+  }
+}
+
+@media only screen and (max-width: 600px) and (min-width: 300px) {
+  .each-product {
+    height: 33vh;
+  }
+  .product-name {
+    width: 40vw;
+  }
+  .products-wrapper {
+    grid-template-columns: 1fr 1fr;
+  }
+  .not-read-message-icon {
+    width: 7vw;
+    height: 7vw;
+    font-size: 30px;
+  }
+}
