@@ -12,6 +12,9 @@ window.onload = () => {
   const userMenuResponsive = document.querySelector('.user-menu-responsive');
   const contentBarResponsive = document.querySelector('.content-bar-responsive');
 
+  const messagesBlock = document.querySelector('.messages-content');
+  messagesBlock.scrollTop = messagesBlock.scrollHeight;
+  
   document.addEventListener('mouseover', (event) => {
     if (event.target.className == 'user-name-wrapper' || event.target.parentNode.className == 'user-name-wrapper' || event.target.className == 'user-menu' || event.target.parentNode.className == 'user-menu' || event.target.className == 'user-menu-responsive' || event.target.parentNode.className == 'user-menu-responsive') {
       userMenu.style.display = 'flex';

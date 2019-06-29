@@ -8,7 +8,7 @@ block main
     else
       span.form-title Product Options
       .form-line
-        a.go-to-messages-button(href="/sell/messages/dashboard/?id=" + product._id) 
+        a.go-to-messages-button(href="/sell/messages/?id=" + product._id) 
           if (product.messages.filter((message) => { return !message.read }).length > 0)
             .not-read-empty
               .not-read-message-icon
@@ -16,8 +16,11 @@ block main
           else
             .not-read-empty
           span Anzeige Nacrichten
-        a.delete-product-button(href="/sell/details/delete/?id=" + product._id) Lösch die Anzeige
-        a.marked-as-sold-product-button(href="/sell/details/sold/?id=" + product._id) Markiere das Produkt als Verkauft
+        a.delete-product-button(href="/sell/details/delete/?id=" + product._id) 
+          .not-read-empty
+          span Lösch die Anzeige
+        a.marked-as-sold-product-button(href="/sell/details/sold/?id=" + product._id)
+          span Markiere das Produkt als Verkauft
       span.form-title Anzeigendetails
       input.product-name(type="text" name="name" placeholder="Titel" autocomplete="off" value=product.name)
       textarea.product-description(name="description" placeholder="Beschreibung")= product.description

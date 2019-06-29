@@ -189,7 +189,7 @@
   height: 2vw;
   border-radius: 100%;
   background: rgb(255, 61, 148);
-  transform: translate(-175%, -85%);
+  transform: translate(-50%, -75%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -217,6 +217,7 @@
   border-radius: 15px;
   text-decoration: none;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   text-align: center;
   margin-top: 15px;
@@ -258,5 +259,21 @@
   }
   .price-wrapper {
     padding-left: 15px;
+  }
+}
+
+@media only screen and (max-width: 900px) and (min-width: 600px) {
+  .not-read-message-icon {
+    width: 5vw;
+    height: 5vw;
+    font-size: 23px;
+  }
+}
+
+@media only screen and (max-width: 600px) and (min-width: 300px) {
+  .not-read-message-icon {
+    width: 7vw;
+    height: 7vw;
+    font-size: 30px;
   }
 }

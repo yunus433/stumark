@@ -2,7 +2,6 @@ extends ./../partials/header
 block main
   .messages-wrapper
     span.messages-header Users who send a message for this product (#{product.name})
-    - console.log(messages);
     each message in messages
       a.each-user(href="/sell/messages/details/?id=" + product._id + "&user=" + message[0].buyerId)
         if (message.filter((message) => { return !message.read }).length > 0) 
