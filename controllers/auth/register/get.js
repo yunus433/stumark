@@ -6,7 +6,7 @@ module.exports = (req, res, next) => {
       page: 'auth/register',
       title: 'Registrierung',
       includes: {
-        external: ['auth_css', 'js']
+        external: ['auth_css', 'js', 'fontawesome']
       },
       err
     });
@@ -15,7 +15,7 @@ module.exports = (req, res, next) => {
       page: 'auth/register',
       title: 'Register',
       includes: {
-        external: ['auth_css', 'js']
+        external: ['auth_css', 'js', 'fontawesome']
       }
     });
 }

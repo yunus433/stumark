@@ -4,6 +4,36 @@
   transform: translate(-50%, -50%);
   width: 50%;
 }
+.form-line {
+  width: 100%;
+  height: 8vh;
+  display: flex;
+  align-items: center;
+  background: rgb(248, 248, 248);
+  border: 3px solid rgb(236, 235, 235);
+  border-radius: 15px;
+  margin-bottom: 15px;
+  padding-right: 20px;
+}
+.form-line i {
+  font-size: 25px;
+  color: rgb(112, 112, 112);
+  margin: 0px 10px;
+}
+.form-input {
+  background: transparent;
+  display: flex;
+  align-items: center;
+  border: 0px;
+  height: 100%;
+  width: 100%;
+  margin-top: 3vh;
+  outline: none;
+  font-size: 25px;
+  font-weight: 300;
+  color: rgb(112, 112, 112);
+  font-family: "Source Sans Pro";
+}
 .login-logo {
   height: 10vh;
   margin-left: 5%;
@@ -16,13 +46,13 @@
   border: 3px solid rgb(236, 235, 235);
   display: flex;
   flex-direction: column;
-  padding: 2%;
+  padding: 10px;
 }
 .form-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 .form-header-title {
   font-size: 60px;
@@ -40,19 +70,6 @@
 }
 .lost-password-link:hover {
   text-decoration: underline;
-}
-.form-input {
-  background: rgb(248, 248, 248);
-  padding: 1vh;
-  height: 8vh;
-  border: 3px solid rgb(236, 235, 235);
-  outline: none;
-  margin-bottom: 20px;
-  border-radius: 15px;
-  font-size: 25px;
-  font-weight: 300;
-  color: rgb(112, 112, 112);
-  font-family: "Source Sans Pro";
 }
 .university-input-values {
   width: 95.25%;
@@ -123,7 +140,7 @@
 .form-bottom-info {
   display: flex;
   flex-direction: column;
-  margin-top: 20px;
+  margin-top: 10px;
   padding-left: 25px;
   color: rgb(112, 112, 112);
   font-size: 30px;

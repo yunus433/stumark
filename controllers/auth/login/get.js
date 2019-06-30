@@ -4,7 +4,7 @@ module.exports = (req, res, next) => {
       page: 'auth/login',
       title: 'Einloggen',
       includes: {
-        external: ['auth_css', 'js']
+        external: ['auth_css', 'js', 'fontawesome']
       },
       err: req.query.err
     });
@@ -13,7 +13,7 @@ module.exports = (req, res, next) => {
     page: 'auth/login',
     title: 'Login',
     includes: {
-      external: ['auth_css', 'js']
+      external: ['auth_css', 'js', 'fontawesome']
     }
   });
 }

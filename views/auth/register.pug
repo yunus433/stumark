@@ -4,8 +4,12 @@ block content
     form.form-wrapper(action="/auth/register" method="post")
       .form-header
         span.form-header-title Registrieren
-      input.form-input(type="text" autocomplete="off" autofocus required placeholder="Name" name="name")
-      input.form-input#university-input(type="text" autocomplete="off" autofocus required placeholder="Universität" name="university")
+      .form-line
+        i.fas.fa-user
+        input.form-input(type="text" autocomplete="off" autofocus required placeholder="Name" name="name")
+      .form-line
+        i.fas.fa-university
+        input.form-input#university-input(type="text" autocomplete="off" autofocus required placeholder="Universität" name="university")
       .input-value-wrapper
         .university-input-values
           span.input-value-each-span Albert-Ludwigs-Universität Freiburg
@@ -121,9 +125,15 @@ block content
           span.input-value-each-span Westfälische Wilhelms-Universität Münster
           span.input-value-each-span WHU - Otto Beisheim School of Management
           span.input-value-each-span Zeppelin Universität
-      input.form-input(type="text" autocomplete="off" autofocus required placeholder="Email" name="email")
-      input.form-input#password-input-one(type="password" autocomplete="off" autofocus required placeholder="Passwort (min 6-stellig)" name="password")
-      input.form-input#password-input-two(type="password" autocomplete="off" autofocus required placeholder="Passwort wiederholen" name="password2")
+      .form-line
+        i.fas.fa-envelope
+        input.form-input(type="text" autocomplete="off" autofocus required placeholder="Email" name="email")
+      .form-line
+        i.fas.fa-key
+        input.form-input#password-input-one(type="password" autocomplete="off" autofocus required placeholder="Passwort (min 6-stellig)" name="password")
+      .form-line
+        i.fas.fa-key
+        input.form-input#password-input-two(type="password" autocomplete="off" autofocus required placeholder="Passwort wiederholen" name="password2")
       .user-agrement-link
         span Mit der Registrierung erklärst du dich einverstanden mit unseren 
         a(href="/auth/agreement/two") Nutzungsbedingungen

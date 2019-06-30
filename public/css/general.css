@@ -60,6 +60,7 @@ body {
 /* All header responsive design*/
 .all-header-responsive {
   flex: 1.5;
+  height: 25vh;
   display: none;
   flex-direction: column;
   align-items: center;
@@ -95,21 +96,23 @@ body {
 .search-bar-input {
   outline: none;
   width: 90%;
-  height: 100%;
+  min-height: 100%;
+  max-height: 100%;
   border-radius: 120px;
   padding: 2%;
   padding-right: 10%;
-  font-size: 25px;
+  font-size: 20px;
   color: rgb(193, 193, 193);
+  border-top: 0px;
   border: 2px solid rgb(236, 235, 235);
-  box-shadow: 0px;
 }
 .search-bar-button {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 20%;
-  height: 100%;
+  min-height: 100%;
+  max-height: 100%;
   margin-left: -10%;
   border-radius: 120px;
   border: 0px;
@@ -373,6 +376,9 @@ body {
   .search-bar-wrapper {
     width: 75%;
   }
+  .search-bar-button {
+    width: 25%;
+  }
   .content-bar-wrapper {
     display: none;
   }
@@ -381,6 +387,7 @@ body {
   }
   .all-content {
     flex-direction: column;
+    height: 75vh;
   }
   .main-wrapper {
     flex: initial;
