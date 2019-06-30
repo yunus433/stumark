@@ -27,7 +27,6 @@
   border: 0px;
   height: 100%;
   width: 100%;
-  margin-top: 3vh;
   outline: none;
   font-size: 25px;
   font-weight: 300;
@@ -226,9 +225,6 @@
     height: 95vh;
     overflow: scroll;
     -webkit-overflow-scrolling: touch;
-  }
-  .form-input {
-    margin-bottom: 15px;
   }
   .user-agrement-link {
     margin-bottom: 15px;
