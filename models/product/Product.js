@@ -113,7 +113,7 @@ ProductSchema.statics.getLatest = function (params, callback) {
 
     if (params.category != "all") {
       Product
-        .find({keywords: {$all: keywordsArr}, category: params.category})
+        .find({keywords: {$all: keywordsArr}, category: params.category, price: {$ne: "SOLD"}})
         .sort({"createdAtSecond": -1})
         .skip(params.docsToSkip)
         .limit(params.limit)
@@ -127,7 +127,7 @@ ProductSchema.statics.getLatest = function (params, callback) {
         });
     } else {
       Product
-        .find({keywords: {$all: keywordsArr}})
+        .find({keywords: {$all: keywordsArr}, price: {$ne: "SOLD"}})
         .sort({"createdAtSecond": -1})
         .skip(params.docsToSkip)
         .limit(params.limit)
@@ -143,7 +143,7 @@ ProductSchema.statics.getLatest = function (params, callback) {
   } else {
     if (params.category != "all") {
       Product
-        .find({category: params.category})
+        .find({category: params.category, price: {$ne: "SOLD"}})
         .sort({"createdAtSecond": -1})
         .skip(params.docsToSkip)
         .limit(params.limit)
@@ -157,7 +157,7 @@ ProductSchema.statics.getLatest = function (params, callback) {
         });
     } else {
       Product
-        .find({})
+        .find({"price": {$ne: "SOLD"}})
         .sort({"createdAtSecond": -1})
         .skip(params.docsToSkip)
         .limit(params.limit)
