@@ -10,7 +10,7 @@
   display: flex;
   align-items: center;
   background: rgb(248, 248, 248);
-  border: 3px solid rgb(236, 235, 235);
+  border: 2px solid rgb(236, 235, 235);
   border-radius: 15px;
   margin-bottom: 15px;
   padding-right: 20px;
@@ -42,7 +42,7 @@
   background: white;
   width: 100%;
   border-radius: 15px;
-  border: 3px solid rgb(236, 235, 235);
+  border: 2px solid rgb(236, 235, 235);
   display: flex;
   flex-direction: column;
   padding: 10px;
@@ -77,7 +77,7 @@
   flex-direction: column;
   position: absolute;
   margin-top: -3.7vh;
-  border: 3px solid rgb(236, 235, 235);
+  border: 2px solid rgb(236, 235, 235);
   border-top: 0px;
   height: 20vh;
   overflow: scroll;
@@ -111,7 +111,7 @@
   height: 8vh;
   width: 100%;
   background: rgba(255, 108, 128, 0.3);
-  border: 3px solid rgba(255, 61, 148, 0.34);
+  border: 2px solid rgba(255, 61, 148, 0.34);
   color: rgb(255, 61, 148);
   font-size: 32px;
   font-weight: 700;
@@ -122,7 +122,7 @@
   margin-bottom: 20px;
 }
 .form-send-button:hover {
-  border: 3px solid rgba(255, 61, 148, 0.5);
+  border: 2px solid rgba(255, 61, 148, 0.5);
 }
 .error-line {
   display: flex;
@@ -162,7 +162,7 @@
   margin-left: 50%;
   transform: translate(-50%, 50%);
   background: white;
-  border: 3px solid rgb(236, 235, 235);
+  border: 2px solid rgb(236, 235, 235);
   border-radius: 15px;
   padding: 25px;
   display: flex;
@@ -181,7 +181,7 @@
 .send-new-verify-email {
   margin-top: 25px;
   background: rgba(255, 108, 128, 0.3);
-  border: 3px solid rgba(255, 61, 148, 0.34);
+  border: 2px solid rgba(255, 61, 148, 0.34);
   color: rgb(255, 61, 148);
   font-size: 30px;
   font-weight: 700;
@@ -195,7 +195,7 @@
   border-color: rgba(255, 61, 148, 0.5);
 }
 .verify-go-back-link {
-  border: 3px solid rgb(236, 235, 235);
+  border: 2px solid rgb(236, 235, 235);
   background: rgb(248, 248, 248);
   padding: 15px 25px;
   border-radius: 15px;

@@ -41,13 +41,13 @@
   background: white;
   display: flex;
   flex-direction: column;
-  border: 3px solid rgb(236, 235, 235);
+  border: 2px solid rgb(236, 235, 235);
   border-radius: 15px;
   cursor: pointer;
   text-decoration: none;
 }
 .each-product:hover {
-  border: 3px solid rgb(220, 220, 220);
+  border: 2px solid rgb(220, 220, 220);
 }
 .product-image {
   max-height: 50%;
@@ -117,7 +117,7 @@
   margin-top: 50px;
   text-decoration: none;
   background: rgba(255, 108, 128, 0.3);
-  border: 3px solid rgba(255, 61, 148, 0.34);
+  border: 2px solid rgba(255, 61, 148, 0.34);
   color: rgb(255, 61, 148);
   font-size: 30px;
   font-weight: 700;
@@ -147,7 +147,7 @@
   .not-read-message-icon {
     width: 5vw;
     height: 5vw;
-    font-size: 23px;
+    font-size: 22px;
   }
 }
 

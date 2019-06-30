@@ -21,14 +21,14 @@
   padding: 2%;
   background: white;
   display: flex;
-  border: 3px solid rgb(236, 235, 235);
+  border: 2px solid rgb(236, 235, 235);
   border-radius: 15px;
   cursor: pointer;
   text-decoration: none;
   margin-top: 25px;
 }
 .each-user:hover {
-  border: 3px solid rgb(220, 220, 220);
+  border: 2px solid rgb(220, 220, 220);
 }
 .each-user-profile {
   max-height: 90%;

@@ -13,7 +13,7 @@
   width: 90%;
   min-height: fit-content;
   background: white;
-  border: 3px solid rgb(236, 235, 235);
+  border: 2px solid rgb(236, 235, 235);
   border-radius: 15px;
   padding: 50px;
   padding-bottom: 100px;
@@ -44,7 +44,7 @@
 /* Product name and description design */
 .product-name {
   background: rgb(248, 248, 248);
-  border: 3px solid rgb(236, 235, 235);
+  border: 2px solid rgb(236, 235, 235);
   border-radius: 15px;
   font-size: 30px;
   padding: 1% 2%;
@@ -55,7 +55,7 @@
 }
 .product-description {
   background: rgb(248, 248, 248);
-  border: 3px solid rgb(236, 235, 235);
+  border: 2px solid rgb(236, 235, 235);
   border-radius: 15px;
   font-size: 30px;
   padding: 1% 2%;
@@ -83,7 +83,7 @@
 }
 .price-input {
   background: rgb(248, 248, 248);
-  border: 3px solid rgb(236, 235, 235);
+  border: 2px solid rgb(236, 235, 235);
   border-radius: 15px;
   font-size: 30px;
   padding: 1% 2%;
@@ -102,7 +102,7 @@
   height: 20vh;
   padding-right: 15px;
   background: rgb(248, 248, 248);
-  border: 3px solid rgb(236, 235, 235);
+  border: 2px solid rgb(236, 235, 235);
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -156,7 +156,7 @@
 /* Address design */
 .address-input {
   background: rgb(248, 248, 248);
-  border: 3px solid rgb(236, 235, 235);
+  border: 2px solid rgb(236, 235, 235);
   border-radius: 15px;
   font-size: 30px;
   padding: 1% 2%;
@@ -169,7 +169,7 @@
 /* Form buttons */
 .form-send-button {
   background: rgba(255, 108, 128, 0.3);
-  border: 3px solid rgba(255, 61, 148, 0.34);
+  border: 2px solid rgba(255, 61, 148, 0.34);
   color: rgb(255, 61, 148);
   font-size: 30px;
   font-weight: 700;
@@ -206,7 +206,7 @@
 .delete-product-button,
 .marked-as-sold-product-button {
   background: white;
-  border: 3px solid rgba(255, 61, 148, 0.34);
+  border: 2px solid rgba(255, 61, 148, 0.34);
   color: rgb(255, 61, 148);
   font-size: 25px;
   font-weight: 700;
@@ -225,7 +225,7 @@
 }
 .marked-as-sold-product-button-not-allow {
   background: white;
-  border: 3px solid rgba(255, 61, 148, 0.34);
+  border: 2px solid rgba(255, 61, 148, 0.34);
   color: rgb(255, 61, 148);
   font-size: 30px;
   font-weight: 700;
