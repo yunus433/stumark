@@ -1,5 +1,6 @@
 // require external npm files
 const express = require("express");
+const enforce = require("express-sslify");
 const http = require("http");
 const path = require("path");
 const dotenv = require("dotenv");
@@ -12,6 +13,7 @@ const cloudinary = require("cloudinary");
 
 // create server
 const app = express();
+const server = http.createServer(app);
 
 // define local variables
 const PORT = process.env.PORT || 3000;
@@ -55,6 +57,11 @@ mongoose.set("useCreateIndex", true);
 // add public folder to server
 app.use(express.static(path.join(__dirname, "public")));
 
+// Force application to use https route
+if (PORT != 3000) { 
+  app.use(enforce.HTTPS({ trustProtoHeader: true }));
+}
+
 // add favicon
 app.use(favicon(path.join(__dirname, "public", "favicon.ico")));
 
@@ -90,6 +97,6 @@ app.use("/sell", sellRouteController);
 app.use("/edit", editRouteController);
 
 // start server
-app.listen(PORT, () => {
+server.listen(PORT, () => {
   console.log(`Server is on port ${PORT}`);
 });
