@@ -1,6 +1,5 @@
 // require external npm files
 const express = require("express");
-const enforce = require("express-sslify");
 const http = require("http");
 const path = require("path");
 const dotenv = require("dotenv");
@@ -57,10 +56,7 @@ mongoose.set("useCreateIndex", true);
 // add public folder to server
 app.use(express.static(path.join(__dirname, "public")));
 
-// Force application to use https route
-if (PORT != 3000) { 
-  app.use(enforce.HTTPS());
-}
+
 
 // add favicon
 app.use(favicon(path.join(__dirname, "public", "favicon.ico")));
