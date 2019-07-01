@@ -1,5 +1,6 @@
 // require external npm files
 const express = require("express");
+const enforce = require("express-sslify");
 const http = require("http");
 const path = require("path");
 const dotenv = require("dotenv");
@@ -56,8 +57,6 @@ mongoose.set("useCreateIndex", true);
 // add public folder to server
 app.use(express.static(path.join(__dirname, "public")));
 
-
-
 // add favicon
 app.use(favicon(path.join(__dirname, "public", "favicon.ico")));
 
@@ -78,6 +77,7 @@ app.use(session);
 
 // add request object for controllers
 app.use((req, res, next) => {
+  if (PORT != 3000) enforce.HTTPS({ trustProtoHeader: true });
   req.cloudinary = cloudinary;
   next();
 });
