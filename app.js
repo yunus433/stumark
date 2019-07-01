@@ -57,6 +57,9 @@ mongoose.set("useCreateIndex", true);
 // add public folder to server
 app.use(express.static(path.join(__dirname, "public")));
 
+// Force application to use https route
+if (process.env.PORT) app.use(enforce.HTTPS({ trustProtoHeader: true }));
+
 // add favicon
 app.use(favicon(path.join(__dirname, "public", "favicon.ico")));
 
@@ -77,7 +80,6 @@ app.use(session);
 
 // add request object for controllers
 app.use((req, res, next) => {
-  if (PORT != 3000) enforce.HTTPS({ trustProtoHeader: true });
   req.cloudinary = cloudinary;
   next();
 });
