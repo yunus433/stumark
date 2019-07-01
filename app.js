@@ -59,7 +59,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 // Force application to use https route
 if (PORT != 3000) { 
-  app.use(enforce.HTTPS({ trustProtoHeader: true }));
+  app.use(enforce.HTTPS());
 }
 
 // add favicon
