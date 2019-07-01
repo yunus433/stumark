@@ -161,6 +161,9 @@
   justify-content: center;
   margin-right: 5px;
 }
+.change-password-button i {
+  margin-right: 5px;
+}
 .change-password-button:hover {
   border-color: rgba(255, 61, 148, 0.5);
 }

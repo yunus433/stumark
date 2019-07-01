@@ -6,7 +6,7 @@ block main
       span.form-info Du hast deine Anzeigen als “verkauft” markiert.
       a.delete-product-button(href="/sell/details/delete/?id=" + product._id) Lösch die Anzeige
     else
-      span.form-title Product Options
+      span.form-title Anzeige Einstellungen
       .form-line
         a.go-to-messages-button(href="/sell/messages/?id=" + product._id) 
           if (product.messages.filter((message) => { return !message.read }).length > 0)

@@ -22,7 +22,7 @@ block main
     span.send-message-title Nachricht schreiben
     textarea.message-input(name="message" placeholder="Nachricht")
     button.send-message-button Nachricht Senden
-  span.other-products-title Similar Products
+  span.other-products-title Ähnliche Anzeigen
   .other-products-wrapper
     each product in similarProducts
       a.each-product(href="/buy/details/?id=" + product._id)
