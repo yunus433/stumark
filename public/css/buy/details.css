@@ -42,11 +42,11 @@
   width: 90%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
 }
 .product-menu-image {
   width: 19%;
   height: 100%;
+  margin-right: 1.2%;
   border: 2px solid rgb(236, 235, 235);
   cursor: pointer;
   border-radius: 5px;
