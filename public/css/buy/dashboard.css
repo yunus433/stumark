@@ -118,7 +118,7 @@
 
 @media only screen and (max-width: 600px) and (min-width: 300px) {
   .each-product {
-    height: 33vh;
+    height: 40vh;
   }
   .product-name {
     width: 40vw;

@@ -7,10 +7,13 @@
   padding: 25px 0px;
   flex-wrap: nowrap;
 }
+.content-all-wrapper {
+  overflow-x: hidden;
+  width: 90%;
+}
 
 /* Form wrapper and content design */
 .new-product-form {
-  width: 90%;
   min-height: fit-content;
   background: white;
   border: 2px solid rgb(236, 235, 235);
@@ -112,18 +115,18 @@
 .images-wrapper {
   height: 20vh;
   padding-right: 15px;
-  background: rgb(248, 248, 248);
-  border: 2px solid rgb(236, 235, 235);
   display: flex;
   flex-direction: row;
   align-items: center;
-  border-radius: 15px;
-  min-width: fit-content;
+  width: auto;
 }
 .images-outer-wrapper {
   height: 20vh;
   overflow-x: scroll;
   -webkit-overflow-scrolling: touch;
+  background: rgb(248, 248, 248);
+  border: 2px solid rgb(236, 235, 235);
+  border-radius: 15px;
 }
 .add-new-button {
   display: flex;
@@ -218,5 +221,15 @@
   .product-name, .product-description, .address-input {
     margin-bottom: 15px;
     padding: 2% 3%;
+  }
+  .form-line {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .address-input-small,
+  .address-input-big {
+    flex: initial;
+    margin: 0px;
+    margin-bottom: 10px;
   }
 }

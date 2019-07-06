@@ -1,34 +1,39 @@
 extends ./../partials/header
 block main
-  .main-product-wrapper
-    .product-left-side
-      .product-image-wrapper
-        img.main-product-image(src=product.productPhotoArray[0])
-      .product-images-menu
-        img.product-menu-image.selected-menu-image(src=product.productPhotoArray[0])
-        img.product-menu-image(src=product.productPhotoArray[1])
-        img.product-menu-image(src=product.productPhotoArray[2])
-        img.product-menu-image(src=product.productPhotoArray[3])
-        img.product-menu-image(src=product.productPhotoArray[4])
-    .product-right-side
-      span.main-product-created-at Added #{product.createdAt}
-      span.main-product-title= product.name
-      .main-product-location
-          i.fas.fa-map-marker-alt
-          span= product.location
-      span.main-product-description= product.description
-      span.main-product-price= product.price
-  form.send-message-wrapper(action="/buy/messages/?id=" + product._id method="post")
-    span.send-message-title Nachricht schreiben
-    textarea.message-input(name="message" placeholder="Nachricht")
-    button.send-message-button Nachricht Senden
-  span.other-products-title Ähnliche Anzeigen
-  .other-products-wrapper
-    each product in similarProducts
-      a.each-product(href="/buy/details/?id=" + product._id)
-        img.product-image(src=product.productPhotoArray[0])
-        span.product-name #{product.name}
-        .product-location
-          i.fas.fa-map-marker-alt
-          span= product.location
-        span.product-price #{product.price}
+  .content-all-wrapper
+    .main-product-wrapper
+      .product-left-side
+        .product-image-wrapper
+          img.main-product-image(src=product.productPhotoArray[0])
+        .product-images-menu
+          img.product-menu-image.selected-menu-image(src=product.productPhotoArray[0])
+          if product.productPhotoArray[1]
+            img.product-menu-image(src=product.productPhotoArray[1])
+          if product.productPhotoArray[2]
+            img.product-menu-image(src=product.productPhotoArray[2])
+          if product.productPhotoArray[3]
+            img.product-menu-image(src=product.productPhotoArray[4])
+          if product.productPhotoArray[4]
+            img.product-menu-image(src=product.productPhotoArray[4])
+      .product-right-side
+        span.main-product-created-at Added #{product.createdAt}
+        span.main-product-title= product.name
+        .main-product-location
+            i.fas.fa-map-marker-alt
+            span= product.location
+        span.main-product-description= product.description
+        span.main-product-price= product.price
+    form.send-message-wrapper(action="/buy/messages/?id=" + product._id method="post")
+      span.send-message-title Nachricht schreiben
+      textarea.message-input(name="message" placeholder="Nachricht")
+      button.send-message-button Nachricht Senden
+    span.other-products-title Ähnliche Anzeigen
+    .other-products-wrapper
+      each product in similarProducts
+        a.each-product(href="/buy/details/?id=" + product._id)
+          img.product-image(src=product.productPhotoArray[0])
+          span.product-name #{product.name}
+          .product-location
+            i.fas.fa-map-marker-alt
+            span= product.location
+          span.product-price #{product.price}

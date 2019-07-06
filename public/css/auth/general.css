@@ -105,9 +105,7 @@
   color: rgb(255, 61, 148);
 }
 .form-send-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  text-align: center;
   height: 8vh;
   width: 100%;
   background: rgba(255, 108, 128, 0.3);

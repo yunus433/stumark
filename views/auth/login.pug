@@ -1,7 +1,8 @@
 extends ./../partials/head
 block content
   .form-main-wrapper
-    img.login-logo(src="/res/images/logo.png")
+    a(href="/")
+      img.login-logo(src="/res/images/logo.png")
     form.form-wrapper(action="/auth/login" method="post")
       .form-header
         span.form-header-title Einloggen

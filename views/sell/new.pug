@@ -1,65 +1,66 @@
 extends ./../partials/header
 block main
-  form.new-product-form(method="POST" action="/sell/new") 
-    span.form-title Kategorie
-    .category-wrapper
-      .each-category
-        input(type="radio" name="category" value="rented" required) 
-        span Mitwohnung, Nachmiete
-      .each-category
-        input(type="radio" name="category" value="hobby" required) 
-        span Freizeit, Hobby
-      .each-category
-        input(type="radio" name="category" value="home" required) 
-        span Möbel, Haus 
-      .each-category
-        input(type="radio" name="category" value="fashion" required) 
-        span Mode, Kleidung
-      .each-category
-        input(type="radio" name="category" value="electronic" required) 
-        span Elektronik
-      .each-category
-        input(type="radio" name="category" value="fun" required) 
-        span Musik, Filme, Bücher
-      .each-category
-        input(type="radio" name="category" value="tickets" required) 
-        span Eintrittskarten, Tickets
-      .each-category
-        input(type="radio" name="category" value="exchange" required) 
-        span Zu Verschenken, Tauschen
-      .each-category
-        input(type="radio" name="category" value="lesson" required) 
-        span Unterricht, Kurse
-      .each-category
-        input(type="radio" name="category" value="other" required) 
-        span Sonstige
-    span.form-title Anzeigendetails
-    input.product-name(type="text" name="name" placeholder="Titel" autocomplete="off")
-    textarea.product-description(name="description" placeholder="Beschreibung")
-    span.form-title Preis
-    .price-wrapper
-      .each-price-line
-        input.price-radio-input#custom-price-input(type="radio" name="price" value="0.00€" required)
-        input.price-input(type="text" placeholder="Preis €")
-      .each-price-line
-        input.price-radio-input(type="radio" name="price" value="FREE" required)
-        span Zu Verschenken
-    span.form-title Bilder
-    .images-outer-wrapper
-      .images-wrapper
-        input.display-none#file-name-array(type="text" name="productPhotoNameArray")
-        label.add-new-button
-          i.fas.fa-plus
-          input.display-none#product-image-input(type="file" name="photo" accept="image/*")
-    span.form-title Ort
-    .form-line
-      input.address-input.address-input-small(type="text" name="address1" placeholder="PLZ" required)
-      input.address-input.address-input-big(type="text" name="address2" placeholder="Ort" required)
-    input.address-input(type="text" name="address3" placeholder="Straße/Nummer (freiwillige Eingabe)")
-    span.form-title Veröffentliche deine Anzeige
-    .user-agrement-link
-      span Mit der Registrierung erklärst du dich einverstanden mit unseren 
-      a(href="/auth/agreement/two") Nutzungsbedingungen
-      span  und unserer 
-      a(href="/auth/agreement/one") Datenschutzerklärung
-    button.form-send-button Anzeige aufgeben
+  .content-all-wrapper
+    form.new-product-form(method="POST" action="/sell/new") 
+      span.form-title Kategorie
+      .category-wrapper
+        .each-category
+          input(type="radio" name="category" value="rented" required) 
+          span Mitwohnung, Nachmiete
+        .each-category
+          input(type="radio" name="category" value="hobby" required) 
+          span Freizeit, Hobby
+        .each-category
+          input(type="radio" name="category" value="home" required) 
+          span Möbel, Haus 
+        .each-category
+          input(type="radio" name="category" value="fashion" required) 
+          span Mode, Kleidung
+        .each-category
+          input(type="radio" name="category" value="electronic" required) 
+          span Elektronik
+        .each-category
+          input(type="radio" name="category" value="fun" required) 
+          span Musik, Filme, Bücher
+        .each-category
+          input(type="radio" name="category" value="tickets" required) 
+          span Eintrittskarten, Tickets
+        .each-category
+          input(type="radio" name="category" value="exchange" required) 
+          span Zu Verschenken, Tauschen
+        .each-category
+          input(type="radio" name="category" value="lesson" required) 
+          span Unterricht, Kurse
+        .each-category
+          input(type="radio" name="category" value="other" required) 
+          span Sonstige
+      span.form-title Anzeigendetails
+      input.product-name(type="text" name="name" placeholder="Titel" autocomplete="off")
+      textarea.product-description(name="description" placeholder="Beschreibung")
+      span.form-title Preis
+      .price-wrapper
+        .each-price-line
+          input.price-radio-input#custom-price-input(type="radio" name="price" value="0.00€" required)
+          input.price-input(type="text" placeholder="Preis €")
+        .each-price-line
+          input.price-radio-input(type="radio" name="price" value="FREE" required)
+          span Zu Verschenken
+      span.form-title Bilder
+      .images-outer-wrapper
+        .images-wrapper
+          input.display-none#file-name-array(type="text" name="productPhotoNameArray")
+          label.add-new-button
+            i.fas.fa-plus
+            input.display-none#product-image-input(type="file" name="photo" accept="image/*")
+      span.form-title Ort
+      .form-line
+        input.address-input.address-input-small(type="text" name="address1" placeholder="PLZ" required)
+        input.address-input.address-input-big(type="text" name="address2" placeholder="Ort" required)
+      input.address-input(type="text" name="address3" placeholder="Straße/Nummer (freiwillige Eingabe)")
+      span.form-title Veröffentliche deine Anzeige
+      .user-agrement-link
+        span Mit der Registrierung erklärst du dich einverstanden mit unseren 
+        a(href="/auth/agreement/two") Nutzungsbedingungen
+        span  und unserer 
+        a(href="/auth/agreement/one") Datenschutzerklärung
+      button.form-send-button Anzeige aufgeben

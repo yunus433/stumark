@@ -19,6 +19,7 @@
   color: rgb(255, 61, 148);
   font-size: 40px;
   font-weight: 600;
+  text-align: center;
 }
 .latest-product-title {
   width: 90%;
@@ -97,7 +98,7 @@
 
 @media only screen and (max-width: 600px) and (min-width: 300px) {
   .each-product {
-    height: 33vh;
+    height: 40vh;
   }
   .product-name {
     width: 40vw;
