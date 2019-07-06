@@ -31,6 +31,7 @@ body {
   height: 100vh;
   display: flex;
   flex-direction: column;
+  overflow-y: hidden;
 }
 .display-none {
   display: none;
@@ -146,10 +147,17 @@ body {
 
 .header-login-wrapper {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: flex-end;
   height: 50%;
   width: 20%;
+}
+.header-login-wrapper-responsive {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 50%;
+  width: 50%;
 }
 .user-name-wrapper {
   display: flex;
@@ -160,10 +168,16 @@ body {
   margin-right: 10px;
   cursor: pointer;
 }
-.user-profile-icon {
+.user-profile-icon-wrapper {
+  height: 6vh;
+  width: 6vh;
   border-radius: 100%;
-  max-height: 100%;
-  max-width: 40%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+.user-profile-icon {
+  height: 100%;
 }
 .user-name-title {
   color: rgb(255, 61, 148);

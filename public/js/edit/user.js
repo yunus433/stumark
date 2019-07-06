@@ -82,7 +82,7 @@ window.onload = () => {
   const imageSpan = document.querySelector('.user-profile-image-span');
 
   userPhotoInput.onchange = (event) => {
-    imageSpan.innerHTML = "please wait...";
+    imageSpan.innerHTML = "Bitte kurz warten";
     const file = userPhotoInput.files[0];
     var formdata = new FormData();
     formdata.append('file', file);
@@ -94,7 +94,7 @@ window.onload = () => {
     xhr.onreadystatechange = function () {
       if (xhr.readyState == 4 && xhr.responseText) {
         if (xhr.status == 500) {
-          imageSpan.innerHTML = 'click to change'
+          imageSpan.innerHTML = 'Profilbild bearbeiten'
           alert("Entschuldigung, dass es ein Error gibt. Versuchen Sie es nochmal bitte!");
           userPhotoInput.value = ''
           if (!/safari/i.test(navigator.userAgent)){
@@ -102,7 +102,7 @@ window.onload = () => {
             userPhotoInput.type = 'file'
           }
         } else {
-          imageSpan.innerHTML = 'click to change'
+          imageSpan.innerHTML = 'Profilbild bearbeiten'
           userPhotoInput.value = ''
           if (!/safari/i.test(navigator.userAgent)){
             userPhotoInput.type = ''

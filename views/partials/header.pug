@@ -18,7 +18,8 @@ block content
           .user-name-wrapper
             span.user-name-title Willkommen
             span.user-name= user.name.split(" ")[0]
-          img.user-profile-icon(src=user.profilePhoto)
+          .user-profile-icon-wrapper
+            img.user-profile-icon(src=user.profilePhoto)
         else
           .login-link-wrapper
             a.login-link(href="/auth/login") Einloggen
@@ -34,12 +35,13 @@ block content
       .all-header-first-line
         a.all-header-logo-wrapper(href="/")
           img.all-header-logo(src="/res/images/logo.png")
-        .header-login-wrapper
+        .header-login-wrapper-responsive
           if user
             .user-name-wrapper
               span.user-name-title Willkommen
               span.user-name= user.name.split(" ")[0]
-            img.user-profile-icon(src=user.profilePhoto)
+            .user-profile-icon-wrapper
+              img.user-profile-icon(src=user.profilePhoto)
           else
             .login-link-wrapper
               a.login-link(href="/auth/login") Einloggen

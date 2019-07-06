@@ -29,6 +29,10 @@
   font-weight: 300;
   margin-bottom: 10px;
 }
+.required-form-part::after {
+  content: "*";
+  color: rgb(255, 61, 148);
+}
 .form-line {
   display: flex;
   align-items: center;
@@ -174,11 +178,16 @@
 }
 .address-input-small {
   flex: 1;
-  margin-right: 5px;
 }
 .address-input-big {
   flex: 2;
   margin-left: 5px;
+}
+.required-input-span {
+  color: rgb(255, 61, 148);
+  font-size: 55px;
+  align-self: flex-start;
+  height: 100%;
 }
 
 /* User agreement design */

@@ -2,7 +2,7 @@ extends ./../partials/header
 block main
   .content-all-wrapper
     form.new-product-form(method="POST" action="/sell/new") 
-      span.form-title Kategorie
+      span.form-title.required-form-part Kategorie
       .category-wrapper
         .each-category
           input(type="radio" name="category" value="rented" required) 
@@ -12,7 +12,7 @@ block main
           span Freizeit, Hobby
         .each-category
           input(type="radio" name="category" value="home" required) 
-          span Möbel, Haus 
+          span Möbel, Haus
         .each-category
           input(type="radio" name="category" value="fashion" required) 
           span Mode, Kleidung
@@ -34,10 +34,10 @@ block main
         .each-category
           input(type="radio" name="category" value="other" required) 
           span Sonstige
-      span.form-title Anzeigendetails
+      span.form-title.required-form-part Anzeigendetails
       input.product-name(type="text" name="name" placeholder="Titel" autocomplete="off")
       textarea.product-description(name="description" placeholder="Beschreibung")
-      span.form-title Preis
+      span.form-title.required-form-part Preis
       .price-wrapper
         .each-price-line
           input.price-radio-input#custom-price-input(type="radio" name="price" value="0.00€" required)
@@ -54,10 +54,12 @@ block main
             input.display-none#product-image-input(type="file" name="photo" accept="image/*")
       span.form-title Ort
       .form-line
-        input.address-input.address-input-small(type="text" name="address1" placeholder="PLZ" required)
-        input.address-input.address-input-big(type="text" name="address2" placeholder="Ort" required)
-      input.address-input(type="text" name="address3" placeholder="Straße/Nummer (freiwillige Eingabe)")
-      span.form-title Veröffentliche deine Anzeige
+        input.address-input.address-input-small(type="text" required name="address1" placeholder="PLZ" autocomplete="off")
+        span.required-input-span *
+        input.address-input.address-input-big(type="text" required name="address2" placeholder="Ort" autocomplete="off")
+        span.required-input-span *
+      input.address-input(type="text" name="address3" placeholder="Straße/Nummer (freiwillige Eingabe)" autocomplete="off")
+      span.form-title.required-form-part Veröffentliche deine Anzeige
       .user-agrement-link
         span Mit der Registrierung erklärst du dich einverstanden mit unseren 
         a(href="/auth/agreement/two") Nutzungsbedingungen
