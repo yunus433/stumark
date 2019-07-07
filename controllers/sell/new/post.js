@@ -18,11 +18,12 @@ function uploadToCloudinary(req, nameArray) {
 module.exports = (req, res, next) => {
   const productPhotoArray = [
   ];
-  req.body.productPhotoNameArray.split(",").forEach(photoName => {
-    productPhotoArray.push("http://res.cloudinary.com/dvnac86j8/image/upload/v1558412742/stumarkt/image_folder/" + photoName + ".jpg");
-  });
-  if (req.body.productPhotoNameArray.split(",").length > 0) {
+
+  if (req.body.productPhotoNameArray.split(",")[0]) {
     uploadToCloudinary(req, req.body.productPhotoNameArray.split(","));
+    req.body.productPhotoNameArray.split(",").forEach(photoName => {
+      if (photoName) productPhotoArray.push("http://res.cloudinary.com/dvnac86j8/image/upload/v1558412742/stumarkt/image_folder/" + photoName + ".jpg");
+    });
   } else {
     productPhotoArray.push("/res/images/notAvailablePhoto.jpg");
   }
@@ -33,7 +34,7 @@ module.exports = (req, res, next) => {
     description: req.body.description,
     price: req.body.price,
     productPhotoArray,
-    keywords: (req.body.description.replace('.', '').replace('!', '').replace('?', '').replace('-', ' ').toLowerCase() + " " + req.body.name.replace('.', '').replace('!', '').replace('?', '').replace('-', ' ').toLowerCase()).split(" "),
+    keywords: (req.body.description.replace(/\s+/g, '+').replace(/[^a-zA-Z0-9+]/g, "").toLowerCase() + "+" + req.body.name.replace(/\s+/g, '+').replace(/[^a-zA-Z0-9+]/g, "").toLowerCase()).split("+"),
     location: req.body.address1 + " " + req.body.address2 + " " + req.body.address3 || "",
     owner: req.session.user._id,
     documentIndex: -1
