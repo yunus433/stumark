@@ -21,7 +21,7 @@ const templates = {
       Liebe/r Nutzerin/Nutzer,
       <br />
       <br />
-      Mit diesem Link bestätigst du deine Registrierung: <a href='www.stumarkt.com/auth/verify/post/?id=${data.userId}'>www.stumarkt.com/auth/verify/post/?id=${data.userId}<a />
+      Mit diesem Link bestätigst du deine Registrierung: <a href='https://www.stumarkt.com/auth/verify/post/?id=${data.userId}'>www.stumarkt.com/auth/verify<a />
       <br />
       <br />
       Mit deiner E-Mail-Adresse und deinem Passwort kannst du dich jederzeit bei Stumarkt einloggen, um dein Anzeigen zu bearbeiten oder zu löschen. 
