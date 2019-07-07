@@ -7,8 +7,8 @@ const transporter = nodemailer.createTransport({
   port: 465,
   secure: true,
   auth: {
-    user: 'stumarktcom@gmail.com', 
-    pass: 'stumarkt123LOY321'
+    user: 'admin@stumarkt.com', 
+    pass: '14121998samsun'
   }
 });
 transporter.use('compile', htmlToText());
@@ -37,7 +37,7 @@ const templates = {
 
 module.exports = (data, template, callback) => {
   const mailOptions = {
-    from: "stumarktcom@gmail.com",
+    from: "admin@stumarkt.com",
     ...templates[template](data)
   };
   transporter.sendMail(mailOptions, callback);

@@ -133,6 +133,9 @@ window.onload = () => {
     }
   });
 
+  universityInput.onfocus = (event) => {
+    universityValueWrapper.style.display = 'flex';
+  };
   universityInput.oninput = (event) => {
     if (universityInput.value) {
       universityValueWrapper.innerHTML = "";
