@@ -15,7 +15,6 @@ router.get(
 );
 router.get(
   '/details',
-  isLoggedIn,
   detailsGetController
 );
 router.get(
