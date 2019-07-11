@@ -38,7 +38,7 @@
 }
 .each-product {
   height: 40vh;
-  width: 100%;
+  max-width: 100%;
   padding: 2%;
   background: white;
   display: flex;
