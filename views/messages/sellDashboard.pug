@@ -3,7 +3,7 @@ block main
   .messages-wrapper
     span.messages-header Users who send a message for this product (#{product.name})
     each message in messages
-      a.each-user(href="/sell/messages/details/?id=" + product._id + "&user=" + message[0].buyerId)
+      a.each-user(href="/messages/sell/?id=" + product._id + "&user=" + message[0].buyerId)
         if (message.filter((message) => { return !message.read }).length > 0) 
           .not-read-empty
             .not-read-message-icon
@@ -12,6 +12,6 @@ block main
           .not-read-empty
         img.each-user-profile(src=message[0].buyerProfile)
         span.each-user-name= message[0].buyerName
-    if messages.length <= 0
+    if Object.keys(messages) && Object.keys(messages).length == 0
       .no-product-warning
         span There is no user who send a message to this product

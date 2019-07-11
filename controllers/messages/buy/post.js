@@ -6,7 +6,6 @@ module.exports = (req, res, next) => {
     content: req.body.message,
     buyerId: req.session.user._id,
     buyerName: req.session.user.name,
-    buyerProfile: req.session.user.profilePhoto,
     sendedBy: "buyer",
     read: false,
     createdAt: moment(Date.now()).format("[at] HH[:]mm A [/] DD[.]MM[.]YYYY")

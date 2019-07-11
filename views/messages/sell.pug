@@ -21,7 +21,7 @@ block main
                 span.message-sender= buyer.name
                 span.message-time= message.createdAt
               span.message-content= message.content
-    form.message-send-wrapper(action="/sell/messages/?id=" + product._id + "&user=" + buyer._id method="POST")
+    form.message-send-wrapper(action="/messages/sell/?id=" + product._id + "&user=" + buyer._id method="POST")
       input.new-message-input(type="text" name="message" autofocus autocomplete="off" placeholder="Type your message")
       button.send-button
         img.send-button-image(src="/res/images/sendButton.png")

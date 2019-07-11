@@ -9,12 +9,13 @@ module.exports = (req, res, next) => {
       "_id": mongoose.Types.ObjectId(req.query.id),
       "owner": req.session.user._id.toString()
     }, (err, product) => {
-      if (err) return res.redirect("/buy");
+      if (err) return res.redirect("/messages/dashboard");
+      
+      let messages = [];
+      messages = _.groupBy(product.messages, message => { return message.buyerId });
 
-      const messages = _.groupBy(product.messages, message => { return message.buyerId });
-
-      return res.render("sell/messages", {
-        page: "sell/messages",
+      return res.render("messages/sellDashboard", {
+        page: "messages/sellDashboard",
         title: "Nachrichten",
         includes: {
           external: ["js" ,"css", "fontawesome"]
@@ -25,6 +26,6 @@ module.exports = (req, res, next) => {
       });
     });
   } else {
-    res.redirect("/sell");
+    res.redirect("/messages/dashboard");
   }
 };

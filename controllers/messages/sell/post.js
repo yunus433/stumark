@@ -23,7 +23,7 @@ module.exports = (req, res, next) => {
     }}, {upsert: true}, err => {
       if (err) return res.redirect('/');
       
-      res.redirect('/sell/messages/details/?id=' + req.query.id + "&user=" + req.query.user);
+      res.redirect('/messages/sell/?id=' + req.query.id + "&user=" + req.query.user);
     });
   });
 };

@@ -10,7 +10,7 @@ module.exports = (req, res, next) => {
       "_id": mongoose.Types.ObjectId(req.query.id),
       "owner": req.session.user._id.toString()
     }, (err, product) => {
-      if (err) return res.redirect("/sell/messagesDashboard");
+      if (err) return res.redirect("/messages/dashboard");
 
       const messages = product.messages.filter(message => {return message.buyerId == req.query.user});
       
@@ -28,14 +28,14 @@ module.exports = (req, res, next) => {
           }
         })
       }}, err => {
-        if (err) return res.redirect("/sell/messagesDashboard");
+        if (err) return res.redirect("/messages/dashboard");
 
         User.findById(mongoose.Types.ObjectId(req.query.user), (err, buyer) => {
-          if (err) return res.redirect("/sell/messagesDashboard");
+          if (err) return res.redirect("/messages/dashboard");
 
-          return res.render("sell/messageDetails", {
-            page: "sell/messageDetails",
-            title: "Your messages",
+          return res.render("messages/sell", {
+            page: "messages/sell",
+            title: "Nachrichten",
             includes: {
               external: ["js" ,"css", "fontawesome"]
             },
@@ -48,6 +48,6 @@ module.exports = (req, res, next) => {
       });
     });
   } else {
-    res.redirect("/sell");
+    res.redirect("/messages");
   }
 };

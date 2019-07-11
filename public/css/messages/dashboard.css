@@ -1,0 +1,132 @@
+.main-wrapper {
+  padding: 25px 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Message type wrapper and content design */
+.messages-main-header {
+  font-size: 62px;
+  color: rgb(112, 112, 112);
+  font-weight: 300;
+  margin-bottom: 10px;
+  width: 90%;
+}
+.chose-message-type-wrapper {
+  display: grid;
+  grid-gap: 15px;
+  width: 90%;
+  grid-template-columns: 1fr 1fr 1fr;
+  overflow: scroll;
+}
+.each-type-button {
+  background: white;
+  border: 2px solid rgba(255, 61, 148, 0.34);
+  color: rgb(255, 61, 148);
+  font-size: 25px;
+  font-weight: 700;
+  padding: 10px 0px;
+  width: 100%;
+  height: 8vh;
+  cursor: pointer;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Source Sans Pro";
+}
+.each-type-button:hover {
+  border-color: rgba(255, 61, 148, 0.5);
+}
+
+/* Back button design */
+.back-button-wrapper {
+  width: 90%;
+  height: 8vh;
+  display: none;
+}
+.back-button {
+  background: white;
+  border: 2px solid rgba(255, 61, 148, 0.34);
+  color: rgb(255, 61, 148);
+  font-size: 25px;
+  font-weight: 700;
+  height: 100%;
+  width: 15%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+  cursor: pointer;
+}
+.back-button i {
+  margin-right: 5px;
+}
+
+/* Buy product wrapper and content design */
+.chose-buy-product-wrapper {
+  display: none;
+  grid-gap: 15px;
+  width: 90%;
+  grid-template-columns: 1fr 1fr 1fr;
+  overflow: scroll;
+  margin-top: 20px;
+}
+.each-product {
+  height: 40vh;
+  width: 100%;
+  padding: 2%;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid rgb(236, 235, 235);
+  border-radius: 15px;
+  cursor: pointer;
+  text-decoration: none;
+}
+.each-product:hover {
+  border: 2px solid rgb(220, 220, 220);
+}
+.product-image {
+  max-height: 50%;
+  max-width: 100%;
+  border-radius: 15px;
+}
+.product-name {
+  font-size: 30px;
+  font-weight: 700;
+  color: rgb(112, 112, 112);
+  margin-top: 15px;
+  width: 15vw;
+  white-space: nowrap;
+  overflow: hidden;
+  word-wrap: break-word;
+  text-overflow: ellipsis;
+  margin-bottom: 10px;
+}
+.product-price {
+  color: rgb(255, 61, 148);
+  font-size: 36px;
+  font-weight: 700;
+}
+.product-location {
+  font-size: 19px;
+  font-weight: 300;
+  color: rgb(112, 112, 112);
+  display: flex;
+  align-items: center;
+}
+.product-location i {
+  margin-right: 5px;
+}
+
+/* Sell product wrapper and content design */
+.chose-sell-product-wrapper {
+  display: none;
+  grid-gap: 15px;
+  width: 90%;
+  grid-template-columns: 1fr 1fr 1fr;
+  overflow: scroll;
+  margin-top: 20px;
+}

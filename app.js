@@ -25,6 +25,7 @@ const indexRouteController = require("./routes/indexRoute");
 const authRouteController = require("./routes/authRoute");
 const buyRouteController = require("./routes/buyRoute");
 const sellRouteController = require("./routes/sellRoute");
+const messagesRouteController = require("./routes/messagesRoute");
 const editRouteController = require("./routes/editRoute");
 
 // config dotenv files
@@ -92,6 +93,7 @@ app.use("/", indexRouteController);
 app.use("/auth", authRouteController);
 app.use("/buy", buyRouteController);
 app.use("/sell", sellRouteController);
+app.use("/messages", messagesRouteController);
 app.use("/edit", editRouteController);
 
 // start server

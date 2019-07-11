@@ -1,0 +1,49 @@
+extends ./../partials/header
+block main
+  span.messages-main-header Nachrichten
+  .chose-message-type-wrapper
+    .buy-message-button.each-type-button
+      span Meine Einkäufe
+    .sell-message-button.each-type-button
+      span Meine Verkäufe
+  .back-button-wrapper
+    .back-button
+      i.fas.fa-arrow-left 
+      span Zurück
+  .chose-buy-product-wrapper
+    each product in buyProducts
+      if product.price == "SOLD"
+        .each-product
+          img.product-image(src=product.productPhotoArray[0])
+          span.product-name #{product.name}
+          .product-location
+            i.fas.fa-map-marker-alt
+            span= product.location
+          span.product-price VERKAUFT
+      else 
+        a.each-product(href="/messages/buy/?id=" + product._id)
+          img.product-image(src=product.productPhotoArray[0])
+          span.product-name #{product.name}
+          .product-location
+            i.fas.fa-map-marker-alt
+            span= product.location
+          span.product-price #{product.price}
+  .chose-sell-product-wrapper 
+    each product in sellProducts
+      if product.price == "SOLD"
+        .each-product
+          img.product-image(src=product.productPhotoArray[0])
+          span.product-name #{product.name}
+          .product-location
+            i.fas.fa-map-marker-alt
+            span= product.location
+          span.product-price VERKAUFT
+      else 
+        a.each-product(href="/messages/sell/dashboard/?id=" + product._id)
+          img.product-image(src=product.productPhotoArray[0])
+          span.product-name #{product.name}
+          .product-location
+            i.fas.fa-map-marker-alt
+            span= product.location
+          span.product-price #{product.price}
+  //- .chose-user-wrapper

@@ -1,12 +1,12 @@
 window.onload = () => {
   if ( !/iPad|iPadPro/i.test(navigator.userAgent) )
-    responsiveDesign(document);
+  responsiveDesign(document);
 
   const searchBar = document.querySelector('.search-bar-wrapper');
   searchBar.onsubmit = (event) => {
     event.preventDefault();
     window.location.href = '/buy/?page=0&category=all&limit=50&keywords=' + searchBar.childNodes[0].value;
-  };
+  }
 
   const userMenu = document.querySelector('.user-menu');
   const userMenuResponsive = document.querySelector('.user-menu-responsive');
@@ -40,4 +40,25 @@ window.onload = () => {
       if (userMenuResponsive) userMenuResponsive.style.display = 'none';
     }
   });
-};
+
+  document.addEventListener('click', (event) => {
+    if (event.target.classList.contains('buy-message-button') || event.target.parentNode.classList.contains('buy-message-button')) {
+      document.querySelector('.chose-buy-product-wrapper').style.display = 'grid';
+      document.querySelector('.chose-message-type-wrapper').style.display = 'none';
+      document.querySelector('.back-button-wrapper').style.display = 'block';
+    }
+
+    if (event.target.classList.contains('sell-message-button') || event.target.parentNode.classList.contains('sell-message-button')) {
+      document.querySelector('.chose-sell-product-wrapper').style.display = 'grid';
+      document.querySelector('.chose-message-type-wrapper').style.display = 'none';
+      document.querySelector('.back-button-wrapper').style.display = 'block';
+    }
+
+    if (event.target.classList.contains('back-button') || event.target.parentNode.classList.contains('back-button')) {
+      document.querySelector('.chose-buy-product-wrapper').style.display = 'none';
+      document.querySelector('.chose-sell-product-wrapper').style.display = 'none';
+      document.querySelector('.chose-message-type-wrapper').style.display = 'grid';
+      document.querySelector('.back-button-wrapper').style.display = 'none';
+    }
+  })
+}

@@ -6,7 +6,7 @@ const User = require('../../../models/user/User');
  module.exports = (req, res, next) => {
   if (req.query && req.query.id) {
     Product.findById(req.query.id, (err, product) => {
-      if (err) return res.redirect("/buy");
+      if (err) return res.redirect("/messages/dashboard");
 
       if (product.owner == req.session.user._id.toString()) return res.redirect('/sell/details/?id=' + req.query.id);
       
@@ -17,10 +17,10 @@ const User = require('../../../models/user/User');
       product.messages = {};
 
       User.findById(mongoose.Types.ObjectId(product.owner), (err, owner) => {
-        if (err) return res.redirect("/buy");
+        if (err) return res.redirect("/messages/dashboard");
 
-        res.render("buy/messages", {
-          page: "buy/messages",
+        res.render("messages/buy", {
+          page: "messages/buy",
           title: product.name,
           includes: {
             external: ["css", "js", "fontawesome"]
@@ -33,6 +33,6 @@ const User = require('../../../models/user/User');
       });
     });
   } else {
-    res.redirect("/buy");
+    res.redirect("/messages/dashboard");
   }
 };
