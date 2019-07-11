@@ -16,6 +16,6 @@ module.exports = (req, res, next) => {
   }}, {upsert: true}, err => {
     if (err) return res.redirect('/');
     
-    res.redirect('/buy/messages/?id=' + req.query.id)
+    res.redirect('/messages/buy/?id=' + req.query.id)
   });
 };

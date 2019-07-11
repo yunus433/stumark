@@ -22,7 +22,7 @@ block main
                 span.message-sender= owner.name
                 span.message-time= message.createdAt
               span.message-content= message.content
-    form.message-send-wrapper(action="/buy/messages/?id=" + product._id method="POST")
+    form.message-send-wrapper(action="/messages/buy/?id=" + product._id method="POST")
       input.new-message-input(type="text" name="message" autofocus autocomplete="off" placeholder="Type your message")
       button.send-button
         img.send-button-image(src="/res/images/sendButton.png")
