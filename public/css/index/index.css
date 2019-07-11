@@ -38,7 +38,7 @@
 }
 .each-product {
   height: 40vh;
-  max-width: 100%;
+  width: 100%;
   padding: 2%;
   background: white;
   display: flex;
@@ -55,6 +55,7 @@
   max-height: 50%;
   max-width: 100%;
   border-radius: 15px;
+  align-self: center;
 }
 .product-name {
   font-size: 30px;
