@@ -59,7 +59,6 @@
 }
 .each-product {
   height: 40vh;
-  width: 100%;
   padding: 2%;
   background: white;
   display: flex;
@@ -72,11 +71,21 @@
 .each-product:hover {
   border: 2px solid rgb(220, 220, 220);
 }
-.product-image {
-  max-height: 50%;
-  max-width: 100%;
-  border-radius: 15px;
+.each-product-image-wrapper {
+  height: 20vh;
+  width: 22vw;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
   align-self: center;
+  background: rgb(245, 245, 245);
+  border-radius: 15px;
+}
+.each-product-image-inner-wrapper {
+  display: flex;
+}
+.product-image {
+  width: 100%;
 }
 .product-name {
   font-size: 30px;
@@ -110,7 +119,7 @@
   .each-product {
     height: 35vh;
   }
-  .product-name {
+  .product-name, .each-product-image-wrapper {
     width: 27vw;
   }
   .products-wrapper {
@@ -122,7 +131,7 @@
   .each-product {
     height: 40vh;
   }
-  .product-name {
+  .product-name, .each-product-image-wrapper {
     width: 40vw;
   }
   .products-wrapper {

@@ -12,6 +12,7 @@ window.onload = () => {
     "Carl von Ossietzky Universität Oldenburg",
     "Charité - Universitätsmedizin Berlin",
     "Christian-Albrechts-Universität zu Kiel",
+    "CODE University of Applied Sciences",
     "Deutsche Sporthochschule Köln",
     "Deutsche Universität für Verwaltungswissenschaften Speyer",
     "Dresden International University",

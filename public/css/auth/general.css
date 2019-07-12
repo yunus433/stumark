@@ -224,6 +224,13 @@
     overflow: scroll;
     -webkit-overflow-scrolling: touch;
   }
+  .verify-main-wrapper {
+    width: 95%;
+    height: auto;
+  }
+  .send-new-verify-email  {
+    width: 90%;
+  }
   .user-agrement-link {
     margin-bottom: 15px;
   }

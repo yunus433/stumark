@@ -18,7 +18,7 @@ const templates = {
     to: data.email,
     subject: 'Stumarkt.com: Bestätigung deiner Registrierung',
     html: `
-      Liebe/r Nutzerin/Nutzer,
+      Liebe/r Nutzer/in,
       <br />
       <br />
       Mit diesem Link bestätigst du deine Registrierung: <a href='https://www.stumarkt.com/auth/verify/post/?id=${data.userId}'>www.stumarkt.com/auth/verify<a />
@@ -30,7 +30,7 @@ const templates = {
       Solltest du die Registrierung nicht beauftragt haben, so ignoriere diese E-Mail bitte. Die Registrierung wird dann nicht bestätigt und die E-Mail-Adresse später automatisch bei uns gelöscht.
       <br />
       <br />
-      Deine Stumarkt-Team
+      Dein Stumarkt-Team
     `
   })
 };

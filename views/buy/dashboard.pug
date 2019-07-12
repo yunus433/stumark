@@ -35,15 +35,29 @@ block main
     each product in products
       if product.price == "SOLD"
         .each-product(href="/sell/details/?id=" + product._id)
-          img.product-image(src=product.productPhotoArray[0])
+          .each-product-image-wrapper
+            .each-product-image-inner-wrapper
+              img.product-image(src=product.productPhotoArray[0])
           span.product-name #{product.name}
           .product-location
             i.fas.fa-map-marker-alt
             span= product.location
           span.product-price VERKAUFT
-      else if user && product.owner == user._id.toString()
+      else if (user && product.owner == user._id.toString())
         a.each-product(href="/sell/details/?id=" + product._id)
-          img.product-image(src=product.productPhotoArray[0])
+          .each-product-image-wrapper
+            .each-product-image-inner-wrapper
+              img.product-image(src=product.productPhotoArray[0])
+          span.product-name #{product.name}
+          .product-location
+            i.fas.fa-map-marker-alt
+            span= product.location
+          span.product-price #{product.price}
+      else if (user && product.messages.filter(message => { if (message.senderId == user._id) return message; }).length > 0)
+        a.each-product(href="/buy/messages/?id=" + product._id)
+          .each-product-image-wrapper
+            .each-product-image-inner-wrapper
+              img.product-image(src=product.productPhotoArray[0])
           span.product-name #{product.name}
           .product-location
             i.fas.fa-map-marker-alt
@@ -51,7 +65,9 @@ block main
           span.product-price #{product.price}
       else 
         a.each-product(href="/buy/details/?id=" + product._id)
-          img.product-image(src=product.productPhotoArray[0])
+          .each-product-image-wrapper
+            .each-product-image-inner-wrapper
+              img.product-image(src=product.productPhotoArray[0])
           span.product-name #{product.name}
           .product-location
             i.fas.fa-map-marker-alt
