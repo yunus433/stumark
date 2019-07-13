@@ -56,15 +56,17 @@
   overflow: hidden;
   display: flex;
   align-items: center;
+  justify-content: center;
   align-self: center;
   background: rgb(245, 245, 245);
   border-radius: 15px;
 }
 .each-product-image-inner-wrapper {
-  display: flex;
+  width: 100%;
 }
 .product-image {
   width: 100%;
+  min-height: 100%;
 }
 .product-name {
   font-size: 30px;

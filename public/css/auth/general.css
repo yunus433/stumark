@@ -134,6 +134,10 @@
   color: rgb(255, 61, 148);
   font-size: 25px;
 }
+.each-notification-line {
+  color: green;
+  font-size: 25px;
+}
 .form-bottom-info {
   display: flex;
   flex-direction: column;
