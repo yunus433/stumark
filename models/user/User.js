@@ -34,12 +34,9 @@ const UserSchema = new Schema({
     type: String,
     default: "/res/images/defaultUserPicture.png"
   },
-  phone: {
-    type: String
-  },
-  completed: {
-    type: Boolean,
-    default: false
+  passwordReset: {
+    type: String,
+    default: "no request"
   }
 });
 
@@ -54,8 +51,9 @@ UserSchema.statics.findUser = function (email, password, callback) {
     }
 
     verifyPassword(password, user.password, (res) => {
-      if (!res) return callback(null, user);
-       
+      console.log(res);
+      if (res) return callback(null, user);
+      
       return callback(true);
     });
   });

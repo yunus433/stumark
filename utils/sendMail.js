@@ -21,13 +21,29 @@ const templates = {
       Liebe/r Nutzer/in,
       <br />
       <br />
-      Mit diesem Link bestätigst du deine Registrierung: <a href='https://www.stumarkt.com/auth/verify/post/?id=${data.userId}'>www.stumarkt.com/auth/verify<a />
+      Mit diesem Link bestätigst du deine Registrierung: <a href='https://www.stumarkt.com/auth/verify/post/?id=${data.userId}'>https://www.stumarkt.com/auth/verify<a />
       <br />
       <br />
       Mit deiner E-Mail-Adresse und deinem Passwort kannst du dich jederzeit bei Stumarkt einloggen, um dein Anzeigen zu bearbeiten oder zu löschen. 
       <br />
       <br />
       Solltest du die Registrierung nicht beauftragt haben, so ignoriere diese E-Mail bitte. Die Registrierung wird dann nicht bestätigt und die E-Mail-Adresse später automatisch bei uns gelöscht.
+      <br />
+      <br />
+      Dein Stumarkt-Team
+    `
+  }),
+  passwordReset: (data) => ({
+    to: data.email,
+    subject: 'Stumarkt.com: Password Reset',
+    html: `
+      Liebe/r Nutzer/in,
+      You made a request to reset your password. 
+      <br />
+      If you want to continue and create a new password please click the link: <a href='https://www.stumarkt.com/auth/reset/post/?id=${data.userId}&keyword=${data.passwordKeyword}'>https://www.stumarkt.com/auth/reset<a />
+      <br />
+      <br />
+      If you didn't make this request, please ignore this email. For additional information, please contact with out customer service.
       <br />
       <br />
       Dein Stumarkt-Team
