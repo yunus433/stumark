@@ -15,7 +15,7 @@ module.exports = socket => {
     }}, {upsert: true}, err => {
       if (err) return callback(err);
       
-      socket.emit('newMessage', {
+      socket.to(params.id).emit('newMessage', {
         message: params.message
       });
     });
