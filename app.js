@@ -1,19 +1,23 @@
 // require external npm files
-const express = require("express");
-const enforce = require("express-sslify");
-const http = require("http");
-const path = require("path");
-const dotenv = require("dotenv");
-const favicon = require("serve-favicon");
-const helmet = require("helmet");
-const mongoose = require("mongoose");
-const bodyParser = require("body-parser");
-const expressSession = require("express-session");
-const cloudinary = require("cloudinary");
+const express = require('express');
+const enforce = require('express-sslify');
+const http = require('http');
+const path = require('path');
+const dotenv = require('dotenv');
+const favicon = require('serve-favicon');
+const helmet = require('helmet');
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
+const expressSession = require('express-session');
+const cloudinary = require('cloudinary');
+const socketIO = require('socket.io');
+
+const sockets = require('./sockets/sockets');
 
 // create server
 const app = express();
 const server = http.createServer(app);
+const io = socketIO(server);
 
 // define local variables
 const PORT = process.env.PORT || 3000;
@@ -21,12 +25,12 @@ const mongoUri =
   process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/sellingplatform";
 
 // require local route controllers
-const indexRouteController = require("./routes/indexRoute");
-const authRouteController = require("./routes/authRoute");
-const buyRouteController = require("./routes/buyRoute");
-const sellRouteController = require("./routes/sellRoute");
-const messagesRouteController = require("./routes/messagesRoute");
-const editRouteController = require("./routes/editRoute");
+const indexRouteController = require('./routes/indexRoute');
+const authRouteController = require('./routes/authRoute');
+const buyRouteController = require('./routes/buyRoute');
+const sellRouteController = require('./routes/sellRoute');
+const messagesRouteController = require('./routes/messagesRoute');
+const editRouteController = require('./routes/editRoute');
 
 // config dotenv files
 dotenv.config({ path: path.join(__dirname, ".env") });
@@ -81,6 +85,7 @@ app.use(session);
 
 // add request object for controllers
 app.use((req, res, next) => {
+  req.io = io;
   req.cloudinary = cloudinary;
   next();
 });
@@ -95,6 +100,11 @@ app.use("/buy", buyRouteController);
 app.use("/sell", sellRouteController);
 app.use("/messages", messagesRouteController);
 app.use("/edit", editRouteController);
+
+// listen for socket.io connection
+io.on('connection', (socket) => {
+  sockets(socket);
+});
 
 // start server
 server.listen(PORT, () => {

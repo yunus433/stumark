@@ -11,6 +11,8 @@ html(lang="tr")
             crossorigin="anonymous")
       if includes.external.indexOf('js') > -1 
         script(src=`/js/${page}.js`)
+      if includes.external.indexOf('socket.io') > -1 
+        script(src=`/socket.io/socket.io.js`)
       if includes.external.indexOf('css') > -1 
         link(rel="stylesheet", href=`/css/${page}.css`)
       if includes.external.indexOf('auth_css') > -1 

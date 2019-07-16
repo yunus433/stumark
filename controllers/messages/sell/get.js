@@ -37,7 +37,7 @@ module.exports = (req, res, next) => {
             page: "messages/sell",
             title: "Nachrichten",
             includes: {
-              external: ["js" ,"css", "fontawesome"]
+              external: ["js" ,"css", "fontawesome", "socket.io"]
             },
             product,
             messages,

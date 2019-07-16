@@ -23,7 +23,7 @@ const User = require('../../../models/user/User');
           page: "messages/buy",
           title: product.name,
           includes: {
-            external: ["css", "js", "fontawesome"]
+            external: ["css", "js", "fontawesome", "socket.io"]
           },
           product,
           messages,
