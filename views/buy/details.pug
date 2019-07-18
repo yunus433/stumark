@@ -23,7 +23,7 @@ block main
             span= product.location
         span.main-product-description= product.description
         span.main-product-price= product.price
-    form.send-message-wrapper(action="/buy/messages/?id=" + product._id method="post")
+    form.send-message-wrapper(action="/messages/buy/?id=" + product._id method="post")
       span.send-message-title Nachricht schreiben
       textarea.message-input(name="message" placeholder="Nachricht")
       button.send-message-button Nachricht Senden

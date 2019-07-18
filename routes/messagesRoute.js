@@ -9,7 +9,6 @@ const sellGetController = require('../controllers/messages/sell/get');
 const sellDashboardGetController = require('../controllers/messages/sell/dashboard');
 
 const buyPostController = require('../controllers/messages/buy/post');
-const sellPostController = require('../controllers/messages/sell/post');
 
 router.get(
   '/dashboard',
@@ -36,11 +35,6 @@ router.post(
   '/buy',
   isLoggedIn,
   buyPostController
-);
-router.post(
-  '/sell',
-  isLoggedIn,
-  sellPostController
 );
 
 module.exports = router;
