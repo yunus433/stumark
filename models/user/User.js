@@ -37,6 +37,10 @@ const UserSchema = new Schema({
   passwordReset: {
     type: String,
     default: "no request"
+  },
+  notReadMessage: {
+    type: Number,
+    default: 0
   }
 });
 

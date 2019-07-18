@@ -171,16 +171,22 @@ window.onload = () => {
         socket.emit('newMessageSend', {
           message: newMessageObject,
           id: productId
-        }, err => {
+        }, (err, message) => {
           if (err) return alert('Something went wrong, please try again');
+
+          createNewMessage(message, userObject, sellerObject);
+          messagesBlock.scrollTop = messagesBlock.scrollHeight;
+          newMessageInput.value = "";
         });
       }
     };
 
     socket.on('newMessage', params => {
-      createNewMessage(params.message, userObject, sellerObject);
-      messagesBlock.scrollTop = messagesBlock.scrollHeight;
-      newMessageInput.value = "";
+      if (params.message.sendedBy == "owner") {
+        createNewMessage(params.message, userObject, sellerObject);
+        messagesBlock.scrollTop = messagesBlock.scrollHeight;
+        newMessageInput.value = "";
+      }
     });
   });
 };

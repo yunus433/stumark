@@ -38,9 +38,8 @@ const templates = {
     subject: 'Stumarkt.com: Password Reset',
     html: `
       Liebe/r Nutzer/in,
-      You made a request to reset your password. 
       <br />
-      If you want to continue and create a new password please click the link: <a href='https://www.stumarkt.com/auth/reset/post/?id=${data.userId}&keyword=${data.passwordKeyword}'>https://www.stumarkt.com/auth/reset<a />
+      Um ihr Passwort aktualisieren zu können, bitte klicken Sie auf diesen Link: <a href='https://www.stumarkt.com/auth/reset/post/?id=${data.userId}&keyword=${data.passwordKeyword}'>https://www.stumarkt.com/auth/reset<a />
       <br />
       <br />
       If you didn't make this request, please ignore this email. For additional information, please contact with out customer service.

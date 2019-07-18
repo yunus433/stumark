@@ -103,7 +103,7 @@ app.use("/edit", editRouteController);
 
 // listen for socket.io connection
 io.on('connection', (socket) => {
-  sockets(socket);
+  sockets(socket, io);
 });
 
 // start server

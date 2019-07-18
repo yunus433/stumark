@@ -59,6 +59,16 @@ body {
   max-height: 100%;
   max-width: 100%;
 }
+.not-read-message-icon-wrapper {
+  height: 100%;
+}
+.not-read-message-icon-general {
+  width: 1vw;
+  height: 1vw;
+  transform: translateX(-100%);
+  background: rgb(255, 61, 148);
+  border-radius: 100%;
+}
 
 /* All header responsive design*/
 .all-header-responsive {
@@ -261,6 +271,17 @@ body {
   color: rgb(112, 112, 112);
   font-weight: 700;
 }
+.user-menu-each-not-read {
+  padding: 15px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 2px solid rgb(236, 235, 235);
+  font-size: 25px;
+  text-decoration: none;
+  color: rgb(255, 61, 148);
+  font-weight: 700;
+}
 .user-menu-each-last {
   padding: 15px 0px;
   display: flex;
@@ -273,7 +294,8 @@ body {
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
 }
-.user-menu-each:hover, 
+.user-menu-each:hover,
+.user-menu-each-not-read:hover, 
 .user-menu-each-last:hover {
   background: rgb(248, 248, 248);
 }

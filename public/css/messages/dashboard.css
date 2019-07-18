@@ -77,6 +77,7 @@
   height: 40vh;
   width: 100%;
   padding: 2%;
+  padding-top: 0px;
   background: white;
   display: flex;
   flex-direction: column;
@@ -129,4 +130,52 @@
   grid-template-columns: 1fr 1fr 1fr;
   overflow: scroll;
   margin-top: 20px;
+}
+.not-read-message-icon {
+  width: 2vw;
+  height: 2vw;
+  border-radius: 100%;
+  background: rgb(255, 61, 148);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 700;
+  font-size: 20px;
+  white-space: nowrap;
+  z-index: 2;
+  transform: translateX(50%);
+}
+.not-read-empty {
+  display: flex;
+  justify-content: flex-end;
+  height: 2vw;
+}
+
+@media only screen and (max-width: 900px) and (min-width: 600px) {
+  .not-read-message-icon {
+    width: 5vw;
+    height: 5vw;
+    font-size: 23px;
+  }
+}
+
+@media only screen and (max-width: 600px) and (min-width: 300px) {
+  .not-read-message-icon {
+    width: 7vw;
+    height: 7vw;
+    font-size: 30px;
+  }
+}
+
+@media only screen and (orientation: portrait) {
+  .each-user {
+    width: 95%;
+  }
+  .each-user-name {
+    width: 50vw;
+  }
+  .not-read-message-icon {
+    transform: translate(-50%, -50%);
+  }
 }
