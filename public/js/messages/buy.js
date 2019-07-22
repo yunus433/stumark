@@ -121,7 +121,7 @@ window.onload = () => {
     }
   });
 
-  const messagesBlock = document.querySelector('.messages-content');
+  const messagesBlock = document.querySelector('.messages-left-side');
   messagesBlock.scrollTop = messagesBlock.scrollHeight;
 
   document.addEventListener('click', (event) => {

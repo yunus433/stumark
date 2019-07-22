@@ -1,15 +1,15 @@
 extends ./../partials/header
 block main
-  span.messages-main-header Nachrichten
+  span.messages-main-header #{__('Nachrichten')}
   .chose-message-type-wrapper
     .buy-message-button.each-type-button
-      span Meine Einkäufe
+      span #{__('Meine Einkäufe')}
     .sell-message-button.each-type-button
-      span Meine Verkäufe
+      span #{__('Meine Verkäufe')}
   .back-button-wrapper
     .back-button
       i.fas.fa-arrow-left 
-      span Zurück
+      span #{__('Zurück')}
   .chose-buy-product-wrapper
     each product in buyProducts
       if product.price == "SOLD"
@@ -19,7 +19,7 @@ block main
           .product-location
             i.fas.fa-map-marker-alt
             span= product.location
-          span.product-price VERKAUFT
+          span.product-price #{__('VERKAUFT')}
       else 
         a.each-product(href="/messages/buy/?id=" + product._id)
           if (product.messages.filter((message) => { return !message.read }).length > 0) 
@@ -43,7 +43,7 @@ block main
           .product-location
             i.fas.fa-map-marker-alt
             span= product.location
-          span.product-price VERKAUFT
+          span.product-price #{__('VERKAUFT')}
       else 
         a.each-product(href="/messages/sell/dashboard/?id=" + product._id)
           if (product.messages.filter((message) => { return !message.read }).length > 0) 
@@ -58,4 +58,3 @@ block main
             i.fas.fa-map-marker-alt
             span= product.location
           span.product-price #{product.price}
-  //- .chose-user-wrapper

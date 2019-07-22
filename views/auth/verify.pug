@@ -1,7 +1,7 @@
 extends ./../partials/head
 block content
   .verify-main-wrapper
-    span.verify-text Wir haben dir eine Bestätigungsmail geschickt! Bitte bestätige diese um deine Registration abzuschließen. Falls du keine Mail bekommen haben solltest, klicke den unteren link.
+    span.verify-text #{__('Wir haben dir eine Bestätigungsmail geschickt! Bitte bestätige diese um deine Registration abzuschließen. Falls du keine Mail bekommen haben solltest, klicke den unteren link.')}
     form(action="/auth/verify/new/?id=" + user._id method="POST")
-      button.send-new-verify-email Schick eine neue E-mail!
-    a.verify-go-back-link(href="/auth/login") Zurück
+      button.send-new-verify-email #{__('Schick eine neue E-mail!')}
+    a.verify-go-back-link(href="/auth/login") #{__('Zurück')}

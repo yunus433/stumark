@@ -12,6 +12,8 @@
   height: 100%;
   border-bottom: 1px solid rgb(219, 219, 219);
   border-left: 1px solid rgb(219, 219, 219);
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
 }
 .reopen-right-side-button {
   position: absolute;
@@ -33,29 +35,13 @@
   color: rgb(112, 112, 112);
 }
 /* Left side header design */
-.messages-header {
-  height: 10%;
-  background: rgb(254, 254, 254);
-  border-bottom: 1px solid rgb(219, 219, 219);
-  display: flex;
-  align-items: center;
-  padding-left: 25px;
-  font-size: 20px;
-  color: rgb(112, 112, 112);
-  font-weight: 300;
-}
-.messages-header strong {
-  margin: 0px 5px;
-  font-weight: 600;
-}
 /* Message wrapper and each message design */
 .messages-content {
-  height: 80%;
+  height: auto;
   display: flex;
   flex-direction: column;
-  overflow: scroll;
-  -webkit-overflow-scrolling: touch;
   padding: 25px;
+  padding-bottom: 50px;
 }
 .each-message {
   width: 90%;
@@ -79,16 +65,14 @@
   margin-right: 25px;
 }
 .message-header {
-  display: flex;
-  align-items: flex-end;
-  margin-bottom: 25px;
-} 
+  margin-bottom: 15px;
+}
 .message-header-buyer {
   display: flex;
   align-items: flex-end;
   justify-content: flex-end;
   width: 100%;
-  margin-bottom: 25px;
+  margin-bottom: 15px;
 }
 .message-time {
   font-size: 25px;
@@ -124,6 +108,9 @@
   display: flex;
   align-items: center;
   background: white;
+  position: fixed;
+  width: 100%;
+  bottom: 0px;
 }
 .new-message-input {
   border: none;
@@ -295,3 +282,8 @@
   }
 } 
 */
+@media only screen and (orientation: portrait) {
+  .each-message {
+    width: 95%;
+  }
+}

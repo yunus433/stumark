@@ -158,6 +158,20 @@
     height: 5vw;
     font-size: 23px;
   }
+  .each-product {
+    height: 35vh;
+  }
+  .product-name, .each-product-image-wrapper {
+    width: 27vw;
+  }
+  .chose-message-type-wrapper,
+  .chose-buy-product-wrapper,
+  .chose-sell-product-wrapper {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .back-button {
+   width: 25%;
+  }
 }
 
 @media only screen and (max-width: 600px) and (min-width: 300px) {
@@ -166,6 +180,20 @@
     height: 7vw;
     font-size: 30px;
   }
+  .each-product {
+    height: 40vh;
+  }
+  .product-name, .each-product-image-wrapper {
+    width: 40vw;
+  }
+  .chose-message-type-wrapper,
+  .chose-buy-product-wrapper,
+  .chose-sell-product-wrapper {
+    grid-template-columns: 1fr 1fr;
+  }
+  .back-button {
+    width: 35%;
+   }
 }
 
 @media only screen and (orientation: portrait) {

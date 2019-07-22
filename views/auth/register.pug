@@ -3,7 +3,7 @@ block content
   .form-main-wrapper
     form.form-wrapper(action="/auth/register" method="post")
       .form-header
-        span.form-header-title Registrieren
+        span.form-header-title #{__('Registrieren')}
       .form-line
         i.fas.fa-user
         input.form-input(type="text" autocomplete="off" autofocus required placeholder="Name" name="name")
@@ -138,18 +138,18 @@ block content
         i.fas.fa-key
         input.form-input#password-input-two(type="password" autocomplete="off" autofocus required placeholder="Passwort wiederholen" name="password2")
       .user-agrement-link
-        span Mit der Registrierung erklärst du dich einverstanden mit unseren 
-        a(href="/auth/agreement/two") Nutzungsbedingungen
-        span  und unserer 
-        a(href="/auth/agreement/one") Datenschutzerklärung
-      button.form-send-button Registrieren
+        span #{__('Mit der Registrierung erklärst du dich einverstanden mit unseren')}
+        a(href="/auth/agreement/two") #{__('Nutzungsbedingungen')}
+        span  #{__('und unserer')}
+        a(href="/auth/agreement/one") #{__('Datenschutzerklärung')}
+      button.form-send-button #{__('Registrieren')}
       .error-line
         if err && err == "already taken email"
-          span.each-error-line Diese E-mail ist bereits registriert
+          span.each-error-line #{__('Diese E-mail ist bereits registriert')}
         else if err && err == "not valid email"
-          span.each-error-line Diese E-mail ist nicht verfügbar
+          span.each-error-line #{__('Diese E-mail ist nicht verfügbar')}
         else 
           span.each-error-line
     .form-bottom-info
-      span Schon registriert?
-      a.bottom-link(href="/auth/login") Einloggen
+      span #{__('Schon registriert')}?
+      a.bottom-link(href="/auth/login") #{__('Einloggen')}

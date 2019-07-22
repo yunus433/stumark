@@ -1,7 +1,7 @@
 extends ./../partials/header
 block main
   .messages-wrapper
-    span.messages-header Mitteilungen für das Produkt (#{product.name})
+    span.messages-header #{__('Mitteilungen für das Produkt')} (#{product.name})
     each message in messages
       a.each-user(href="/messages/sell/?id=" + product._id + "&user=" + message[0].buyerId)
         if (message.filter((message) => { return !message.read }).length > 0) 
@@ -14,4 +14,4 @@ block main
         span.each-user-name= message[0].buyerName
     if Object.keys(messages) && Object.keys(messages).length == 0
       .no-product-warning
-        span Es gibt keine Nachricht.
+        span #{__('Es gibt keine Nachricht.')}

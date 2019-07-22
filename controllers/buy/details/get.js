@@ -31,7 +31,7 @@ module.exports = (req, res, next) => {
                     if (message.buyerId == req.session.user._id) return message;
                   }).length > 0
                 )
-                  res.redirect("/buy/messages/?id=" + product._id);
+                  res.redirect("/messages/buy/?id=" + product._id);
                 else
                   res.render("buy/details", {
                     page: "buy/details",

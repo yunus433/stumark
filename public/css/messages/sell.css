@@ -12,6 +12,8 @@
   height: 100%;
   border-bottom: 1px solid rgb(219, 219, 219);
   border-left: 1px solid rgb(219, 219, 219);
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
 }
 .reopen-right-side-button {
   position: absolute;
@@ -47,11 +49,9 @@
 }
 /* Message wrapper and each message design */
 .messages-content {
-  height: 90%;
+  height: auto;
   display: flex;
   flex-direction: column;
-  overflow: scroll;
-  -webkit-overflow-scrolling: touch;
   padding: 25px;
 }
 .each-message {
@@ -78,14 +78,14 @@
 .message-header {
   display: flex;
   align-items: flex-end;
-  margin-bottom: 25px;
+  margin-bottom: 15px;
 } 
 .message-header-buyer {
   display: flex;
   align-items: flex-end;
   justify-content: flex-end;
   width: 100%;
-  margin-bottom: 25px;
+  margin-bottom: 15px;
 }
 .message-time {
   font-size: 25px;
@@ -121,6 +121,9 @@
   display: flex;
   align-items: center;
   background: white;
+  position: fixed;
+  width: 100%;
+  bottom: 0px;
 }
 .new-message-input {
   border: none;
@@ -145,4 +148,10 @@
 .send-button img {
   max-height: 80%;
   max-width: 80%;
+}
+
+@media only screen and (orientation: portrait) {
+  .each-message {
+    width: 95%;
+  }
 }

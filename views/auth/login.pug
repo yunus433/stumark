@@ -5,18 +5,18 @@ block content
       img.login-logo(src="/res/images/logo.png")
     form.form-wrapper(action="/auth/login" method="post")
       .form-header
-        span.form-header-title Einloggen
+        span.form-header-title #{__('Einloggen')}
         a.lost-password-link(href="/auth/reset") 
-          span Passwort 
-          span vergessen?
+          span #{__('Passwort')} 
+          span #{__('vergessen')}?
       .form-line
         i.fas.fa-envelope
         input.form-input(type="email" autocomplete="off" autofocus required placeholder="Email" name="email")
       .form-line
         i.fas.fa-key
         input.form-input(type="password" autocomplete="off" autofocus required placeholder="Passwort" name="password")
-      button.form-send-button Einloggen
+      button.form-send-button #{__('Einloggen')}
       .error-line
     .form-bottom-info
-      span Noch nicht registriert?
-      a.bottom-link(href="/auth/register") In 30 Sekunden registrieren
+      span #{__('Noch nicht registriert?')}
+      a.bottom-link(href="/auth/register") #{__('In 30 Sekunden registrieren')}

@@ -2,28 +2,28 @@ extends ./../partials/header
 block main
   form.form-wrapper(action="/edit/user" method="post")
     .form-content
-      .form-title Einstellungen
+      .form-title #{__('Einstellungen')}
       label.profile-photo-wrapper
         img.user-profile-image(src=user.profilePhoto)
-        span.user-profile-image-span Profilbild bearbeiten
+        span.user-profile-image-span #{__('Profilbild bearbeiten')}
         input.display-none#user-image-input(type="file" name="photo" accept="image/*")
       input.form-input#name-input(type="text" autocomplete="off" autofocus required placeholder="Name" name="name" value=user.name)
       span.error-line
     .form-line
       .change-password-button
         i.fas.fa-key
-        span Passwort
+        span #{__('Passwort')}
       .send-form-button
-        span Ok
+        span #{__('Ok')}
   form.password-form-wrapper(action="/edit/user/password" method="post")  
     .form-content
-      .form-title Einstellungen Passwort
+      .form-title #{__('Einstellungen Passwort')}
       input.form-input#old-password-input(type="password" name="oldPassword" autofocus placeholder="Altes Passwort")
       input.form-input#new-password-input(type="password" name="password" autofocus placeholder="Neues Passwort (min. 6-stelling)")
       input.form-input#new-password-two(type="password" name="password2" autofocus placeholder="Neues Passwort wiederholen")
       span.password-error-line
     .form-line
       .back-password-button
-        span Zurück
+        span #{__('Zurück')}
       .send-form-button-password
-        span Ok
+        span #{__('Ok')}

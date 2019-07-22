@@ -4,9 +4,9 @@ block content
     .form-main-wrapper
       form.form-wrapper#password-reset-form(action="/auth/reset" method="post")
         .form-header
-          span.form-header-title Passwort Zurücksetzen
+          span.form-header-title #{__('Passwort Zurücksetzen')}
         .user-agrement-link
-          span Bestätige dein neues Passwort
+          span #{__('Bestätige dein neues Passwort')}
         input.display-none(type="text" name="keyword" value=user.keyword)
         input.display-none(type="text" name="email" value=user.email)
         .form-line
@@ -15,26 +15,26 @@ block content
         .form-line
           i.fas.fa-key
           input.form-input#password-two(type="password" autocomplete="off" autofocus required placeholder="Passwort wiederholen" name="password2")
-        button.form-send-button Zurücksetzen
+        button.form-send-button #{__('Zurücksetzen')}
         .error-line
           span.each-error-line
   else
     .form-main-wrapper
       form.form-wrapper#email-send-form(action="/auth/reset/send" method="post")
         .form-header
-          span.form-header-title Passwort Zurücksetzen
+          span.form-header-title #{__('Passwort Zurücksetzen')}
         .user-agrement-link
-          span Bitte E-Mail angeben, um ein neues Passwort anfordern zu können. Du wirst eine E-Mail erhalten ,um den Vorgang abschließen zu können
+          span #{__('Bitte E-Mail angeben, um ein neues Passwort anfordern zu können. Du wirst eine E-Mail erhalten ,um den Vorgang abschließen zu können')}
         .form-line
           i.fas.fa-envelope
           input.form-input#email-input(type="text" autocomplete="off" autofocus required placeholder="Email" name="email")
-        button.form-send-button E-mail senden
+        button.form-send-button #{__('E-mail senden')}
         .error-line
           if err && err == "not exist email"
-            span.each-error-line Sorry, this email doesn't exist
+            span.each-error-line #{__("Sorry, this email doesn't exist")}
           else if err && err == "not valid email"
-            span.each-error-line Diese E-mail ist nicht verfügbar
+            span.each-error-line #{__('Diese E-mail ist nicht verfügbar')}
           else if err && err == "cannot reset"
-            span.each-error-line Leider ist etwas schief gelaufen, bitte versuch es erneut
+            span.each-error-line #{__('Leider ist etwas schief gelaufen, bitte versuch es erneut')}
           else if err && err == "send email"
-            span.each-notification-line Geschafft, du findest in einer e-Mail den Resetlink
+            span.each-notification-line #{__('Geschafft, du findest in einer e-Mail den Resetlink')}

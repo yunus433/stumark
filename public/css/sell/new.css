@@ -175,6 +175,7 @@
   color: rgb(112, 112, 112);
   outline: none;
   margin-bottom: 25px;
+  width: 90%;
 }
 .address-input-small {
   flex: 1;

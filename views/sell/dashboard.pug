@@ -1,8 +1,8 @@
 extends ./../partials/header
 block main
   .product-header
-    span.header-title Anzeigen
-    span.header-content Hier kannst du deine Anzeigen bearbeiten, wenn du darauf klickst.
+    span.header-title #{__('Anzeigen')}
+    span.header-content #{__('Hier kannst du deine Anzeigen bearbeiten, wenn du darauf klickst.')}
   .products-wrapper
     each product in products
       a.each-product(href="/sell/details/?id=" + product._id)
@@ -20,5 +20,5 @@ block main
         span.product-price #{product.price}
     if products.length <= 0
       .no-product-warning 
-        span Du hast nun keine Anzeige, gib jetzt eine Anzeige auf!
-        a.no-product-warning-button(href="/sell/new") Anzeige Aufgeben
+        span #{__('Du hast nun keine Anzeige, gib jetzt eine Anzeige auf')}!
+        a.no-product-warning-button(href="/sell/new") #{__('Anzeige Aufgeben')}

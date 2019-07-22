@@ -11,6 +11,7 @@ const bodyParser = require('body-parser');
 const expressSession = require('express-session');
 const cloudinary = require('cloudinary');
 const socketIO = require('socket.io');
+const i18n = require('i18n');
 
 const sockets = require('./sockets/sockets');
 
@@ -18,6 +19,14 @@ const sockets = require('./sockets/sockets');
 const app = express();
 const server = http.createServer(app);
 const io = socketIO(server);
+
+// configure i18n
+i18n.configure({
+  locales:['de', 'en'],
+  directory: __dirname + '/locales',
+  queryParameter: 'lang',
+  defaultLocale: 'de'
+});
 
 // define local variables
 const PORT = process.env.PORT || 3000;
@@ -89,6 +98,8 @@ app.use((req, res, next) => {
   req.cloudinary = cloudinary;
   next();
 });
+
+app.use(i18n.init);
 
 // use helmet
 app.use(helmet());

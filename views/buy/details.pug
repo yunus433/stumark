@@ -16,7 +16,7 @@ block main
           if product.productPhotoArray[4]
             img.product-menu-image(src=product.productPhotoArray[4])
       .product-right-side
-        span.main-product-created-at Added #{product.createdAt}
+        span.main-product-created-at #{__('Added')} #{product.createdAt}
         span.main-product-title= product.name
         .main-product-location
             i.fas.fa-map-marker-alt
@@ -24,10 +24,10 @@ block main
         span.main-product-description= product.description
         span.main-product-price= product.price
     form.send-message-wrapper(action="/messages/buy/?id=" + product._id method="post")
-      span.send-message-title Nachricht schreiben
+      span.send-message-title #{__('Nachricht schreiben')}
       textarea.message-input(name="message" placeholder="Nachricht")
-      button.send-message-button Nachricht Senden
-    span.other-products-title Ähnliche Anzeigen
+      button.send-message-button #{__('Nachricht Senden')}
+    span.other-products-title #{__('Ähnliche Anzeigen')}
     .other-products-wrapper
       each product in similarProducts
         if product.price == "SOLD"
@@ -39,7 +39,7 @@ block main
             .product-location
               i.fas.fa-map-marker-alt
               span= product.location
-            span.product-price VERKAUFT
+            span.product-price #{__('VERKAUFT')}
         else if (user && product.owner == user._id.toString())
           a.each-product(href="/sell/details/?id=" + product._id)
             .each-product-image-wrapper

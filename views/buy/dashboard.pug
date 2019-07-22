@@ -42,7 +42,7 @@ block main
           .product-location
             i.fas.fa-map-marker-alt
             span= product.location
-          span.product-price VERKAUFT
+          span.product-price #{__('VERKAUFT')}
       else if (user && product.owner == user._id.toString())
         a.each-product(href="/sell/details/?id=" + product._id)
           .each-product-image-wrapper

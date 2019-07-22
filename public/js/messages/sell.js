@@ -92,7 +92,7 @@ window.onload = () => {
   const userMenuResponsive = document.querySelector('.user-menu-responsive');
   const contentBarResponsive = document.querySelector('.content-bar-responsive');
 
-  const messagesBlock = document.querySelector('.messages-content');
+  const messagesBlock = document.querySelector('.messages-left-side');
   messagesBlock.scrollTop = messagesBlock.scrollHeight;
   
   document.addEventListener('mouseover', (event) => {

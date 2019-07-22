@@ -2,7 +2,7 @@ extends ./../partials/header
 block main
   .content-all-wrapper
     form.new-product-form(method="POST" action="/sell/new") 
-      span.form-title.required-form-part Kategorie
+      span.form-title.required-form-part #{__('Kategorie')}
       .category-wrapper
         .each-category
           input(type="radio" name="category" value="rented" required) 
@@ -34,35 +34,37 @@ block main
         .each-category
           input(type="radio" name="category" value="other" required) 
           span Sonstige
-      span.form-title.required-form-part Anzeigendetails
+      span.form-title.required-form-part #{__('Anzeigendetails')}
       input.product-name(type="text" name="name" placeholder="Titel" autocomplete="off")
       textarea.product-description(name="description" placeholder="Beschreibung")
-      span.form-title.required-form-part Preis
+      span.form-title.required-form-part #{__('Preis')}
       .price-wrapper
         .each-price-line
           input.price-radio-input#custom-price-input(type="radio" name="price" value="0.00€" required)
           input.price-input(type="text" placeholder="Preis €")
         .each-price-line
           input.price-radio-input(type="radio" name="price" value="FREE" required)
-          span Zu Verschenken
-      span.form-title.required-form-part Bilder
+          span #{__('Zu Verschenken')}
+      span.form-title.required-form-part #{__('Bilder')}
       .images-outer-wrapper
         .images-wrapper
           input.display-none#file-name-array(type="text" name="productPhotoNameArray" value="" required)
           label.add-new-button
             i.fas.fa-plus
             input.display-none#product-image-input(type="file" name="photo" accept="image/*")
-      span.form-title Ort
+      span.form-title #{__('Ort')}
       .form-line
-        input.address-input.address-input-small(type="text" required name="address1" placeholder="PLZ" autocomplete="off")
-        span.required-input-span *
-        input.address-input.address-input-big(type="text" required name="address2" placeholder="Ort" autocomplete="off")
-        span.required-input-span *
+        div.address-input-small
+          input.address-input(type="text" required name="address1" placeholder="PLZ" autocomplete="off")
+          span.required-input-span *
+        div.address-input-big
+          input.address-input(type="text" required name="address2" placeholder="Ort" autocomplete="off")
+          span.required-input-span *
       input.address-input(type="text" name="address3" placeholder="Straße/Nummer (freiwillige Eingabe)" autocomplete="off")
-      span.form-title.required-form-part Veröffentliche deine Anzeige
+      span.form-title.required-form-part #{__('Veröffentliche deine Anzeige')}
       .user-agrement-link
-        span Mit der Registrierung erklärst du dich einverstanden mit unseren 
-        a(href="/auth/agreement/two") Nutzungsbedingungen
-        span  und unserer 
-        a(href="/auth/agreement/one") Datenschutzerklärung
-      button.form-send-button Anzeige aufgeben
+        span #{__('Mit der Registrierung erklärst du dich einverstanden mit unseren')}
+        a(href="/auth/agreement/two") #{__('Nutzungsbedingungen')}
+        span  #{__('und unserer')}
+        a(href="/auth/agreement/one") #{__('Datenschutzerklärung')}
+      button.form-send-button #{__('Anzeige aufgeben')}
