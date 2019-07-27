@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
 const Product = require('../../../models/product/Product');
+const Message = require('../../../models/message/Message');
 
 module.exports = (req, res, next) => {
   Product.findOne({
@@ -9,14 +10,22 @@ module.exports = (req, res, next) => {
   }, (err, product) => {
     if (err) return res.redirect('/');
 
-    res.render("sell/details", {
-      page: "sell/details",
-      title: `Product Details`,
-      includes: {
-        external: ["css", "js", "fontawesome"]
-      },
-      product,
-      user: req.session.user,
+    Message.find({
+      "productId": product._id,
+      "read": false
+    }, (err, notReadMessages) => {
+      if (err) return res.redirect('/');
+
+      res.render("sell/details", {
+        page: "sell/details",
+        title: `Product Details`,
+        includes: {
+          external: ["css", "js", "fontawesome"]
+        },
+        product,
+        messageNumber: notReadMessages.length,
+        user: req.session.user,
+      });
     });
   });
 };

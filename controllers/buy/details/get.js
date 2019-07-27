@@ -1,5 +1,7 @@
-const async = require("async");
-const Product = require("../../../models/product/Product");
+const async = require('async');
+
+const Product = require('../../../models/product/Product');
+const Message = require('../../../models/message/Message');
 
 module.exports = (req, res, next) => {
   if (req.query && req.query.id) {
@@ -26,13 +28,15 @@ module.exports = (req, res, next) => {
               if (err) return res.redirect("/");
 
               if (req.session.user) {
-                if (
-                  product.messages.filter(message => {
-                    if (message.buyerId == req.session.user._id) return message;
-                  }).length > 0
-                )
-                  res.redirect("/messages/buy/?id=" + product._id);
-                else
+                Message.find({
+                  "buyerId": req.session.user._id.toString(),
+                  "productId": product._id.toString()
+                }, (err, messages) => {
+                  if (err) return res.redirect('/');
+
+                  if (messages && messages.length > 0) 
+                    return res.redirect("/messages/buy/?id=" + product._id);
+                    
                   res.render("buy/details", {
                     page: "buy/details",
                     title: product.name,
@@ -43,6 +47,7 @@ module.exports = (req, res, next) => {
                     similarProducts,
                     user: req.session.user
                   });
+                });
               } else {
                 res.render("buy/details", {
                   page: "buy/details",

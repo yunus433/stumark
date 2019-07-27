@@ -22,10 +22,10 @@ block main
           span.product-price #{__('VERKAUFT')}
       else 
         a.each-product(href="/messages/buy/?id=" + product._id)
-          if (product.messages.filter((message) => { return !message.read }).length > 0) 
+          if (product.notReadMessageNumber > 0) 
             .not-read-empty
               .not-read-message-icon
-                span= product.messages.filter((message) => { return !message.read }).length
+                span= product.notReadMessageNumber
           else 
             .not-read-empty
           img.product-image(src=product.productPhotoArray[0])
@@ -46,10 +46,10 @@ block main
           span.product-price #{__('VERKAUFT')}
       else 
         a.each-product(href="/messages/sell/dashboard/?id=" + product._id)
-          if (product.messages.filter((message) => { return !message.read }).length > 0) 
+          if (product.notReadMessageNumber > 0) 
             .not-read-empty
               .not-read-message-icon
-                span= product.messages.filter((message) => { return !message.read }).length
+                span= product.notReadMessageNumber
           else 
             .not-read-empty
           img.product-image(src=product.productPhotoArray[0])

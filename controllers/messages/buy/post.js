@@ -1,21 +1,22 @@
 const moment = require('moment');
-const Product = require('../../../models/product/Product');
+const Message = require('../../../models/message/Message');
 
-module.exports = (req, res, next) => {
-  const newMessage = {
+module.exports = (req, res) => {
+  const newMessageData = {
     content: req.body.message,
     buyerId: req.session.user._id,
     buyerName: req.session.user.name,
     sendedBy: "buyer",
+    productId: req.query.id,
     read: false,
     createdAt: moment(Date.now()).format("[at] HH[:]mm A [/] DD[.]MM[.]YYYY")
   };
 
-  Product.findByIdAndUpdate(req.query.id, {$push: {
-    "messages": newMessage
-  }}, {upsert: true}, err => {
+  const newMessage = new Message(newMessageData);
+
+  newMessage.save(err => {
     if (err) return res.redirect('/');
-    
-    res.redirect('/messages/buy/?id=' + req.query.id)
+
+    return res.redirect('/messages/buy/?id=' + req.query.id);
   });
 };

@@ -46,10 +46,6 @@ const ProductSchema = new Schema({
   },
   buyer: {
     type: String
-  },
-  messages: {
-    type: Array,
-    default: []
   }
 });
 

@@ -10,8 +10,8 @@ block main
               span= message.filter((message) => { return !message.read }).length
         else 
           .not-read-empty
-        img.each-user-profile(src=message[0].buyerProfile)
+        img.each-user-profile(src="/res/images/defaultUserPicture.png")
         span.each-user-name= message[0].buyerName
-    if Object.keys(messages) && Object.keys(messages).length == 0
+    if messages.length <= 0
       .no-product-warning
         span #{__('Es gibt keine Nachricht.')}

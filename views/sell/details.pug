@@ -9,10 +9,10 @@ block main
       span.form-title #{__('Anzeige Einstellungen')}
       .form-line
         a.go-to-messages-button(href="/sell/messages/?id=" + product._id) 
-          if (product.messages.filter((message) => { return !message.read }).length > 0)
+          if (messageNumber > 0)
             .not-read-empty
               .not-read-message-icon
-                span= product.messages.filter((message) => { return !message.read }).length
+                span= messageNumber
           else
             .not-read-empty
           span #{__('Anzeige Nacrichten')}

@@ -23,18 +23,18 @@ const io = socketIO(server);
 // configure i18n
 i18n.configure({
   locales:['de', 'en'],
-  directory: __dirname + '/locales',
+  directory: __dirname + '/translations',
   queryParameter: 'lang',
   defaultLocale: 'de'
 });
 
 // define local variables
 const PORT = process.env.PORT || 3000;
-const mongoUri =
-  process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/sellingplatform";
+const mongoUri = process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/sellingplatform";
 
 // require local route controllers
 const indexRouteController = require('./routes/indexRoute');
+const adminRouteController = require('./routes/adminRoute');
 const authRouteController = require('./routes/authRoute');
 const buyRouteController = require('./routes/buyRoute');
 const sellRouteController = require('./routes/sellRoute');
@@ -105,12 +105,13 @@ app.use(i18n.init);
 app.use(helmet());
 
 // add route controllers
-app.use("/", indexRouteController);
-app.use("/auth", authRouteController);
-app.use("/buy", buyRouteController);
-app.use("/sell", sellRouteController);
-app.use("/messages", messagesRouteController);
-app.use("/edit", editRouteController);
+app.use('/', indexRouteController);
+app.use('/admin', adminRouteController);
+app.use('/auth', authRouteController);
+app.use('/buy', buyRouteController);
+app.use('/sell', sellRouteController);
+app.use('/messages', messagesRouteController);
+app.use('/edit', editRouteController);
 
 // listen for socket.io connection
 io.on('connection', (socket) => {
