@@ -17,7 +17,7 @@ const Message = require('../../../models/message/Message');
         buyProductIds.length,
         (time, next) => {
           Product.findById(buyProductIds[time][0].productId, (err, returnedProduct) => {
-            returnedProduct.notReadMessageNumber = buyProductIds[time].filter(message => { return !message.read }).length;
+            returnedProduct.notReadMessageNumber = buyProductIds[time].filter(message => { return !message.read && message.sendedBy == "owner" }).length;
 
             next(err, returnedProduct);
           });
@@ -33,6 +33,7 @@ const Message = require('../../../models/message/Message');
               (time, next) => {
                 Message.find({
                   "productId": sellProducts[time]._id.toString(),
+                  "sendedBy": "buyer",
                   "read": false
                 }, (err, notReadSellMessages) => {
                   sellProducts[time].notReadMessageNumber = notReadSellMessages.length;

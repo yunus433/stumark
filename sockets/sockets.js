@@ -14,7 +14,7 @@ module.exports = (socket, io) => {
       content: params.message.content,
       buyerId: params.message.buyerId,
       buyerName: params.message.buyerName,
-      sendedBy: "buyer",
+      sendedBy: params.message.sendedBy,
       productId: params.id,
       read: false,
       createdAt: moment(Date.now()).format("[at] HH[:]mm A [/] DD[.]MM[.]YYYY")
