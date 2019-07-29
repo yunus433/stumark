@@ -2,5 +2,12 @@ extends ./head
 block content
   .admin-all-wrapper
     .admin-left-side-header
+      span Menu:
+      .admin-each-header-button
+        a(href="/admin/users") Users
+      .admin-each-header-button
+        a(href="/admin/products") Products
+      .admin-each-header-button
+        a(href="/admin/mails") Mails
     .admin-all-content
       block main

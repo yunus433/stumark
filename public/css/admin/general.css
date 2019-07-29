@@ -1,0 +1,16 @@
+.admin-all-wrapper {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+.admin-left-side-header {
+  flex: 1;
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  background: white;
+}
+.admin-all-content {
+  flex: 4;
+  width: 80%;
+}

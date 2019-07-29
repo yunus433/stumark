@@ -3,7 +3,7 @@ module.exports = (req, res) => {
     page: "admin/dashboard",
     title: "Admin",
     includes: {
-      external: ["css", "js", "fontawesome"]
+      external: ["css", "admin_general_css", "fontawesome"]
     }
   });
 };
