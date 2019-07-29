@@ -33,6 +33,7 @@ const PORT = process.env.PORT || 3000;
 const mongoUri = process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/sellingplatform";
 
 // require local route controllers
+const apiRouteController = require('./routes/apiRoute');
 const indexRouteController = require('./routes/indexRoute');
 const adminRouteController = require('./routes/adminRoute');
 const authRouteController = require('./routes/authRoute');
@@ -106,6 +107,7 @@ app.use(helmet());
 
 // add route controllers
 app.use('/', indexRouteController);
+app.use('/api', apiRouteController);
 app.use('/admin', adminRouteController);
 app.use('/auth', authRouteController);
 app.use('/buy', buyRouteController);
