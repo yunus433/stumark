@@ -6,6 +6,7 @@ module.exports = (req, res, next) => {
   }}, {upsert: false}, (err, user) => {
     if (err || !user) return res.redirect('/');
 
-    return res.redirect('/auth/login');
+    req.session.user = user;
+    return res.redirect('/');
   });
 };
