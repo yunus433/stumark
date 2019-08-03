@@ -158,7 +158,6 @@ body {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  height: 50%;
   width: 20%;
 }
 .header-login-wrapper-responsive {
@@ -302,6 +301,7 @@ body {
 /* All content and content bar design*/
 .all-content {
   flex: 7;
+  padding: 0px 5%;
   height: 87.5vh;
   width: 100vw;
   display: flex;
@@ -317,7 +317,6 @@ body {
 .content-bar {
   display: flex;
   flex-direction: column;
-  align-items: center;
   padding: 25px 0px;
   min-height: fit-content;
 }

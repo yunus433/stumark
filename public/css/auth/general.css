@@ -46,6 +46,7 @@
   display: flex;
   flex-direction: column;
   padding: 10px;
+  padding-left: 5%;
 }
 .form-header {
   display: flex;
@@ -103,6 +104,7 @@
 }
 .user-agrement-link a {
   color: rgb(255, 61, 148);
+  margin-left: 5px;
 }
 .form-send-button {
   text-align: center;
@@ -142,7 +144,7 @@
   display: flex;
   flex-direction: column;
   margin-top: 10px;
-  padding-left: 25px;
+  padding-left: 5%;
   color: rgb(112, 112, 112);
   font-size: 30px;
   font-weight: 400;
