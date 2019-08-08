@@ -1,0 +1,35 @@
+const mongoose = require('mongoose');
+
+const Message = require('../../models/message/Message');
+
+module.exports = (req, res) => {
+  if (req.query && req.query.id) {
+    Message.findById(mongoose.Types.ObjectId(req.query.id), (err, message) => {
+      if (err)
+        return res.status(500).json({ "error": "Mongo Error: " + err });
+      return res.status(200).json({ message });
+    });
+  } else if (req.query && req.query.buyer) {
+    Message.find({
+      "buyerId": req.query.buyer
+    }, (err, messages) => {
+      if (err)
+        return res.status(500).json({ "error": "Mongo Error: " + err });
+      return res.status(200).json({ messages });
+    });
+  } else if (req.query && req.query.product) {
+    Message.find({
+      "productId": req.query.product
+    }, (err, messages) => {
+      if (err)
+        return res.status(500).json({ "error": "Mongo Error: " + err });
+      return res.status(200).json({ messages });
+    });
+  } else {
+    Message.find({}, (err, messages) => {
+      if (err)
+        return res.status(500).json({ "error": "Mongo Error: " + err });
+      return res.status(200).json({ messages });
+    });
+  }
+};
