@@ -13,6 +13,7 @@ module.exports = (req, res) => {
     Product.findById(mongoose.Types.ObjectId(req.query.id), (err, product) => {
       if (err)
         return res.status(500).json({ "error": "Mongo Error: " + err });
+
       return res.status(200).json({ product });
     });
   } else if (req.query && req.query.limit) {
@@ -25,7 +26,12 @@ module.exports = (req, res) => {
       if (err)
         return res.status(500).json({ "error": "Mongo Error: " + err });
 
-      return res.status(200).json({ products });
+      Product.getNumberOfProducts("all", undefined, (err, number) => { 
+        if (err)
+          return res.status(500).json({ "error": "Mongo Error: " + err });
+
+          return res.status(200).json({ products, number });
+      });
     });
   } else {
     Product.getLatest({
