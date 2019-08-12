@@ -37,7 +37,12 @@ module.exports = (req, res) => {
       if (err)
         return res.status(500).json({ "error": "Mongo Error: " + err });
 
-      return res.status(200).json({ products });
+      Product.getNumberOfProducts("all", undefined, (err, number) => { 
+        if (err)
+          return res.status(500).json({ "error": "Mongo Error: " + err });
+
+          return res.status(200).json({ products, number });
+      });
     });
   }
 };
