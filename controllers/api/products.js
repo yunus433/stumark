@@ -26,7 +26,7 @@ module.exports = (req, res) => {
       if (err)
         return res.status(500).json({ "error": "Mongo Error: " + err });
 
-      Product.getNumberOfProducts("all", undefined, (err, number) => { 
+      Product.getNumberOfProducts(req.query.category, req.query.keywords, (err, number) => { 
         if (err)
           return res.status(500).json({ "error": "Mongo Error: " + err });
 
@@ -43,7 +43,7 @@ module.exports = (req, res) => {
       if (err)
         return res.status(500).json({ "error": "Mongo Error: " + err });
 
-      Product.getNumberOfProducts("all", undefined, (err, number) => { 
+      Product.getNumberOfProducts(req.query.category, req.query.keywords, (err, number) => { 
         if (err)
           return res.status(500).json({ "error": "Mongo Error: " + err });
 
