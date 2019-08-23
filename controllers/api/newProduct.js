@@ -1,7 +1,7 @@
 const Product = require('../../models/product/Product');
 
 module.exports = (req, res) => {
-  const productPhotoArray = ["/res/images/notAvailablePhoto.jpg"];
+  const productPhotoArray = ["https://res.cloudinary.com/dvnac86j8/image/upload/v1566558526/stumarkt/defaultProductPicture.png"];
 
   const newProductData = {
     category: req.body.category,

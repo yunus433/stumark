@@ -12,7 +12,8 @@ module.exports = (req, res, next) => {
         quality: 25,
         format: "JPG",
         radius: "max",
-        crop: "crop"
+        crop: "crop",
+        secure: true
       },
       (err, result) => {
         if (err) res.sendStatus(500);
@@ -21,7 +22,7 @@ module.exports = (req, res, next) => {
           mongoose.Types.ObjectId(req.session.user._id),
           {
             $set: {
-              profilePhoto: result.url
+              profilePhoto: result.secure_url
             }
           },
           (err, user) => {
@@ -29,7 +30,7 @@ module.exports = (req, res, next) => {
             req.session.user.profilePhoto = result.url;
 
             if (
-              user.profilePhoto != "/res/public/images/defaultUserPicture.png"
+              user.profilePhoto != "https://res.cloudinary.com/dvnac86j8/image/upload/v1566558525/stumarkt/defaultUserPicture.png"
             ) {
               req.cloudinary.v2.uploader.destroy(
                 "stumarkt/image_folder/" +

@@ -7,6 +7,10 @@
   padding: 15px 5%;
   flex-wrap: nowrap;
 }
+.content-all-wrapper {
+  display: flex;
+  flex-direction: column;
+}
 
 /* Main product design*/
 .main-product-wrapper {
@@ -96,6 +100,31 @@
   color: rgb(255, 61, 148);
   font-size: 49px;
   font-weight: 700;
+}
+
+/* Buy product button design */
+.buy-the-product-button {
+  padding: 25px;
+  margin-top: 25px;
+  text-decoration: none;
+  margin-left: 100%;
+  transform: translateX(-100%);
+  background: white;
+  border: 2px solid rgba(255, 61, 148, 0.34);
+  color: rgb(255, 61, 148);
+  font-size: 30px;
+  font-weight: 700;
+  outline: none;
+  padding: 10px 5px;
+  width: 25%;
+  cursor: pointer;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.buy-the-product-button:hover {
+  border-color: rgba(255, 61, 148, 0.5);
 }
 
 /* Send message wrapper and content design */

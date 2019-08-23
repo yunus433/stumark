@@ -1,5 +1,3 @@
-const async = require('async');
-
 const Product = require('../../../models/product/Product');
 
 function uploadToCloudinary(req, nameArray) {
@@ -9,23 +7,23 @@ function uploadToCloudinary(req, nameArray) {
       {
         public_id: "stumarkt/image_folder/" + name,
         quality: 25,
-        format: "JPG"
+        format: "JPG",
+        secure: true
       }
     );
   });
 };
 
 module.exports = (req, res, next) => {
-  const productPhotoArray = [
-  ];
+  const productPhotoArray = [];
 
   if (req.body.productPhotoNameArray.split(",")[0]) {
     uploadToCloudinary(req, req.body.productPhotoNameArray.split(","));
     req.body.productPhotoNameArray.split(",").forEach(photoName => {
-      if (photoName) productPhotoArray.push("http://res.cloudinary.com/dvnac86j8/image/upload/v1558412742/stumarkt/image_folder/" + photoName + ".jpg");
+      if (photoName) productPhotoArray.push("https://res.cloudinary.com/dvnac86j8/image/upload/v1558412742/stumarkt/image_folder/" + photoName + ".jpg");
     });
   } else {
-    productPhotoArray.push("/res/images/notAvailablePhoto.jpg");
+    productPhotoArray.push("https://res.cloudinary.com/dvnac86j8/image/upload/v1566558526/stumarkt/defaultProductPicture.png");
   }
 
   const newProductData = {
@@ -52,7 +50,7 @@ module.exports = (req, res, next) => {
         documentIndex: number
       }}, {upsert: true, new: true}, err => {
         if (err) return res.redirect('/');
-        
+
         return res.redirect('/sell');
       });
     });

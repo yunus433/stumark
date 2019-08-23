@@ -41,41 +41,41 @@ window.onload = () => {
     }
   });
 
-  const formWrapper = document.querySelector('.form-wrapper');
-  const passwordFormWrapper = document.querySelector('.password-form-wrapper');
+  // const formWrapper = document.querySelector('.form-wrapper');
+  // const passwordFormWrapper = document.querySelector('.password-form-wrapper');
 
-  document.addEventListener('click', (event) => {
-    if (event.target.className == 'change-password-button' || event.target.parentNode.className == 'change-password-button') {
-      formWrapper.style.display = 'none';
-      passwordFormWrapper.style.display = 'flex';
-    }
+  // document.addEventListener('click', (event) => {
+  //   if (event.target.className == 'change-password-button' || event.target.parentNode.className == 'change-password-button') {
+  //     formWrapper.style.display = 'none';
+  //     passwordFormWrapper.style.display = 'flex';
+  //   }
     
-    if (event.target.className == 'back-password-button' || event.target.parentNode.className == 'back-password-button') {
-      formWrapper.style.display = 'flex';
-      passwordFormWrapper.style.display = 'none';
-    }
+  //   if (event.target.className == 'back-password-button' || event.target.parentNode.className == 'back-password-button') {
+  //     formWrapper.style.display = 'flex';
+  //     passwordFormWrapper.style.display = 'none';
+  //   }
 
-    if (event.target.className == 'send-form-button' || event.target.parentNode.className == 'send-form-button') {
-      if (document.querySelector('#name-input').value) {
-        document.querySelector('.form-wrapper').submit();
-      }
-      else {
-        document.querySelector('.error-line').innerHTML = "You can't delete your name"
-      }
-    }
+  //   if (event.target.className == 'send-form-button' || event.target.parentNode.className == 'send-form-button') {
+  //     if (document.querySelector('#name-input').value) {
+  //       document.querySelector('.form-wrapper').submit();
+  //     }
+  //     else {
+  //       document.querySelector('.error-line').innerHTML = "You can't delete your name"
+  //     }
+  //   }
 
-    if (event.target.className == 'send-form-button-password' || event.target.parentNode.className == 'send-form-button-password') {
-      if (!document.querySelector('#old-password-input').value) {
-        document.querySelector('.password-error-line').innerHTML = "You must enter your old password";
-      } else if (document.querySelector('#new-password-input').value != document.querySelector('#new-password-two').value || !document.querySelector('#new-password-two').value) {
-        document.querySelector('.password-error-line').innerHTML = "Bitte bestätige dein Passwort!";
-      } else if (document.querySelector('#new-password-input').value.length < 6) {
-        document.querySelector('.password-error-line').innerHTML = "Dein Passwort muss mindestens 6-stellig sein!";
-      } else {
-        document.querySelector('.password-form-wrapper').submit();
-      }
-    }
-  });
+  //   if (event.target.className == 'send-form-button-password' || event.target.parentNode.className == 'send-form-button-password') {
+  //     if (!document.querySelector('#old-password-input').value) {
+  //       document.querySelector('.password-error-line').innerHTML = "You must enter your old password";
+  //     } else if (document.querySelector('#new-password-input').value != document.querySelector('#new-password-two').value || !document.querySelector('#new-password-two').value) {
+  //       document.querySelector('.password-error-line').innerHTML = "Bitte bestätige dein Passwort!";
+  //     } else if (document.querySelector('#new-password-input').value.length < 6) {
+  //       document.querySelector('.password-error-line').innerHTML = "Dein Passwort muss mindestens 6-stellig sein!";
+  //     } else {
+  //       document.querySelector('.password-form-wrapper').submit();
+  //     }
+  //   }
+  // });
 
   const userImage = document.querySelector('.user-profile-image');
   const userPhotoInput = document.getElementById('user-image-input');

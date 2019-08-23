@@ -301,7 +301,7 @@ body {
 /* All content and content bar design*/
 .all-content {
   flex: 7;
-  padding: 0px 5%;
+  padding: 0px;
   height: 87.5vh;
   width: 100vw;
   display: flex;
@@ -313,6 +313,7 @@ body {
   flex: 1;
   width: 10vw;
   flex-wrap: nowrap;
+  padding-left: 5%;
 }
 .content-bar {
   display: flex;

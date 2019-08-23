@@ -10,7 +10,8 @@ module.exports = (req, res, next) => {
       {
         public_id: "stumarkt/image_folder/" + req.file.filename,
         quality: 25,
-        format: "JPG"
+        format: "JPG",
+        secure: true
       },
       (err, result) => {
         if (err) res.sendStatus(500);
@@ -19,7 +20,7 @@ module.exports = (req, res, next) => {
           mongoose.Types.ObjectId(req.query.id),
           {
             $push: {
-              productPhotoArray: result.url
+              productPhotoArray: result.secure_url
             }
           },
           (err, product) => {

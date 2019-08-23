@@ -2,9 +2,7 @@ const async = require('async');
 
 const Product = require('../../models/product/Product');
 
-module.exports = (req, res, next) => {
-  const products = [];
-
+module.exports = (req, res) => {
   Product.getLatest({
     category: "all",
     docsToSkip: 0,
@@ -20,7 +18,7 @@ module.exports = (req, res, next) => {
         });
       },
       (err, products) => {
-        if (err) return res.redirect("/");
+        if (err) return res.redirect('/');
 
         return res.render('index/index', {
           page: 'index/index',
@@ -29,7 +27,7 @@ module.exports = (req, res, next) => {
             external: ['js', 'css', 'fontawesome']
           },
           products,
-          user: req.session.user
+          user: req.session.user || undefined
         });
       }
     );

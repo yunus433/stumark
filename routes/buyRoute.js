@@ -1,8 +1,6 @@
 const express = require('express');
 const router = express.Router();
 
-const isLoggedIn = require('../middleware/isLoggedin');
-
 const dashboardGetController = require('../controllers/buy/dashboard/get');
 const detailsGetController = require('../controllers/buy/details/get');
 

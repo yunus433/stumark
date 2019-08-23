@@ -6,7 +6,7 @@ block main
       .category-wrapper
         .each-category
           input(type="radio" name="category" value="rented" required) 
-          span Mitwohnung, Nachmiete
+          span Mietwohnung, Nachmiete
         .each-category
           input(type="radio" name="category" value="hobby" required) 
           span Freizeit, Hobby
@@ -40,8 +40,8 @@ block main
       span.form-title.required-form-part #{__('Preis')}
       .price-wrapper
         .each-price-line
-          input.price-radio-input#custom-price-input(type="radio" name="price" value="0.00€" required)
-          input.price-input(type="text" placeholder="Preis €")
+          input.price-radio-input#custom-price-input(type="radio" name="price" value="0.00" required)
+          input.price-input(type="number" placeholder="Preis €")
         .each-price-line
           input.price-radio-input(type="radio" name="price" value="FREE" required)
           span #{__('Zu Verschenken')}
