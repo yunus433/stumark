@@ -1,7 +1,7 @@
 const User = require('../../../models/user/User');
 
 module.exports = (req, res) => {
-  Product.updateMany({
+  User.updateMany({
     "profilePhoto": "/res/images/defaultUserPicture.png"
   }, {$set: {
     "profilePhoto": "https://res.cloudinary.com/dvnac86j8/image/upload/v1566558525/stumarkt/defaultUserPicture.png"
