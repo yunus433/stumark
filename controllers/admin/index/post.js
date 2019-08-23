@@ -1,23 +1,10 @@
-const Product = require('../../../models/product/Product');
-const Message = require('../../../models/message/Message');
+const User = require('../../../models/user/User');
 
 module.exports = (req, res) => {
-  Product.find({}, (err, products) => {
-    if (err) return res.redirect('/');
-
-    JSON.parse(JSON.stringify(products)).forEach(product => {
-        product.messages.forEach(message => {
-          const newMessageData = message;
-          newMessageData.productId = product._id.toString();
-
-          const newMessage = new Message(newMessageData);
-          newMessage.save();
-        });
-    });
-  });
-
-  Product.updateMany({}, {$unset: {
-    "messages": ""
+  Product.updateMany({
+    "profilePhoto": "/res/images/defaultUserPicture.png"
+  }, {$set: {
+    "profilePhoto": "https://res.cloudinary.com/dvnac86j8/image/upload/v1566558525/stumarkt/defaultUserPicture.png"
   }}, err => {
     if (err) return res.redirect('/');
 
