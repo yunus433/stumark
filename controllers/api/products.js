@@ -16,6 +16,15 @@ module.exports = (req, res) => {
 
       return res.status(200).json({ product });
     });
+  } else if (req.query && req.query.owner) {
+    Product.find({
+      "owner": req.query.owner
+    }, (err, products) => {
+      if (err)
+        return res.status(500).json({ "error": "Mongo Error: " + err });
+
+      return res.status(200).json({ products });
+    })
   } else if (req.query && req.query.limit) {
     Product.getLatest({
       keywords: req.query.keywords,
