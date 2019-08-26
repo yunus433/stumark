@@ -163,7 +163,7 @@ window.onload = () => {
     };
 
     socket.on('newMessage', params => {
-      if (params.message.sendedBy == "buyer") {
+      if (params.message.sendedBy == "buyer" && params.message.buyerId == userObject._id) {
         createNewMessage(params.message, userObject, sellerObject);
         messagesBlock.scrollTop = messagesBlock.scrollHeight;
         newMessageInput.value = "";
