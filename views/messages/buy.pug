@@ -1,6 +1,6 @@
 extends ./../partials/header
 block main
-  input.display-none#product-id(value=product._id)
+  input.display-none#product-object(value=JSON.stringify(product))
   input.display-none#user-object(value=JSON.stringify(user))
   input.display-none#seller-object(value=JSON.stringify(owner))
   .messages-left-side

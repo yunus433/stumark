@@ -15,12 +15,14 @@ module.exports = (socket, io) => {
       buyerId: params.message.buyerId,
       buyerName: params.message.buyerName,
       sendedBy: params.message.sendedBy,
-      productId: params.id,
+      productId: params.message.productId,
+      productName: params.message.productName,
+      productProfile: params.message.productProfile,
       read: false,
       createdAt: moment(Date.now()).format("[at] HH[:]mm A [/] DD[.]MM[.]YYYY")
     };
 
-    if (io.sockets.adapter.rooms[params.id].length > 1) {
+    if (io.sockets.adapter.rooms[params.message.productId].length > 1) {
       newMessageData.read = true;
 
       const newMessage = new Message(newMessageData);
@@ -28,7 +30,7 @@ module.exports = (socket, io) => {
       newMessage.save((err, message) => {
         if (err) return callback(err);
 
-        socket.to(params.id).emit('newMessage', {message});
+        socket.to(params.message.productId).emit('newMessage', {message});
         return callback(undefined, message);
       });
     } else {
@@ -38,7 +40,7 @@ module.exports = (socket, io) => {
         if (err) return callback(err);
 
         if (params.message.sendedBy == 'buyer') {
-          Product.findById(params.id, (err, product) => {
+          Product.findById(params.message.productId, (err, product) => {
             if (err) return callback(err);
 
             User.findByIdAndUpdate(product.owner, {$inc: {

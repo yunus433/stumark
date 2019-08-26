@@ -24,6 +24,14 @@ const MessageSchema = new Schema({
     required: true,
     type: String
   },
+  productName: {
+    required: true,
+    type: String
+  },
+  productProfile: {
+    required: true,
+    type: String
+  },
   read: {
     type: Boolean,
     default: false

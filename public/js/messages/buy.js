@@ -142,7 +142,7 @@ window.onload = () => {
     }
   });
 
-  const productId = document.getElementById('product-id').value;
+  const productObject = JSON.parse(document.getElementById('product-object').value);
   const userObject = JSON.parse(document.getElementById('user-object').value);
   const sellerObject = JSON.parse(document.getElementById('seller-object').value);
   const form = document.querySelector('.message-send-wrapper');
@@ -152,7 +152,7 @@ window.onload = () => {
 
   socket.on('connect', function() {
     socket.emit('join', {
-      room: productId
+      room: productObject._id
     });
 
     form.onsubmit = (event) => {
@@ -163,14 +163,16 @@ window.onload = () => {
           content: newMessageInput.value,
           buyerId: userObject._id,
           buyerName: userObject.name,
+          productProfile: productObject.productPhotoArray[0],
+          productName: productObject.name,
+          productId: productObject._id,
           sendedBy: "buyer",
           read: false,
           createdAt: ""
         };
 
         socket.emit('newMessageSend', {
-          message: newMessageObject,
-          id: productId
+          message: newMessageObject
         }, (err, message) => {
           if (err) return alert('Something went wrong, please try again');
 
