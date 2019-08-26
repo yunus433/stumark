@@ -17,6 +17,14 @@ module.exports = (req, res) => {
         return res.status(500).json({ "error": "Mongo Error: " + err });
       return res.status(200).json({ messages });
     });
+  }  else if (req.query && req.query.owner) {
+    Message.find({
+      "owner": req.query.owner
+    }, (err, messages) => {
+      if (err)
+        return res.status(500).json({ "error": "Mongo Error: " + err });
+      return res.status(200).json({ messages });
+    });
   } else if (req.query && req.query.product) {
     Message.find({
       "productId": req.query.product
