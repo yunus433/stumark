@@ -163,6 +163,7 @@ window.onload = () => {
           content: newMessageInput.value,
           buyerId: userObject._id,
           buyerName: userObject.name,
+          ownerName: sellerObject.name,
           productProfile: productObject.productPhotoArray[0],
           productName: productObject.name,
           productId: productObject._id,

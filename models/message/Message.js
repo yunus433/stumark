@@ -16,6 +16,10 @@ const MessageSchema = new Schema({
     required: true,
     type: String
   },
+  ownerName: {
+    required: true,
+    type: String
+  },
   sendedBy: {
     required: true,
     type: String

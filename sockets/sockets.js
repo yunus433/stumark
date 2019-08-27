@@ -15,6 +15,7 @@ module.exports = (socket, io) => {
       buyerId: params.message.buyerId,
       buyerName: params.message.buyerName,
       sendedBy: params.message.sendedBy,
+      ownerName: params.message.ownerName,
       productId: params.message.productId,
       productName: params.message.productName,
       productProfile: params.message.productProfile,
