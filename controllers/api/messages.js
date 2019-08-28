@@ -10,6 +10,16 @@ module.exports = (req, res) => {
         return res.status(500).json({ "error": "Mongo Error: " + err });
       return res.status(200).json({ message });
     });
+  } else if (req.query && req.query.buyer && req.query.product) {
+    Message.find({
+      "buyerId": req.query.buyer,
+      "productId": req.query.product
+    }, (err, messages) => {
+      if (err)
+        return res.status(500).json({ "error": "Mongo Error: " + err });
+
+      return res.status(200).json({ messages });
+    });
   } else if (req.query && req.query.buyer) {
     Message.find({
       "buyerId": req.query.buyer
@@ -19,7 +29,7 @@ module.exports = (req, res) => {
 
       return res.status(200).json({ messages: Object.values(_.groupBy(messages, message => { return message.productId && message.buyerId })) });
     });
-  }  else if (req.query && req.query.owner) {
+  } else if (req.query && req.query.owner) {
     Message.find({
       "owner": req.query.owner
     }, (err, messages) => {
