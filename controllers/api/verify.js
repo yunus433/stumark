@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
 const User = require('../../models/user/User');
+const sendMail = require('../../utils/sendMail');
 
 module.exports = (req, res) => {
   if (!req.query || !req.query.id)
