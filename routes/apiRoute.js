@@ -5,6 +5,7 @@ const isApiAuthenticated = require('../middleware/isApiAuthenticated');
 
 const loginGetController = require('../controllers/api/login');
 const registerGetController = require('../controllers/api/register');
+const verifyGetController = require('../controllers/api/verify');
 const usersGetController = require('../controllers/api/users');
 const productsGetController = require('../controllers/api/products');
 const messagesGetController = require('../controllers/api/messages');
@@ -20,6 +21,11 @@ router.get(
   '/register',
   isApiAuthenticated,
   registerGetController
+);
+router.get(
+  '/verify',
+  isApiAuthenticated,
+  verifyGetController
 );
 router.get(
   '/users',
