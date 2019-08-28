@@ -21,7 +21,7 @@ module.exports = (req, res, next) => {
       if (err && err.code == 11000) {
         return res.status(400).json({ "error": "Email is taken" });
       }
-      if (err) res.status(500).json({ "error": "Mongo Error: " + err })
+      if (err || !user) res.status(500).json({ "error": "Mongo Error: " + err })
 
       sendMail({
         email: user.email,
