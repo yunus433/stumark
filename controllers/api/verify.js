@@ -6,11 +6,16 @@ module.exports = (req, res) => {
   if (!req.query || !req.query.id)
     return res.status(400).json({ "success": false });
 
-  User.findByIdAndUpdate(mongoose.Types.ObjectId(req.query.id), {$set: {
-    "verified": true
-  }}, err => {
+  User.findById(mongoose.Types.ObjectId(req.query.id), (err, user) => {
     if (err) return res.status(400).json({ "success": false });
 
-    return res.status(200).json({ "success": true });
-  })
+    sendMail({
+      email: user.email,
+      userId: user._id 
+    }, 'userRegister', (err) => {
+      req.session.user = user;
+
+      return res.status(200).json({ "success": true });
+    });
+  });
 }
