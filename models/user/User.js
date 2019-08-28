@@ -6,10 +6,6 @@ const hashPassword = require('./functions/hashPassword');
 const verifyPassword = require('./functions/verifyPassword');
 
 const UserSchema = new Schema({
-  customerPaymentId: {
-    type: String,
-    required: true
-  },
   email: {
     type: String,
     required: true,
@@ -45,14 +41,6 @@ const UserSchema = new Schema({
   notReadMessage: {
     type: Number,
     default: 0
-  },
-  premiumExpDate: {
-    type: Date,
-    default: null
-  }, 
-  isPremium: {
-    type: Boolean,
-    default: false
   }
 });
 
