@@ -11,6 +11,7 @@ const productsGetController = require('../controllers/api/products');
 const messagesGetController = require('../controllers/api/messages');
 
 const newProductPostController = require('../controllers/api/newProduct');
+const editProductPostController = require('../controllers/api/editProduct');
 
 router.get(
   '/login',
@@ -47,6 +48,11 @@ router.post(
   '/newProduct',
   isApiAuthenticated,
   newProductPostController
+);
+router.post(
+  '/editProduct',
+  isApiAuthenticated,
+  editProductPostController
 );
 
 module.exports = router;
