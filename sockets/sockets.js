@@ -50,7 +50,7 @@ module.exports = (socket, io) => {
               if (err) return callback(err);
   
               socket.to(params.to).emit('newMessage', {message});
-              return callback(undefined, params.message);
+              return callback(undefined, message);
             });
           });
         } else {
