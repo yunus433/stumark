@@ -152,7 +152,7 @@ window.onload = () => {
 
   socket.on('connect', function() {
     socket.emit('join', {
-      room: productObject._id
+      room: userObject._id
     });
 
     form.onsubmit = (event) => {
@@ -173,7 +173,8 @@ window.onload = () => {
         };
 
         socket.emit('newMessageSend', {
-          message: newMessageObject
+          message: newMessageObject,
+          to: sellerObject._id
         }, (err, message) => {
           if (err) return alert('Something went wrong, please try again');
 
@@ -185,11 +186,9 @@ window.onload = () => {
     };
 
     socket.on('newMessage', params => {
-      if (params.message.sendedBy == "owner" && params.message.buyerId == userObject._id) {
-        createNewMessage(params.message, userObject, sellerObject);
-        messagesBlock.scrollTop = messagesBlock.scrollHeight;
-        newMessageInput.value = "";
-      }
+      createNewMessage(params.message, userObject, sellerObject);
+      messagesBlock.scrollTop = messagesBlock.scrollHeight;
+      newMessageInput.value = "";
     });
   });
 };

@@ -134,7 +134,7 @@ window.onload = () => {
 
   socket.on('connect', function() {
     socket.emit('join', {
-      room: productObject._id
+      room: sellerObject._id
     });
 
     form.onsubmit = (event) => {
@@ -166,11 +166,9 @@ window.onload = () => {
     };
 
     socket.on('newMessage', params => {
-      if (params.message.sendedBy == "buyer" && params.message.buyerId == userObject._id) {
-        createNewMessage(params.message, userObject, sellerObject);
-        messagesBlock.scrollTop = messagesBlock.scrollHeight;
-        newMessageInput.value = "";
-      }
+      createNewMessage(params.message, userObject, sellerObject);
+      messagesBlock.scrollTop = messagesBlock.scrollHeight;
+      newMessageInput.value = "";
     });
   });
 };

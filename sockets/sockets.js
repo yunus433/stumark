@@ -23,7 +23,7 @@ module.exports = (socket, io) => {
       createdAt: moment(Date.now()).format("[at] HH[:]mm A [/] DD[.]MM[.]YYYY")
     };
 
-    if (io.sockets.adapter.rooms[params.message.productId].length > 1) {
+    if (io.sockets.adapter.rooms[params.to]) {
       newMessageData.read = true;
 
       const newMessage = new Message(newMessageData);
@@ -31,7 +31,7 @@ module.exports = (socket, io) => {
       newMessage.save((err, message) => {
         if (err) return callback(err);
 
-        socket.to(params.message.productId).emit('newMessage', {message});
+        socket.to(params.to).emit('newMessage', {message});
         return callback(undefined, message);
       });
     } else {
@@ -49,7 +49,7 @@ module.exports = (socket, io) => {
             }}, err => {
               if (err) return callback(err);
   
-              socket.to(params.id).emit('newMessage', {message});
+              socket.to(params.to).emit('newMessage', {message});
               return callback(undefined, params.message);
             });
           });
@@ -59,7 +59,7 @@ module.exports = (socket, io) => {
           }}, err => {
             if (err) return callback(err);
 
-            socket.to(params.id).emit('newMessage', {message});
+            socket.to(params.to).emit('newMessage', {message});
             return callback(undefined, message);
           });
         };
