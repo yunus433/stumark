@@ -154,7 +154,8 @@ window.onload = () => {
         };
 
         socket.emit('newMessageSend', {
-          message: newMessageObject
+          message: newMessageObject,
+          to: userObject._id
         }, (err, message) => {
           if (err) return alert('Something went wrong, please try again');
 
