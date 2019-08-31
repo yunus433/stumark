@@ -8,7 +8,7 @@ module.exports = (req, res) => {
     docsToSkip: 0,
     limit: 50
   }, (err, latestProducts) => {
-    if (err) return res.redirect('/');
+    if (err) return console.log(err);
 
     async.times(
       latestProducts.length,
@@ -18,7 +18,7 @@ module.exports = (req, res) => {
         });
       },
       (err, products) => {
-        if (err) return res.redirect('/');
+        if (err) return console.log(err);
 
         return res.render('index/index', {
           page: 'index/index',
