@@ -1,4 +1,7 @@
 const express = require('express');
+const multer = require('multer');
+
+const upload = multer({dest: './public/res/uploads/'});
 const router = express.Router();
 
 const isApiAuthenticated = require('../middleware/isApiAuthenticated');
@@ -11,6 +14,7 @@ const productsGetController = require('../controllers/api/products');
 const messagesGetController = require('../controllers/api/messages');
 
 const newProductPostController = require('../controllers/api/newProduct');
+const newProductImagePostController = require('../controllers/api/newProductImage');
 const editProductPostController = require('../controllers/api/editProduct');
 
 router.get(
@@ -44,6 +48,12 @@ router.get(
   messagesGetController
 );
 
+router.post(
+  '/newProductImage',
+  upload.single('file'),
+  isApiAuthenticated,
+  newProductImagePostController
+);
 router.post(
   '/newProduct',
   isApiAuthenticated,
