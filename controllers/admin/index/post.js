@@ -1,13 +1,22 @@
+const mongoose = require('mongoose');
+
 const User = require('../../../models/user/User');
+const Product = require('../../../models/product/Product');
 
 module.exports = (req, res) => {
-  User.updateMany({
-    "profilePhoto": "/res/images/defaultUserPicture.png"
-  }, {$set: {
-    "profilePhoto": "https://res.cloudinary.com/dvnac86j8/image/upload/v1566558525/stumarkt/defaultUserPicture.png"
-  }}, err => {
+  Product.find({}, (err, products) => {
     if (err) return res.redirect('/');
 
-    res.redirect('/admin');
-  })
+    products.forEach(product => {
+      User.findById(mongoose.Types.ObjectId(product.owner), (err, user) => {
+        Product.findByIdAndUpdate(product._id, {$set: {
+          "university": user.university
+        }}, (err, result) => {
+          if (err || !result) return res.redirect('/');
+        });
+      });
+    });
+
+    return res.redirect('/admin');
+  });
 };

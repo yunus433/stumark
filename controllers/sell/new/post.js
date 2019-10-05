@@ -35,6 +35,7 @@ module.exports = (req, res, next) => {
     keywords: (req.body.description.replace(/\s+/g, '+').replace(/[^a-zA-Z0-9+]/g, "").toLowerCase() + "+" + req.body.name.replace(/\s+/g, '+').replace(/[^a-zA-Z0-9+]/g, "").toLowerCase()).split("+"),
     location: req.body.address1 + " " + req.body.address2 + " " + req.body.address3 || "",
     owner: req.session.user._id,
+    university: req.session.user.university,
     documentIndex: -1
   };
 

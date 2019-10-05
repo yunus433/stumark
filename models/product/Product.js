@@ -46,6 +46,10 @@ const ProductSchema = new Schema({
   },
   buyer: {
     type: String
+  },
+  university: {
+    type: String,
+    required: true
   }
 });
 

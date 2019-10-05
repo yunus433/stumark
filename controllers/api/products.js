@@ -26,22 +26,42 @@ module.exports = (req, res) => {
       return res.status(200).json({ products });
     })
   } else if (req.query && req.query.limit) {
-    Product.getLatest({
-      keywords: req.query.keywords,
-      category: req.query.category,
-      docsToSkip: parseInt(req.query.page) * parseInt(req.query.limit),
-      limit: parseInt(req.query.limit)
-    }, (err, products) => { 
-      if (err)
-        return res.status(500).json({ "error": "Mongo Error: " + err });
-
-      Product.getNumberOfProducts(req.query.category, req.query.keywords, (err, number) => { 
+    if (req.query.filter) {
+      Product.getLatest({
+        university: {$in: req.query.filter},
+        keywords: req.query.keywords,
+        category: req.query.category,
+        docsToSkip: parseInt(req.query.page) * parseInt(req.query.limit),
+        limit: parseInt(req.query.limit)
+      }, (err, products) => { 
         if (err)
           return res.status(500).json({ "error": "Mongo Error: " + err });
-
-          return res.status(200).json({ products, number });
+  
+        Product.getNumberOfProducts(req.query.category, req.query.keywords, (err, number) => { 
+          if (err)
+            return res.status(500).json({ "error": "Mongo Error: " + err });
+  
+            return res.status(200).json({ products, number });
+        });
       });
-    });
+    } else {
+      Product.getLatest({
+        keywords: req.query.keywords,
+        category: req.query.category,
+        docsToSkip: parseInt(req.query.page) * parseInt(req.query.limit),
+        limit: parseInt(req.query.limit)
+      }, (err, products) => { 
+        if (err)
+          return res.status(500).json({ "error": "Mongo Error: " + err });
+  
+        Product.getNumberOfProducts(req.query.category, req.query.keywords, (err, number) => { 
+          if (err)
+            return res.status(500).json({ "error": "Mongo Error: " + err });
+  
+            return res.status(200).json({ products, number });
+        });
+      });
+    }
   } else {
     Product.getLatest({
       keywords: req.query.keywords,
