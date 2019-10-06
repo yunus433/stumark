@@ -1,7 +1,10 @@
 const express = require('express');
 const multer = require('multer');
 
-const upload = multer({dest: './public/res/uploads/'});
+const upload = multer({
+  dest: './public/res/uploads/',
+  limits: { fieldSize: 25 * 1024 * 1024 }
+});
 const router = express.Router();
 
 const isApiAuthenticated = require('../middleware/isApiAuthenticated');
@@ -50,7 +53,7 @@ router.get(
 
 router.post(
   '/newProductImage',
-  upload.single('file'),
+  upload.single('photo'),
   isApiAuthenticated,
   newProductImagePostController
 );
