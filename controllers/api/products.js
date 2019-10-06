@@ -27,6 +27,7 @@ module.exports = (req, res) => {
     })
   } else if (req.query && req.query.limit) {
     if (req.query.filter) {
+      console.log(req.query.filter);
       Product.getLatest({
         university: {$in: req.query.filter},
         keywords: req.query.keywords,
