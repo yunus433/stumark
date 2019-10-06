@@ -1,10 +1,7 @@
 const express = require('express');
 const multer = require('multer');
 
-const upload = multer({
-  dest: './public/res/uploads/',
-  limits: { fieldSize: 25 * 1024 * 1024 }
-});
+const upload = multer({ dest: './public/res/uploads/' });
 const router = express.Router();
 
 const isApiAuthenticated = require('../middleware/isApiAuthenticated');
