@@ -53,54 +53,102 @@ const ProductSchema = new Schema({
   }
 });
 
-ProductSchema.statics.getNumberOfProducts = function (category, keywordsForProduct, callback) {
+ProductSchema.statics.getNumberOfProducts = function (params, callback) {
   const Product = this;
 
-  if (keywordsForProduct) {
-    const keywordsArr = keywordsForProduct.split(" ");
+  if (params.keywords) {
+    const keywordsArr = params.keywords.replace('.', '').replace('!', '').replace('?', '').replace('-', ' ').split(" ");
 
-    if (category != "all") {
-      Product
-        .find({category, keywords: {$all: keywordsArr}})
-        .countDocuments()
-        .then(number => {
-          return callback(null, number);
-        })
-        .catch(err => {
-          return callback(err);
-        });
+    if (params.category != "all") {
+      if (params.university) {
+        Product
+          .find({keywords: {$all: keywordsArr}, category: params.category, price: {$ne: "SOLD"}, university: {$in: params.university}})
+          .countDocuments()
+          .then((number) => {
+            callback(null, number);
+          })
+          .catch(err => {
+            callback(err);
+          });
+      } else {
+        Product
+          .find({keywords: {$all: keywordsArr}, category: params.category, price: {$ne: "SOLD"}})
+          .countDocuments()
+          .then((number) => {
+            callback(null, number);
+          })
+          .catch(err => {
+            callback(err);
+          });
+      }
     } else {
-      Product
-        .find({keywords: {$all: keywordsArr}})
-        .countDocuments()
-        .then(number => {
-          return callback(null, number);
-        })
-        .catch(err => {
-          return callback(err);
-        });
+      if (params.university) {
+        Product
+          .find({keywords: {$all: keywordsArr}, price: {$ne: "SOLD"}, university: {$in: params.university}})
+          .countDocuments()
+          .then((number) => {
+            callback(null, number);
+          })
+          .catch(err => {
+            callback(err);
+          });
+      } else {
+        Product
+          .find({keywords: {$all: keywordsArr}, price: {$ne: "SOLD"}})
+          .countDocuments()
+          .then((number) => {
+            callback(null, number);
+          })
+          .catch(err => {
+            callback(err);
+          });
+      }
     }
   } else {
-    if (category != "all") {
-      Product
-        .find({category})
-        .countDocuments()
-        .then(number => {
-          return callback(null, number);
-        })
-        .catch(err => {
-          return callback(err);
-        });
+    if (params.category != "all") {
+      if (params.university) {
+        Product
+          .find({category: params.category, price: {$ne: "SOLD"}, university: {$in: params.university}})
+          .countDocuments()
+          .then((number) => {
+            callback(null, number);
+          })
+          .catch(err => {
+            callback(err);
+          });
+      } else {
+        Product
+          .find({category: params.category, price: {$ne: "SOLD"}})
+          .countDocuments()
+          .then((number) => {
+            callback(null, number);
+          })
+          .catch(err => {
+            callback(err);
+          });
+      }
     } else {
-      Product
-        .find({})
-        .countDocuments()
-        .then(number => {
-          return callback(null, number);
-        })
-        .catch(err => {
-          return callback(err);
-        });
+      if (params.university) {
+        Product
+          .find({price: {$ne: "SOLD"}, university: {$in: params.university}})
+          .countDocuments()
+          .then((products) => {
+            callback(null, number);
+          })
+          .catch(err => {
+            callback(err);
+          });
+      } else {
+        Product
+          .find({price: {$ne: "SOLD"}})
+          .countDocuments()
+          .then((number) => {
+            callback(null, number);
+          })
+          .catch(err => {
+            callback(err);
+          });
+      }
     }
   }
 }
