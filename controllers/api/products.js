@@ -28,7 +28,7 @@ module.exports = (req, res) => {
   } else if (req.query && req.query.limit) {
     if (req.query.filter) {
       Product.getLatest({
-        university: {$in: req.query.filter.split(',')},
+        university: req.query.filter.split(','),
         keywords: req.query.keywords,
         category: req.query.category,
         docsToSkip: parseInt(req.query.page) * parseInt(req.query.limit),

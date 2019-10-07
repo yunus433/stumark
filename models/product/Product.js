@@ -112,63 +112,127 @@ ProductSchema.statics.getLatest = function (params, callback) {
     const keywordsArr = params.keywords.replace('.', '').replace('!', '').replace('?', '').replace('-', ' ').split(" ");
 
     if (params.category != "all") {
-      Product
-        .find({keywords: {$all: keywordsArr}, category: params.category, price: {$ne: "SOLD"}})
-        .sort({"createdAtSecond": -1})
-        .skip(params.docsToSkip)
-        .limit(params.limit)
-        .then((products) => {
-          if (products) return callback(null, products);
-          
-          return callback(true);
-        })
-        .catch(err => {
-          callback(err);
-        });
+      if (params.university) {
+        Product
+          .find({keywords: {$all: keywordsArr}, category: params.category, price: {$ne: "SOLD"}, university: {$in: params.university}})
+          .sort({"createdAtSecond": -1})
+          .skip(params.docsToSkip)
+          .limit(params.limit)
+          .then((products) => {
+            if (products) return callback(null, products);
+            
+            return callback(true);
+          })
+          .catch(err => {
+            callback(err);
+          });
+      } else {
+        Product
+          .find({keywords: {$all: keywordsArr}, category: params.category, price: {$ne: "SOLD"}})
+          .sort({"createdAtSecond": -1})
+          .skip(params.docsToSkip)
+          .limit(params.limit)
+          .then((products) => {
+            if (products) return callback(null, products);
+            
+            return callback(true);
+          })
+          .catch(err => {
+            callback(err);
+          });
+      }
     } else {
-      Product
-        .find({keywords: {$all: keywordsArr}, price: {$ne: "SOLD"}})
-        .sort({"createdAtSecond": -1})
-        .skip(params.docsToSkip)
-        .limit(params.limit)
-        .then((products) => {
-          if (products) return callback(null, products);
-          
-          return callback(true);
-        })
-        .catch(err => {
-          callback(err);
-        });
+      if (params.university) {
+        Product
+          .find({keywords: {$all: keywordsArr}, price: {$ne: "SOLD"}, university: {$in: params.university}})
+          .sort({"createdAtSecond": -1})
+          .skip(params.docsToSkip)
+          .limit(params.limit)
+          .then((products) => {
+            if (products) return callback(null, products);
+            
+            return callback(true);
+          })
+          .catch(err => {
+            callback(err);
+          });
+      } else {
+        Product
+          .find({keywords: {$all: keywordsArr}, price: {$ne: "SOLD"}})
+          .sort({"createdAtSecond": -1})
+          .skip(params.docsToSkip)
+          .limit(params.limit)
+          .then((products) => {
+            if (products) return callback(null, products);
+            
+            return callback(true);
+          })
+          .catch(err => {
+            callback(err);
+          });
+      }
     }
   } else {
     if (params.category != "all") {
-      Product
-        .find({category: params.category, price: {$ne: "SOLD"}})
-        .sort({"createdAtSecond": -1})
-        .skip(params.docsToSkip)
-        .limit(params.limit)
-        .then((products) => {
-          if (products) return callback(null, products);
-          
-          return callback(true);
-        })
-        .catch(err => {
-          callback(err);
-        });
+      if (params.university) {
+        Product
+          .find({category: params.category, price: {$ne: "SOLD"}, university: {$in: params.university}})
+          .sort({"createdAtSecond": -1})
+          .skip(params.docsToSkip)
+          .limit(params.limit)
+          .then((products) => {
+            if (products) return callback(null, products);
+            
+            return callback(true);
+          })
+          .catch(err => {
+            callback(err);
+          });
+      } else {
+        Product
+          .find({category: params.category, price: {$ne: "SOLD"}})
+          .sort({"createdAtSecond": -1})
+          .skip(params.docsToSkip)
+          .limit(params.limit)
+          .then((products) => {
+            if (products) return callback(null, products);
+            
+            return callback(true);
+          })
+          .catch(err => {
+            callback(err);
+          });
+      }
     } else {
-      Product
-        .find({"price": {$ne: "SOLD"}})
-        .sort({"createdAtSecond": -1})
-        .skip(params.docsToSkip)
-        .limit(params.limit)
-        .then((products) => {
-          if (products) return callback(null, products);
-          
-          return callback(true);
-        })
-        .catch(err => {
-          callback(err);
-        });
+      if (params.university) {
+        Product
+          .find({price: {$ne: "SOLD"}, university: {$in: params.university}})
+          .sort({"createdAtSecond": -1})
+          .skip(params.docsToSkip)
+          .limit(params.limit)
+          .then((products) => {
+            if (products) return callback(null, products);
+            
+            return callback(true);
+          })
+          .catch(err => {
+            callback(err);
+          });
+      } else {
+        Product
+          .find({price: {$ne: "SOLD"}})
+          .sort({"createdAtSecond": -1})
+          .skip(params.docsToSkip)
+          .limit(params.limit)
+          .then((products) => {
+            if (products) return callback(null, products);
+            
+            return callback(true);
+          })
+          .catch(err => {
+            callback(err);
+          });
+      }
     }
   }
 };
