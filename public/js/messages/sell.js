@@ -146,6 +146,7 @@ window.onload = () => {
           buyerId: userObject._id,
           buyerName: userObject.name,
           ownerName: sellerObject.name,
+          ownerId: sellerObject._id,
           productProfile: productObject.productPhotoArray[0],
           productName: productObject.name,
           productId: productObject._id,

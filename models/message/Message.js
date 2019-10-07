@@ -16,6 +16,10 @@ const MessageSchema = new Schema({
     required: true,
     type: String
   },
+  ownerId: {
+    required: true,
+    type: String
+  },
   ownerName: {
     required: true,
     type: String

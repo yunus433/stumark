@@ -16,6 +16,7 @@ module.exports = (req, res) => {
         buyerId: req.session.user._id,
         buyerName: req.session.user.name,
         ownerName: user.name,
+        ownerId: user._id,
         productId: req.query.id,
         productName: product.name,
         productProfile: product.productPhotoArray[0],

@@ -31,7 +31,7 @@ module.exports = (req, res) => {
     });
   } else if (req.query && req.query.owner) {
     Message.find({
-      "owner": req.query.owner
+      "ownerId": req.query.owner
     }, (err, messages) => {
       if (err)
         return res.status(500).json({ "error": "Mongo Error: " + err });
