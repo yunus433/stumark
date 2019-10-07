@@ -65,20 +65,20 @@ ProductSchema.statics.getNumberOfProducts = function (params, callback) {
           .find({keywords: {$all: keywordsArr}, category: params.category, price: {$ne: "SOLD"}, university: {$in: params.university}})
           .countDocuments()
           .then((number) => {
-            callback(null, number);
+            return callback(null, number);
           })
           .catch(err => {
-            callback(err);
+            return callback(err);
           });
       } else {
         Product
           .find({keywords: {$all: keywordsArr}, category: params.category, price: {$ne: "SOLD"}})
           .countDocuments()
           .then((number) => {
-            callback(null, number);
+            return callback(null, number);
           })
           .catch(err => {
-            callback(err);
+            return callback(err);
           });
       }
     } else {
@@ -87,20 +87,20 @@ ProductSchema.statics.getNumberOfProducts = function (params, callback) {
           .find({keywords: {$all: keywordsArr}, price: {$ne: "SOLD"}, university: {$in: params.university}})
           .countDocuments()
           .then((number) => {
-            callback(null, number);
+            return callback(null, number);
           })
           .catch(err => {
-            callback(err);
+            return callback(err);
           });
       } else {
         Product
           .find({keywords: {$all: keywordsArr}, price: {$ne: "SOLD"}})
           .countDocuments()
           .then((number) => {
-            callback(null, number);
+            return callback(null, number);
           })
           .catch(err => {
-            callback(err);
+            return callback(err);
           });
       }
     }
@@ -111,20 +111,20 @@ ProductSchema.statics.getNumberOfProducts = function (params, callback) {
           .find({category: params.category, price: {$ne: "SOLD"}, university: {$in: params.university}})
           .countDocuments()
           .then((number) => {
-            callback(null, number);
+            return callback(null, number);
           })
           .catch(err => {
-            callback(err);
+            return callback(err);
           });
       } else {
         Product
           .find({category: params.category, price: {$ne: "SOLD"}})
           .countDocuments()
           .then((number) => {
-            callback(null, number);
+            return callback(null, number);
           })
           .catch(err => {
-            callback(err);
+            return callback(err);
           });
       }
     } else {
@@ -132,21 +132,21 @@ ProductSchema.statics.getNumberOfProducts = function (params, callback) {
         Product
           .find({price: {$ne: "SOLD"}, university: {$in: params.university}})
           .countDocuments()
-          .then((products) => {
-            callback(null, number);
+          .then((number) => {
+            return callback(null, number);
           })
           .catch(err => {
-            callback(err);
+            return callback(err);
           });
       } else {
         Product
           .find({price: {$ne: "SOLD"}})
           .countDocuments()
           .then((number) => {
-            callback(null, number);
+            return callback(null, number);
           })
           .catch(err => {
-            callback(err);
+            return callback(err);
           });
       }
     }

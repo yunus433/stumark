@@ -30,9 +30,7 @@ module.exports = (req, res) => {
       Product.getLatest({
         university: req.query.filter.split(','),
         keywords: req.query.keywords,
-        category: req.query.category,
-        docsToSkip: parseInt(req.query.page) * parseInt(req.query.limit),
-        limit: parseInt(req.query.limit)
+        category: req.query.category
       }, (err, products) => { 
         if (err)
           return res.status(500).json({ "error": "Mongo Error: " + err });
@@ -62,9 +60,7 @@ module.exports = (req, res) => {
   
         Product.getNumberOfProducts({
           keywords: req.query.keywords,
-          category: req.query.category,
-          docsToSkip: parseInt(req.query.page) * parseInt(req.query.limit),
-          limit: parseInt(req.query.limit)
+          category: req.query.category
         }, (err, number) => { 
           if (err)
             return res.status(500).json({ "error": "Mongo Error: " + err });
@@ -85,9 +81,7 @@ module.exports = (req, res) => {
 
       Product.getNumberOfProducts({
         keywords: req.query.keywords,
-        category: req.query.category,
-        docsToSkip: parseInt(req.query.page) * parseInt(req.query.limit),
-        limit: 999999999
+        category: req.query.category
       }, (err, number) => { 
         if (err)
           return res.status(500).json({ "error": "Mongo Error: " + err });
