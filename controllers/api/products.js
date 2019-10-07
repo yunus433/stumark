@@ -61,7 +61,6 @@ module.exports = (req, res) => {
           return res.status(500).json({ "error": "Mongo Error: " + err });
   
         Product.getNumberOfProducts({
-          university: req.query.filter.split(','),
           keywords: req.query.keywords,
           category: req.query.category,
           docsToSkip: parseInt(req.query.page) * parseInt(req.query.limit),
