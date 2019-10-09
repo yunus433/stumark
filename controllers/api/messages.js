@@ -16,14 +16,14 @@ module.exports = (req, res) => {
       "productId": req.query.product
     }, (err, messages) => {
       if (err) return res.status(500).json({ "error": "Mongo Error: " + err });
-      Message.findAndUpdate({
+      Message.updateMany({
         "buyerId": req.query.buyer,
         "productId": req.query.product,
         "sendedBy": req.query.sendedBy,
         "read": false
       }, { $set: {
         read: true} 
-      }, err => {
+      }, {}, err => {
         if (err) return res.status(500).json({ "error": "Mongo Error: " + err });
 
         return res.status(200).json({ messages });
