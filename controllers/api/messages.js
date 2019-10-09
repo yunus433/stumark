@@ -15,10 +15,17 @@ module.exports = (req, res) => {
       "buyerId": req.query.buyer,
       "productId": req.query.product
     }, (err, messages) => {
-      if (err)
-        return res.status(500).json({ "error": "Mongo Error: " + err });
+      if (err) return res.status(500).json({ "error": "Mongo Error: " + err });
+      Message.findAndUpdate({
+        "buyerId": req.query.buyer,
+        "productId": req.query.product,
+        "sendedBy": req.query.sendedBy,
+        "read": false
+      }, { read: true }, err => {
+        if (err) return res.status(500).json({ "error": "Mongo Error: " + err });
 
-      return res.status(200).json({ messages });
+        return res.status(200).json({ messages });
+      });
     });
   } else if (req.query && req.query.buyer) {
     Message.find({
