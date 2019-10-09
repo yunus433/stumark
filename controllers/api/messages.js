@@ -21,7 +21,9 @@ module.exports = (req, res) => {
         "productId": req.query.product,
         "sendedBy": req.query.sendedBy,
         "read": false
-      }, { read: true }, err => {
+      }, { $set: {
+        read: true} 
+      }, err => {
         if (err) return res.status(500).json({ "error": "Mongo Error: " + err });
 
         return res.status(200).json({ messages });
