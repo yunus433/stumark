@@ -27,7 +27,7 @@ module.exports = (req, res) => {
       if (err)
         return res.status(500).json({ "error": "Mongo Error: " + err });
 
-      return res.status(200).json({ messages: Object.values(_.groupBy(messages, message => { return message.productId && message.buyerId })) });
+      return res.status(200).json({ messages: Object.values(_.groupBy(messages, message => { return message.productId })) });
     });
   } else if (req.query && req.query.owner) {
     Message.find({
@@ -36,7 +36,7 @@ module.exports = (req, res) => {
       if (err)
         return res.status(500).json({ "error": "Mongo Error: " + err });
 
-      return res.status(200).json({ messages: Object.values(_.groupBy(messages, message => { return message.productId && message.buyerId })) });
+      return res.status(200).json({ messages: Object.values(_.groupBy(Object.values(_.groupBy(messages, message => { return message.productId })), message => {return message[0].buyerId})) });
     });
   } else if (req.query && req.query.product) {
     Message.find({
