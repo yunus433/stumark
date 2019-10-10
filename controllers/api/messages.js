@@ -24,11 +24,11 @@ module.exports = (req, res) => {
         "read": false
       }, { $set: {
         read: true} 
-      }, {}, (err, modifiedNum) => {
+      }, {}, (err, response) => {
         if (err) return res.status(500).json({ "error": "Mongo Error: " + err });
 
         User.findByIdAndUpdate(mongoose.Types.ObjectId(req.query.user), { $inc: {
-          "notReadMessage": -1 * modifiedNum
+          "notReadMessage": -1 * response.nModified
         }}, {}, (err, user) => {
           if (err) return res.status(500).json({ "error": "Mongo Error: " + err });
 
