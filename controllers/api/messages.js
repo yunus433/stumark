@@ -52,7 +52,11 @@ module.exports = (req, res) => {
       if (err)
         return res.status(500).json({ "error": "Mongo Error: " + err });
 
-      return res.status(200).json({ messages: Object.values(_.groupBy(Object.values(_.groupBy(messages, message => { return message.productId })), message => {return message[0].buyerId})) });
+      Object.values(_.groupBy(messages, message => { return message.productId })).forEach(messageArray => {
+        messageArray = Object.values(_.groupBy(messageArray, message => { return message.buyerId }))
+      });
+
+      return res.status(200).json({messages});
     });
   } else if (req.query && req.query.product) {
     Message.find({
