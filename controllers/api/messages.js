@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const _ = require('lodash');
+const async = require('async');
 
 const Message = require('../../models/message/Message');
 const User = require('../../models/user/User');
@@ -52,11 +53,18 @@ module.exports = (req, res) => {
       if (err)
         return res.status(500).json({ "error": "Mongo Error: " + err });
 
-      Object.values(_.groupBy(messages, message => { return message.productId })).forEach(messageArray => {
-        messageArray = Object.values(_.groupBy(messageArray, message => { return message.buyerId }))
-      });
+      const newMessages = Object.values(_.groupBy(messages, message => { return message.productId }));
+      async.times(
+        newMessages.length,
+        (time, next) => {
+          next(null, Object.values(_.groupBy(newMessages[time], message => { return message.buyerId })))
+        },
+        (err, messages) => {
+          if (err) return res.status(500).json({ "error": err });
 
-      return res.status(200).json({messages});
+          return res.status(200).json({ messages });
+        }
+      );
     });
   } else if (req.query && req.query.product) {
     Message.find({
