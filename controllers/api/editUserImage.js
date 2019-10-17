@@ -11,8 +11,6 @@ module.exports = (req, res, next) => {
         public_id: "stumarkt/image_folder/" + req.file.filename,
         quality: 25,
         format: "JPG",
-        radius: "max",
-        crop: "crop",
         secure: true
       },
       (err, result) => {
