@@ -19,7 +19,7 @@ module.exports = (req, res, next) => {
         if (err) return res.status(500).json({"error": err});
 
         User.findByIdAndUpdate(
-          mongoose.Types.ObjectId(req.session.user._id),
+          mongoose.Types.ObjectId(req.query.id),
           {
             $set: {
               profilePhoto: result.secure_url
@@ -27,7 +27,6 @@ module.exports = (req, res, next) => {
           },
           (err, user) => {
             if (err) return res.status(500).json({"error": err});
-            req.session.user.profilePhoto = result.url;
 
             if (
               user.profilePhoto != "https://res.cloudinary.com/dvnac86j8/image/upload/v1566558525/stumarkt/defaultUserPicture.png"
