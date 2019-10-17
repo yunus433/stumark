@@ -1,7 +1,7 @@
 const fs = require("fs");
 const mongoose = require("mongoose");
 
-const User = require("../../../models/user/User");
+const User = require("../../models/user/User");
 
 module.exports = (req, res, next) => {
   if (req.file) {
@@ -16,7 +16,7 @@ module.exports = (req, res, next) => {
         secure: true
       },
       (err, result) => {
-        if (err) res.sendStatus(500);
+        if (err) return res.status(500).json({"error": err});
 
         User.findByIdAndUpdate(
           mongoose.Types.ObjectId(req.session.user._id),
@@ -26,7 +26,7 @@ module.exports = (req, res, next) => {
             }
           },
           (err, user) => {
-            if (err) return res.sendStatus(500);
+            if (err) return res.status(500).json({"error": err});
             req.session.user.profilePhoto = result.url;
 
             if (
@@ -38,25 +38,23 @@ module.exports = (req, res, next) => {
                     .split("/")
                     [user.profilePhoto.split("/").length - 1].split(".")[0],
                 err => {
-                  if (err) res.sendStatus(500);
+                  if (err) return res.status(500).json({"error": err});
 
                   fs.unlink(
                     "./public/res/uploads/" + req.file.filename,
                     err => {
-                      if (err) res.sendStatus(500);
+                      if (err) return res.status(500).json({"error": err});
 
-                      res.write(result.secure_url);
-                      res.end();
+                      return res.status(200).json({"image": result.secure_url});
                     }
                   );
                 }
               );
             } else {
               fs.unlink("./public/res/uploads/" + req.file.filename, err => {
-                if (err) res.sendStatus(500);
+                if (err) return res.status(500).json({"error": err});
 
-                res.write(result.secure_url);
-                res.end();
+                return res.status(200).json({"image": result.secure_url});
               });
             }
           }
@@ -64,6 +62,6 @@ module.exports = (req, res, next) => {
       }
     );
   } else {
-    res.sendStatus(500);
+    
   }
 };
