@@ -18,7 +18,7 @@ module.exports = (req, res) => {
     });
   } else if (req.query && req.query.userFavorites) {
     const products = [];
-    req.query.userFavorites.forEach(id => {
+    req.query.userFavorites.split(',').forEach(id => {
       Product.findById(mongoose.Types.ObjectId(id), (err, product) => {
         if (err)
           return res.status(500).json({ "error": "Mongo Error: " + err });
