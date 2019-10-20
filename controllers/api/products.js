@@ -27,7 +27,7 @@ module.exports = (req, res) => {
       });
     });
 
-    return res.status(200).json({ products });
+    return res.status(200).json({ produgcts });
   } else if (req.query && req.query.owner) {
     Product.find({
       "owner": req.query.owner
