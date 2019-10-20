@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const async = require('async');
 
 const Product = require('../../models/product/Product');
 
@@ -17,17 +18,21 @@ module.exports = (req, res) => {
       return res.status(200).json({ product });
     });
   } else if (req.query && req.query.userFavorites) {
-    const products = [];
-    req.query.userFavorites.split(',').forEach(id => {
-      Product.findById(mongoose.Types.ObjectId(id), (err, product) => {
-        if (err)
-          return res.status(500).json({ "error": "Mongo Error: " + err });
-  
-        products.push(product);
-      });
-    });
+    async.times(
+      req.query.userFavorites.split(',').length,
+      (time, next) => {
+        Product.findById(mongoose.Types.ObjectId(req.query.userFavorites.split(',')[time]), (err, product) => {
+          if (err) return next(err);
 
-    return res.status(200).json({ products });
+           next(null, product);
+        });
+      },
+      (err, products) => {
+        if (err) return res.status(500).json({ "error": err });
+
+        return res.status(200).json({ products });
+      }
+    );
   } else if (req.query && req.query.owner) {
     Product.find({
       "owner": req.query.owner
