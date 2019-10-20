@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 
 const User = require("../../models/user/User");
 
-module.exports = (req, res, next) => {
+module.exports = (req, res) => {
   if (req.file) {
     req.cloudinary.v2.uploader.upload(
       "./public/res/uploads/" + req.file.filename,

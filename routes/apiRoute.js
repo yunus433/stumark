@@ -17,6 +17,7 @@ const newProductPostController = require('../controllers/api/newProduct');
 const newProductImagePostController = require('../controllers/api/newProductImage');
 const editProductPostController = require('../controllers/api/editProduct');
 const editUserImagePostController = require('../controllers/api/editUserImage');
+const editUserPostController = require('../controllers/api/editUser');
 
 router.get(
   '/login',
@@ -70,6 +71,11 @@ router.post(
   upload.single('photo'),
   isApiAuthenticated,
   editUserImagePostController
+);
+router.post(
+  '/editUser',
+  isApiAuthenticated,
+  editUserPostController
 );
 
 module.exports = router;
