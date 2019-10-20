@@ -9,7 +9,7 @@ module.exports = (req, res) => {
       "name": req.body.name,
       "email": req.body.email,
       "university": req.body.university
-    }}, {}, (err, user) => {
+    }}, {new: true}, (err, user) => {
       if (err) return res.status(500).json({"error: ": err});
 
       return res.status(200).json({user});
@@ -19,7 +19,7 @@ module.exports = (req, res) => {
       "name": req.body.name,
       "email": req.body.email,
       "university": req.body.university
-    }}, {}, (err, user) => {
+    }}, {new: true}, (err, user) => {
       if (err) return res.status(500).json({"error: ": err});
 
       return res.status(200).json({user});
