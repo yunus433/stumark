@@ -18,6 +18,7 @@ const newProductImagePostController = require('../controllers/api/newProductImag
 const editProductPostController = require('../controllers/api/editProduct');
 const editUserImagePostController = require('../controllers/api/editUserImage');
 const editUserPostController = require('../controllers/api/editUser');
+const favoritePostController = require('../controllers/api/addToFavorites');
 
 router.get(
   '/login',
@@ -76,6 +77,11 @@ router.post(
   '/editUser',
   isApiAuthenticated,
   editUserPostController
+);
+router.post(
+  '/editUser',
+  isApiAuthenticated,
+  favoritePostController
 );
 
 module.exports = router;
