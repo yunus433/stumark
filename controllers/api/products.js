@@ -16,6 +16,18 @@ module.exports = (req, res) => {
 
       return res.status(200).json({ product });
     });
+  } else if (req.query && req.query.userFavorites) {
+    const products = [];
+    req.query.userFavorites.forEach(id => {
+      Product.findById(mongoose.Types.ObjectId(id), (err, product) => {
+        if (err)
+          return res.status(500).json({ "error": "Mongo Error: " + err });
+  
+        products.push(product);
+      });
+    });
+
+    return res.status(200).json({ products });
   } else if (req.query && req.query.owner) {
     Product.find({
       "owner": req.query.owner
