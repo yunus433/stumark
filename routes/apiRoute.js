@@ -79,7 +79,7 @@ router.post(
   editUserPostController
 );
 router.post(
-  '/editUser',
+  '/addToFavorite',
   isApiAuthenticated,
   favoritePostController
 );
