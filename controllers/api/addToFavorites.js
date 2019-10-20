@@ -6,7 +6,7 @@ module.exports = (req, res) => {
   if (!req.query || !req.query.id)
     return res.status(400).json({ "error": "Bad request" });
 
-  User.find(mongoose.Types.ObjectId(req.query.id), (err, user) => {
+  User.findById(mongoose.Types.ObjectId(req.query.id), (err, user) => {
     if (err) return res.status(500).json({ "error": err });
 
     if (user.favorites.includes(req.body.productId)) {
