@@ -41,6 +41,10 @@ const UserSchema = new Schema({
   notReadMessage: {
     type: Number,
     default: 0
+  },
+  favorites: {
+    type: Array,
+    default: []
   }
 });
 
