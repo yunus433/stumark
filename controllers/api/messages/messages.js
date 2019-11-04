@@ -16,18 +16,27 @@ module.exports = (req, res) => {
       "product": req.query.product
     }, (err, message) => {
       if (err) return res.status(500).json({ "error": "Mongo Error: " + err });
+      let nModified = 0;
+
+      const newMessages = message.messages.map(message => {
+        if (message.sendedBy == req.query.sendedBy && !message.read){
+          message.read = true;
+          nModified++;
+        }
+
+        return message;
+      });
+
       Message.findOneAndUpdate({
         "buyer": req.query.buyer,
-        "product": req.query.product,
-        "sendedBy": req.query.sendedBy,
-        "read": false
+        "product": req.query.product
       }, { $set: {
-        read: true
-      }}, {}, (err, response) => {
+        "messages": newMessages
+      }}, {}, err => {
         if (err) return res.status(500).json({ "error": "Mongo Error: " + err });
 
         User.findByIdAndUpdate(mongoose.Types.ObjectId(req.query.user), { $inc: {
-          "notReadMessage": -1 * response.nModified
+          "notReadMessage": -1 * nModified
         }}, {new: true}, (err, user) => {
           if (err) return res.status(500).json({ "error": "Mongo Error: " + err });
           
