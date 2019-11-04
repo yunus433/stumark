@@ -2,7 +2,7 @@ const Message = require("../../../models/message/Message");
 
 module.exports = (req, res, next) => {
   if ( req.body && req.body.buyer && req.body.buyerName && req.body.owner && req.body.ownerName
-    && req.body.product && req.body.productName && req.body.productPhoto && req.body.messages ) {
+    && req.body.product && req.body.productName && req.body.productPhoto && req.body.content && req.body.createdAt ) {
       const newMessageData = {
         buyer: req.body.buyer,
         buyerName: req.body.buyerName,
