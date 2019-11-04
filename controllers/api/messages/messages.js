@@ -40,7 +40,7 @@ module.exports = (req, res) => {
         }}, {new: true}, (err, user) => {
           if (err) return res.status(500).json({ "error": "Mongo Error: " + err });
           
-          if (sendedBy == 'buyer') {
+          if (req.query.sendedBy == 'buyer') {
             User.findById(mongoose.Types.ObjectId(message.buyer), (err, buyer) => {
               if (err) return res.status(500).json({ "error": "Mongo Error: " + err });
               message.owner = user;
