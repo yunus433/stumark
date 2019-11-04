@@ -4,11 +4,7 @@ const moment = require('moment');
 const Schema = mongoose.Schema;
 
 const MessageSchema = new Schema({
-  content: {
-    required: true,
-    type: String
-  },
-  buyerId: {
+  buyer: {
     required: true,
     type: String
   },
@@ -16,37 +12,21 @@ const MessageSchema = new Schema({
     required: true,
     type: String
   },
-  ownerId: {
-    required: true,
-    type: String
+  owner: {
+    type: String,
+    required: true
   },
-  ownerName: {
-    required: true,
-    type: String
-  },
-  sendedBy: {
-    required: true,
-    type: String
-  },
-  productId: {
-    required: true,
-    type: String
-  },
-  productName: {
-    required: true,
-    type: String
-  },
-  productProfile: {
-    required: true,
-    type: String
-  },
-  read: {
-    type: Boolean,
-    default: false
+  product: {
+    type: String,
+    required: true
   },
   createdAt: {
-    type: String,
-    default: moment(Date.now()).format("[at] HH[:]mm A [/] DD[.]MM[.]YYYY")
+    type: Date,
+    default: Date.now()
+  },
+  messages: {
+    type: Array,
+    default: []
   }
 });
 

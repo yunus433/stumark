@@ -6,19 +6,19 @@ const router = express.Router();
 
 const isApiAuthenticated = require('../middleware/isApiAuthenticated');
 
-const loginGetController = require('../controllers/api/login');
-const registerGetController = require('../controllers/api/register');
-const verifyGetController = require('../controllers/api/verify');
-const usersGetController = require('../controllers/api/users');
-const productsGetController = require('../controllers/api/products');
-const messagesGetController = require('../controllers/api/messages');
+const loginGetController = require('../controllers/api/auth/login');
+const registerGetController = require('../controllers/api/auth/register');
+const verifyGetController = require('../controllers/api/auth/verify');
+const usersGetController = require('../controllers/api/users/users');
+const productsGetController = require('../controllers/api/products/products');
+const messagesGetController = require('../controllers/api/messages/messages');
 
-const newProductPostController = require('../controllers/api/newProduct');
-const newProductImagePostController = require('../controllers/api/newProductImage');
-const editProductPostController = require('../controllers/api/editProduct');
-const editUserImagePostController = require('../controllers/api/editUserImage');
-const editUserPostController = require('../controllers/api/editUser');
-const favoritePostController = require('../controllers/api/addToFavorites');
+const newProductPostController = require('../controllers/api/products/newProduct');
+const newProductImagePostController = require('../controllers/api/products/newProductImage');
+const editProductPostController = require('../controllers/api/edit/editProduct');
+const editUserImagePostController = require('../controllers/api/edit/editUserImage');
+const editUserPostController = require('../controllers/api/edit/editUser');
+const favoritePostController = require('../controllers/api/favorites/addToFavorites');
 
 router.get(
   '/login',

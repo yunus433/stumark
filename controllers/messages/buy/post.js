@@ -11,17 +11,18 @@ module.exports = (req, res) => {
 
     User.findById(mongoose.Types.ObjectId(product.owner), (err, user) => {
       const newMessageData = {
-        content: req.body.message,
-        sendedBy: "buyer",
-        buyerId: req.session.user._id,
+        buyer: req.session.user._id,
         buyerName: req.session.user.name,
-        ownerName: user.name,
-        ownerId: user._id,
-        productId: req.query.id,
-        productName: product.name,
-        productProfile: product.productPhotoArray[0],
-        read: false,
-        createdAt: moment(Date.now()).format("[at] HH[:]mm A [/] DD[.]MM[.]YYYY")
+        owner: user._id,
+        product: req.query.id,
+        messages: [
+          {
+            content: req.body.message,
+            sendedBy: "buyer",
+            createdAt: moment(Date.now()).format("HH[:]mm A [/] DD[.]MM[.]YYYY"),
+            read: false
+          }
+        ]
       };
     
       const newMessage = new Message(newMessageData);

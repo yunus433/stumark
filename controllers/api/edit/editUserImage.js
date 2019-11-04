@@ -1,7 +1,7 @@
 const fs = require("fs");
 const mongoose = require("mongoose");
 
-const User = require("../../models/user/User");
+const User = require("../../../models/user/User");
 
 module.exports = (req, res) => {
   if (req.file) {

@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const async = require('async');
 
-const Product = require('../../models/product/Product');
+const Product = require('../../../models/product/Product');
 
 module.exports = (req, res) => {
   if (!req.query || !req.query.category)

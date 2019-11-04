@@ -12,33 +12,39 @@ module.exports = (socket, io) => {
   socket.on('newMessageSend', (params, callback) => {
     const newMessageData = {
       content: params.message.content,
-      buyerId: params.message.buyerId,
-      buyerName: params.message.buyerName,
       sendedBy: params.message.sendedBy,
-      ownerName: params.message.ownerName,
-      ownerId: params.message.ownerId,
-      productId: params.message.productId,
-      productName: params.message.productName,
-      productProfile: params.message.productProfile,
       read: false,
-      createdAt: moment(Date.now()).format("[at] HH[:]mm A [/] DD[.]MM[.]YYYY")
+      createdAt: moment(Date.now()).format("HH[:]mm A [/] DD[.]MM[.]YYYY")
     };
 
     if (io.sockets.adapter.rooms[params.to]) {
       newMessageData.read = true;
 
-      const newMessage = new Message(newMessageData);
-
-      newMessage.save((err, message) => {
+      Message.findOneAndUpdate({
+        "buyer": params.message.buyerId,
+        "buyerName": params.message.buyerName,
+        "owner": params.message.ownerId,
+        "product": params.message.productId
+      }, {
+        $push: {
+          "messages": newMessageData
+        }
+      }, {upsert: true}, err => {
         if (err) return callback(err);
 
-        socket.to(params.to).emit('newMessage', {message});
+        socket.to(params.to).emit('newMessage', {message: newMessageData});
         return callback(undefined, message);
       });
     } else {
-      const newMessage = new Message(newMessageData);
-
-      newMessage.save((err, message) => {
+      Message.findOneAndUpdate({
+        "buyer": params.message.buyerId,
+        "owner": params.message.ownerId,
+        "product": params.message.productId
+      }, {
+        $push: {
+          "messages": newMessageData
+        }
+      }, {upsert: true}, err => {
         if (err) return callback(err);
 
         if (params.message.sendedBy == 'buyer') {
@@ -50,18 +56,18 @@ module.exports = (socket, io) => {
             }}, err => {
               if (err) return callback(err);
   
-              socket.to(params.to).emit('newMessage', {message});
-              return callback(undefined, message);
+              socket.to(params.to).emit('newMessage', {newMessageData});
+              return callback(undefined, newMessageData);
             });
           });
         } else {
-          User.findByIdAndUpdate(message.buyerId, {$inc: {
+          User.findByIdAndUpdate(newMessageData.buyer, {$inc: {
             "notReadMessage": 1
           }}, err => {
             if (err) return callback(err);
 
-            socket.to(params.to).emit('newMessage', {message});
-            return callback(undefined, message);
+            socket.to(params.to).emit('newMessage', {newMessageData});
+            return callback(undefined, newMessageData);
           });
         };
       });

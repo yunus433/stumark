@@ -5,14 +5,14 @@ block main
   input.display-none#seller-object(value=JSON.stringify(user))
   .messages-left-side
     .messages-content
-      each message in messages
-        if message.sendedBy == "owner"
+      each eachMessage in message.messages
+        if eachMessage.sendedBy == "owner"
           .each-message.buyer
             .message-left-side-buyer
               .message-header-buyer
-                span.message-time= message.createdAt
+                span.message-time= eachMessage.createdAt
                 span.message-sender= user.name
-              span.message-content= message.content
+              span.message-content= eachMessage.content
             .message-right-side
               img.message-sender-profile(src=user.profilePhoto)
         else
@@ -22,8 +22,8 @@ block main
             .message-left-side
               .message-header
                 span.message-sender= buyer.name
-                span.message-time= message.createdAt
-              span.message-content= message.content
+                span.message-time= eachMessage.createdAt
+              span.message-content= eachMessage.content
     form.message-send-wrapper(action="/messages/sell/?id=" + product._id + "&user=" + buyer._id method="POST")
       input.new-message-input(type="text" name="message" autofocus autocomplete="off" placeholder="Type your message")
       button.send-button

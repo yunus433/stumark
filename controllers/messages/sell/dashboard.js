@@ -13,14 +13,9 @@ module.exports = (req, res, next) => {
       if (err) return res.redirect("/messages/dashboard");
       
       Message.find({
-        "productId": req.query.id
+        "product": req.query.id
       }, (err, messages) => {
         if (err) return res.redirect('/');
-
-        if (messages && messages.length > 0)
-          messages = Object.values(_.groupBy(messages, message => { return message.buyerId }));
-        else 
-          messages = [];
    
         return res.render("messages/sellDashboard", {
           page: "messages/sellDashboard",

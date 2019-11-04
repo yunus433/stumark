@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const Product = require('../../models/product/Product');
+const Product = require('../../../models/product/Product');
 
 module.exports = (req, res) => {
   if (req.body && req.body.id && req.body.name && req.body.description && req.body.price && req.body.location) {

@@ -6,48 +6,57 @@ const User = require('../../../models/user/User');
 
  module.exports = (req, res) => {
   if (req.query && req.query.id) {
-    Message.updateMany({
-      "productId": req.query.id,
-      "buyerId": req.session.user._id.toString(),
-      "sendedBy": "owner"
-    }, {$set: {
-      read: true
-    }}, {new: true}, (err, response) => {
+    Message.findOne({
+      "buyer": req.session.user._id,
+      "product": req.query.id
+    }, (err, message) => {
       if (err) return res.redirect('/');
+      let modifiedNum = 0;
 
-      Message.find({
-        "productId": req.query.id,
-        "buyerId": req.session.user._id.toString()
-      }, (err, messages) => {
+      const newMessages = message.messages.map(eachMessage => {
+        if (eachMessage.sendedBy == 'owner' && !eachMessage.read) {
+          eachMessage.read = true;
+          modifiedNum++;
+        }
+        
+        return eachMessage;
+      });
+
+      Message.findOneAndUpdate({
+        "buyer": req.session.user._id,
+        "product": req.query.id
+      }, {$set: {
+        "messages": newMessages
+      }}, {new: true}, (err, message) => {
         if (err) return res.redirect('/');
-  
-          User.findByIdAndUpdate(mongoose.Types.ObjectId(req.session.user._id), {$inc: {
-            "notReadMessage": parseInt(-1 * response.nModified)
-          }}, {new: true}, (err, newUser) => {
-            if (err) return res.redirect('/messages/dashboard');
-            req.session.user = newUser;
-  
-            Product.findById(mongoose.Types.ObjectId(req.query.id), (err, product) => {
-              if (err) return res.redirect('/');
 
-              User.findById(mongoose.Types.ObjectId(product.owner), (err, owner) => {
-                if (err) return res.redirect("/messages/dashboard");
+        User.findByIdAndUpdate(mongoose.Types.ObjectId(req.session.user._id), {$inc: {
+          "notReadMessage": parseInt(-1 * modifiedNum)
+        }}, {new: true}, (err, newUser) => {
+          if (err) return res.redirect('/messages/dashboard');
+          req.session.user = newUser;
 
-                return res.render("messages/buy", {
-                  page: "messages/buy",
-                  title: product.name,
-                  includes: {
-                    external: ["css", "js", "fontawesome", "socket.io"]
-                  },
-                  product,
-                  messages,
-                  owner,
-                  user: req.session.user
-                });
+          Product.findById(mongoose.Types.ObjectId(req.query.id), (err, product) => {
+            if (err) return res.redirect('/');
+
+            User.findById(mongoose.Types.ObjectId(product.owner), (err, owner) => {
+              if (err) return res.redirect("/messages/dashboard");
+
+              return res.render("messages/buy", {
+                page: "messages/buy",
+                title: product.name,
+                includes: {
+                  external: ["css", "js", "fontawesome", "socket.io"]
+                },
+                product,
+                message,
+                owner,
+                user: req.session.user
               });
             });
           });
-      });
+        });
+      })
     });
   } else {
     return res.redirect('/messages/dashboard');

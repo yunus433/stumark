@@ -1,4 +1,4 @@
-const Product = require('../../models/product/Product');
+const Product = require('../../../models/product/Product');
 
 function uploadToCloudinary(req, nameArray) {
   nameArray.forEach(name => {

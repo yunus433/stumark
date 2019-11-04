@@ -1,7 +1,7 @@
 const validator = require('validator');
 
-const User = require('../../models/user/User');
-const sendMail = require('../../utils/sendMail');
+const User = require('../../../models/user/User');
+const sendMail = require('../../../utils/sendMail');
 
 module.exports = (req, res, next) => {
   if (!req.query || !req.query.email || !req.query.name || !req.query.university || !req.query.password)

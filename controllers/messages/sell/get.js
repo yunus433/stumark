@@ -1,38 +1,46 @@
 const mongoose = require('mongoose');
-const _ = require('lodash');
 
-const User  =require('../../../models/user/User');
-const Product = require('../../../models/product/Product');
 const Message = require('../../../models/message/Message');
+const Product = require('../../../models/product/Product');
+const User = require('../../../models/user/User');
 
 module.exports = (req, res) => {
   if (req.query && req.query.id) {
-    Message.updateMany({
-      "productId": req.query.id,
-      "buyerId": req.query.user,
-      "sendedBy": "buyer"
-    }, {$set: {
-      read: true
-    }}, {new: true}, (err, response) => {
+    Message.findOne({
+      "buyer": req.query.user,
+      "product": req.query.id
+    }, (err, message) => {
       if (err) return res.redirect('/');
+      let modifiedNum = 0;
 
-      Message.find({
-        "productId": req.query.id,
-        "buyerId": req.query.user
-      }, (err, messages) => {
+      const newMessages = message.messages.map(eachMessage => {
+        if (eachMessage.sendedBy == 'buyer' && !eachMessage.read) {
+          eachMessage.read = true;
+          modifiedNum++;
+        }
+        
+        return eachMessage;
+      });
+
+      Message.findOneAndUpdate({
+        "buyer": req.query.user,
+        "product": req.query.id
+      }, {$set: {
+        "messages": newMessages
+      }}, {new: true}, (err, message) => {
         if (err) return res.redirect('/');
 
-        User.findById(mongoose.Types.ObjectId(req.query.user), (err, buyer) => {
-          if (err) return res.redirect("/messages/dashboard");
-  
-          User.findByIdAndUpdate(req.session.user._id, {$inc: {
-            "notReadMessage": -1 * response.nModified
-          }}, {new: true}, (err, newUser) => {
-            if (err) return res.redirect('/messages/dashboard');
-            req.session.user = newUser;
+        User.findByIdAndUpdate(mongoose.Types.ObjectId(req.session.user._id), {$inc: {
+          "notReadMessage": parseInt(-1 * modifiedNum)
+        }}, {new: true}, (err, newUser) => {
+          if (err) return res.redirect('/messages/dashboard');
+          req.session.user = newUser;
 
-            Product.findById(mongoose.Types.ObjectId(req.query.id), (err, product) => {
-              if (err) return res.redirect('/');
+          Product.findById(mongoose.Types.ObjectId(req.query.id), (err, product) => {
+            if (err) return res.redirect('/');
+
+            User.findById(mongoose.Types.ObjectId(req.query.user), (err, buyer) => {
+              if (err) return res.redirect("/messages/dashboard");
 
               return res.render("messages/sell", {
                 page: "messages/sell",
@@ -41,16 +49,16 @@ module.exports = (req, res) => {
                   external: ["css", "js", "fontawesome", "socket.io"]
                 },
                 product,
-                messages,
+                message,
                 buyer,
                 user: req.session.user
               });
             });
           });
         });
-      });
-    });
+      })
+    })
   } else {
-    return res.redirect("/messages/dashboard");
+    return res.redirect('/messages/dashboard');
   }
 };
