@@ -23,7 +23,7 @@ module.exports = (req, res, next) => {
       newMessage.save(err => {
         if (err) return res.status(500).json({ "error": "Mongo Error: " + err });
     
-        return res.status(200).json({});
+        return res.status(200).json({"success": true});
       });
   } else {
     return res.status(400).json({"error": "Bad request"});
