@@ -19,6 +19,7 @@ const editProductPostController = require('../controllers/api/edit/editProduct')
 const editUserImagePostController = require('../controllers/api/edit/editUserImage');
 const editUserPostController = require('../controllers/api/edit/editUser');
 const favoritePostController = require('../controllers/api/favorites/addToFavorites');
+const messagesPostController = require('../controllers/api/messages/post');
 
 router.get(
   '/login',
@@ -82,6 +83,11 @@ router.post(
   '/addToFavorite',
   isApiAuthenticated,
   favoritePostController
+);
+router.post(
+  '/newMessage',
+  isApiAuthenticated,
+  messagesPostController
 );
 
 module.exports = router;

@@ -22,7 +22,6 @@ module.exports = (socket, io) => {
 
       Message.findOneAndUpdate({
         "buyer": params.message.buyerId,
-        "buyerName": params.message.buyerName,
         "owner": params.message.ownerId,
         "product": params.message.productId
       }, {

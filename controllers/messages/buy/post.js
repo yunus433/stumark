@@ -10,11 +10,16 @@ module.exports = (req, res) => {
     if (err) return res.redirect('/');
 
     User.findById(mongoose.Types.ObjectId(product.owner), (err, user) => {
+      if (err) return res.redirect('/');
+      
       const newMessageData = {
         buyer: req.session.user._id,
         buyerName: req.session.user.name,
         owner: user._id,
+        ownerName: user.name,
         product: req.query.id,
+        productName: product.name,
+        productPhoto: product.productPhotoArray[0],
         messages: [
           {
             content: req.body.message,

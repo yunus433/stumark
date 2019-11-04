@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const moment = require('moment');
 
 const Schema = mongoose.Schema;
 
@@ -16,7 +15,19 @@ const MessageSchema = new Schema({
     type: String,
     required: true
   },
+  ownerName: {
+    type: String,
+    required: true
+  },
   product: {
+    type: String,
+    required: true
+  },
+  productName: {
+    type: String, 
+    required: true
+  }, 
+  productPhoto: {
     type: String,
     required: true
   },
