@@ -1,3 +1,5 @@
+const moment = require('moment');
+
 const Message = require("../../../models/message/Message");
 
 module.exports = (req, res, next) => {
