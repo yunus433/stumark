@@ -32,7 +32,7 @@ module.exports = (socket, io) => {
         if (err) return callback(err);
 
         socket.to(params.to).emit('newMessage', {message: newMessageData});
-        return callback(undefined, message);
+        return callback(undefined, newMessageData);
       });
     } else {
       Message.findOneAndUpdate({
