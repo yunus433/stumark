@@ -1,4 +1,4 @@
-const moment = require('moment');
+const moment = require('moment-timezone');
 
 const Product = require('../models/product/Product');
 const Message = require('../models/message/Message');
@@ -14,7 +14,7 @@ module.exports = (socket, io) => {
       content: params.message.content,
       sendedBy: params.message.sendedBy,
       read: false,
-      createdAt: moment(Date.now()).format("HH[:]mm A [/] DD[.]MM[.]YYYY")
+      createdAt: moment(Date.now()).tz("Europe/Berlin").format("HH[:]mm A [/] DD[.]MM[.]YYYY")
     };
 
     if (io.sockets.adapter.rooms[params.to]) {

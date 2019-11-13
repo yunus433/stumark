@@ -1,4 +1,4 @@
-const moment = require('moment');
+const moment = require('moment-timezone');
 
 const Message = require("../../../models/message/Message");
 
@@ -16,7 +16,7 @@ module.exports = (req, res, next) => {
         messages: [ {
           content: req.body.content,
           sendedBy: "buyer",
-          createdAt: moment(req.body.createdAt).format("HH[:]mm A [/] DD[.]MM[.]YYYY"),
+          createdAt: moment(req.body.createdAt).tz("Europe/Berlin").format("HH[:]mm A [/] DD[.]MM[.]YYYY"),
           read: false } ]
       };
 
