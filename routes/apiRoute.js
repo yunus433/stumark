@@ -20,6 +20,7 @@ const editUserImagePostController = require('../controllers/api/edit/editUserIma
 const editUserPostController = require('../controllers/api/edit/editUser');
 const favoritePostController = require('../controllers/api/favorites/addToFavorites');
 const messagesPostController = require('../controllers/api/messages/post');
+const notificationsPostController = require('../controllers/api/notifications/post');
 
 router.get(
   '/login',
@@ -88,6 +89,11 @@ router.post(
   '/newMessage',
   isApiAuthenticated,
   messagesPostController
+);
+router.post(
+  '/notifications',
+  isApiAuthenticated,
+  notificationsPostController
 );
 
 module.exports = router;

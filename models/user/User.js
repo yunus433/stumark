@@ -45,6 +45,10 @@ const UserSchema = new Schema({
   favorites: {
     type: Array,
     default: []
+  },
+  notificationToken: {
+    type: String,
+    default: null
   }
 });
 
