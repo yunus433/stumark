@@ -4,6 +4,8 @@ const Product = require('../models/product/Product');
 const Message = require('../models/message/Message');
 const User = require('../models/user/User');
 
+const sendNotification = require('../utils/sendNotification');
+
 module.exports = (socket, io) => {
   socket.on('join', params => {
     socket.join(params.room.toString());
@@ -56,7 +58,17 @@ module.exports = (socket, io) => {
               if (err) return callback(err);
   
               socket.to(params.to).emit('newMessage', {newMessageData});
-              return callback(undefined, newMessageData);
+              sendNotification({
+                "to": product.owner,
+                "messages": [{
+                  body: `You have a new message in your product ${product.name}`, 
+                  data: "Click to see the message"
+                }]
+              }, (err, user) => {
+                if (err) console.log(err);
+
+                return callback(undefined, newMessageData);
+              });
             });
           });
         } else {
@@ -66,7 +78,17 @@ module.exports = (socket, io) => {
             if (err) return callback(err);
 
             socket.to(params.to).emit('newMessage', {newMessageData});
-            return callback(undefined, newMessageData);
+            sendNotification({
+              "to": newMessageData.buyer,
+              "messages": [{
+                body: `You have a new message from the product ${product.name}`, 
+                data: "Click to see the message"
+              }]
+            }, (err, user) => {
+              if (err) console.log(err);
+
+              return callback(undefined, newMessageData);
+            });
           });
         };
       });
