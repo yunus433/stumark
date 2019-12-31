@@ -16,7 +16,7 @@ module.exports = (data, callback) => {
         to: data.to,
         sound: 'default',
         body: message.body,
-        data: { withSome: message.content },
+        data: { withSome: message.data },
       });
     });
     console.log("messages: ", messages);
