@@ -48,15 +48,16 @@ module.exports = (data, callback) => {
 
           for (let receipt of receipts) {
             if (receipt.status === 'ok') {
-              continue;
+              return callback(null, "send notification");
+              // continue;
             } else if (receipt.status === 'error') {
               if (receipt.details && receipt.details.error) {
                 User.findByIdAndUpdate(mongoose.Types.ObjectId(data.to), {$set: {
                   notificationToken: null
                 }}, {}, (err, user) => {
-                  if (err) callback(err);
+                  if (err) return callback(err);
       
-                  return callback(null, user);
+                  return callback(null, "update user because of error: " + receipt.details.error);
                 });
               }
             }
@@ -65,9 +66,9 @@ module.exports = (data, callback) => {
           User.findByIdAndUpdate(mongoose.Types.ObjectId(data.to), {$set: {
             notificationToken: null
           }}, {}, (err, user) => {
-            if (err) callback(err);
+            if (err) return callback(err);
 
-            return callback(null, user);
+            return callback(null, "update user because of error: " + error);
           });
         };
       };
