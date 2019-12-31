@@ -73,5 +73,6 @@ module.exports = (data, callback) => {
         };
       };
     })();
+    return callback(null, "no response");
   });
 }
