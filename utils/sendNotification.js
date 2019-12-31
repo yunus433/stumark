@@ -19,11 +19,10 @@ module.exports = (data, callback) => {
         data: { withSome: message.data },
       });
     });
-    console.log("messages: ", messages);
 
     let chunks = expo.chunkPushNotifications(messages);
-    console.log("chunks: ", chunks);
     let tickets = [];
+
     (async () => {
       for (let chunk of chunks) {
         try {
@@ -33,24 +32,20 @@ module.exports = (data, callback) => {
           return callback(error);
         }
       }
-    })(() => {
-      console.log("tickets: ", tickets);
+    })().then(() => {
       let receiptIds = [];
-
       for (let ticket of tickets) {
         if (ticket.id) {
           receiptIds.push(ticket.id);
         }
       }
-      
-      console.log("receiptIds: ", receiptIds);
+
       let receiptIdChunks = expo.chunkPushNotificationReceiptIds(receiptIds);
-      console.log("receiptIdChunks: ", receiptIdChunks);
       (async () => {
         for (let chunk of receiptIdChunks) {
           try {
             let receipts = await expo.getPushNotificationReceiptsAsync(chunk);
-  
+
             for (let receipt of receipts) {
               if (receipt.status === 'ok') {
                 return callback(null, "send notification");
@@ -72,14 +67,14 @@ module.exports = (data, callback) => {
               notificationToken: null
             }}, {}, (err, user) => {
               if (err) return callback(err);
-  
+
               return callback(null, "update user because of error: " + error);
             });
           };
         };
+      })().then(() => {
+        return callback(null, "no response");
       });
-    })(() => {
-      return callback(null, "no response");
     });
   });
 }
