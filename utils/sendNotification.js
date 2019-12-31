@@ -19,8 +19,10 @@ module.exports = (data, callback) => {
         data: { withSome: message.content },
       });
     });
+    console.log("messages: ", messages);
 
     let chunks = expo.chunkPushNotifications(messages);
+    console.log("chunks: ", chunks);
     let tickets = [];
     (async () => {
       for (let chunk of chunks) {
