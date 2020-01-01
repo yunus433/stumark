@@ -22,7 +22,7 @@ module.exports = (data, callback) => {
 
     let chunks = expo.chunkPushNotifications(messages);
     let tickets = [];
-
+    console.log("chunks: ", chunks);
     (async () => {
       for (let chunk of chunks) {
         try {
@@ -39,8 +39,9 @@ module.exports = (data, callback) => {
           receiptIds.push(ticket.id);
         }
       }
-
+      console.log("receiptIds: ", receiptIds);
       let receiptIdChunks = expo.chunkPushNotificationReceiptIds(receiptIds);
+      console.log("receiptIdChunks: ", receiptIdChunks);
       (async () => {
         for (let chunk of receiptIdChunks) {
           try {
