@@ -13,7 +13,7 @@ module.exports = (data, callback) => {
     const messages = [];
     data.messages.forEach(message => {
       messages.push({
-        to: data.to,
+        to: user.notificationToken,
         sound: 'default',
         body: message.body,
         data: { withSome: message.data },
