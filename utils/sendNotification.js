@@ -33,6 +33,7 @@ module.exports = (data, callback) => {
         }
       }
     })().then(() => {
+      console.log("tickets: ", tickets);
       let receiptIds = [];
       for (let ticket of tickets) {
         if (ticket.id) {
