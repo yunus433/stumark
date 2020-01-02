@@ -1,34 +1,8 @@
 const async = require('async');
-const fs = require('fs');
 
 const Product = require('../../models/product/Product');
 
 module.exports = (req, res) => {
-  let data = fs.readFileSync(__dirname + '/tfdata.json');
-  let dataArray = Object.values(JSON.parse(data));
-
-  let numbers = {
-    "1": 0,
-    "2": 0,
-    "3": 0,
-    "4": 0,
-    "5": 0,
-    "6": 0,
-    "7": 0,
-    "8": 0,
-    "9": 0
-  };
-
-  dataArray.forEach(user => {
-    if (user.campaigns && user.campaigns.webrazzi) {
-      numbers[user.campaigns.webrazzi.status.toString()]++;
-    }
-  });
-
-  Object.values(numbers).forEach((number, i) => {
-    console.log(`${i+1}: ${number}`);
-  });
-
   Product.getLatest({
     category: "all",
     docsToSkip: 0,
