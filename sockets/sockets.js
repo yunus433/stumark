@@ -58,14 +58,13 @@ module.exports = (socket, io) => {
               if (err) return callback(err);
   
               socket.to(params.to).emit('newMessage', {newMessageData});
-              sendNotification({
+              sendNotification('send one', {
                 "to": product.owner,
                 "messages": [{
                   body: `You have a new message in your product ${product.name}`, 
                   data: "Click to see the message"
                 }]
               }, (err, res) => {
-                console.log("Notification response:", err, res);
                 if (err) console.log(err);
 
                 return callback(undefined, newMessageData);
@@ -79,14 +78,13 @@ module.exports = (socket, io) => {
             if (err) return callback(err);
 
             socket.to(params.to).emit('newMessage', {newMessageData});
-            sendNotification({
+            sendNotification('sendOne', {
               "to": newMessageData.buyer,
               "messages": [{
                 body: `You have a new message from the product ${product.name}`, 
                 data: "Click to see the message"
               }]
             }, (err, res) => {
-              console.log("Notification response:", err, res);
               if (err) console.log(err);
 
               return callback(undefined, newMessageData);

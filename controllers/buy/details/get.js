@@ -29,8 +29,8 @@ module.exports = (req, res, next) => {
 
               if (req.session.user) {
                 Message.find({
-                  "buyerId": req.session.user._id.toString(),
-                  "productId": product._id.toString()
+                  "buyer": req.session.user._id.toString(),
+                  "product": product._id.toString()
                 }, (err, messages) => {
                   if (err) return res.redirect('/');
 
