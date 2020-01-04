@@ -1,0 +1,6 @@
+extends ../partials/adminHeader
+block main
+  form.notification-send-form(action="/admin/notification" method="POST")
+    span Write your message to send a notification to all app users
+    input(type="text" placeholder="Your message" required)
+    button Send
