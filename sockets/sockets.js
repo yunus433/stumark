@@ -61,7 +61,7 @@ module.exports = (socket, io) => {
               sendNotification('send one', {
                 "to": product.owner,
                 "messages": [{
-                  body: `You have a new message in your product ${product.name}`, 
+                  body: `Du hast eine neue Nachricht für dein Produkt ${product.name}`, 
                   data: "Click to see the message"
                 }]
               }, (err, res) => {
@@ -81,7 +81,7 @@ module.exports = (socket, io) => {
             sendNotification('sendOne', {
               "to": newMessageData.buyer,
               "messages": [{
-                body: `You have a new message from the product ${product.name}`, 
+                body: `Du hast eine neue Nachricht von dem Besitzer des Produkts ${product.name}`, 
                 data: "Click to see the message"
               }]
             }, (err, res) => {
