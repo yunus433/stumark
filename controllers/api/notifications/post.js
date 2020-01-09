@@ -11,6 +11,6 @@ module.exports = (req, res) => {
   }}, {new: true}, (err, user) => {
     if (err) return res.status(500).json({ "error": err });
 
-    return res.status(200).json({ "user": user });
+    res.status(200).json({ "user": user });
   });
 }

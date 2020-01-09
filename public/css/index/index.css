@@ -4,7 +4,7 @@
   align-items: center;
   overflow: scroll;
   -webkit-overflow-scrolling: touch;
-  padding: 25px 0px;
+  padding: 2% 0%;
 }
 
 .general-info-wrapper {

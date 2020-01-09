@@ -96,7 +96,7 @@ module.exports = (option, data, callback) => {
           let ticketChunk = await expo.sendPushNotificationsAsync(chunk);
           tickets.push(...ticketChunk);
         } catch (error) {
-          return callback(error);
+          console.log(error);
         }
       }
     })().then(() => {

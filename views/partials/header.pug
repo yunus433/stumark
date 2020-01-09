@@ -2,46 +2,20 @@ extends ./head
 block content
   .all-wrapper
     .all-header
-      a.all-header-logo-wrapper(href="/")
-        img.all-header-logo(src="/res/images/logo.png")
-      form.search-bar-wrapper
-        input.search-bar-input(type="text" placeholder="Was suchst du?" autocomplete="off" autofocus)
-        button.search-bar-button
-          span #{__('Suche')}
-      a.header-messages-wrapper(href="/sell/new")
-        img.messages-icon-image(src="/res/images/messagesIcon.png")
-        .header-messages-explanation
-          span #{__('Anzeige')}
-          span #{__('aufgeben')}
-      .header-login-wrapper
-        if user
-          .user-name-wrapper
-            span.user-name-title #{__('Willkommen')}
-            span.user-name= user.name.split(" ")[0]
-          .user-profile-icon-wrapper
-            img.user-profile-icon(src=user.profilePhoto)
-          .not-read-message-icon-wrapper
-            if user.notReadMessage > 0
-              .not-read-message-icon-general
-        else
-          .login-link-wrapper
-            a.login-link(href="/auth/login") #{__('Einloggen')}
-            span #{__('oder')}
-            a.register-link(href="/auth/register") #{__('Registrieren')}
-          img.user-login-icon(src="/res/images/userIcon.png")
-        .user-menu
-          a.user-menu-each(href="/sell") #{__('Anzeigen')}
-          if user && user.notReadMessage > 0
-            a.user-menu-each-not-read(href="/messages/dashboard") #{__('Nachrichten')}
-          else
-            a.user-menu-each(href="/messages/dashboard") #{__('Nachrichten')}
-          a.user-menu-each(href="/edit/user") #{__('Einstellungen')}
-          a.user-menu-each-last(href="/auth/logout") #{__('Ausloggen')}
-    .all-header-responsive
-      .all-header-first-line
+      .all-header-left-side
         a.all-header-logo-wrapper(href="/")
           img.all-header-logo(src="/res/images/logo.png")
-        .header-login-wrapper-responsive
+        form.search-bar-wrapper
+          input.search-bar-input(type="text" placeholder="Was suchst du?" autocomplete="off")
+          button.search-bar-button
+            span #{__('Suche')}
+      .all-header-right-side
+        a.header-messages-wrapper(href="/sell/new")
+          img.messages-icon-image(src="/res/images/messagesIcon.png")
+          .header-messages-explanation
+            span #{__('Anzeige')}
+            span #{__('aufgeben')}
+        .header-login-wrapper
           if user
             .user-name-wrapper
               span.user-name-title #{__('Willkommen')}
@@ -49,15 +23,15 @@ block content
             .user-profile-icon-wrapper
               img.user-profile-icon(src=user.profilePhoto)
             .not-read-message-icon-wrapper
-            if user.notReadMessage > 0
-              .not-read-message-icon-general
+              if user.notReadMessage > 0
+                .not-read-message-icon-general
           else
             .login-link-wrapper
               a.login-link(href="/auth/login") #{__('Einloggen')}
               span #{__('oder')}
               a.register-link(href="/auth/register") #{__('Registrieren')}
             img.user-login-icon(src="/res/images/userIcon.png")
-          .user-menu-responsive
+          .user-menu
             a.user-menu-each(href="/sell") #{__('Anzeigen')}
             if user && user.notReadMessage > 0
               a.user-menu-each-not-read(href="/messages/dashboard") #{__('Nachrichten')}
@@ -65,32 +39,56 @@ block content
               a.user-menu-each(href="/messages/dashboard") #{__('Nachrichten')}
             a.user-menu-each(href="/edit/user") #{__('Einstellungen')}
             a.user-menu-each-last(href="/auth/logout") #{__('Ausloggen')}
-      .all-header-second-line
-        a.header-messages-wrapper(href="/sell/new")
-          img.messages-icon-image(src="/res/images/messagesIcon.png")
-          .header-messages-explanation
-            span #{__('Anzeige')}
-            span #{__('aufgeben')}
-        form.search-bar-wrapper.search-bar-responsive
-          input.search-bar-input(type="text" placeholder="Was suchst du?" autocomplete="off" autofocus)
+    .all-header-responsive
+      .all-header-top
+        a.all-header-logo-wrapper(href="/")
+          img.all-header-logo(src="/res/images/logo.png")
+        .header-login-wrapper
+          if user
+            .user-name-wrapper
+              span.user-name-title #{__('Willkommen')}
+              span.user-name= user.name.split(" ")[0]
+            .user-profile-icon-wrapper
+              img.user-profile-icon(src=user.profilePhoto)
+            .not-read-message-icon-wrapper
+              if user.notReadMessage > 0
+                .not-read-message-icon-general
+          else
+            .login-link-wrapper
+              a.login-link(href="/auth/login") #{__('Einloggen')}
+              span #{__('oder')}
+              a.register-link(href="/auth/register") #{__('Registrieren')}
+            img.user-login-icon(src="/res/images/userIcon.png")
+          .user-menu
+            a.user-menu-each(href="/sell") #{__('Anzeigen')}
+            if user && user.notReadMessage > 0
+              a.user-menu-each-not-read(href="/messages/dashboard") #{__('Nachrichten')}
+            else
+              a.user-menu-each(href="/messages/dashboard") #{__('Nachrichten')}
+            a.user-menu-each(href="/edit/user") #{__('Einstellungen')}
+            a.user-menu-each-last(href="/auth/logout") #{__('Ausloggen')}
+      .all-header-bottom
+        .responsive-category-open-button
+          span Kategorien
+        form.search-bar-wrapper
+          input.search-bar-input(type="text" placeholder="Was suchst du?" autocomplete="off")
           button.search-bar-button
             span #{__('Suche')}
     .all-content
       .content-bar-wrapper-responsive
-        .change-category-button
-          span #{__('Kategorien')}
-        .content-bar-responsive
-          a.category-link-responsive(href="/buy/?page=0&category=all&limit=50") #{__('Alle Kategorien')}
-          a.category-link-responsive(href="/buy/?page=0&category=rented&limit=50") #{__('Mietwohnung, Nachmiete')}
-          a.category-link-responsive(href="/buy/?page=0&category=hobby&limit=50") #{__('Freizeit, Hobby')}
-          a.category-link-responsive(href="/buy/?page=0&category=home&limit=50") #{__('Möbel, Haus')} 
-          a.category-link-responsive(href="/buy/?page=0&category=fashion&limit=50") #{__('Mode, Kleidung')}
-          a.category-link-responsive(href="/buy/?page=0&category=electronic&limit=50") #{__('Elektronik')}
-          a.category-link-responsive(href="/buy/?page=0&category=fun&limit=50") #{__('Musik, Filme, Bücher')}
-          a.category-link-responsive(href="/buy/?page=0&category=tickets&limit=50") #{__('Eintrittskarten, Tickets')}
-          a.category-link-responsive(href="/buy/?page=0&category=exchange&limit=50") #{__('Zu Verschenken, Tauschen')}
-          a.category-link-responsive(href="/buy/?page=0&category=lesson&limit=50") #{__('Unterricht, Kurse')}
-          a.category-link-responsive(href="/buy/?page=0&category=other&limit=50") #{__('Sonstige')}
+        .close-button-line
+          i.fas.fa-times
+        a.category-link-responsive(href="/buy/?page=0&category=all&limit=50") #{__('Alle Kategorien')}
+        a.category-link-responsive(href="/buy/?page=0&category=rented&limit=50") #{__('Mietwohnung, Nachmiete')}
+        a.category-link-responsive(href="/buy/?page=0&category=hobby&limit=50") #{__('Freizeit, Hobby')}
+        a.category-link-responsive(href="/buy/?page=0&category=home&limit=50") #{__('Möbel, Haus')} 
+        a.category-link-responsive(href="/buy/?page=0&category=fashion&limit=50") #{__('Mode, Kleidung')}
+        a.category-link-responsive(href="/buy/?page=0&category=electronic&limit=50") #{__('Elektronik')}
+        a.category-link-responsive(href="/buy/?page=0&category=fun&limit=50") #{__('Musik, Filme, Bücher')}
+        a.category-link-responsive(href="/buy/?page=0&category=tickets&limit=50") #{__('Eintrittskarten, Tickets')}
+        a.category-link-responsive(href="/buy/?page=0&category=exchange&limit=50") #{__('Zu Verschenken, Tauschen')}
+        a.category-link-responsive(href="/buy/?page=0&category=lesson&limit=50") #{__('Unterricht, Kurse')}
+        a.category-link-responsive(href="/buy/?page=0&category=other&limit=50") #{__('Sonstige')}
       .content-bar-wrapper
         .content-bar
           span.category-header #{__('Kategorien')}:
