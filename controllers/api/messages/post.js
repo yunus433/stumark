@@ -1,6 +1,8 @@
 const moment = require('moment-timezone');
 
-const Message = require("../../../models/message/Message");
+const Message = require('../../../models/message/Message');
+
+const sendNotification = require('../../../utils/sendNotification');
 
 module.exports = (req, res, next) => {
   if ( req.body && req.body.buyer && req.body.buyerName && req.body.owner && req.body.ownerName
@@ -24,8 +26,18 @@ module.exports = (req, res, next) => {
     
       newMessage.save(err => {
         if (err) return res.status(500).json({ "error": "Mongo Error: " + err });
-    
-        return res.status(200).json({"success": true});
+        
+        sendNotification('sendOne', {
+          "to": req.body.owner,
+          "messages": [{
+            body: `Du hast eine neue Nachricht für dein Produkt ${product.name}`, 
+            data: "Click to see the message"
+          }]
+        }, (err, res) => {
+          if (err) console.log(err);
+
+          return res.status(200).json({"success": true});
+        });
       });
   } else {
     return res.status(400).json({"error": "Bad request"});
