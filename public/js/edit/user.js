@@ -1,81 +1,41 @@
 window.onload = () => {
-  if ( !/iPad|iPadPro/i.test(navigator.userAgent) )
-    responsiveDesign(document);
+  addEventListener(document);
 
-  const searchBar = document.querySelector('.search-bar-wrapper');
-  searchBar.onsubmit = (event) => {
-    event.preventDefault();
-    window.location.href = '/buy/?page=0&category=all&limit=50&keywords=' + searchBar.childNodes[0].value;
-  }
+  const formWrapper = document.querySelector('.form-wrapper');
+  const passwordFormWrapper = document.querySelector('.password-form-wrapper');
 
-  const userMenu = document.querySelector('.user-menu');
-  const userMenuResponsive = document.querySelector('.user-menu-responsive');
-  const contentBarResponsive = document.querySelector('.content-bar-responsive');
-
-  document.addEventListener('mouseover', (event) => {
-    if (event.target.className == 'user-name-wrapper' || event.target.parentNode.className == 'user-name-wrapper' || event.target.className == 'user-menu' || event.target.parentNode.className == 'user-menu' || event.target.className == 'user-menu-responsive' || event.target.parentNode.className == 'user-menu-responsive') {
-      if (userMenu) userMenu.style.display = 'flex';
-      if (userMenuResponsive) userMenuResponsive.style.display = 'flex';
-      if (contentBarResponsive) contentBarResponsive.style.display = 'none';
-    } else if (event.target.className == 'change-category-button' || event.target.parentNode.className == 'change-category-button' || event.target.className == 'content-bar-responsive' || event.target.parentNode.className == 'content-bar-responsive') {
-      if (contentBarResponsive) contentBarResponsive.style.display = 'flex';
-      if (userMenuResponsive) userMenuResponsive.style.display = 'none';
-    } else {
-      if (contentBarResponsive) contentBarResponsive.style.display = 'none';
-      if (userMenu) userMenu.style.display = 'none';
-      if (userMenuResponsive) userMenuResponsive.style.display = 'none';
+  document.addEventListener('click', (event) => {
+    if (event.target.className == 'change-password-button' || event.target.parentNode.className == 'change-password-button') {
+      formWrapper.style.display = 'none';
+      passwordFormWrapper.style.display = 'flex';
     }
-  });
-  document.addEventListener('touchstart', (event) => {
-    if (event.target.className == 'user-name-wrapper' || event.target.parentNode.className == 'user-name-wrapper' || event.target.className == 'user-menu' || event.target.parentNode.className == 'user-menu' || event.target.className == 'user-menu-responsive' || event.target.parentNode.className == 'user-menu-responsive') {
-      if (userMenu) userMenu.style.display = 'flex';
-      if (userMenuResponsive) userMenuResponsive.style.display = 'flex';
-      if (contentBarResponsive) contentBarResponsive.style.display = 'none';
-    } else if (event.target.className == 'change-category-button' || event.target.parentNode.className == 'change-category-button' || event.target.className == 'content-bar-responsive' || event.target.parentNode.className == 'content-bar-responsive') {
-      if (contentBarResponsive) contentBarResponsive.style.display = 'flex';
-      if (userMenuResponsive) userMenuResponsive.style.display = 'none';
-    } else {
-      if (contentBarResponsive) contentBarResponsive.style.display = 'none';
-      if (userMenu) userMenu.style.display = 'none';
-      if (userMenuResponsive) userMenuResponsive.style.display = 'none';
-    }
-  });
-
-  // const formWrapper = document.querySelector('.form-wrapper');
-  // const passwordFormWrapper = document.querySelector('.password-form-wrapper');
-
-  // document.addEventListener('click', (event) => {
-  //   if (event.target.className == 'change-password-button' || event.target.parentNode.className == 'change-password-button') {
-  //     formWrapper.style.display = 'none';
-  //     passwordFormWrapper.style.display = 'flex';
-  //   }
     
-  //   if (event.target.className == 'back-password-button' || event.target.parentNode.className == 'back-password-button') {
-  //     formWrapper.style.display = 'flex';
-  //     passwordFormWrapper.style.display = 'none';
-  //   }
+    if (event.target.className == 'back-password-button' || event.target.parentNode.className == 'back-password-button') {
+      formWrapper.style.display = 'flex';
+      passwordFormWrapper.style.display = 'none';
+    }
 
-  //   if (event.target.className == 'send-form-button' || event.target.parentNode.className == 'send-form-button') {
-  //     if (document.querySelector('#name-input').value) {
-  //       document.querySelector('.form-wrapper').submit();
-  //     }
-  //     else {
-  //       document.querySelector('.error-line').innerHTML = "You can't delete your name"
-  //     }
-  //   }
+    if (event.target.className == 'send-form-button' || event.target.parentNode.className == 'send-form-button') {
+      if (document.querySelector('#name-input').value) {
+        document.querySelector('.form-wrapper').submit();
+      }
+      else {
+        document.querySelector('.error-line').innerHTML = "You can't delete your name"
+      }
+    }
 
-  //   if (event.target.className == 'send-form-button-password' || event.target.parentNode.className == 'send-form-button-password') {
-  //     if (!document.querySelector('#old-password-input').value) {
-  //       document.querySelector('.password-error-line').innerHTML = "You must enter your old password";
-  //     } else if (document.querySelector('#new-password-input').value != document.querySelector('#new-password-two').value || !document.querySelector('#new-password-two').value) {
-  //       document.querySelector('.password-error-line').innerHTML = "Bitte bestätige dein Passwort!";
-  //     } else if (document.querySelector('#new-password-input').value.length < 6) {
-  //       document.querySelector('.password-error-line').innerHTML = "Dein Passwort muss mindestens 6-stellig sein!";
-  //     } else {
-  //       document.querySelector('.password-form-wrapper').submit();
-  //     }
-  //   }
-  // });
+    if (event.target.className == 'send-form-button-password' || event.target.parentNode.className == 'send-form-button-password') {
+      if (!document.querySelector('#old-password-input').value) {
+        document.querySelector('.password-error-line').innerHTML = "You must enter your old password";
+      } else if (document.querySelector('#new-password-input').value != document.querySelector('#new-password-two').value || !document.querySelector('#new-password-two').value) {
+        document.querySelector('.password-error-line').innerHTML = "Bitte bestätige dein Passwort!";
+      } else if (document.querySelector('#new-password-input').value.length < 6) {
+        document.querySelector('.password-error-line').innerHTML = "Dein Passwort muss mindestens 6-stellig sein!";
+      } else {
+        document.querySelector('.password-form-wrapper').submit();
+      }
+    }
+  });
 
   const userImage = document.querySelector('.user-profile-image');
   const userPhotoInput = document.getElementById('user-image-input');
