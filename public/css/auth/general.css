@@ -16,7 +16,7 @@
   padding-right: 20px;
 }
 .form-line i {
-  font-size: 25px;
+  font-size: 100%;
   color: rgb(112, 112, 112);
   margin: 0px 10px;
 }
@@ -28,7 +28,7 @@
   height: 100%;
   width: 100%;
   outline: none;
-  font-size: 25px;
+  font-size: 100%;
   font-weight: 300;
   color: rgb(112, 112, 112);
   font-family: "Source Sans Pro";
@@ -55,12 +55,12 @@
   margin-bottom: 15px;
 }
 .form-header-title {
-  font-size: 60px;
+  font-size: 200%;
   color: rgb(112, 112, 112);
   font-weight: 300;
 }
 .lost-password-link {
-  font-size: 18px;
+  font-size: 100%;
   color: rgb(255, 61, 148);
   text-decoration: none;
   display: flex;
@@ -85,7 +85,7 @@
   -webkit-overflow-scrolling: touch;
 }
 .university-input-values span {
-  font-size: 24px;
+  font-size: 100%;
   font-weight: 300;
   color: rgb(112, 112, 112);
   font-family: "Source Sans Pro";
@@ -98,7 +98,7 @@
 }
 .user-agrement-link {
   color: rgb(112, 112, 112);
-  font-size: 25px;
+  font-size: 100%;
   font-weight: 300;
   margin-bottom: 25px;
 }
@@ -113,7 +113,7 @@
   background: rgba(255, 108, 128, 0.3);
   border: 2px solid rgba(255, 61, 148, 0.34);
   color: rgb(255, 61, 148);
-  font-size: 32px;
+  font-size: 125%;
   font-weight: 700;
   font-family: "Source Sans Pro";
   border-radius: 15px;
@@ -134,11 +134,11 @@
 }
 .each-error-line {
   color: rgb(255, 61, 148);
-  font-size: 25px;
+  font-size: 100%;
 }
 .each-notification-line {
   color: green;
-  font-size: 25px;
+  font-size: 100%;
 }
 .form-bottom-info {
   display: flex;
@@ -146,7 +146,7 @@
   margin-top: 10px;
   padding-left: 5%;
   color: rgb(112, 112, 112);
-  font-size: 30px;
+  font-size: 125%;
   font-weight: 400;
 }
 .bottom-link {
@@ -175,7 +175,7 @@
 }
 .verify-text {
   color: rgb(112, 112, 112);
-  font-size: 35px;
+  font-size: 100%;
 }
 .verify-main-wrapper form {
   width: 100%;
@@ -187,7 +187,7 @@
   background: rgba(255, 108, 128, 0.3);
   border: 2px solid rgba(255, 61, 148, 0.34);
   color: rgb(255, 61, 148);
-  font-size: 30px;
+  font-size: 125%;
   font-weight: 700;
   outline: none;
   padding: 10px 0px;
@@ -205,15 +205,24 @@
   border-radius: 15px;
   color: rgb(112, 112, 112);
   font-weight: 600;
-  font-size: 20px;
+  font-size: 100%;
   margin-top: 25px;
   text-decoration: none;
 }
 
 .animation_class {
+  animation: shake 0.1s ease-in-out 0.1s infinite alternate;
   -webkit-animation: shake 0.1s ease-in-out 0.1s infinite alternate;
 }
 
+@keyframes shake {
+  from {
+    color: red;
+  }
+  to {
+    color: rgba(255, 51, 51, 0.7);
+  }
+}
 @-webkit-keyframes shake {
   from {
     color: red;

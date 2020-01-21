@@ -1,7 +1,4 @@
 window.onload = () => {
-  if ( !/iPad|iPadPro/i.test(navigator.userAgent) )
-    responsiveDesign(document);
-
   const universityList = [
     "Albert-Ludwigs-Universität Freiburg",
     "Bard College Berlin, A Liberal Arts University",

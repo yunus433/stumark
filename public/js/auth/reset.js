@@ -1,7 +1,4 @@
 window.onload = (req, res, next) => {
-  if ( !/iPad|iPadPro/i.test(navigator.userAgent) )
-    responsiveDesign(document);
-
   const passwordForm = document.getElementById('password-reset-form');
   const emailForm = document.getElementById('email-send-form');
   const errorLine = document.querySelector('.each-error-line');
