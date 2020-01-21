@@ -71,17 +71,17 @@
 .main-product-created-at {
   margin-bottom: 10px;
   color: rgb(112, 112, 112);
-  font-size: 19px;
+  font-size: 100%;
   font-weight: 300; 
 }
 .main-product-title {
   margin-bottom: 5px;
   color: rgb(112, 112, 112);
-  font-size: 35px;
+  font-size: 150%;
   font-weight: 700; 
 }
 .main-product-location {
-  font-size: 19px;
+  font-size: 100%;
   font-weight: 300;
   color: rgb(112, 112, 112);
   display: flex;
@@ -92,39 +92,16 @@
   margin-right: 5px;
 }
 .main-product-description {
-  font-size: 21px;
+  font-size: 100%;
   color: rgb(112, 112, 112);
   margin-bottom: 20px;
 }
 .main-product-price {
   color: rgb(255, 61, 148);
-  font-size: 49px;
+  font-size: 200%;
   font-weight: 700;
-}
-
-/* Buy product button design */
-.buy-the-product-button {
-  padding: 25px;
-  margin-top: 25px;
-  text-decoration: none;
-  margin-left: 100%;
-  transform: translateX(-100%);
-  background: white;
-  border: 2px solid rgba(255, 61, 148, 0.34);
-  color: rgb(255, 61, 148);
-  font-size: 30px;
-  font-weight: 700;
-  outline: none;
-  padding: 10px 5px;
-  width: 25%;
-  cursor: pointer;
-  border-radius: 15px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.buy-the-product-button:hover {
-  border-color: rgba(255, 61, 148, 0.5);
+  margin-top: auto;
+  margin-left: auto;
 }
 
 /* Send message wrapper and content design */
@@ -141,14 +118,14 @@
 }
 .send-message-title {
   color: rgb(112, 112, 112);
-  font-size: 62px;
+  font-size: 250%;
   font-weight: 300;
   margin-bottom: 10px;
 }
 .message-input {
   height: 30vh; 
   width: 100%;
-  font-size: 30px;
+  font-size: 125%;
   font-weight: 300;
   background: rgb(248, 248, 248);
   border: 2px solid rgb(236, 235, 235);
@@ -164,7 +141,7 @@
   background: rgba(255, 108, 128, 0.3);
   border: 2px solid rgba(255, 61, 148, 0.34);
   color: rgb(255, 61, 148);
-  font-size: 30px;
+  font-size: 125%;
   font-weight: 700;
   outline: none;
   padding: 10px 5px;
@@ -179,7 +156,7 @@
 /* Similar products design */
 .other-products-title {
   color: rgb(112, 112, 112);
-  font-size: 62px;
+  font-size: 250%;
   font-weight: 300;
   margin-bottom: 10px;
   align-self: flex-start;
@@ -213,6 +190,7 @@
   overflow: hidden;
   display: flex;
   align-items: center;
+  justify-content: center;
   align-self: center;
   background: rgb(245, 245, 245);
   border-radius: 15px;
@@ -225,7 +203,7 @@
   min-height: 100%;
 }
 .product-name {
-  font-size: 30px;
+  font-size: 100%;
   font-weight: 700;
   color: rgb(112, 112, 112);
   margin-top: 15px;
@@ -238,11 +216,13 @@
 }
 .product-price {
   color: rgb(255, 61, 148);
-  font-size: 36px;
+  font-size: 175%;
   font-weight: 700;
+  margin-top: auto;
+  margin-left: auto;
 }
 .product-location {
-  font-size: 19px;
+  font-size: 100%;
   font-weight: 300;
   color: rgb(112, 112, 112);
   display: flex;
@@ -269,11 +249,14 @@
   .each-product {
     height: 35vh;
   }
-  .product-name, .each-product-image-wrapper {
+  .product-name {
     width: 27vw;
   }
   .other-products-wrapper {
     grid-template-columns: 1fr 1fr 1fr;
+  }
+  .each-product-image-wrapper {
+    width: 27vw;
   }
 }
 
@@ -281,11 +264,31 @@
   .each-product {
     height: 40vh;
   }
-  .product-name, .each-product-image-wrapper {
+  .each-product-image-wrapper {
+    width: 40vw;
+  }
+  .product-name {
     width: 40vw;
   }
   .other-products-wrapper {
     grid-template-columns: 1fr 1fr;
-    grid-gap: 15px;
+  }
+}
+
+@media only screen and (max-width: 500px) and (min-width: 300px) {
+  .main-product-title {
+    font-size: 125%;
+  }
+  .main-product-description, .main-product-location, .main-product-created-at {
+    font-size: 90%;
+  }
+  .main-product-price {
+    font-size: 200%;
+  }
+  .other-products-title, .send-message-title {
+    font-size: 200%;
+  }
+  .send-message-button {
+    font-size: 100%;
   }
 }
