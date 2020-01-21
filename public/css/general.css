@@ -418,11 +418,21 @@ body {
 
 .open-from-left-animation-class {
   -webkit-animation: openFromLeft 0.8s ease-in-out 0s 1 forwards;
+  animation: openFromLeft 0.8s ease-in-out 0s 1 forwards;
 }
 .close-to-left-animation-class {
   -webkit-animation: closeToLeft 0.8s ease-in-out 0s 1 forwards;
+  animation: closeToLeft 0.8s ease-in-out 0s 1 forwards;
 }
 
+@keyframes openFromLeft {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
 @-webkit-keyframes openFromLeft {
   from {
     transform: translateX(-100%);
@@ -432,6 +442,14 @@ body {
   }
 }
 
+@keyframes closeToLeft {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
 @-webkit-keyframes closeToLeft {
   from {
     transform: translateX(0%);

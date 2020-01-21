@@ -17,13 +17,13 @@
   height: 25%;
   border-radius: 15px;
   color: rgb(255, 61, 148);
-  font-size: 40px;
+  font-size: 200%;
   font-weight: 600;
   text-align: center;
 }
 .latest-product-title {
   width: 90%;
-  font-size: 35px;
+  font-size: 175%;
   color: rgb(112, 112, 112);
   font-weight: 700;
   margin-top: 25px;
@@ -69,7 +69,7 @@
   min-height: 100%;
 }
 .product-name {
-  font-size: 30px;
+  font-size: 100%;
   font-weight: 700;
   color: rgb(112, 112, 112);
   margin-top: 15px;
@@ -82,11 +82,13 @@
 }
 .product-price {
   color: rgb(255, 61, 148);
-  font-size: 36px;
+  font-size: 175%;
   font-weight: 700;
+  margin-top: auto;
+  margin-left: auto;
 }
 .product-location {
-  font-size: 19px;
+  font-size: 100%;
   font-weight: 300;
   color: rgb(112, 112, 112);
   display: flex;
@@ -94,6 +96,18 @@
 }
 .product-location i {
   margin-right: 5px;
+}
+
+@media only screen and (max-width: 1150px) and (min-width: 950px) {
+  .general-info-wrapper {
+    font-size: 200%;
+  }
+}
+
+@media only screen and (max-width: 950px) and (min-width: 300px) {
+  .general-info-wrapper {
+    font-size: 150%;
+  }
 }
 
 @media only screen and (max-width: 900px) and (min-width: 600px) {

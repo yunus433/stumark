@@ -46,8 +46,10 @@ addEventListener = (document) => {
       document.querySelector('.content-bar-wrapper-responsive').classList.remove('open-from-left-animation-class');
       document.querySelector('.content-bar-wrapper-responsive').classList.add('close-to-left-animation-class');
     } else if (!event.target.classList.contains('content-bar-wrapper-responsive') && !event.target.parentNode.classList.contains('content-bar-wrapper-responsive')) {
-      document.querySelector('.content-bar-wrapper-responsive').classList.remove('open-from-left-animation-class');
-      document.querySelector('.content-bar-wrapper-responsive').classList.add('close-to-left-animation-class');
+      if (document.querySelector('.content-bar-wrapper-responsive').classList.contains('open-from-left-animation-class')) {
+        document.querySelector('.content-bar-wrapper-responsive').classList.remove('open-from-left-animation-class');
+        document.querySelector('.content-bar-wrapper-responsive').classList.add('close-to-left-animation-class');
+      }
     } 
   });
 }
