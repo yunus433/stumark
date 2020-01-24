@@ -28,7 +28,7 @@
   width: 100%;
 }
 .form-title {
-  font-size: 50px;
+  font-size: 200%;
   color: rgb(112, 112, 112);
   font-weight: 300;
   margin-bottom: 10px;
@@ -45,12 +45,12 @@
 .form-input {
   width: 50%;
   border: 2px solid rgb(236, 235, 235);
-  font-size: 25px;
+  font-size: 100%;
   font-weight: 300;
   color: rgb(112, 112, 112);
   font-family: "Source Sans Pro";
   outline: none;
-  padding: 5px;
+  padding: 7px 10px;
   margin-bottom: 15px;
   border-radius: 15px;
 }
@@ -61,7 +61,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: 25px;
+  font-size: 100%;
   font-weight: 300;
   color: rgb(112, 112, 112);
   margin-bottom: 15px;
@@ -80,7 +80,7 @@
   margin-bottom: 10px;
   width: 100%;
   color: rgb(255, 61, 148);
-  font-size: 25px;
+  font-size: 100%;
 }
 .password-error-line {
   display: flex;
@@ -90,7 +90,7 @@
   margin-bottom: 10px;
   width: 100%;
   color: rgb(255, 61, 148);
-  font-size: 25px;
+  font-size: 100%;
 }
 
 /* Password form wrapper and content design */
@@ -111,7 +111,7 @@
   background: rgba(255, 108, 128, 0.3);
   border: 2px solid rgba(255, 61, 148, 0.34);
   color: rgb(255, 61, 148);
-  font-size: 30px;
+  font-size: 125%;
   font-weight: 700;
   outline: none;
   height: 100%;
@@ -130,7 +130,7 @@
   background: rgba(255, 108, 128, 0.3);
   border: 2px solid rgba(255, 61, 148, 0.34);
   color: rgb(255, 61, 148);
-  font-size: 30px;
+  font-size: 125%;
   font-weight: 700;
   outline: none;
   height: 100%;
@@ -149,7 +149,7 @@
   background: white;
   border: 2px solid rgba(255, 61, 148, 0.34);
   color: rgb(255, 61, 148);
-  font-size: 25px;
+  font-size: 125%;
   font-weight: 700;
   outline: none;
   height: 100%;
@@ -163,6 +163,7 @@
 }
 .change-password-button i {
   margin-right: 5px;
+  font-size: 100%;
 }
 .change-password-button:hover {
   border-color: rgba(255, 61, 148, 0.5);
@@ -171,7 +172,7 @@
   background: white;
   border: 2px solid rgba(255, 61, 148, 0.34);
   color: rgb(255, 61, 148);
-  font-size: 25px;
+  font-size: 125%;
   font-weight: 700;
   outline: none;
   height: 100%;

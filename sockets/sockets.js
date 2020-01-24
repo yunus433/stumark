@@ -65,7 +65,7 @@ module.exports = (socket, io) => {
                   data: "Click to see the message"
                 }]
               }, (err, res) => {
-                if (err) console.log(err);
+                if (err) console.log(err, res);
 
                 return callback(undefined, newMessageData);
               });
@@ -85,7 +85,7 @@ module.exports = (socket, io) => {
                 data: "Click to see the message"
               }]
             }, (err, res) => {
-              if (err) console.log(err);
+              if (err) console.log(err, res);
 
               return callback(undefined, newMessageData);
             });

@@ -10,7 +10,7 @@ module.exports = (option, data, callback) => {
     User.findById(mongoose.Types.ObjectId(data.to), (err, user) => {
       if (err) return callback(err);
       if (!user || !user.notificationToken) return callback("User not found");
-  
+
       const messages = [];
       data.messages.forEach(message => {
         messages.push({
