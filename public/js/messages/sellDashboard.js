@@ -1,6 +1,4 @@
 window.onload = () => {
-  if ( !/iPad|iPadPro/i.test(navigator.userAgent) )
-    responsiveDesign(document);
 
   const searchBar = document.querySelector('.search-bar-wrapper');
   searchBar.onsubmit = (event) => {
