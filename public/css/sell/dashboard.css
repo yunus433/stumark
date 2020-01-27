@@ -14,13 +14,13 @@
   flex-direction: column;
 }
 .header-title {
-  font-size: 62px;
+  font-size: 175%;
   color: rgb(112, 112, 112);
-  font-weight: 300;
   margin-bottom: 10px;
+  font-weight: 600;
 }
 .header-content {
-  font-size: 28px;
+  font-size: 125%;
   color: rgb(112, 112, 112);
   font-weight: 300;
   margin-bottom: 10px;
@@ -49,13 +49,26 @@
 .each-product:hover {
   border: 2px solid rgb(220, 220, 220);
 }
-.product-image {
-  max-height: 50%;
-  max-width: 100%;
+.each-product-image-wrapper {
+  height: 20vh;
+  width: 15vw;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  background: rgb(245, 245, 245);
   border-radius: 15px;
 }
+.each-product-image-inner-wrapper {
+  width: 100%;
+}
+.product-image {
+  width: 100%;
+  min-height: 100%;
+}
 .product-name {
-  font-size: 30px;
+  font-size: 100%;
   font-weight: 700;
   color: rgb(112, 112, 112);
   margin-top: 15px;
@@ -68,11 +81,13 @@
 }
 .product-price {
   color: rgb(255, 61, 148);
-  font-size: 36px;
+  font-size: 175%;
   font-weight: 700;
+  margin-top: auto;
+  margin-left: auto;
 }
 .product-location {
-  font-size: 19px;
+  font-size: 100%;
   font-weight: 300;
   color: rgb(112, 112, 112);
   display: flex;
@@ -81,25 +96,7 @@
 .product-location i {
   margin-right: 5px;
 }
-.not-read-message-icon {
-  position: relative;
-  width: 2vw;
-  height: 2vw;
-  border-radius: 100%;
-  background: rgb(255, 61, 148);
-  transform: translate(-50%, -50%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-weight: 700;
-  font-size: 20px;
-  white-space: nowrap;
-  z-index: 2;
-}
-.not-read-empty {
-  height: 1vw;
-}
+
 .no-product-warning {
   display: flex;
   flex-direction: column;
@@ -144,10 +141,8 @@
   .products-wrapper {
     grid-template-columns: 1fr 1fr 1fr;
   }
-  .not-read-message-icon {
-    width: 5vw;
-    height: 5vw;
-    font-size: 22px;
+  .each-product-image-wrapper {
+    width: 27vw;
   }
 }
 
@@ -155,15 +150,16 @@
   .each-product {
     height: 40vh;
   }
+  .each-product-image-wrapper {
+    width: 40vw;
+  }
   .product-name {
     width: 40vw;
   }
   .products-wrapper {
     grid-template-columns: 1fr 1fr;
   }
-  .not-read-message-icon {
-    width: 7vw;
-    height: 7vw;
-    font-size: 30px;
+  .header-content {
+    font-size: 100%;
   }
 }

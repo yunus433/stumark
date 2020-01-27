@@ -75,7 +75,6 @@ function createNewMessage(message, buyer, seller) {
   }
 
   messagesWrapper.appendChild(newMessageDiv);
-  responsiveDesign(newMessageDiv);
 }
 
 window.onload = () => {
