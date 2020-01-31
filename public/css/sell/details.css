@@ -290,6 +290,9 @@
   .price-wrapper {
     padding-left: 15px;
   }
+  .form-send-button {
+    width: 100%;
+  }
 }
 
 @media only screen and (max-width: 900px) and (min-width: 600px) {

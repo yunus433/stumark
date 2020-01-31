@@ -456,7 +456,7 @@ body {
   }
 }
 
-@media only screen and (max-width: 900px) and (min-width: 300px) {
+@media only screen and (max-width: 950px) and (min-width: 300px) {
   .all-header {
     display: none;
   }

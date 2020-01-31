@@ -4,34 +4,34 @@ block main
     form.new-product-form(method="POST" action="/sell/new") 
       span.form-title.required-form-part #{__('Kategorie')}
       .category-wrapper
-        .each-category
+        label.each-category
           input(type="radio" name="category" value="rented" required) 
           span Mietwohnung, Nachmiete
-        .each-category
+        label.each-category
           input(type="radio" name="category" value="hobby" required) 
           span Freizeit, Hobby
-        .each-category
+        label.each-category
           input(type="radio" name="category" value="home" required) 
           span Möbel, Haus
-        .each-category
+        label.each-category
           input(type="radio" name="category" value="fashion" required) 
           span Mode, Kleidung
-        .each-category
+        label.each-category
           input(type="radio" name="category" value="electronic" required) 
           span Elektronik
-        .each-category
+        label.each-category
           input(type="radio" name="category" value="fun" required) 
           span Musik, Filme, Bücher
-        .each-category
+        label.each-category
           input(type="radio" name="category" value="tickets" required) 
           span Eintrittskarten, Tickets
-        .each-category
+        label.each-category
           input(type="radio" name="category" value="exchange" required) 
           span Zu Verschenken, Tauschen
-        .each-category
+        label.each-category
           input(type="radio" name="category" value="lesson" required) 
           span Unterricht, Kurse
-        .each-category
+        label.each-category
           input(type="radio" name="category" value="other" required) 
           span Sonstige
       span.form-title.required-form-part #{__('Anzeigendetails')}

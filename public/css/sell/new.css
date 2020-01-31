@@ -32,6 +32,7 @@
 .required-form-part::after {
   content: "*";
   color: rgb(255, 61, 148);
+  font-size: 30px;
 }
 .form-line {
   display: flex;
@@ -46,11 +47,12 @@
   flex-direction: column;
 }
 .each-category {
-  font-size: 30px;
+  font-size: 125%;
   color: rgb(112, 112, 112);
   display: flex;
   align-items: center;
   margin: 3px 0px;
+  cursor: pointer;
 }
 .each-category input {
   margin-right: 5px;
@@ -63,7 +65,7 @@
   background: rgb(248, 248, 248);
   border: 2px solid rgb(236, 235, 235);
   border-radius: 15px;
-  font-size: 30px;
+  font-size: 125%;
   padding: 1% 2%;
   font-weight: 300;
   color: rgb(112, 112, 112);
@@ -74,7 +76,7 @@
   background: rgb(248, 248, 248);
   border: 2px solid rgb(236, 235, 235);
   border-radius: 15px;
-  font-size: 30px;
+  font-size: 125%;
   padding: 1% 2%;
   font-weight: 300;
   color: rgb(112, 112, 112);
@@ -95,7 +97,7 @@
   display: flex;
   align-items: center;
   margin-bottom: 15px;
-  font-size: 30px;
+  font-size: 125%;
   font-weight: 300;
   color: rgb(112, 112, 112);
 }
@@ -103,7 +105,7 @@
   background: rgb(248, 248, 248);
   border: 2px solid rgb(236, 235, 235);
   border-radius: 15px;
-  font-size: 30px;
+  font-size: 125%;
   padding: 1% 2%;
   font-weight: 300;
   color: rgb(112, 112, 112);
@@ -131,6 +133,7 @@
   background: rgb(248, 248, 248);
   border: 2px solid rgb(236, 235, 235);
   border-radius: 15px;
+  margin-bottom: 25px;
 }
 .add-new-button {
   display: flex;
@@ -142,7 +145,7 @@
   background: rgba(255, 108, 128, 0.3);
   color: rgb(112, 112, 112);
   font-weight: 700;
-  font-size: 40px;
+  font-size: 150%;
   border-radius: 15px;
   cursor: pointer;
 }
@@ -169,7 +172,7 @@
   background: rgb(248, 248, 248);
   border: 2px solid rgb(236, 235, 235);
   border-radius: 15px;
-  font-size: 30px;
+  font-size: 125%;
   padding: 1% 2%;
   font-weight: 300;
   color: rgb(112, 112, 112);
@@ -186,7 +189,7 @@
 }
 .required-input-span {
   color: rgb(255, 61, 148);
-  font-size: 55px;
+  font-size: 30px;
   align-self: flex-start;
   height: 100%;
 }
@@ -194,7 +197,7 @@
 /* User agreement design */
 .user-agrement-link {
   color: rgb(112, 112, 112);
-  font-size: 30px;
+  font-size: 125%;
   font-weight: 300;
   line-height: 32px;
   margin-bottom: 25px;
@@ -209,7 +212,7 @@
   background: rgba(255, 108, 128, 0.3);
   border: 2px solid rgba(255, 61, 148, 0.34);
   color: rgb(255, 61, 148);
-  font-size: 30px;
+  font-size: 150%;
   font-weight: 700;
   outline: none;
   padding: 10px 0px;
@@ -220,6 +223,23 @@
 }
 .form-send-button:hover {
   border-color: rgba(255, 61, 148, 0.5);
+}
+
+@media only screen and (max-width: 1100px) and (min-width: 300px) {
+  .product-name,
+  .product-description,
+  .price-input,
+  .address-input,
+  .user-agrement-link,
+  .each-category {
+    font-size: 100%;
+  }
+  .form-title {
+    font-size: 175%;
+  }
+  .form-send-button {
+    font-size: 125%;
+  }
 }
 
 @media only screen and (orientation: portrait) {
@@ -242,5 +262,8 @@
     flex: initial;
     margin: 0px;
     margin-bottom: 10px;
+  }
+  .form-send-button {
+    width: 100%;
   }
 }
