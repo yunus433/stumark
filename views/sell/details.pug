@@ -31,15 +31,17 @@ block main
             input.price-radio-input#custom-price-input(type="radio" name="price" value="0.00€" required)
             input.price-input(type="text" placeholder="Preis €")
           .each-price-line
-            input.price-radio-input(type="radio" name="price" value="FREE" required checked)
-            span #{__('Zu Verschenken')}
+            label
+              input.price-radio-input(type="radio" name="price" value="FREE" required checked)
+              span #{__('Zu Verschenken')}
         else
           .each-price-line
             input.price-radio-input#custom-price-input(type="radio" name="price" value=product.price required checked)
             input.price-input(type="text" placeholder="Preis €" value=product.price)
           .each-price-line
-            input.price-radio-input(type="radio" name="price" value="FREE" required)
-            span #{__('Zu Verschenken')}
+            label
+              input.price-radio-input(type="radio" name="price" value="FREE" required)
+              span #{__('Zu Verschenken')}
       span.form-title #{__('Bilder')}
       .images-outer-wrapper
         .images-wrapper

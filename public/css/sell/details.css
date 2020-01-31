@@ -21,13 +21,13 @@
   flex-direction: column;
 }
 .form-title {
-  font-size: 62px;
+  font-size: 200%;
   color: rgb(112, 112, 112);
   font-weight: 300;
   margin-bottom: 10px;
 }
 .form-info {
-  font-size: 35px;  
+  font-size: 150%;  
   color: rgb(112, 112, 112);
   font-weight: 300;
   margin-bottom: 25px;
@@ -46,7 +46,7 @@
   background: rgb(248, 248, 248);
   border: 2px solid rgb(236, 235, 235);
   border-radius: 15px;
-  font-size: 30px;
+  font-size: 125%;
   padding: 1% 2%;
   font-weight: 300;
   color: rgb(112, 112, 112);
@@ -57,7 +57,7 @@
   background: rgb(248, 248, 248);
   border: 2px solid rgb(236, 235, 235);
   border-radius: 15px;
-  font-size: 30px;
+  font-size: 125%;
   padding: 1% 2%;
   font-weight: 300;
   color: rgb(112, 112, 112);
@@ -77,7 +77,7 @@
   display: flex;
   align-items: center;
   margin-bottom: 15px;
-  font-size: 30px;
+  font-size: 125%;
   font-weight: 300;
   color: rgb(112, 112, 112);
 }
@@ -85,7 +85,7 @@
   background: rgb(248, 248, 248);
   border: 2px solid rgb(236, 235, 235);
   border-radius: 15px;
-  font-size: 30px;
+  font-size: 125%;
   padding: 1% 2%;
   font-weight: 300;
   color: rgb(112, 112, 112);
@@ -124,7 +124,7 @@
   background: rgba(255, 108, 128, 0.3);
   color: rgb(112, 112, 112);
   font-weight: 700;
-  font-size: 40px;
+  font-size: 150%;
   border-radius: 15px;
   cursor: pointer;
 }
@@ -145,7 +145,7 @@
 }
 .each-product-edit-icon {
   align-self: flex-start;
-  font-size: 20px;
+  font-size: 40%;
   color: rgba(112, 112, 112, 0.7);
   cursor: pointer;
 }
@@ -158,7 +158,7 @@
   background: rgb(248, 248, 248);
   border: 2px solid rgb(236, 235, 235);
   border-radius: 15px;
-  font-size: 30px;
+  font-size: 125%;
   padding: 1% 2%;
   font-weight: 300;
   color: rgb(112, 112, 112);
@@ -171,7 +171,7 @@
   background: rgba(255, 108, 128, 0.3);
   border: 2px solid rgba(255, 61, 148, 0.34);
   color: rgb(255, 61, 148);
-  font-size: 30px;
+  font-size: 150%;
   font-weight: 700;
   outline: none;
   padding: 10px 0px;
@@ -208,7 +208,7 @@
   background: white;
   border: 2px solid rgba(255, 61, 148, 0.34);
   color: rgb(255, 61, 148);
-  font-size: 25px;
+  font-size: 125%;
   font-weight: 700;
   outline: none;
   padding: 10px 0px;
@@ -217,11 +217,12 @@
   border-radius: 15px;
   text-decoration: none;
   display: flex;
-  flex-direction: column;
   justify-content: center;
+  align-items: center;
   text-align: center;
   margin-top: 15px;
   font-family: "Source Sans Pro";
+  height: 9vh;
 }
 .marked-as-sold-product-button-not-allow {
   background: white;
@@ -244,6 +245,35 @@
 .delete-product-button:hover,
 .marked-as-sold-product-button:hover {
   border-color: rgba(255, 61, 148, 0.5);
+}
+
+@media only screen and (max-width: 1100px) and (min-width: 300px) {
+  .go-to-messages-button,
+  .delete-product-button,
+  .marked-as-sold-product-button,
+  .product-name,
+  .product-description,
+  .price-input,
+  .address-input {
+    font-size: 100%;
+  }
+  .form-title {
+    font-size: 175%;
+  }
+  .form-send-button, .form-info {
+    font-size: 125%;
+  }
+}
+
+@media only screen and (max-width: 650px) and (min-width: 300px) {
+  .form-line {
+    flex-direction: column;
+  }
+  .go-to-messages-button,
+  .delete-product-button,
+  .marked-as-sold-product-button {
+    width: 100%
+  }
 }
 
 @media only screen and (orientation: portrait) {

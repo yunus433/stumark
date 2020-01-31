@@ -24,7 +24,7 @@
   flex-direction: column;
 }
 .form-title {
-  font-size: 62px;
+  font-size: 200%;
   color: rgb(112, 112, 112);
   font-weight: 300;
   margin-bottom: 10px;
