@@ -7,7 +7,6 @@
   padding: 25px 0px;
 }
 
-/* Header design */
 .product-header {
   width: 90%;
   display: flex;
@@ -26,7 +25,6 @@
   margin-bottom: 10px;
 }
 
-/* Products wrapper and content design */
 .products-wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -104,7 +102,7 @@
   justify-content: center;
   width: 70vw;
   position: absolute;
-  font-size: 28px;
+  font-size: 125%;
   color: rgb(112, 112, 112);
   font-weight: 300;
   margin-top: 25px;
@@ -116,7 +114,7 @@
   background: rgba(255, 108, 128, 0.3);
   border: 2px solid rgba(255, 61, 148, 0.34);
   color: rgb(255, 61, 148);
-  font-size: 30px;
+  font-size: 125%;
   font-weight: 700;
   outline: none;
   padding: 10px 0px;
@@ -161,5 +159,8 @@
   }
   .header-content {
     font-size: 100%;
+  }
+  .no-product-warning-button {
+    width: 75%;
   }
 }

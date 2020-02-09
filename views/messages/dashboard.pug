@@ -1,34 +1,40 @@
 extends ./../partials/header
 block main
-  span.messages-main-header #{__('Nachrichten')}
+  .product-header
+    span.header-title #{__('Nachrichten')}
+    span.header-content #{__('Here you may see your messages for the products you buy and sell.')}
   .chose-message-type-wrapper
     .buy-message-button.each-type-button
       span #{__('Meine Einkäufe')}
     .sell-message-button.each-type-button
       span #{__('Meine Verkäufe')}
-  .back-button-wrapper
-    .back-button
-      i.fas.fa-arrow-left 
-      span #{__('Zurück')}
+  if (!buyProducts.length)
+    span.no-buy-product-text Du hast keine Nachricht.
+  if (!sellProducts.length)
+    span.no-sell-product-text Du kannst hier die Nachrichten für deine Produkte anschauen.
   .chose-buy-product-wrapper
     each product in buyProducts
       if product.price == "SOLD"
         .each-product
-          img.product-image(src=product.productPhotoArray[0])
+          .each-product-image-wrapper
+            .each-product-image-inner-wrapper
+              img.product-image(src=product.productPhotoArray[0])
           span.product-name #{product.name}
           .product-location
             i.fas.fa-map-marker-alt
             span= product.location
           span.product-price #{__('VERKAUFT')}
-      else 
-        a.each-product(href="/messages/buy/?id=" + product._id)
+      else
+        a.each-product(href="/sell/details/?id=" + product._id)
           if (product.notReadMessageNumber > 0) 
             .not-read-empty
               .not-read-message-icon
                 span= product.notReadMessageNumber
           else 
             .not-read-empty
-          img.product-image(src=product.productPhotoArray[0])
+          .each-product-image-wrapper
+            .each-product-image-inner-wrapper
+              img.product-image(src=product.productPhotoArray[0])
           span.product-name #{product.name}
           .product-location
             i.fas.fa-map-marker-alt
@@ -38,21 +44,25 @@ block main
     each product in sellProducts
       if product.price == "SOLD"
         .each-product
-          img.product-image(src=product.productPhotoArray[0])
+          .each-product-image-wrapper
+            .each-product-image-inner-wrapper
+              img.product-image(src=product.productPhotoArray[0])
           span.product-name #{product.name}
           .product-location
             i.fas.fa-map-marker-alt
             span= product.location
           span.product-price #{__('VERKAUFT')}
-      else 
-        a.each-product(href="/messages/sell/dashboard/?id=" + product._id)
+      else
+        a.each-product(href="/sell/details/?id=" + product._id)
           if (product.notReadMessageNumber > 0) 
             .not-read-empty
               .not-read-message-icon
                 span= product.notReadMessageNumber
           else 
             .not-read-empty
-          img.product-image(src=product.productPhotoArray[0])
+          .each-product-image-wrapper
+            .each-product-image-inner-wrapper
+              img.product-image(src=product.productPhotoArray[0])
           span.product-name #{product.name}
           .product-location
             i.fas.fa-map-marker-alt

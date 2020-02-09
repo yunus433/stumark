@@ -220,6 +220,7 @@
   cursor: pointer;
   border-radius: 15px;
   width: 50%;
+  margin-left: auto;
 }
 .form-send-button:hover {
   border-color: rgba(255, 61, 148, 0.5);

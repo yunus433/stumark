@@ -37,7 +37,6 @@ body {
   display: none;
 }
 
-/* All header design*/
 .all-header {
   flex: 1;
   display: flex;
@@ -59,7 +58,6 @@ body {
   flex: 2;
 }
 
-/* All header responsive design */
 .all-header-responsive {
   display: none;
   flex-direction: column;
@@ -260,7 +258,6 @@ body {
   max-width: 50%;
 }
 
-/* All header user menu design*/
 .user-menu {
   display: none;
   flex-direction: column;
@@ -319,7 +316,6 @@ body {
   background: rgb(248, 248, 248);
 }
 
-/* All content and content bar design*/
 .all-content {
   flex: 7;
   padding: 0px;
@@ -343,7 +339,7 @@ body {
   min-height: fit-content;
 }
 .category-header {
-  width: 75%;
+  width: 95%;
   font-size: 125%;
   color: rgb(255, 61, 148);
   font-weight: 600;
@@ -354,7 +350,7 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
-  width: 75%;
+  width: 95%;
   padding: 15px;
   background: white;
   color: rgb(112, 112, 112);
