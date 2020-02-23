@@ -46,9 +46,9 @@ block main
           input.price-radio-input(type="radio" name="price" value="FREE" required)
           span #{__('Zu Verschenken')}
       span.form-title.required-form-part #{__('Bilder')}
+      input.display-none#file-name-array(type="text" name="productPhotoNameArray" value="")
       .images-outer-wrapper
         .images-wrapper
-          input.display-none#file-name-array(type="text" name="productPhotoNameArray" value="" required)
           label.add-new-button
             i.fas.fa-plus
             input.display-none#product-image-input(type="file" name="photo" accept="image/*")

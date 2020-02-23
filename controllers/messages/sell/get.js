@@ -5,7 +5,7 @@ const Product = require('../../../models/product/Product');
 const User = require('../../../models/user/User');
 
 module.exports = (req, res) => {
-  if (req.query && req.query.id) {
+  if (req.query && req.query.id && req.query.user) {
     Message.findOne({
       "buyer": req.query.user,
       "product": req.query.id

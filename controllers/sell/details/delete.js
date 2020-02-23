@@ -9,6 +9,13 @@ module.exports = (req, res, next) => {
   }, err => {
     if (err) return res.redirect('/');
 
-    return res.redirect('/sell');
+    Message.deleteMany({
+      "product": mongoose.Types.ObjectId(req.query.id),
+      "owner": req.session.user._id.toString()
+    }, err => {
+      if (err) return res.redirect('/');
+
+      return res.redirect(`/sell`);
+    });
   });
 };

@@ -17,7 +17,7 @@ function uploadToCloudinary(req, nameArray) {
 module.exports = (req, res, next) => {
   const productPhotoArray = [];
 
-  if (req.body.productPhotoNameArray.split(",")[0]) {
+  if (req.body.productPhotoNameArray.length > 0) {
     uploadToCloudinary(req, req.body.productPhotoNameArray.split(","));
     req.body.productPhotoNameArray.split(",").forEach(photoName => {
       if (photoName) productPhotoArray.push("https://res.cloudinary.com/dvnac86j8/image/upload/v1558412742/stumarkt/image_folder/" + photoName + ".jpg");
@@ -35,8 +35,7 @@ module.exports = (req, res, next) => {
     keywords: (req.body.description.replace(/\s+/g, '+').replace(/[^a-zA-Z0-9+]/g, "").toLowerCase() + "+" + req.body.name.replace(/\s+/g, '+').replace(/[^a-zA-Z0-9+]/g, "").toLowerCase()).split("+"),
     location: req.body.address1 + " " + req.body.address2 + " " + req.body.address3 || "",
     owner: req.session.user._id,
-    university: req.session.user.university,
-    documentIndex: -1
+    university: req.session.user.university
   };
 
   const newProduct = new Product(newProductData);
@@ -44,16 +43,6 @@ module.exports = (req, res, next) => {
   newProduct.save((err, product) => {
     if (err) return res.redirect('/');
 
-    Product.count({}, (err, number) => {
-      if (err) return res.redirect('/');
-
-      Product.findByIdAndUpdate(product._id, {$set: {
-        documentIndex: number
-      }}, {upsert: true, new: true}, err => {
-        if (err) return res.redirect('/');
-
-        return res.redirect('/sell');
-      });
-    });
+    return res.redirect('/sell');
   });
 };

@@ -3,7 +3,6 @@
   padding: 0px;
 }
 
-/* Left side design */
 .messages-left-side {
   display: flex;
   flex-direction: column;
@@ -31,11 +30,10 @@
   border: 1px solid rgb(219, 219, 219);
 }
 .reopen-right-side-button i {
-  font-size: 30px;
+  font-size: 150%;
   color: rgb(112, 112, 112);
 }
-/* Left side header design */
-/* Message wrapper and each message design */
+
 .messages-content {
   height: auto;
   display: flex;
@@ -66,6 +64,9 @@
 }
 .message-header {
   margin-bottom: 15px;
+  display: flex;
+  align-items: flex-end;
+  width: 100%;
 }
 .message-header-buyer {
   display: flex;
@@ -75,18 +76,20 @@
   margin-bottom: 15px;
 }
 .message-time {
-  font-size: 25px;
+  font-size: 100%;
   font-weight: 700;
   color: rgb(219, 219, 219);
   margin: 0px 10px;
 }
 .message-sender {
-  font-size: 35px;
+  display: flex;
+  align-items: flex-end;
+  font-size: 150%;
   font-weight: 700;
   color: rgb(127, 127, 127);
 }
 .message-content {
-  font-size: 25px;
+  font-size: 125%;
   font-weight: 300;
   color: rgb(160, 169, 177);
 }

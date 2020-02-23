@@ -292,10 +292,11 @@ body {
   justify-content: center;
   align-items: center;
   border-bottom: 2px solid rgb(236, 235, 235);
-  font-size: 25px;
+  font-size: 100%;
   text-decoration: none;
   color: rgb(255, 61, 148);
   font-weight: 700;
+  background-color: white;
 }
 .user-menu-each-last {
   padding: 15px 0px;

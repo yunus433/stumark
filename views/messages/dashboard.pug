@@ -8,63 +8,35 @@ block main
       span #{__('Meine Einkäufe')}
     .sell-message-button.each-type-button
       span #{__('Meine Verkäufe')}
-  if (!buyProducts.length)
+  if (!buyMessages.length)
     span.no-buy-product-text Du hast keine Nachricht.
-  if (!sellProducts.length)
+  if (!sellMessages.length)
     span.no-sell-product-text Du kannst hier die Nachrichten für deine Produkte anschauen.
   .chose-buy-product-wrapper
-    each product in buyProducts
-      if product.price == "SOLD"
-        .each-product
-          .each-product-image-wrapper
-            .each-product-image-inner-wrapper
-              img.product-image(src=product.productPhotoArray[0])
-          span.product-name #{product.name}
-          .product-location
-            i.fas.fa-map-marker-alt
-            span= product.location
-          span.product-price #{__('VERKAUFT')}
-      else
-        a.each-product(href="/sell/details/?id=" + product._id)
-          if (product.notReadMessageNumber > 0) 
-            .not-read-empty
-              .not-read-message-icon
-                span= product.notReadMessageNumber
-          else 
-            .not-read-empty
-          .each-product-image-wrapper
-            .each-product-image-inner-wrapper
-              img.product-image(src=product.productPhotoArray[0])
-          span.product-name #{product.name}
-          .product-location
-            i.fas.fa-map-marker-alt
-            span= product.location
-          span.product-price #{product.price}
+    each message in buyMessages
+      a.each-product(href="/messages/buy/?id=" + message.product)
+        if (message.messages.filter(message => {return message.sendedBy == "owner" && message.read == false}).length > 0) 
+          .not-read-empty
+            .not-read-message-icon
+              span= message.messages.filter(message => {return message.sendedBy == "owner" && message.read == false}).length
+        else 
+          .not-read-empty
+        .each-product-image-wrapper
+          .each-product-image-inner-wrapper
+            img.product-image(src=message.productPhoto)
+        span.product-name #{message.productName}
+        span.product-owner #{message.ownerName}
   .chose-sell-product-wrapper 
-    each product in sellProducts
-      if product.price == "SOLD"
-        .each-product
-          .each-product-image-wrapper
-            .each-product-image-inner-wrapper
-              img.product-image(src=product.productPhotoArray[0])
-          span.product-name #{product.name}
-          .product-location
-            i.fas.fa-map-marker-alt
-            span= product.location
-          span.product-price #{__('VERKAUFT')}
-      else
-        a.each-product(href="/sell/details/?id=" + product._id)
-          if (product.notReadMessageNumber > 0) 
-            .not-read-empty
-              .not-read-message-icon
-                span= product.notReadMessageNumber
-          else 
-            .not-read-empty
-          .each-product-image-wrapper
-            .each-product-image-inner-wrapper
-              img.product-image(src=product.productPhotoArray[0])
-          span.product-name #{product.name}
-          .product-location
-            i.fas.fa-map-marker-alt
-            span= product.location
-          span.product-price #{product.price}
+    each message in sellMessages
+      a.each-product(href=`/messages/sell?id=${message.product}&user=${message.buyer}`)
+        if (message.messages.filter(message => {return message.sendedBy == "owner" && message.read == false}).length > 0) 
+          .not-read-empty
+            .not-read-message-icon
+              span= message.messages.filter(message => {return message.sendedBy == "owner" && message.read == false}).length
+        else
+          .not-read-empty
+        .each-product-image-wrapper
+          .each-product-image-inner-wrapper
+            img.product-image(src=message.productPhoto)
+        span.product-name #{message.productName}
+        span.product-buyer #{message.buyerName}
