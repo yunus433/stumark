@@ -3,56 +3,24 @@
   padding: 0px;
 }
 
-/* Left side design */
 .messages-left-side {
   display: flex;
   flex-direction: column;
   background: rgb(252, 249, 247);
-  flex: 2;
+  width: 100%;
   height: 100%;
   border-bottom: 1px solid rgb(219, 219, 219);
   border-left: 1px solid rgb(219, 219, 219);
   overflow: scroll;
   -webkit-overflow-scrolling: touch;
 }
-.reopen-right-side-button {
-  position: absolute;
-  right: 0px;
-  margin-top: 10px;
-  padding: 10px;
-  padding-right: 20px;
-  background: white;
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  border: 1px solid rgb(219, 219, 219);
-}
 
-/* Left side header design */
-.messages-header {
-  height: 10%;
-  background: rgb(254, 254, 254);
-  border-bottom: 1px solid rgb(219, 219, 219);
-  display: flex;
-  align-items: center;
-  padding-left: 25px;
-  font-size: 20px;
-  color: rgb(112, 112, 112);
-  font-weight: 300;
-}
-.messages-header strong {
-  margin: 0px 5px;
-  font-weight: 600;
-}
-/* Message wrapper and each message design */
 .messages-content {
   height: auto;
   display: flex;
   flex-direction: column;
   padding: 25px;
+  padding-bottom: 50px;
 }
 .each-message {
   width: 90%;
@@ -76,10 +44,11 @@
   margin-right: 25px;
 }
 .message-header {
+  margin-bottom: 15px;
   display: flex;
   align-items: flex-end;
-  margin-bottom: 15px;
-} 
+  width: 100%;
+}
 .message-header-buyer {
   display: flex;
   align-items: flex-end;
@@ -88,18 +57,20 @@
   margin-bottom: 15px;
 }
 .message-time {
-  font-size: 25px;
+  font-size: 100%;
   font-weight: 700;
   color: rgb(219, 219, 219);
   margin: 0px 10px;
 }
 .message-sender {
-  font-size: 35px;
+  display: flex;
+  align-items: flex-end;
+  font-size: 150%;
   font-weight: 700;
   color: rgb(127, 127, 127);
 }
 .message-content {
-  font-size: 25px;
+  font-size: 125%;
   font-weight: 300;
   color: rgb(160, 169, 177);
 }
@@ -114,28 +85,28 @@
   max-height: 100%;
   border-radius: 100%;
 }
-/* Send message design */
+
 .message-send-wrapper {
   height: 10%;
+  width: 77%;
   border-top: 1px solid rgb(193, 193, 193);
   display: flex;
   align-items: center;
   background: white;
   position: fixed;
-  width: 100%;
   bottom: 0px;
 }
 .new-message-input {
   border: none;
   height: 95%;
-  width: 90%; 
+  flex: 9;
   outline: none;
-  font-size: 25px;
+  font-size: 125%;
   padding-left: 25px;
   color: rgb(112, 112, 112);
 }
 .send-button {
-  width: 10%;
+  flex: 1;
   height: 100%;
   display: flex;
   align-items: center;
@@ -150,8 +121,29 @@
   max-width: 80%;
 }
 
+/* 
+.animation-class-close-to-right {
+  -webkit-animation: moveRight 1.3s 1 forwards ease-out;
+}
+
+@-webkit-keyframes moveRight {
+  from {
+    display: flex;
+  }
+  to {
+    transform: translateX(100%);
+    display: none;
+  }
+} 
+*/
 @media only screen and (orientation: portrait) {
   .each-message {
     width: 95%;
+  }
+  .message-send-wrapper {
+    width: 100%;
+  }
+  .messages-right-side {
+    width: 90%;
   }
 }

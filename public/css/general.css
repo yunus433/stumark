@@ -329,7 +329,6 @@ body {
   overflow: scroll;
   -webkit-overflow-scrolling: touch;
   flex: 1;
-  width: 10vw;
   flex-wrap: nowrap;
   padding-left: 5%;
 }
@@ -366,7 +365,6 @@ body {
 }
 .main-wrapper {
   flex: 4;
-  width: 80vw;
   height: 100%;
 }
 
