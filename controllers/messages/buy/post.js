@@ -52,8 +52,8 @@ module.exports = (req, res) => {
               body: `Du hast eine neue Nachricht für dein Produkt ${product.name}`, 
               data: "Click to see the message"
             }]
-          }, (err, res) => {
-            if (err) console.log(err, res);
+          }, (err, result) => {
+            if (err) console.log(err, result);
 
             return res.redirect('/messages/buy/?id=' + req.query.id);
           });
