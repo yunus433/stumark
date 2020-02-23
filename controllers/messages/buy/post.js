@@ -5,6 +5,8 @@ const Message = require('../../../models/message/Message');
 const Product = require('../../../models/product/Product');
 const User = require('../../../models/user/User');
 
+const sendNotification = require('../../../utils/sendNotification');
+
 module.exports = (req, res) => {
   Message.findOne({
     "product": req.query.id,
@@ -44,7 +46,17 @@ module.exports = (req, res) => {
         newMessage.save((err, message) => {
           if (err) return res.redirect('/');
 
-          return res.redirect('/messages/buy/?id=' + req.query.id);
+          sendNotification('send one', {
+            "to": user._id,
+            "messages": [{
+              body: `Du hast eine neue Nachricht für dein Produkt ${product.name}`, 
+              data: "Click to see the message"
+            }]
+          }, (err, res) => {
+            if (err) console.log(err, res);
+
+            return res.redirect('/messages/buy/?id=' + req.query.id);
+          });
         });
       });
     });
