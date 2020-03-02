@@ -28,6 +28,9 @@ i18n.configure({
   defaultLocale: 'de'
 });
 
+// config dotenv files
+dotenv.config({ path: path.join(__dirname, ".env") });
+
 // define local variables
 const PORT = process.env.PORT || 3000;
 const mongoUri = process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/sellingplatform";
@@ -41,9 +44,6 @@ const buyRouteController = require('./routes/buyRoute');
 const sellRouteController = require('./routes/sellRoute');
 const messagesRouteController = require('./routes/messagesRoute');
 const editRouteController = require('./routes/editRoute');
-
-// config dotenv files
-dotenv.config({ path: path.join(__dirname, ".env") });
 
 // require variables from dotenv file
 const {

@@ -1,5 +1,15 @@
 const nodemailer = require('nodemailer');
+const path = require('path');
+const dotenv = require('dotenv');
+
 const htmlToText = require('nodemailer-html-to-text').htmlToText;
+
+dotenv.config({ path: path.join(__dirname, ".env") });
+
+const {
+  MAIL_USER_NAME,
+  MAIL_PASSWORD
+} = process.env;
 
 const transporter = nodemailer.createTransport({
   direct: true,
@@ -7,8 +17,8 @@ const transporter = nodemailer.createTransport({
   port: 465,
   secure: true,
   auth: {
-    user: 'admin@stumarkt.com', 
-    pass: '14121998samsun'
+    user: MAIL_USER_NAME, 
+    pass: MAIL_PASSWORD
   }
 });
 transporter.use('compile', htmlToText());
