@@ -30,7 +30,7 @@ module.exports = (req, res, next) => {
         sendNotification('sendOne', {
           "to": req.body.owner,
           "messages": [{
-            body: `Du hast eine neue Nachricht für dein Produkt ${product.name}`, 
+            body: `Du hast eine neue Nachricht für dein Produkt ${req.body.productName}`, 
             data: "Click to see the message"
           }]
         }, (err, res) => {
