@@ -33,7 +33,7 @@ module.exports = (req, res, next) => {
             body: `Du hast eine neue Nachricht für dein Produkt ${req.body.productName}`, 
             data: "Click to see the message"
           }]
-        }, (err, res) => {
+        }, (err, result) => {
           if (err) console.log(err);
 
           return res.status(200).json({"success": true});
