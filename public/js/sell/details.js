@@ -17,7 +17,6 @@ function createNewProductPhoto(imageSrc) {
   document.querySelector('.images-wrapper').appendChild(imageWrapper);
   document.querySelector('.images-wrapper').insertBefore(imageWrapper, imageWrapper.previousElementSibling);
   document.querySelector('.images-outer-wrapper').scrollLeft =  document.querySelector('.images-outer-wrapper').scrollWidth;
-  responsiveDesign(imageWrapper);
 }
 
 

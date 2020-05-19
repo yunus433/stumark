@@ -147,7 +147,6 @@ window.onload = () => {
           universityValueWrapper.appendChild(newSpan);
         }
       });
-      responsiveDesign(universityValueWrapper);
     } else {
       universityValueWrapper.innerHTML = "";
       universityList.forEach(university => {
@@ -156,7 +155,6 @@ window.onload = () => {
         newSpan.innerHTML = university;
         universityValueWrapper.appendChild(newSpan);
       });
-      responsiveDesign(universityValueWrapper);
     };
   };
 

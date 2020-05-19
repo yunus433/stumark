@@ -25,7 +25,7 @@ module.exports = (req, res, next) => {
           },
           (err, user) => {
             if (err) return res.sendStatus(500);
-            req.session.user.profilePhoto = result.url;
+            req.session.user.profilePhoto = result.secure_url;
 
             if (
               user.profilePhoto != "https://res.cloudinary.com/dvnac86j8/image/upload/v1566558525/stumarkt/defaultUserPicture.png"

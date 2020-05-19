@@ -18,7 +18,6 @@ module.exports = (req, res, next) => {
     const newUser = new User(newUserData);
 
     newUser.save((err, user) => {
-      console.log(user);
       if (err && err.code == 11000) {
         return res.status(400).json({ "error": "Email is taken" });
       }
