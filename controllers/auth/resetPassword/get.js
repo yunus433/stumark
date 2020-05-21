@@ -15,7 +15,7 @@ module.exports = (req, res, next) => {
     req.session.destroy();
     res.render('auth/reset', {
       page: 'auth/reset',
-      title: 'Reset Password',
+      title: 'Şifreyi Sıfırla',
       includes: {
         external: ['auth_css', 'js', 'fontawesome']
       },
@@ -24,7 +24,7 @@ module.exports = (req, res, next) => {
   } else
     res.render('auth/reset', {
       page: 'auth/reset',
-      title: 'Reset Password',
+      title: 'Şifreyi Sıfırla',
       includes: {
         external: ['auth_css', 'js', 'fontawesome']
       }

@@ -7,7 +7,7 @@ module.exports = (req, res, next) => {
 
       return res.render('edit/products', {
         page: 'edit/products',
-        title: 'Edit Your Product',
+        title: 'Ürünleri Düzenle',
         includes: {
           external: ['css', 'js', 'fontawesome']
         },

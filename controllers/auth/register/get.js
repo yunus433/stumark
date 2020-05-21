@@ -13,7 +13,7 @@ module.exports = (req, res, next) => {
   } else
     res.render('auth/register', {
       page: 'auth/register',
-      title: 'Register',
+      title: 'Çıkış Yap',
       includes: {
         external: ['auth_css', 'js', 'fontawesome']
       }

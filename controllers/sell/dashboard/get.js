@@ -11,7 +11,7 @@ module.exports = (req, res, next) => {
     
       return res.render('sell/dashboard', {
         page: 'sell/dashboard',
-        title: 'Sell',
+        title: 'Satılık Ürünlerin',
         includes: {
           external: ['css', 'js', 'fontawesome']
         },

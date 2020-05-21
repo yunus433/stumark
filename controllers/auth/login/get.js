@@ -11,7 +11,7 @@ module.exports = (req, res, next) => {
   else
   res.render('auth/login', {
     page: 'auth/login',
-    title: 'Login',
+    title: 'Giriş Yap',
     includes: {
       external: ['auth_css', 'js', 'fontawesome']
     }

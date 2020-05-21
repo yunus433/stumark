@@ -13,7 +13,7 @@ const Message = require('../../../models/message/Message');
 
       return res.render('messages/dashboard', {
         page: "messages/dashboard",
-        title: "Nachrichten",
+        title: "Mesajlar",
         includes: {
           external: ["js" ,"css", "fontawesome"]
         },

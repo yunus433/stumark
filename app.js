@@ -22,7 +22,7 @@ const io = socketIO(server);
 
 // configure i18n
 i18n.configure({
-  locales:['de', 'en'],
+  locales:['tr', 'de', 'en'],
   directory: __dirname + '/translations',
   queryParameter: 'lang',
   defaultLocale: 'de'
