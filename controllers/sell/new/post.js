@@ -15,7 +15,7 @@ function uploadToCloudinary(req, nameArray) {
 };
 
 const getCityEngName = (city) => {
-  return city.toLowerCase.replace("ş", "s").replace("ı", "i").replace("ö", "o").replace("ç", "c").replace("ü", "u").replace("ğ", "g");
+  return city.toLocaleLowerCase().replace("ş", "s").replace("ı", "i").replace("ö", "o").replace("ç", "c").replace("ü", "u").replace("ğ", "g");
 }
 
 module.exports = (req, res, next) => {
@@ -38,6 +38,7 @@ module.exports = (req, res, next) => {
     productPhotoArray,
     keywords: (req.body.description.replace(/\s+/g, '+').replace(/[^a-zA-Z0-9+]/g, "").toLowerCase() + "+" + req.body.name.replace(/\s+/g, '+').replace(/[^a-zA-Z0-9+]/g, "").toLowerCase()).split("+"),
     city: getCityEngName(req.body.city),
+    city_name: req.body.city,
     town: req.body.town,
     owner: req.session.user._id,
     university: req.session.user.university
