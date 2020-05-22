@@ -1,6 +1,6 @@
 module.exports = (req, res, next) => {
   if (req.query.err)
-    res.render('auth/login', {
+    return res.render('auth/login', {
       page: 'auth/login',
       title: 'Einloggen',
       includes: {
@@ -9,11 +9,11 @@ module.exports = (req, res, next) => {
       err: req.query.err
     });
   else
-  res.render('auth/login', {
-    page: 'auth/login',
-    title: 'Giriş Yap',
-    includes: {
-      external: ['auth_css', 'js', 'fontawesome']
-    }
-  });
+    return res.render('auth/login', {
+      page: 'auth/login',
+      title: 'Giriş Yap',
+      includes: {
+        external: ['auth_css', 'js', 'fontawesome']
+      }
+    });
 }

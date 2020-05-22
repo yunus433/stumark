@@ -10,7 +10,7 @@ module.exports = (req, res, next) => {
       req.session.user = user;
       if (req.session.redirect)
         return res.redirect(req.session.redirect);
-      else 
+      else
         return res.redirect('/');
     // } else {
     //   req.session.notVerifiedUser = user;
