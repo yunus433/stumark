@@ -16,27 +16,28 @@ module.exports = (socket, io) => {
       content: params.message.content,
       sendedBy: params.message.sendedBy,
       read: false,
-      createdAt: moment(Date.now()).tz("Europe/Berlin").format("HH[:]mm A [/] DD[.]MM[.]YYYY")
+      time: moment(Date.now()).tz("Europe/Istanbul").format("HH[:]mm"),
+      day: moment(Date.now()).tz("Europe/Istanbul").format("DD[.]MM[.]YYYY")
     };
 
-    if (io.sockets.adapter.rooms[params.to]) {
-      newMessageData.read = true;
+    // if (io.sockets.adapter.rooms[params.to]) {
+    //   newMessageData.read = true;
 
-      Message.findOneAndUpdate({
-        "buyer": params.message.buyerId,
-        "owner": params.message.ownerId,
-        "product": params.message.productId
-      }, {
-        $push: {
-          "messages": newMessageData
-        }
-      }, {upsert: true}, err => {
-        if (err) return callback(err);
+    //   Message.findOneAndUpdate({
+    //     "buyer": params.message.buyerId,
+    //     "owner": params.message.ownerId,
+    //     "product": params.message.productId
+    //   }, {
+    //     $push: {
+    //       "messages": newMessageData
+    //     }
+    //   }, {upsert: true}, err => {
+    //     if (err) return callback(err);
 
-        socket.to(params.to).emit('newMessage', {message: newMessageData});
-        return callback(undefined, newMessageData);
-      });
-    } else {
+    //     socket.to(params.to).emit('newMessage', {message: newMessageData});
+    //     return callback(undefined, newMessageData);
+    //   });
+    // } else {
       Message.findOneAndUpdate({
         "buyer": params.message.buyerId,
         "owner": params.message.ownerId,
@@ -61,8 +62,8 @@ module.exports = (socket, io) => {
               sendNotification('send one', {
                 "to": product.owner,
                 "messages": [{
-                  body: `Du hast eine neue Nachricht für dein Produkt ${product.name}`, 
-                  data: "Click to see the message"
+                  body: `${product.buyerName}: ${params.message.content}`, 
+                  data: "Mesajı görmek için tıklayın."
                 }]
               }, (err, res) => {
                 if (err) console.log(err, res);
@@ -81,8 +82,8 @@ module.exports = (socket, io) => {
             sendNotification('sendOne', {
               "to": newMessageData.buyer,
               "messages": [{
-                body: `Du hast eine neue Nachricht von dem Besitzer des Produkts ${product.name}`, 
-                data: "Click to see the message"
+                body: `${product.buyerName}: ${params.message.content}`, 
+                data: "Mesajı görmek için tıklayın."
               }]
             }, (err, res) => {
               if (err) console.log(err, res);
@@ -92,6 +93,6 @@ module.exports = (socket, io) => {
           });
         };
       });
-    };
+    // };
   });
 };

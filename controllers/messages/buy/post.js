@@ -35,8 +35,9 @@ module.exports = (req, res) => {
             {
               content: req.body.message,
               sendedBy: "buyer",
-              createdAt: moment(Date.now()).tz("Europe/Berlin").format("HH[:]mm A [/] DD[.]MM[.]YYYY"),
-              read: false
+              read: false,
+              time: moment(Date.now()).tz("Europe/Istanbul").format("HH[:]mm"),
+              day: moment(Date.now()).tz("Europe/Istanbul").format("DD[.]MM[.]YYYY")
             }
           ]
         };
