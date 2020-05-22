@@ -8,6 +8,7 @@ module.exports = (option, data, callback) => {
 
   if (option == "send one") {
     User.findById(mongoose.Types.ObjectId(data.to), (err, user) => {
+      console.log(err, user);
       if (err) return callback(err);
       if (!user || !user.notificationToken) return callback("User not found");
 
