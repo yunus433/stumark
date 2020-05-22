@@ -77,18 +77,21 @@ module.exports = (socket, io) => {
             "notReadMessage": 1
           }}, err => {
             if (err) return callback(err);
+            Product.findById(params.message.productId, (err, product) => {
+              if (err) return callback(err);
 
-            socket.to(params.to).emit('newMessage', {newMessageData});
-            sendNotification('sendOne', {
-              "to": newMessageData.buyer,
-              "messages": [{
-                body: `${product.buyerName}: ${params.message.content}`, 
-                data: "Mesajı görmek için tıklayın."
-              }]
-            }, (err, res) => {
-              if (err) console.log(err, res);
+              socket.to(params.to).emit('newMessage', {newMessageData});
+              sendNotification('sendOne', {
+                "to": newMessageData.buyer,
+                "messages": [{
+                  body: `${product.ownerName}: ${params.message.content}`, 
+                  data: "Mesajı görmek için tıklayın."
+                }]
+              }, (err, res) => {
+                if (err) console.log(err, res);
 
-              return callback(undefined, newMessageData);
+                return callback(undefined, newMessageData);
+              });
             });
           });
         };
