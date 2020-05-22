@@ -20,7 +20,7 @@ block main
         span.main-product-title= product.name
         .main-product-location
             i.fas.fa-map-marker-alt
-            span= product.location
+            span #{product.city_name}, #{product.town}
         span.main-product-description= product.description
         span.main-product-price= product.price
     form.send-message-wrapper(action="/messages/buy/?id=" + product._id method="post")
@@ -38,7 +38,7 @@ block main
             span.product-name #{product.name}
             .product-location
               i.fas.fa-map-marker-alt
-              span= product.location
+              span #{product.city_name}, #{product.town}
             span.product-price #{__('VERKAUFT')}
         else if (user && product.owner == user._id.toString())
           a.each-product(href="/sell/details/?id=" + product._id)
@@ -48,7 +48,7 @@ block main
             span.product-name #{product.name}
             .product-location
               i.fas.fa-map-marker-alt
-              span= product.location
+              span #{product.city_name}, #{product.town}
             span.product-price #{product.price}
         else 
           a.each-product(href="/buy/details/?id=" + product._id)
@@ -58,6 +58,6 @@ block main
             span.product-name #{product.name}
             .product-location
               i.fas.fa-map-marker-alt
-              span= product.location
+              span #{product.city_name}, #{product.town}
             span.product-price #{product.price}
 

@@ -12,7 +12,7 @@ block main
         span.product-name #{product.name}
         .product-location
           i.fas.fa-map-marker-alt
-          span= product.location
+          span #{product.city_name}, #{product.town}
         span.product-price #{product.price}
     if products.length <= 0
       .no-product-warning 

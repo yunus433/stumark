@@ -13,7 +13,7 @@ block main
           span.product-name #{product.name}
           .product-location
             i.fas.fa-map-marker-alt
-            span= product.location
+            span #{product.city_name}, #{product.town}
           span.product-price #{__('VERKAUFT')}
       else if (user && product.owner == user._id.toString())
         a.each-product(href="/sell/details/?id=" + product._id)
@@ -23,7 +23,7 @@ block main
           span.product-name #{product.name}
           .product-location
             i.fas.fa-map-marker-alt
-            span= product.location
+            span #{product.city_name}, #{product.town}
           span.product-price #{product.price}
       else 
         a.each-product(href="/buy/details/?id=" + product._id)
@@ -33,5 +33,5 @@ block main
           span.product-name #{product.name}
           .product-location
             i.fas.fa-map-marker-alt
-            span= product.location
+            span #{product.city_name}, #{product.town}
           span.product-price #{product.price}
