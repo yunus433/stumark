@@ -81,7 +81,7 @@ module.exports = (socket, io) => {
               if (err) return callback(err);
 
               socket.to(params.to).emit('newMessage', {newMessageData});
-              sendNotification('sendOne', {
+              sendNotification('send one', {
                 "to": newMessageData.buyer,
                 "messages": [{
                   body: `${product.ownerName}: ${params.message.content}`, 
