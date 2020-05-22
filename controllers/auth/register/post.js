@@ -10,7 +10,7 @@ module.exports = (req, res, next) => {
       name: req.body.name,
       university: req.body.university,
       password: req.body.password
-    }; 
+    };
 
     const newUser = new User(newUserData);
 
@@ -25,9 +25,10 @@ module.exports = (req, res, next) => {
         email: user.email,
         userId: user._id 
       }, 'userRegister', () => {
-        req.session.notVerifiedUser = user;
+        // req.session.notVerifiedUser = user;
 
-        return res.redirect('/auth/verify');
+        req.session.user = user;
+        return res.redirect('/');
       });
     });
   } else {

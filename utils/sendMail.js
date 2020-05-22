@@ -26,21 +26,18 @@ transporter.use('compile', htmlToText());
 const templates = {
   userRegister: (data) => ({
     to: data.email,
-    subject: 'Stumarkt.com: Bestätigung deiner Registrierung',
+    subject: 'Stumarkt.com: Kaydını onayla',
     html: `
-      Liebe/r Nutzer/in,
+      Değerli kullanıcımız,
       <br />
       <br />
-      Mit diesem Link bestätigst du deine Registrierung: <a href='https://www.stumarkt.com/auth/verify/post/?id=${data.userId}'>https://www.stumarkt.com/auth/verify<a />
+      Lütfen linke tıklayarak hesabınızı onaylayın: <a href='https://www.stumarkt.com/auth/verify/post/?id=${data.userId}'>https://www.stumarkt.com/auth/verify<a />
       <br />
       <br />
-      Mit deiner E-Mail-Adresse und deinem Passwort kannst du dich jederzeit bei Stumarkt einloggen, um dein Anzeigen zu bearbeiten oder zu löschen. 
+      Aramıza katıldığınız için çok teşekkür ederiz! Eğer bir sorununuz olursa bize danışmaktan çekinmeyin.
       <br />
       <br />
-      Solltest du die Registrierung nicht beauftragt haben, so ignoriere diese E-Mail bitte. Die Registrierung wird dann nicht bestätigt und die E-Mail-Adresse später automatisch bei uns gelöscht.
-      <br />
-      <br />
-      Dein Stumarkt-Team
+      Stumarkt Ekibi
     `
   }),
   passwordReset: (data) => ({

@@ -6,15 +6,15 @@ module.exports = (req, res, next) => {
       return res.redirect('/auth/login/?err=100');
     }
 
-    if (user.verified) {
+    // if (user.verified) {
       req.session.user = user;
       if (req.session.redirect)
         return res.redirect(req.session.redirect);
       else 
         return res.redirect('/');
-    } else {
-      req.session.notVerifiedUser = user;
-      return res.redirect('/auth/verify');
-    }
+    // } else {
+    //   req.session.notVerifiedUser = user;
+    //   return res.redirect('/auth/verify');
+    // }
   });
 }
