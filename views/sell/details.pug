@@ -28,8 +28,8 @@ block main
       .price-wrapper
         if product.price == "FREE"
           .each-price-line
-            input.price-radio-input#custom-price-input(type="radio" name="price" value="0.00€" required)
-            input.price-input(type="text" placeholder="Preis €")
+            input.price-radio-input#custom-price-input(type="radio" name="price" value="0.00" required)
+            input.price-input(type="number" placeholder="Fiyat ₺")
           .each-price-line
             label
               input.price-radio-input(type="radio" name="price" value="FREE" required checked)
@@ -37,7 +37,7 @@ block main
         else
           .each-price-line
             input.price-radio-input#custom-price-input(type="radio" name="price" value=product.price required checked)
-            input.price-input(type="text" placeholder="Preis €" value=product.price)
+            input.price-input(type="text" placeholder="Fiyat ₺" value=product.price)
           .each-price-line
             label
               input.price-radio-input(type="radio" name="price" value="FREE" required)
@@ -50,11 +50,15 @@ block main
             if photo != "/res/images/notAvailablePhoto.jpg"
               .each-product-photo
                 img(src=photo)
-                i.each-product-edit-icon.fas.fa-trash(onclick="return confirm('Are you sure you want to delete this picture?')")
+                i.each-product-edit-icon.fas.fa-trash(onclick="return confirm('Bu resmi silmek istediğinize emin misiniz?')")
           if product.productPhotoArray.filter(photo => { return photo != "/res/images/notAvailablePhoto.jpg" }).length < 5
             label.add-new-button
               i.fas.fa-plus
               input.display-none#product-image-input(type="file" name="photo" accept="image/*")
       span.form-title #{__('Ort')}
-      input.address-input(type="text" name="location" placeholder="Ort" value=product.location required)
+       .form-line
+        div.address-input-small
+          input.address-input(type="text" required value=product.city name="city" placeholder="Şehir" autocomplete="off")
+        div.address-input-big
+          input.address-input(type="text" required value=product.town name="town" placeholder="İlçe" autocomplete="off")
       button.form-send-button #{__('Edit')}

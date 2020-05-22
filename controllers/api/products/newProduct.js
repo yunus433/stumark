@@ -14,6 +14,10 @@ function uploadToCloudinary(req, nameArray) {
   });
 };
 
+const getCityEngName = (city) => {
+  return city.toLowerCase.replace("ş", "s").replace("ı", "i").replace("ö", "o").replace("ç", "c").replace("ü", "u").replace("ğ", "g");
+}
+
 
 module.exports = (req, res) => {
   const productPhotoArray = [];
@@ -34,7 +38,8 @@ module.exports = (req, res) => {
     price: req.body.price,
     productPhotoArray,
     keywords: (req.body.description.replace(/\s+/g, '+').replace(/[^a-zA-Z0-9+]/g, "").toLowerCase() + "+" + req.body.name.replace(/\s+/g, '+').replace(/[^a-zA-Z0-9+]/g, "").toLowerCase()).split("+"),
-    location: req.body.address1 + " " + req.body.address2 + " " + req.body.address3 || "",
+    city: getCityEngName(req.body.city),
+    town: req.body.town,
     owner: req.body.userId,
     university: req.body.university,
     documentIndex: -1

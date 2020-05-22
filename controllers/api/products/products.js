@@ -45,7 +45,7 @@ module.exports = (req, res) => {
   } else if (req.query && req.query.limit) {
     if (req.query.filter) {
       Product.getLatest({
-        university: req.query.filter.split(','),
+        city: req.query.filter.split(','),
         keywords: req.query.keywords,
         category: req.query.category
       }, (err, products) => { 
@@ -53,7 +53,7 @@ module.exports = (req, res) => {
           return res.status(500).json({ "error": "Mongo Error: " + err });
   
         Product.getNumberOfProducts({
-          university: req.query.filter.split(','),
+          city: req.query.filter.split(','),
           keywords: req.query.keywords,
           category: req.query.category,
           docsToSkip: parseInt(req.query.page) * parseInt(req.query.limit),

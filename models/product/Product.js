@@ -20,7 +20,11 @@ const ProductSchema = new Schema({
     type: String,
     required: true
   },
-  location: {
+  city: {
+    type: String,
+    required: true
+  },
+  town: {
     type: String,
     required: true
   },
@@ -160,9 +164,9 @@ ProductSchema.statics.getLatest = function (params, callback) {
     const keywordsArr = params.keywords.replace('.', '').replace('!', '').replace('?', '').replace('-', ' ').split(" ");
 
     if (params.category != "all") {
-      if (params.university) {
+      if (params.city) {
         Product
-          .find({keywords: {$all: keywordsArr}, category: params.category, price: {$ne: "SOLD"}, university: {$in: params.university}})
+          .find({keywords: {$all: keywordsArr}, category: params.category, price: {$ne: "SOLD"}, city: {$in: params.city}})
           .sort({"createdAtSecond": -1})
           .skip(params.docsToSkip)
           .limit(params.limit)
@@ -190,9 +194,9 @@ ProductSchema.statics.getLatest = function (params, callback) {
           });
       }
     } else {
-      if (params.university) {
+      if (params.city) {
         Product
-          .find({keywords: {$all: keywordsArr}, price: {$ne: "SOLD"}, university: {$in: params.university}})
+          .find({keywords: {$all: keywordsArr}, price: {$ne: "SOLD"}, city: {$in: params.city}})
           .sort({"createdAtSecond": -1})
           .skip(params.docsToSkip)
           .limit(params.limit)
@@ -222,9 +226,9 @@ ProductSchema.statics.getLatest = function (params, callback) {
     }
   } else {
     if (params.category != "all") {
-      if (params.university) {
+      if (params.city) {
         Product
-          .find({category: params.category, price: {$ne: "SOLD"}, university: {$in: params.university}})
+          .find({category: params.category, price: {$ne: "SOLD"}, city: {$in: params.city}})
           .sort({"createdAtSecond": -1})
           .skip(params.docsToSkip)
           .limit(params.limit)
@@ -252,9 +256,9 @@ ProductSchema.statics.getLatest = function (params, callback) {
           });
       }
     } else {
-      if (params.university) {
+      if (params.city) {
         Product
-          .find({price: {$ne: "SOLD"}, university: {$in: params.university}})
+          .find({price: {$ne: "SOLD"}, city: {$in: params.city}})
           .sort({"createdAtSecond": -1})
           .skip(params.docsToSkip)
           .limit(params.limit)

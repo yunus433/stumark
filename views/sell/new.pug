@@ -6,42 +6,42 @@ block main
       .category-wrapper
         label.each-category
           input(type="radio" name="category" value="rented" required) 
-          span Mietwohnung, Nachmiete
+          span #{__('Mietwohnung, Nachmiete')}
         label.each-category
           input(type="radio" name="category" value="hobby" required) 
-          span Freizeit, Hobby
+          span #{__('Freizeit, Hobby')}
         label.each-category
           input(type="radio" name="category" value="home" required) 
-          span Möbel, Haus
+          span #{__('Möbel, Haus')}
         label.each-category
           input(type="radio" name="category" value="fashion" required) 
-          span Mode, Kleidung
+          span #{__('Mode, Kleidung')}
         label.each-category
           input(type="radio" name="category" value="electronic" required) 
-          span Elektronik
+          span #{__('Elektronik')}
         label.each-category
           input(type="radio" name="category" value="fun" required) 
-          span Musik, Filme, Bücher
+          span #{__('Musik, Filme, Bücher')}
         label.each-category
           input(type="radio" name="category" value="tickets" required) 
-          span Eintrittskarten, Tickets
+          span #{__('Eintrittskarten, Tickets')}
         label.each-category
           input(type="radio" name="category" value="exchange" required) 
-          span Zu Verschenken, Tauschen
+          span #{__('Zu Verschenken, Tauschen')}
         label.each-category
           input(type="radio" name="category" value="lesson" required) 
-          span Unterricht, Kurse
+          span #{__('Unterricht, Kurse')}
         label.each-category
           input(type="radio" name="category" value="other" required) 
-          span Sonstige
+          span #{__('Sonstige')}
       span.form-title.required-form-part #{__('Anzeigendetails')}
-      input.product-name(type="text" name="name" placeholder="Titel" autocomplete="off")
-      textarea.product-description(name="description" placeholder="Beschreibung")
+      input.product-name(type="text" name="name" placeholder="Ürün İsmi" autocomplete="off")
+      textarea.product-description(name="description" placeholder="Ürün Detayları")
       span.form-title.required-form-part #{__('Preis')}
       .price-wrapper
         .each-price-line
           input.price-radio-input#custom-price-input(type="radio" name="price" value="0.00" required)
-          input.price-input(type="number" placeholder="Preis €")
+          input.price-input(type="number" placeholder="Fiyat (₺)")
         .each-price-line
           input.price-radio-input(type="radio" name="price" value="FREE" required)
           span #{__('Zu Verschenken')}
@@ -55,12 +55,11 @@ block main
       span.form-title #{__('Ort')}
       .form-line
         div.address-input-small
-          input.address-input(type="text" required name="address1" placeholder="PLZ" autocomplete="off")
+          input.address-input(type="text" required name="city" placeholder="Şehir" autocomplete="off")
           span.required-input-span *
         div.address-input-big
-          input.address-input(type="text" required name="address2" placeholder="Ort" autocomplete="off")
+          input.address-input(type="text" required name="town" placeholder="İlçe" autocomplete="off")
           span.required-input-span *
-      input.address-input(type="text" name="address3" placeholder="Straße/Nummer (freiwillige Eingabe)" autocomplete="off")
       span.form-title.required-form-part #{__('Veröffentliche deine Anzeige')}
       .user-agrement-link
         span #{__('Mit der Registrierung erklärst du dich einverstanden mit unseren')}
