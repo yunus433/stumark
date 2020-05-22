@@ -60,7 +60,7 @@ module.exports = (socket, io) => {
   
               socket.to(params.to).emit('newMessage', {newMessageData});
               sendNotification('send one', {
-                "to": product.owner,
+                "to": params.message.ownerId,
                 "messages": [{
                   body: `${product.buyerName}: ${params.message.content}`, 
                   data: "Mesajı görmek için tıklayın."
@@ -82,7 +82,7 @@ module.exports = (socket, io) => {
 
               socket.to(params.to).emit('newMessage', {newMessageData});
               sendNotification('send one', {
-                "to": newMessageData.buyer,
+                "to": params.message.buyerId,
                 "messages": [{
                   body: `${product.ownerName}: ${params.message.content}`, 
                   data: "Mesajı görmek için tıklayın."
