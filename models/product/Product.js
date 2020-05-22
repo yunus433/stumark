@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const moment = require('moment');
+const moment = require('moment-timezone');
 
 const Schema = mongoose.Schema;
 
@@ -10,7 +10,7 @@ const ProductSchema = new Schema({
   },
   createdAt: {
     type: String,
-    default: moment(Date.now()).format("dddd, MMMM Do YYYY")
+    default: moment(Date.now()).tz("Europe/Istanbul").format("DD[.]MM[.]YYYY")
   },
   createdAtSecond: {
     type: Number,
