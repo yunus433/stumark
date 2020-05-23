@@ -41,7 +41,7 @@ module.exports = (req, res, next) => {
             $inc: {
               notReadMessage: 1
             }
-          }, {}, err => {
+          }, {}, (err, user) => {
             if (err) return res.status(500).json({ "error": "mongo Error: " + err });
 
             Product.findByIdAndUpdate(mongoose.Types.ObjectId(chat.product), {$push: {
