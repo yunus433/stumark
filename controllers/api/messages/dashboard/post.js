@@ -46,7 +46,7 @@ module.exports = (req, res, next) => {
 
             Product.findByIdAndUpdate(mongoose.Types.ObjectId(chat.product), {$push: {
               chatList: chat._id.toString()
-            }}, {}, err => {
+            }}, {}, (err, product) => {
               if (err) return res.status(500).json({ "error": "mongo Error: " + err });
 
               sendNotification('send one', {
