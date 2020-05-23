@@ -33,7 +33,7 @@ const getCityEngName = (city) => {
 
 
 module.exports = (req, res) => {
-  uploadToCloudinary(req.cloudinary, req.body.productPhotoNameArray.split(","), (err, productPhotoArray) => {
+  uploadToCloudinary(req.cloudinary, req.body.productPhotoNameArray, (err, productPhotoArray) => {
     if (err) return res.redirect('/');
 
     const newProductData = {
