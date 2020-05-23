@@ -26,7 +26,7 @@ module.exports = (req, res, next) => {
 
       const newChat = new Chat(newChatData);
     
-      newChat.save(err => {
+      newChat.save((err, chat) => {
         if (err) return res.status(500).json({ "error": "mongo Error: " + err });
 
         User.findByIdAndUpdate(mongoose.Types.ObjectId(chat.buyer), {$push: {
