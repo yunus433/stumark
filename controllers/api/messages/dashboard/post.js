@@ -15,7 +15,7 @@ module.exports = (req, res, next) => {
         product: req.body.product.toString(),
         messages: [
           {
-            content: req.body.message,
+            content: req.body.content,
             sendedBy: req.body.buyer.toString(),
             read: false,
             time: moment(Date.now()).tz("Europe/Istanbul").format("HH[:]mm"),
