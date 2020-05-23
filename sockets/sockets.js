@@ -61,7 +61,7 @@ module.exports = (socket, io) => {
           sendNotification('send one', {
             "to": buyer._id.toString(),
             "messages": [{
-              body: `${owner.name}: ${params.message.content}`, 
+              body: `${buyer.name}: ${params.message.content}`, 
               data: "Mesajı görmek için tıklayın."
             }]
           }, (err, res) => {
