@@ -18,7 +18,7 @@ const uploadToCloudinary = (cloudinary, photoArray, callback) => {
           secure: true
         },
         (err, result) => {
-          next(err, result.secure_url)
+          next(err, (err ? null : result.secure_url))
         });
     },
     (err, photoArray) => {
