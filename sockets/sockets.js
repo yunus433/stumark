@@ -34,14 +34,14 @@ module.exports = (socket, io) => {
     }}, {}, (err, chat) => {
       if (err) return callback(err);
 
-      if (params.message.sendedBy == chat.buyer) {
+      if (params.message.sendedBy != chat.buyer) {
         User.findByIdAndUpdate(mongoose.Types.ObjectId(chat.owner), {$inc: {
           notReadMessage: 1
         }}, {}, (err, owner) => {
           if (err) return res.redirect('/');
 
           sendNotification('send one', {
-            "to": owner._id.toString(),
+            "to": chat.buyer,
             "messages": [{
               body: `${owner.name}: ${params.message.content}`, 
               data: "Mesajı görmek için tıklayın."
@@ -59,7 +59,7 @@ module.exports = (socket, io) => {
           if (err) return res.redirect('/');
 
           sendNotification('send one', {
-            "to": buyer._id.toString(),
+            "to": chat.owner,
             "messages": [{
               body: `${buyer.name}: ${params.message.content}`, 
               data: "Mesajı görmek için tıklayın."
