@@ -10,7 +10,7 @@ module.exports = (req, res, next) => {
     "name": req.body.name,
     "description": req.body.description,
     "keywords": (req.body.description.replace(/\s+/g, '+').replace(/[^a-zA-Z0-9+]/g, "").toLowerCase() + "+" + req.body.name.replace(/\s+/g, '+').replace(/[^a-zA-Z0-9+]/g, "").toLowerCase()).split("+"),
-    "price": req.body.price,
+    "price": req.body.price + "₺",
     "city": getCityEngName(req.body.city),
     "city_name": req.body.city,
     "town": req.body.town

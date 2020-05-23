@@ -4,6 +4,7 @@ const { Expo } = require('expo-server-sdk');
 const User = require('../models/user/User');
 
 module.exports = (option, data, callback) => {
+  console.log(data);
   const expo = new Expo();
 
   if (option == "send one") {

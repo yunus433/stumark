@@ -93,7 +93,6 @@
   font-size: 100%;
 }
 
-/* Password form wrapper and content design */
 .password-form-wrapper {
   background: white;
   width: 50%;
@@ -106,7 +105,6 @@
   align-items: center;
 }
 
-/* Form buttons */
 .send-form-button {
   background: rgba(255, 108, 128, 0.3);
   border: 2px solid rgba(255, 61, 148, 0.34);
@@ -194,5 +192,8 @@
   }
   .form-wrapper, .password-form-wrapper {
     width: 95%;
+  }
+  .form-input {
+    width: 90%;
   }
 }

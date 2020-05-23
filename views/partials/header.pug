@@ -61,6 +61,7 @@ block content
             img.user-login-icon(src="/res/images/userIcon.png")
           .user-menu
             a.user-menu-each(href="/sell") #{__('Anzeigen')}
+            a.user-menu-each(href="/sell/new") #{__('Anzeige Aufgeben')}
             if user && user.notReadMessage > 0
               a.user-menu-each-not-read(href="/messages/dashboard") #{__('Nachrichten')}
             else
@@ -71,7 +72,7 @@ block content
         .responsive-category-open-button
           span #{__('Kategorien')}
         form.search-bar-wrapper
-          input.search-bar-input(type="text" placeholder="Ara" autocomplete="off")
+          input.search-bar-input(type="text" placeholder="Ara" autocomplete="off" style="padding-left: 10px")
           button.search-bar-button
             span #{__('Suche')}
     .all-content

@@ -37,7 +37,7 @@ block main
         else
           .each-price-line
             input.price-radio-input#custom-price-input(type="radio" name="price" value=product.price required checked)
-            input.price-input(type="text" placeholder="Fiyat ₺" value=product.price)
+            input.price-input(type="text" placeholder="Fiyat ₺" value=product.price.replace("₺", ""))
           .each-price-line
             label
               input.price-radio-input(type="radio" name="price" value="FREE" required)
@@ -55,10 +55,10 @@ block main
             label.add-new-button
               i.fas.fa-plus
               input.display-none#product-image-input(type="file" name="photo" accept="image/*")
-      span.form-title #{__('Ort')}
-       .form-line
-        div.address-input-small
-          input.address-input(type="text" required value=product.city name="city" placeholder="Şehir" autocomplete="off")
-        div.address-input-big
+      span.form-title #{__('Address')}
+      .form-line
+        .address-input-small
+          input.address-input(type="text" required value=product.city_name name="city" placeholder="Şehir" autocomplete="off")
+        .address-input-big
           input.address-input(type="text" required value=product.town name="town" placeholder="İlçe" autocomplete="off")
       button.form-send-button #{__('Edit')}

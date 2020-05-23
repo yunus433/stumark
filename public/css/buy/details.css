@@ -12,7 +12,6 @@
   flex-direction: column;
 }
 
-/* Main product design*/
 .main-product-wrapper {
   display: flex;
   background: white;
@@ -20,7 +19,7 @@
   border-radius: 15px;
   padding: 25px;
 }
-/* Left side design */
+
 .product-left-side {
   flex: 1;
   width: 50%;
@@ -104,7 +103,7 @@
   margin-left: auto;
 }
 
-/* Send message wrapper and content design */
+
 .send-message-wrapper {
   display: flex;
   flex-direction: column;
@@ -153,7 +152,6 @@
   border-color: rgba(255, 61, 148, 0.5);
 }
 
-/* Similar products design */
 .other-products-title {
   color: rgb(112, 112, 112);
   font-size: 250%;
@@ -242,6 +240,13 @@
   }
   .send-message-button {
     width: 50%;
+  }
+  .product-right-side {
+    padding: 0px;
+    margin-top: 10px;
+  }
+  .product-image-wrapper, .product-images-menu {
+    width: 100%;
   }
 }
 

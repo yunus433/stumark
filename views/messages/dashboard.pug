@@ -9,9 +9,9 @@ block main
     .sell-message-button.each-type-button
       span #{__('Meine Verkäufe')}
   if (!buyMessages.length)
-    span.no-buy-product-text Du hast keine Nachricht.
+    span.no-buy-product-text #{__('Du hast keine Nachricht.')}
   if (!sellMessages.length)
-    span.no-sell-product-text Du kannst hier die Nachrichten für deine Produkte anschauen.
+    span.no-sell-product-text #{__('Du kannst hier die Nachrichten für deine Produkte anschauen.')}
   .chose-buy-product-wrapper
     each message in buyMessages
       a.each-product(href="/messages/buy/?id=" + message.product)

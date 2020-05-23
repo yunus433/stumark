@@ -11,7 +11,7 @@ module.exports = (req, res) => {
     Product.findByIdAndUpdate(mongoose.Types.ObjectId(req.body.id), {$set: {
       "name": req.body.name,
       "description": req.body.description,
-      "price": req.body.price,
+      "price": req.body.price + "₺",
       "city": getCityEngName(req.body.city),
       "city_name": req.body.city,
       "town": req.body.town,

@@ -154,20 +154,27 @@
   color: rgb(112, 112, 112);
 }
 
-/* Address design */
 .address-input {
   background: rgb(248, 248, 248);
   border: 2px solid rgb(236, 235, 235);
   border-radius: 15px;
   font-size: 125%;
-  padding: 1% 2%;
+  padding: 10px;
+  padding-left: 15px;
   font-weight: 300;
   color: rgb(112, 112, 112);
   outline: none;
   margin-bottom: 25px;
+  width: 90%;
+}
+.address-input-small {
+  flex: 1;
+}
+.address-input-big {
+  flex: 2;
+  margin-left: 5px;
 }
 
-/* Form buttons */
 .form-send-button {
   background: rgba(255, 108, 128, 0.3);
   border: 2px solid rgba(255, 61, 148, 0.34);
@@ -210,10 +217,10 @@
   background: white;
   border: 2px solid rgba(255, 61, 148, 0.34);
   color: rgb(255, 61, 148);
-  font-size: 125%;
+  font-size: 100%;
   font-weight: 700;
   outline: none;
-  padding: 10px 0px;
+  padding: 15px 0px;
   width: 30%;
   cursor: pointer;
   border-radius: 15px;
@@ -224,13 +231,12 @@
   text-align: center;
   margin-top: 15px;
   font-family: "Source Sans Pro";
-  height: 9vh;
 }
 .marked-as-sold-product-button-not-allow {
   background: white;
   border: 2px solid rgba(255, 61, 148, 0.34);
   color: rgb(255, 61, 148);
-  font-size: 30px;
+  font-size: 100%;
   font-weight: 700;
   outline: none;
   padding: 10px 0px;

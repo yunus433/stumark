@@ -52,7 +52,7 @@ block main
           label.add-new-button
             i.fas.fa-plus
             input.display-none#product-image-input(type="file" name="photo" accept="image/*")
-      span.form-title #{__('Ort')}
+      span.form-title.required-form-part #{__('Address')}
       .form-line
         div.address-input-small
           input.address-input(type="text" required name="city" placeholder="Şehir" autocomplete="off")

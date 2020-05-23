@@ -169,7 +169,7 @@ body {
 }
 .messages-icon-image {
   max-height: 100%;
-  max-width: 30%;
+  max-width: 40%;
 }
 .header-messages-explanation {
   display: flex;
@@ -188,6 +188,7 @@ body {
   align-items: center;
   justify-content: flex-end;
   width: auto;
+  height: 80%;
 }
 .header-login-wrapper-responsive {
   display: flex;
@@ -200,7 +201,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  justify-content: space-between;
+  justify-content: center;
   height: 100%;
   margin-right: 10px;
   cursor: pointer;
@@ -382,6 +383,7 @@ body {
   padding-bottom: 5%;
   position: absolute;
   transform: translateX(-100%);
+  z-index: 10;
 }
 .category-link-responsive {
   text-decoration: none;
@@ -492,5 +494,11 @@ body {
   .all-header-logo-wrapper {
     width: 30%;
   }
+  .user-name-wrapper {
+    justify-content: center;
+  }
+  .user-name, .user-name-title {
+    font-size: 100%;
+  } 
 }
 

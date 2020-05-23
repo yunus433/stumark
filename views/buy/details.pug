@@ -25,7 +25,7 @@ block main
         span.main-product-price= product.price
     form.send-message-wrapper(action="/messages/buy/?id=" + product._id method="post")
       span.send-message-title #{__('Nachricht schreiben')}
-      textarea.message-input(name="message" placeholder="Nachricht")
+      textarea.message-input(name="message" placeholder="Mesajınızı yazın")
       button.send-message-button #{__('Nachricht Senden')}
     span.other-products-title #{__('Ähnliche Anzeigen')}
     .other-products-wrapper

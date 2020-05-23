@@ -5,14 +5,14 @@ block content
       .form-header
         span.form-header-title #{__('Registrieren')}
       .form-line
+        i.fas.fa-envelope
+        input.form-input(type="text" autocomplete="off" autofocus required placeholder="E-Posta" name="email")
+      .form-line
         i.fas.fa-user
         input.form-input(type="text" autocomplete="off" autofocus required placeholder="Ad Soyad" name="name")
       .form-line
         i.fas.fa-university
         input.form-input(type="text" autocomplete="off" autofocus required placeholder="Lise / Üniversite" name="university")
-      .form-line
-        i.fas.fa-envelope
-        input.form-input(type="text" autocomplete="off" autofocus required placeholder="E-Posta" name="email")
       .form-line
         i.fas.fa-key
         input.form-input#password-input-one(type="password" autocomplete="off" autofocus required placeholder="Şifre (en az 6 karakterli)" name="password")

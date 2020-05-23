@@ -14,7 +14,7 @@ block main
           i.fas.fa-map-marker-alt
           span #{product.city_name}, #{product.town}
         span.product-price #{product.price}
-    if products.length <= 0
-      .no-product-warning 
-        span #{__('Du hast nun keine Anzeige, gib jetzt eine Anzeige auf')}!
-        a.no-product-warning-button(href="/sell/new") #{__('Anzeige Aufgeben')}
+  if products.length <= 0
+    .no-product-warning 
+      span #{__('Du hast nun keine Anzeige, gib jetzt eine Anzeige auf!')}
+      a.no-product-warning-button(href="/sell/new") #{__('Anzeige Aufgeben')}

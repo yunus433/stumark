@@ -86,7 +86,6 @@
   min-height: 0;
 }
 
-/* Price design */
 .price-wrapper {
   display: flex;
   flex-direction: column;
@@ -117,7 +116,6 @@
   margin-right: 5px;
 }
 
-/* Photo design */
 .images-wrapper {
   height: 20vh;
   padding-right: 15px;
@@ -167,13 +165,13 @@
   border-radius: 15px;
 }
 
-/* Address design */
 .address-input {
   background: rgb(248, 248, 248);
   border: 2px solid rgb(236, 235, 235);
   border-radius: 15px;
   font-size: 125%;
-  padding: 1% 2%;
+  padding: 10px;
+  padding-left: 15px;
   font-weight: 300;
   color: rgb(112, 112, 112);
   outline: none;
@@ -194,7 +192,6 @@
   height: 100%;
 }
 
-/* User agreement design */
 .user-agrement-link {
   color: rgb(112, 112, 112);
   font-size: 125%;
@@ -207,19 +204,17 @@
   margin-left: 5px;
 }
 
-/* Form buttons */
 .form-send-button {
   background: rgba(255, 108, 128, 0.3);
   border: 2px solid rgba(255, 61, 148, 0.34);
   color: rgb(255, 61, 148);
-  font-size: 150%;
+  font-size: 125%;
   font-weight: 700;
   outline: none;
   padding: 10px 0px;
-  width: 25%;
   cursor: pointer;
   border-radius: 15px;
-  width: 50%;
+  width: 33%;
   margin-left: auto;
 }
 .form-send-button:hover {
@@ -266,5 +261,8 @@
   }
   .form-send-button {
     width: 100%;
+  }
+  .required-input-span {
+    font-size: 20px;
   }
 }
