@@ -42,6 +42,14 @@ const UserSchema = new Schema({
     type: Number,
     default: 0
   },
+  buyerChatList: {
+    type: Array,
+    default: []
+  },
+  ownerChatList: {
+    type: Array,
+    default: []
+  },
   favorites: {
     type: Array,
     default: []

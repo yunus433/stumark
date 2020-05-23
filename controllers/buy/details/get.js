@@ -1,7 +1,7 @@
 const async = require('async');
 
 const Product = require('../../../models/product/Product');
-const Message = require('../../../models/message/Message');
+const Chat = require('../../../models/chat/Chat');
 
 module.exports = (req, res, next) => {
   if (req.query && req.query.id) {
@@ -28,17 +28,17 @@ module.exports = (req, res, next) => {
               if (err) return res.redirect("/");
 
               if (req.session.user) {
-                Message.find({
+                Chat.findOne({
                   "buyer": req.session.user._id.toString(),
                   "product": product._id.toString()
-                }, (err, messages) => {
+                }, (err, chat) => {
                   if (err) return res.redirect('/');
 
-                  if (messages && messages.length > 0) 
-                    return res.redirect("/messages/buy/?id=" + product._id);
+                  if (chat) 
+                    return res.redirect('/messages/details?id=' + chat._id.toString());
                     
-                  res.render("buy/details", {
-                    page: "buy/details",
+                  res.render('buy/details', {
+                    page: 'buy/details',
                     title: product.name,
                     includes: {
                       external: ["css", "js", "fontawesome"]
@@ -49,8 +49,8 @@ module.exports = (req, res, next) => {
                   });
                 });
               } else {
-                res.render("buy/details", {
-                  page: "buy/details",
+                res.render('buy/details', {
+                  page: 'buy/details',
                   title: product.name,
                   includes: {
                     external: ["css", "js", "fontawesome"]

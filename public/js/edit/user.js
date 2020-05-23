@@ -20,17 +20,17 @@ window.onload = () => {
         document.querySelector('.form-wrapper').submit();
       }
       else {
-        document.querySelector('.error-line').innerHTML = "You can't delete your name"
+        document.querySelector('.error-line').innerHTML = "İsmini silemezsin!"
       }
     }
 
     if (event.target.className == 'send-form-button-password' || event.target.parentNode.className == 'send-form-button-password') {
       if (!document.querySelector('#old-password-input').value) {
-        document.querySelector('.password-error-line').innerHTML = "You must enter your old password";
+        document.querySelector('.password-error-line').innerHTML = "Eski şifreni girmelisin.";
       } else if (document.querySelector('#new-password-input').value != document.querySelector('#new-password-two').value || !document.querySelector('#new-password-two').value) {
-        document.querySelector('.password-error-line').innerHTML = "Bitte bestätige dein Passwort!";
+        document.querySelector('.password-error-line').innerHTML = "Lütfen yeni şifreni onayla.";
       } else if (document.querySelector('#new-password-input').value.length < 6) {
-        document.querySelector('.password-error-line').innerHTML = "Dein Passwort muss mindestens 6-stellig sein!";
+        document.querySelector('.password-error-line').innerHTML = "Yeni şifren en az 6 karakterli olmalı.";
       } else {
         document.querySelector('.password-form-wrapper').submit();
       }
@@ -42,7 +42,7 @@ window.onload = () => {
   const imageSpan = document.querySelector('.user-profile-image-span');
 
   userPhotoInput.onchange = (event) => {
-    imageSpan.innerHTML = "Bitte kurz warten";
+    imageSpan.innerHTML = "Yükleniyor";
     const file = userPhotoInput.files[0];
     var formdata = new FormData();
     formdata.append('file', file);
@@ -55,7 +55,7 @@ window.onload = () => {
       if (xhr.readyState == 4 && xhr.responseText) {
         if (xhr.status == 500) {
           imageSpan.innerHTML = 'Profilbild bearbeiten'
-          alert("Entschuldigung, dass es ein Error gibt. Versuchen Sie es nochmal bitte!");
+          alert("Bir hata oluştu, lütfen tekrar dene");
           userPhotoInput.value = ''
           if (!/safari/i.test(navigator.userAgent)){
             userPhotoInput.type = ''

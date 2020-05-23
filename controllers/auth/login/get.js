@@ -13,7 +13,7 @@ module.exports = (req, res, next) => {
       page: 'auth/login',
       title: 'Giriş Yap',
       includes: {
-        external: ['auth_css', 'js', 'fontawesome']
+        external: ['auth_css', 'fontawesome']
       }
     });
 }

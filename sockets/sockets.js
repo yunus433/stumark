@@ -1,7 +1,8 @@
 const moment = require('moment-timezone');
+const mongoose = require('mongoose');
 
 const Product = require('../models/product/Product');
-const Message = require('../models/message/Message');
+const Chat = require('../models/chat/Chat');
 const User = require('../models/user/User');
 
 const sendNotification = require('../utils/sendNotification');
@@ -11,7 +12,15 @@ module.exports = (socket, io) => {
     socket.join(params.room.toString());
   });
 
+  socket.on('leave', params => {
+    socket.leave(params.room.toString());
+  });
+
+
   socket.on('newMessageSend', (params, callback) => {
+    if (!params.message || !params.message.content || !params.message.sendedBy || !params.to)
+      return callback('bad request');
+
     const newMessageData = {
       content: params.message.content,
       sendedBy: params.message.sendedBy,
@@ -20,82 +29,48 @@ module.exports = (socket, io) => {
       day: moment(Date.now()).tz("Europe/Istanbul").format("DD[.]MM[.]YYYY")
     };
 
-    // if (io.sockets.adapter.rooms[params.to]) {
-    //   newMessageData.read = true;
+    Chat.findByIdAndUpdate(mongoose.Types.ObjectId(params.to), {$push: {
+      messages: newMessageData
+    }}, {}, (err, chat) => {
+      if (err) return callback(err);
 
-    //   Message.findOneAndUpdate({
-    //     "buyer": params.message.buyerId,
-    //     "owner": params.message.ownerId,
-    //     "product": params.message.productId
-    //   }, {
-    //     $push: {
-    //       "messages": newMessageData
-    //     }
-    //   }, {upsert: true}, err => {
-    //     if (err) return callback(err);
+      if (params.message.sendedBy == chat.buyer) {
+        User.findByIdAndUpdate(mongoose.Types.ObjectId(chat.owner), {$inc: {
+          notReadMessage: 1
+        }}, {}, (err, owner) => {
+          if (err) return res.redirect('/');
 
-    //     socket.to(params.to).emit('newMessage', {message: newMessageData});
-    //     return callback(undefined, newMessageData);
-    //   });
-    // } else {
-      Message.findOneAndUpdate({
-        "buyer": params.message.buyerId,
-        "owner": params.message.ownerId,
-        "product": params.message.productId
-      }, {
-        $push: {
-          "messages": newMessageData
-        }
-      }, {upsert: true}, err => {
-        if (err) return callback(err);
-
-        if (params.message.sendedBy == 'buyer') {
-          Product.findById(params.message.productId, (err, product) => {
-            if (err) return callback(err);
-
-            User.findByIdAndUpdate(product.owner, {$inc: {
-              "notReadMessage": 1
-            }}, err => {
-              if (err) return callback(err);
-  
-              socket.to(params.to).emit('newMessage', {newMessageData});
-              sendNotification('send one', {
-                "to": params.message.ownerId,
-                "messages": [{
-                  body: `${product.buyerName}: ${params.message.content}`, 
-                  data: "Mesajı görmek için tıklayın."
-                }]
-              }, (err, res) => {
-                if (err) console.log(err, res);
-
-                return callback(undefined, newMessageData);
-              });
-            });
+          sendNotification('send one', {
+            "to": owner._id.toString(),
+            "messages": [{
+              body: `${owner.name}: ${params.message.content}`, 
+              data: "Mesajı görmek için tıklayın."
+            }]
+          }, (err, res) => {
+            if (err) console.log(err, res);
+          
+            return callback(undefined, newMessageData);
           });
-        } else {
-          User.findByIdAndUpdate(newMessageData.buyer, {$inc: {
-            "notReadMessage": 1
-          }}, err => {
-            if (err) return callback(err);
-            Product.findById(params.message.productId, (err, product) => {
-              if (err) return callback(err);
+        });
+      } else {
+        User.findByIdAndUpdate(mongoose.Types.ObjectId(chat.buyer), {$inc: {
+          notReadMessage: 1
+        }}, {}, (err, buyer) => {
+          if (err) return res.redirect('/');
 
-              socket.to(params.to).emit('newMessage', {newMessageData});
-              sendNotification('send one', {
-                "to": params.message.buyerId,
-                "messages": [{
-                  body: `${product.ownerName}: ${params.message.content}`, 
-                  data: "Mesajı görmek için tıklayın."
-                }]
-              }, (err, res) => {
-                if (err) console.log(err, res);
-
-                return callback(undefined, newMessageData);
-              });
-            });
+          sendNotification('send one', {
+            "to": buyer._id.toString(),
+            "messages": [{
+              body: `${owner.name}: ${params.message.content}`, 
+              data: "Mesajı görmek için tıklayın."
+            }]
+          }, (err, res) => {
+            if (err) console.log(err, res);
+          
+            return callback(undefined, newMessageData);
           });
-        };
-      });
-    // };
+        });
+      }
+    });
   });
 };

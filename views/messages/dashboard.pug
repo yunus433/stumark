@@ -8,35 +8,35 @@ block main
       span #{__('Meine Einkäufe')}
     .sell-message-button.each-type-button
       span #{__('Meine Verkäufe')}
-  if (!buyMessages.length)
+  if (!buyerMessages.length)
     span.no-buy-product-text #{__('Du hast keine Nachricht.')}
-  if (!sellMessages.length)
+  if (!ownerMessages.length)
     span.no-sell-product-text #{__('Du kannst hier die Nachrichten für deine Produkte anschauen.')}
   .chose-buy-product-wrapper
-    each message in buyMessages
-      a.each-product(href="/messages/buy/?id=" + message.product)
-        if (message.messages.filter(message => {return message.sendedBy == "owner" && message.read == false}).length > 0) 
+    each chat in buyerMessages
+      a.each-product(href="/messages/details?id=" + chat._id)
+        if (chat.messages.filter(message => {return message.sendedBy == "owner" && message.read == false}).length > 0) 
           .not-read-empty
             .not-read-message-icon
-              span= message.messages.filter(message => {return message.sendedBy == "owner" && message.read == false}).length
+              span= chat.messages.filter(message => {return message.sendedBy == "owner" && message.read == false}).length
         else 
           .not-read-empty
         .each-product-image-wrapper
           .each-product-image-inner-wrapper
-            img.product-image(src=message.productPhoto)
-        span.product-name #{message.productName}
-        span.product-owner #{message.ownerName}
+            img.product-image(src=chat.product.productPhotoArray[0])
+        span.product-name #{chat.product.name}
+        span.product-owner #{chat.owner.name}
   .chose-sell-product-wrapper 
-    each message in sellMessages
-      a.each-product(href=`/messages/sell?id=${message.product}&user=${message.buyer}`)
-        if (message.messages.filter(message => {return message.sendedBy == "owner" && message.read == false}).length > 0) 
+    each chat in ownerMessages
+      a.each-product(href=`/messages/details?id=${chat._id}`)
+        if (chat.messages.filter(message => {return message.sendedBy == "owner" && message.read == false}).length > 0) 
           .not-read-empty
             .not-read-message-icon
-              span= message.messages.filter(message => {return message.sendedBy == "owner" && message.read == false}).length
+              span= chat.messages.filter(message => {return message.sendedBy == "owner" && message.read == false}).length
         else
           .not-read-empty
         .each-product-image-wrapper
           .each-product-image-inner-wrapper
-            img.product-image(src=message.productPhoto)
-        span.product-name #{message.productName}
-        span.product-buyer #{message.buyerName}
+            img.product-image(src=chat.product.productPhotoArray[0])
+        span.product-name #{chat.product.name}
+        span.product-buyer #{chat.buyer.name}

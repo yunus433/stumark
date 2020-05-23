@@ -1,26 +1,25 @@
-function createNewMessage(message, buyer, seller) {
+function createNewMessage(message, buyer, owner, user) {
   const messagesWrapper = document.querySelector('.messages-content');
 
   const newMessageDiv = document.createElement('div');
-  newMessageDiv.classList.add('each-message');
 
-  if (message.sendedBy == 'buyer') {
-    newMessageDiv.classList.add('buyer');
+  if (message.sendedBy == user._id.toString()) {
+    newMessageDiv.classList.add('each-message-user');
 
     const messageLeftSide = document.createElement('div');
-    messageLeftSide.classList.add('message-left-side-buyer');
+    messageLeftSide.classList.add('message-left-side-user');
 
     const messageHeader = document.createElement('div');
-    messageHeader.classList.add('message-header-buyer');
+    messageHeader.classList.add('message-header-user');
 
     const messageTime = document.createElement('span');
     messageTime.classList.add('message-time');
-    messageTime.innerHTML = message.createdAt;
+    messageTime.innerHTML = message.time + " / " + message.day;
     messageHeader.appendChild(messageTime);
 
     const messageSender = document.createElement('span');
     messageSender.classList.add('message-sender');
-    messageSender.innerHTML = buyer.name;
+    messageSender.innerHTML = user.name;
     messageHeader.appendChild(messageSender);
     messageLeftSide.appendChild(messageHeader);
 
@@ -36,16 +35,18 @@ function createNewMessage(message, buyer, seller) {
 
     const messageImage = document.createElement('img');
     messageImage.classList.add('message-sender-profile');
-    messageImage.src = buyer.profilePhoto;
+    messageImage.src = user.profilePhoto;
     messageRightSide.appendChild(messageImage);
     newMessageDiv.appendChild(messageRightSide);
   } else {
+    newMessageDiv.classList.add('each-message');
+
     const messageRightSide = document.createElement('div');
     messageRightSide.classList.add('message-right-side');
 
     const messageImage = document.createElement('img');
     messageImage.classList.add('message-sender-profile');
-    messageImage.src = seller.profilePhoto;
+    messageImage.src = (buyer._id.toString() != message.sendedBy ? buyer.profilePhoto : owner.profilePhoto);
     messageRightSide.appendChild(messageImage);
     newMessageDiv.appendChild(messageRightSide);
 
@@ -62,7 +63,7 @@ function createNewMessage(message, buyer, seller) {
 
     const messageSender = document.createElement('span');
     messageSender.classList.add('message-sender');
-    messageSender.innerHTML = seller.name;
+    messageSender.innerHTML = (buyer._id.toString() != message.sendedBy ? buyer.name : owner.name);
     messageHeader.appendChild(messageSender);
     messageLeftSide.appendChild(messageHeader);
 
@@ -78,44 +79,7 @@ function createNewMessage(message, buyer, seller) {
 }
 
 window.onload = () => {
-  const searchBar = document.querySelector('.search-bar-wrapper');
-  searchBar.onsubmit = (event) => {
-    event.preventDefault();
-    window.location.href = '/buy/?page=0&category=all&limit=50&keywords=' + searchBar.childNodes[0].value;
-  }
-
-  const userMenu = document.querySelector('.user-menu');
-  const userMenuResponsive = document.querySelector('.user-menu-responsive');
-  const contentBarResponsive = document.querySelector('.content-bar-responsive');
-
-  document.addEventListener('mouseover', (event) => {
-    if (event.target.className == 'user-name-wrapper' || event.target.parentNode.className == 'user-name-wrapper' || event.target.className == 'user-menu' || event.target.parentNode.className == 'user-menu' || event.target.className == 'user-menu-responsive' || event.target.parentNode.className == 'user-menu-responsive') {
-      if (userMenu) userMenu.style.display = 'flex';
-      if (userMenuResponsive) userMenuResponsive.style.display = 'flex';
-      if (contentBarResponsive) contentBarResponsive.style.display = 'none';
-    } else if (event.target.className == 'change-category-button' || event.target.parentNode.className == 'change-category-button' || event.target.className == 'content-bar-responsive' || event.target.parentNode.className == 'content-bar-responsive') {
-      if (contentBarResponsive) contentBarResponsive.style.display = 'flex';
-      if (userMenuResponsive) userMenuResponsive.style.display = 'none';
-    } else {
-      if (contentBarResponsive) contentBarResponsive.style.display = 'none';
-      if (userMenu) userMenu.style.display = 'none';
-      if (userMenuResponsive) userMenuResponsive.style.display = 'none';
-    }
-  });
-  document.addEventListener('touchstart', (event) => {
-    if (event.target.className == 'user-name-wrapper' || event.target.parentNode.className == 'user-name-wrapper' || event.target.className == 'user-menu' || event.target.parentNode.className == 'user-menu' || event.target.className == 'user-menu-responsive' || event.target.parentNode.className == 'user-menu-responsive') {
-      if (userMenu) userMenu.style.display = 'flex';
-      if (userMenuResponsive) userMenuResponsive.style.display = 'flex';
-      if (contentBarResponsive) contentBarResponsive.style.display = 'none';
-    } else if (event.target.className == 'change-category-button' || event.target.parentNode.className == 'change-category-button' || event.target.className == 'content-bar-responsive' || event.target.parentNode.className == 'content-bar-responsive') {
-      if (contentBarResponsive) contentBarResponsive.style.display = 'flex';
-      if (userMenuResponsive) userMenuResponsive.style.display = 'none';
-    } else {
-      if (contentBarResponsive) contentBarResponsive.style.display = 'none';
-      if (userMenu) userMenu.style.display = 'none';
-      if (userMenuResponsive) userMenuResponsive.style.display = 'none';
-    }
-  });
+  addEventListener(document);
 
   const messagesBlock = document.querySelector('.messages-left-side');
   messagesBlock.scrollTop = messagesBlock.scrollHeight;
@@ -138,9 +102,8 @@ window.onload = () => {
     }
   });
 
-  const productObject = JSON.parse(document.getElementById('product-object').value);
   const userObject = JSON.parse(document.getElementById('user-object').value);
-  const sellerObject = JSON.parse(document.getElementById('seller-object').value);
+  const chatObject = JSON.parse(document.getElementById('chat-object').value);
   const form = document.querySelector('.message-send-wrapper');
   const newMessageInput = document.querySelector('.new-message-input');
 
@@ -148,7 +111,7 @@ window.onload = () => {
 
   socket.on('connect', function() {
     socket.emit('join', {
-      room: userObject._id
+      room: chatObject._id.toString()
     });
 
     form.onsubmit = (event) => {
@@ -157,22 +120,16 @@ window.onload = () => {
       if (newMessageInput.value) {
         const newMessageObject = {
           content: newMessageInput.value,
-          buyerId: userObject._id,
-          buyerName: userObject.name,
-          ownerId: sellerObject._id,
-          productId: productObject._id,
-          sendedBy: "buyer",
-          read: false,
-          createdAt: ""
+          sendedBy: userObject._id.toString()
         };
 
         socket.emit('newMessageSend', {
           message: newMessageObject,
-          to: sellerObject._id
+          to: chatObject._id.toString()
         }, (err, message) => {
-          if (err) return alert('Something went wrong, please try again');
+          if (err) return alert('Bir hata oluştu, lütfen tekrar deneyin');
 
-          createNewMessage(message, userObject, sellerObject);
+          createNewMessage(message, chatObject.buyer, chatObject.seller, userObject);
           messagesBlock.scrollTop = messagesBlock.scrollHeight;
           newMessageInput.value = "";
         });
@@ -180,7 +137,7 @@ window.onload = () => {
     };
 
     socket.on('newMessage', params => {
-      createNewMessage(params.message, userObject, sellerObject);
+      createNewMessage(params.message, chatObject.buyer, chatObject.seller, userObject);
       messagesBlock.scrollTop = messagesBlock.scrollHeight;
       newMessageInput.value = "";
     });

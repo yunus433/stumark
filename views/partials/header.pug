@@ -34,9 +34,9 @@ block content
           .user-menu
             a.user-menu-each(href="/sell") #{__('Anzeigen')}
             if user && user.notReadMessage > 0
-              a.user-menu-each-not-read(href="/messages/dashboard") #{__('Nachrichten')}
+              a.user-menu-each-not-read(href="/messages") #{__('Nachrichten')}
             else
-              a.user-menu-each(href="/messages/dashboard") #{__('Nachrichten')}
+              a.user-menu-each(href="/messages") #{__('Nachrichten')}
             a.user-menu-each(href="/edit/user") #{__('Einstellungen')}
             a.user-menu-each-last(href="/auth/logout") #{__('Ausloggen')}
     .all-header-responsive
@@ -63,9 +63,9 @@ block content
             a.user-menu-each(href="/sell") #{__('Anzeigen')}
             a.user-menu-each(href="/sell/new") #{__('Anzeige Aufgeben')}
             if user && user.notReadMessage > 0
-              a.user-menu-each-not-read(href="/messages/dashboard") #{__('Nachrichten')}
+              a.user-menu-each-not-read(href="/messages") #{__('Nachrichten')}
             else
-              a.user-menu-each(href="/messages/dashboard") #{__('Nachrichten')}
+              a.user-menu-each(href="/messages") #{__('Nachrichten')}
             a.user-menu-each(href="/edit/user") #{__('Einstellungen')}
             a.user-menu-each-last(href="/auth/logout") #{__('Ausloggen')}
       .all-header-bottom
@@ -80,29 +80,29 @@ block content
         .close-button-line
           i.fas.fa-times
         a.category-link-responsive(href="/buy/?page=0&category=all&limit=50") #{__('Alle Kategorien')}
-        a.category-link-responsive(href="/buy/?page=0&category=rented&limit=50") #{__('Mietwohnung, Nachmiete')}
-        a.category-link-responsive(href="/buy/?page=0&category=hobby&limit=50") #{__('Freizeit, Hobby')}
-        a.category-link-responsive(href="/buy/?page=0&category=home&limit=50") #{__('Möbel, Haus')} 
-        a.category-link-responsive(href="/buy/?page=0&category=fashion&limit=50") #{__('Mode, Kleidung')}
+        a.category-link-responsive(href="/buy/?page=0&category=book&limit=50") #{__('Bücher')}
         a.category-link-responsive(href="/buy/?page=0&category=electronic&limit=50") #{__('Elektronik')}
-        a.category-link-responsive(href="/buy/?page=0&category=fun&limit=50") #{__('Musik, Filme, Bücher')}
-        a.category-link-responsive(href="/buy/?page=0&category=tickets&limit=50") #{__('Eintrittskarten, Tickets')}
-        a.category-link-responsive(href="/buy/?page=0&category=exchange&limit=50") #{__('Zu Verschenken, Tauschen')}
+        a.category-link-responsive(href="/buy/?page=0&category=hobby&limit=50") #{__('Freizeit, Hobby')}
+        a.category-link-responsive(href="/buy/?page=0&category=fashion&limit=50") #{__('Mode, Kleidung')}
         a.category-link-responsive(href="/buy/?page=0&category=lesson&limit=50") #{__('Unterricht, Kurse')}
+        a.category-link-responsive(href="/buy/?page=0&category=exchange&limit=50") #{__('Zu Verschenken, Tauschen')}
+        a.category-link-responsive(href="/buy/?page=0&category=fun&limit=50") #{__('Musik, Filme')}
+        a.category-link-responsive(href="/buy/?page=0&category=donation&limit=50") #{__('Spende')}
+        a.category-link-responsive(href="/buy/?page=0&category=rented&limit=50") #{__('Mietwohnung, Nachmiete')}
         a.category-link-responsive(href="/buy/?page=0&category=other&limit=50") #{__('Sonstige')}
       .content-bar-wrapper
         .content-bar
           span.category-header #{__('Kategorien')}:
-          a.category-link(href="/buy/?page=0&category=all&limit=50") #{__('Alle Kategorien')}
-          a.category-link(href="/buy/?page=0&category=rented&limit=50") #{__('Mietwohnung, Nachmiete')}
-          a.category-link(href="/buy/?page=0&category=hobby&limit=50") #{__('Freizeit, Hobby')}
-          a.category-link(href="/buy/?page=0&category=home&limit=50") #{__('Möbel, Haus')} 
-          a.category-link(href="/buy/?page=0&category=fashion&limit=50") #{__('Mode, Kleidung')}
-          a.category-link(href="/buy/?page=0&category=electronic&limit=50") #{__('Elektronik')}
-          a.category-link(href="/buy/?page=0&category=fun&limit=50") #{__('Musik, Filme, Bücher')}
-          a.category-link(href="/buy/?page=0&category=tickets&limit=50") #{__('Eintrittskarten, Tickets')}
-          a.category-link(href="/buy/?page=0&category=exchange&limit=50") #{__('Zu Verschenken, Tauschen')}
-          a.category-link(href="/buy/?page=0&category=lesson&limit=50") #{__('Unterricht, Kurse')}
-          a.category-link(href="/buy/?page=0&category=other&limit=50") #{__('Sonstige')}
+          a.category-link-responsive(href="/buy/?page=0&category=all&limit=50") #{__('Alle Kategorien')}
+          a.category-link-responsive(href="/buy/?page=0&category=book&limit=50") #{__('Bücher')}
+          a.category-link-responsive(href="/buy/?page=0&category=electronic&limit=50") #{__('Elektronik')}
+          a.category-link-responsive(href="/buy/?page=0&category=hobby&limit=50") #{__('Freizeit, Hobby')}
+          a.category-link-responsive(href="/buy/?page=0&category=fashion&limit=50") #{__('Mode, Kleidung')}
+          a.category-link-responsive(href="/buy/?page=0&category=lesson&limit=50") #{__('Unterricht, Kurse')}
+          a.category-link-responsive(href="/buy/?page=0&category=exchange&limit=50") #{__('Zu Verschenken, Tauschen')}
+          a.category-link-responsive(href="/buy/?page=0&category=fun&limit=50") #{__('Musik, Filme')}
+          a.category-link-responsive(href="/buy/?page=0&category=donation&limit=50") #{__('Spende')}
+          a.category-link-responsive(href="/buy/?page=0&category=rented&limit=50") #{__('Mietwohnung, Nachmiete')}
+          a.category-link-responsive(href="/buy/?page=0&category=other&limit=50") #{__('Sonstige')}
       .main-wrapper
         block main

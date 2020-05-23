@@ -4,31 +4,25 @@ const router = express.Router();
 const isLoggedIn = require('../middleware/isLoggedin');
 
 const dashboardGetController = require('../controllers/messages/dashboard/get');
-const buyGetController = require('../controllers/messages/buy/get');
-const sellGetController = require('../controllers/messages/sell/get');
+const detailsGetController = require('../controllers/messages/details/get');
 
-const buyPostController = require('../controllers/messages/buy/post');
+const dashboardPostController = require('../controllers/messages/dashboard/post');
 
 router.get(
-  '/dashboard',
-  isLoggedIn,
-  dashboardGetController
+  '/',
+    isLoggedIn,
+    dashboardGetController
 );
 router.get(
-  '/buy', 
-  isLoggedIn,
-  buyGetController
-);
-router.get(
-  '/sell',
-  isLoggedIn,
-  sellGetController
+  '/details', 
+    isLoggedIn,
+    detailsGetController
 );
 
 router.post(
-  '/buy',
-  isLoggedIn,
-  buyPostController
+  '/',
+    isLoggedIn,
+    dashboardPostController
 );
 
 module.exports = router;

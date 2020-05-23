@@ -46,7 +46,10 @@
   display: flex;
   margin-bottom: 50px;
 }
-.buyer {
+.each-message-user {
+  width: 90%;
+  display: flex;
+  margin-bottom: 50px;
   align-self: flex-end;
   text-align: right;
 }
@@ -56,7 +59,7 @@
   flex-direction: column;
   margin-left: 25px;
 }
-.message-left-side-buyer {
+.message-left-side-user {
   flex: 9;
   display: flex;
   flex-direction: column;
@@ -68,7 +71,7 @@
   align-items: flex-end;
   width: 100%;
 }
-.message-header-buyer {
+.message-header-user {
   display: flex;
   align-items: flex-end;
   justify-content: flex-end;
@@ -157,7 +160,7 @@
   -webkit-overflow-scrolling: touch;
 }
 .right-side-title {
-  font-size: 62px;
+  font-size: 150%;
   color: rgb(112, 112, 112);
   font-weight: 300;
   margin-bottom: 25px;
@@ -188,7 +191,7 @@
   margin-top: 15px;
   color: rgb(127, 127, 127);
   font-weight: 700;
-  font-size: 23px;
+  font-size: 100%;
   margin-bottom: 25px;
 }
 .product-wrapper {
@@ -229,17 +232,17 @@
 .main-product-created-at {
   margin-bottom: 10px;
   color: rgb(112, 112, 112);
-  font-size: 19px;
+  font-size: 100%;
   font-weight: 300; 
 }
 .main-product-title {
   margin-bottom: 5px;
   color: rgb(112, 112, 112);
-  font-size: 35px;
+  font-size: 100%;
   font-weight: 700; 
 }
 .main-product-location {
-  font-size: 19px;
+  font-size: 100%;
   font-weight: 300;
   color: rgb(112, 112, 112);
   display: flex;
@@ -250,13 +253,13 @@
   margin-right: 5px;
 }
 .main-product-description {
-  font-size: 21px;
+  font-size: 100%;
   color: rgb(112, 112, 112);
   margin-bottom: 20px;
 }
 .main-product-price {
   color: rgb(255, 61, 148);
-  font-size: 49px;
+  font-size: 125%;
   font-weight: 700;
   margin-bottom: 100px;
 }

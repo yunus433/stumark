@@ -36,6 +36,10 @@ const ProductSchema = new Schema({
     type: Array,
     required: true
   },
+  chatList: {
+    type: Array,
+    default: []
+  },
   keywords: {
     type: Array,
     default: []

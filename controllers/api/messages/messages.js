@@ -1,17 +1,17 @@
 const mongoose = require('mongoose');
 
-const Message = require('../../../models/message/Message');
+const Chat = require('../../../models/chat/Chat');
 const User = require('../../../models/user/User');
 
 module.exports = (req, res) => {
   if (req.query && req.query.id) {
-    Message.findById(mongoose.Types.ObjectId(req.query.id), (err, message) => {
-      if (err)
-        return res.status(500).json({ "error": "Mongo Error: " + err });
-      return res.status(200).json({ message });
+    Chat.findById(mongoose.Types.ObjectId(req.query.id), (err, chat) => {
+      if (err) return res.status(500).json({ "error": "Mongo Error: " + err });
+      
+      return res.status(200).json({ chat });
     });
   } else if (req.query && req.query.buyer && req.query.product) {
-    Message.findOne({
+    Chat.findOne({
       "buyer": req.query.buyer,
       "product": req.query.product
     }, (err, message) => {
@@ -27,7 +27,7 @@ module.exports = (req, res) => {
         return message;
       });
 
-      Message.findOneAndUpdate({
+      Chat.findOneAndUpdate({
         "buyer": req.query.buyer,
         "product": req.query.product
       }, { $set: {
@@ -59,7 +59,7 @@ module.exports = (req, res) => {
       });
     });
   } else if (req.query && req.query.buyer) {
-    Message.find({
+    Chat.find({
       "buyer": req.query.buyer
     }, (err, messages) => {
       if (err)
@@ -68,7 +68,7 @@ module.exports = (req, res) => {
       return res.status(200).json({ messages });
     });
   } else if (req.query && req.query.owner) {
-    Message.find({
+    Chat.find({
       "owner": req.query.owner
     }, (err, messages) => {
       if (err)
@@ -77,7 +77,7 @@ module.exports = (req, res) => {
       return res.status(200).json({ messages });
     });
   } else if (req.query && req.query.product) {
-    Message.find({
+    Chat.find({
       "product": req.query.product
     }, (err, messages) => {
       if (err)
@@ -85,7 +85,7 @@ module.exports = (req, res) => {
       return res.status(200).json({ messages });
     });
   } else {
-    Message.find({}, (err, messages) => {
+    Chat.find({}, (err, messages) => {
       if (err)
         return res.status(500).json({ "error": "Mongo Error: " + err });
       return res.status(200).json({ messages });

@@ -1,6 +1,6 @@
 const moment = require('moment-timezone');
 
-const Message = require('../../../models/message/Message');
+const Message = require('../../../models/chat/Chat');
 
 const sendNotification = require('../../../utils/sendNotification');
 

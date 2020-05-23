@@ -24,7 +24,7 @@
 	"Von Studenten für Studenten": "Öğrenciden Öğrenciye",
 	"Aktuelle Angebote": "En Yeniler",
 	"Added": "Eklenme Tarihi: ",
-	"Nachricht schreiben": "Alıcı Mesajların",
+	"Nachricht schreiben": "Mesaj Gönder",
 	"Nachricht Senden": "Mesaj Gönder",
 	"Ähnliche Anzeigen": "Benzer Ürünler",
 	"Passwort": "Şifre",
@@ -82,5 +82,8 @@
 	"Anzeige Aufgeben": "Ürün Ekle!",
 	"Address": "Adres",
 	"Du kannst hier die Nachrichten für deine Produkte anschauen.": "Hiçbir ürününüze mesaj atılmamış.",
-	"Du hast keine Nachricht.": "Hiçbir ürüne mesaj atmamışsınız."
+	"Du hast keine Nachricht.": "Hiçbir ürüne mesaj atmamışsınız.",
+	"Bücher": "Kitap",
+	"Musik, Filme": "Müzik, Film",
+	"Spende": "Bağış"
 }
