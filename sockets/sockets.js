@@ -43,7 +43,8 @@ module.exports = (socket, io) => {
           sendNotification('send one', {
             "to": chat.buyer,
             "messages": [{
-              body: `${owner.name}: ${params.message.content}`, 
+              title: owner.name,
+              body: params.message.content, 
               data: "Mesajı görmek için tıklayın."
             }]
           }, (err, res) => {
@@ -61,7 +62,8 @@ module.exports = (socket, io) => {
           sendNotification('send one', {
             "to": chat.owner,
             "messages": [{
-              body: `${buyer.name}: ${params.message.content}`, 
+              title: buyer.name,
+              body: params.message.content, 
               data: "Mesajı görmek için tıklayın."
             }]
           }, (err, res) => {

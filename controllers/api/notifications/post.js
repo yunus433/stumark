@@ -4,7 +4,7 @@ const User = require('../../../models/user/User');
 
 module.exports = (req, res) => {
   if (!req.body || !req.body.id || !req.body.token)
-    return res.status(400).json({ "error": "Bad request" });
+    return res.status(400).json({ "error": "bad request" });
     
   User.findByIdAndUpdate(mongoose.Types.ObjectId(req.body.id), {$set: {
     "notificationToken": req.body.token

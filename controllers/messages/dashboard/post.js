@@ -68,7 +68,8 @@ module.exports = (req, res) => {
                 sendNotification('send one', {
                   "to": user._id,
                   "messages": [{
-                    body: `${product.name} ürününüze yeni bir kullanıcı mesaj attı!`, 
+                    title: product.name,
+                    body: `Ürününüze yeni bir kullanıcı mesaj attı!`, 
                     data: "Görmek için tıklayın"
                   }]
                 }, (err, result) => {

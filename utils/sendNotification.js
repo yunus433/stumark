@@ -18,6 +18,7 @@ module.exports = (option, data, callback) => {
         messages.push({
           to: user.notificationToken,
           sound: 'default',
+          title: message.title,
           body: message.body,
           data: { withSome: message.data },
         });
