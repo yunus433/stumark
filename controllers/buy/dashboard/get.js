@@ -35,6 +35,9 @@ module.exports = (req, res, next) => {
               case "book": 
                 category = "Kitap";
                 break;
+              case "stationery": 
+                category = "Kırtasiye";
+                break;
               case "electronic":
                 category = "Elektronik";
                 break;
