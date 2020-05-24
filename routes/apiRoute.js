@@ -92,7 +92,7 @@ router.post(
     favoritePostController
 );
 router.post(
-  '/messages',
+  '/newMessage',
     isApiAuthenticated,
     messagesDashboardPostController
 );
