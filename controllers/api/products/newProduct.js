@@ -42,7 +42,7 @@ module.exports = (req, res) => {
       description: req.body.description,
       price: req.body.price + "₺",
       productPhotoArray,
-      keywords: (engName(req.body.description).split(' ').join('+').split('\n').join('+').split('\t').join('+') + "+" + engName(req.body.name).split(' ').join('+').split('\n').join('+').split('\t').join('+')).split("+"),city: getCityEngName(req.body.city),
+      keywords: (engName(req.body.description).split(' ').join('+').split('\n').join('+').split('\t').join('+') + "+" + engName(req.body.name).split(' ').join('+').split('\n').join('+').split('\t').join('+')).split("+"),
       city: engName(req.body.city),
       city_name: req.body.city,
       town: req.body.town,
