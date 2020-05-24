@@ -186,7 +186,7 @@
   border-color: rgba(255, 61, 148, 0.5);
 }
 
-@media only screen and (orientation: portrait) {
+@media only screen and (max-width: 700px) and (min-width: 300px) {
   .form-title {
     text-align: center;
   }
