@@ -11,7 +11,7 @@ block main
               .message-header-user
                 span.message-time #{eachMessage.time} / #{eachMessage.day}
                 span.message-sender= ((chat.buyer._id.toString() == user._id.toString()) ? chat.buyer.name :  chat.owner.name)
-              span.message-content= eachMessage.content
+              span.message-content-user= eachMessage.content
             .message-right-side
               img.message-sender-profile(src=((chat.buyer._id.toString() == user._id.toString()) ? chat.buyer.profilePhoto :  chat.owner.profilePhoto))
         else
@@ -27,8 +27,9 @@ block main
       input.new-message-input(type="text" name="message" autofocus autocomplete="off" placeholder="Type your message")
       button.send-button
         img.send-button-image(src="/res/images/sendButton.png")
-    .reopen-right-side-button
-      i.fas.fa-long-arrow-alt-left
+    if chat.buyer._id.toString() == user._id.toString()
+      .reopen-right-side-button
+        i.fas.fa-long-arrow-alt-left
   if chat.buyer._id.toString() == user._id.toString()
     .messages-right-side
       .close-right-side-line

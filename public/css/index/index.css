@@ -14,12 +14,12 @@
   width: 90%;
   background: white;
   border: 2px solid rgb(236, 235, 235);
-  height: 25%;
   border-radius: 15px;
   color: rgb(255, 61, 148);
   font-size: 200%;
   font-weight: 600;
   text-align: center;
+  padding: 50px 0;
 }
 .latest-product-title {
   width: 90%;
@@ -33,7 +33,6 @@
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 1vw;
   width: 90%;
-  height: 50%;
   margin: 25px 0px;
 }
 .each-product {

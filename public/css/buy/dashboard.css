@@ -20,6 +20,7 @@
   font-size: 100%;
   color: rgb(112, 112, 112);
   font-weight: 600;
+  margin-top: 15px;
 }
 .change-page-wrapper {
   width: 100%;
@@ -54,8 +55,8 @@
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 25px;
   width: 90%;
-  height: 50%;
   margin: 25px 0px;
+  margin-top: 40px;
 }
 .each-product {
   height: 40vh;

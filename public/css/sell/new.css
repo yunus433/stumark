@@ -238,9 +238,10 @@
   }
 }
 
-@media only screen and (orientation: portrait) {
+@media only screen and (max-width: 700px) and (min-width: 300px) {
   .new-product-form {
     padding: 25px;
+    margin-bottom: 100px;
   }
   .category-wrapper, .price-wrapper {
     padding-left: 15px;

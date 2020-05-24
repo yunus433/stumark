@@ -232,7 +232,16 @@
   }
 }
 
-@media only screen and (orientation: portrait) {
+@media only screen and (max-width: 900px) and (min-width: 700px) {
+  .form-main-wrapper {
+    width: 75%;
+    height: 95vh;
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+@media only screen and (max-width: 700px) and (min-width: 300px)  {
   .form-main-wrapper {
     width: 95%;
     height: 95vh;
