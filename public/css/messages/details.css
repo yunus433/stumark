@@ -38,8 +38,6 @@
 
 .messages-content {
   height: auto;
-  display: flex;
-  flex-direction: column;
   padding: 25px;
   padding-bottom: 100px;
   width: 100%;
