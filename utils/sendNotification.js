@@ -44,35 +44,36 @@ module.exports = (option, data, callback) => {
         }
         let receiptIdChunks = expo.chunkPushNotificationReceiptIds(receiptIds);
         (async () => {
-          for (let chunk of receiptIdChunks) {
-            try {
-              let receipts = await expo.getPushNotificationReceiptsAsync(chunk);
+          return callback(null, "send notification");
+          // for (let chunk of receiptIdChunks) {
+          //   try {
+          //     let receipts = await expo.getPushNotificationReceiptsAsync(chunk);
   
-              for (let receipt of receipts) {
-                if (receipt.status === 'ok') {
-                  return callback(null, "send notification");
-                } else if (receipt.status === 'error') {
-                  if (receipt.details && receipt.details.error) {
-                    User.findByIdAndUpdate(mongoose.Types.ObjectId(data.to), {$set: {
-                      notificationToken: null
-                    }}, {}, (err, user) => {
-                      if (err) return callback(err);
+          //     for (let receipt of receipts) {
+          //       if (receipt.status === 'ok') {
+          //         return callback(null, "send notification");
+          //       } else if (receipt.status === 'error') {
+          //         if (receipt.details && receipt.details.error) {
+          //           User.findByIdAndUpdate(mongoose.Types.ObjectId(data.to), {$set: {
+          //             notificationToken: null
+          //           }}, {}, (err, user) => {
+          //             if (err) return callback(err);
           
-                      return callback(null, "update user because of error: " + receipt.details.error);
-                    });
-                  }
-                }
-              }
-            } catch (error) {
-              User.findByIdAndUpdate(mongoose.Types.ObjectId(data.to), {$set: {
-                notificationToken: null
-              }}, {}, (err, user) => {
-                if (err) return callback(err);
+          //             return callback(null, "update user because of error: " + receipt.details.error);
+          //           });
+          //         }
+          //       }
+          //     }
+          //   } catch (error) {
+          //     User.findByIdAndUpdate(mongoose.Types.ObjectId(data.to), {$set: {
+          //       notificationToken: null
+          //     }}, {}, (err, user) => {
+          //       if (err) return callback(err);
   
-                return callback(null, "update user because of error: " + error);
-              });
-            };
-          };
+          //       return callback(null, "update user because of error: " + error);
+          //     });
+          //   };
+          // };
         })().then(() => {
           return callback(null, "no response");
         });
