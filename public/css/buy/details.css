@@ -18,6 +18,7 @@
   border: 2px solid rgb(236, 235, 235);
   border-radius: 15px;
   padding: 25px;
+  height: auto;
 }
 
 .product-left-side {
@@ -45,6 +46,7 @@
   width: 90%;
   display: flex;
   align-items: center;
+  margin-top: 10px;
 }
 .product-menu-image {
   width: 19%;
@@ -57,7 +59,7 @@
 .selected-menu-image {
   border: 2px solid blue;
 }
-/* Right side design */
+
 .product-right-side {
   flex: 1;
   width: 50%;
@@ -167,6 +169,7 @@
   grid-gap: 25px;
   margin-bottom: 25px;
   margin-top: 10px;
+  margin-bottom: 100px;
 }
 .each-product {
   height: 40vh;
@@ -230,9 +233,10 @@
   margin-right: 5px;
 }
 
-@media only screen and (orientation: portrait) {
+@media only screen and (max-width: 700px) and (min-width: 300px) {
   .main-product-wrapper {
     flex-direction: column;
+    min-height: 80vh;
   }
   .product-left-side, .product-right-side {
     width: 100%;

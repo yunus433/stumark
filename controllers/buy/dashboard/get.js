@@ -29,35 +29,35 @@ module.exports = (req, res, next) => {
           (err, products) => {
             if (err) return res.redirect("/");
 
-            let category = "Alle Kategorien";
+            let category = "Tüm Kategoriler";
 
-            switch(req.query.category) {
-              case "rented": 
-                category = "Mitwohnung, Nachmiete";
-                break;
-              case "hobby":
-                category = "Freizet, Hobby";
-                break;
-              case "home":
-                category = "Möbel, Haus";
-                break;
-              case "fashion":
-                category = "Mode, Kleidung";
+            switch (req.query.category) {
+              case "book": 
+                category = "Kitap";
                 break;
               case "electronic":
                 category = "Elektronik";
                 break;
-              case "fun":
-                category = "Musik, Filme, Bücher";
+              case "hobby":
+                category = "Eğlence, Hobi";
                 break;
-              case "tickets":
-                category = "Eintrittskarten, Tickets";
-                break;
-              case "exchange":
-                category = "Zu Verschenken, Tauschen";
+              case "fashion":
+                category = "Moda, Giyim";
                 break;
               case "lesson":
-                category = "Unterricht, Kurse";
+                category = "Ders, Kurs";
+                break;
+              case "exchange":
+                category = "Hediye, Takas";
+                break;
+              case "fun":
+                category = "Müzik, Film";
+                break;
+              case "donation":
+                category = "Bağış";
+                break;
+              case "rented":
+                category = "Kiralık Ev";
                 break;
               case "other":
                 category = "Sonstige";

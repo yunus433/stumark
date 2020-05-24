@@ -1,7 +1,7 @@
 const Product = require('../../../models/product/Product');
 
-const getCityEngName = (city) => {
-  return city.toLocaleLowerCase().replace("ş", "s").replace("ı", "i").replace("ö", "o").replace("ç", "c").replace("ü", "u").replace("ğ", "g");
+const engName = word => {
+  return word.toLocaleLowerCase().split('ş').join('s').split('ı').join('i').split('ö').join('o').split('ç').join('c').split('ü').join('u').split('ğ').join('g');
 }
 
 module.exports = (req, res, next) => {
@@ -9,9 +9,9 @@ module.exports = (req, res, next) => {
   Product.findOneAndUpdate({"_id": req.query.id}, {$set: {
     "name": req.body.name,
     "description": req.body.description,
-    "keywords": (req.body.description.replace(/\s+/g, '+').replace(/[^a-zA-Z0-9+]/g, "").toLowerCase() + "+" + req.body.name.replace(/\s+/g, '+').replace(/[^a-zA-Z0-9+]/g, "").toLowerCase()).split("+"),
+    "keywords": (engName(req.body.description).split(' ').join('+').split('\n').join('+').split('\t').join('+') + "+" + engName(req.body.name).split(' ').join('+').split('\n').join('+').split('\t').join('+')).split("+"),
     "price": req.body.price + "₺",
-    "city": getCityEngName(req.body.city),
+    "city": engName(req.body.city),
     "city_name": req.body.city,
     "town": req.body.town
   }}, err => {

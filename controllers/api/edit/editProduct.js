@@ -2,8 +2,8 @@ const mongoose = require('mongoose');
 
 const Product = require('../../../models/product/Product');
 
-const getCityEngName = (city) => {
-  return city.toLocaleLowerCase().replace("ş", "s").replace("ı", "i").replace("ö", "o").replace("ç", "c").replace("ü", "u").replace("ğ", "g");
+const engName = word => {
+  return word.toLocaleLowerCase().split('ş').join('s').split('ı').join('i').split('ö').join('o').split('ç').join('c').split('ü').join('u').split('ğ').join('g');
 }
 
 module.exports = (req, res) => {
@@ -12,10 +12,10 @@ module.exports = (req, res) => {
       "name": req.body.name,
       "description": req.body.description,
       "price": req.body.price + "₺",
-      "city": getCityEngName(req.body.city),
+      "city": engName(req.body.city),
       "city_name": req.body.city,
       "town": req.body.town,
-      "keywords": (req.body.description.replace(/\s+/g, '+').replace(/[^a-zA-Z0-9+]/g, "").toLowerCase() + "+" + req.body.name.replace(/\s+/g, '+').replace(/[^a-zA-Z0-9+]/g, "").toLowerCase()).split("+")
+      "keywords": (engName(req.body.description).split(' ').join('+').split('\n').join('+').split('\t').join('+') + "+" + engName(req.body.name).split(' ').join('+').split('\n').join('+').split('\t').join('+')).split("+"),
     }}, {new: true}, (err, product) => {
       if (err) return res.status(500).json({"error": "Mongo Error: " + err});
 
