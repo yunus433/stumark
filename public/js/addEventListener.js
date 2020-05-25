@@ -1,9 +1,12 @@
 addEventListener = (document) => {
-  const searchBar = document.querySelector('.search-bar-wrapper');
-  searchBar.onsubmit = (event) => {
-    event.preventDefault();
-    window.location.href = '/buy/?page=0&category=all&limit=50&keywords=' + searchBar.childNodes[0].value;
-  }
+  const searchBars = document.querySelectorAll('.search-bar-wrapper');
+
+  searchBars.forEach(searchBar => {
+    searchBar.onsubmit = (event) => {
+      event.preventDefault();
+      window.location.href = '/buy/?page=0&category=all&limit=50&keywords=' + searchBar.childNodes[0].value;
+    }
+  });
 
   const userMenus = document.querySelectorAll('.user-menu');
   const userNameWrapper = document.querySelector('.user-name-wrapper');

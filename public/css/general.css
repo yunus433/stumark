@@ -373,11 +373,12 @@ body {
   width: 75vw;
   background-color: white;
   padding-left: 3%;
+  padding-right: 0px;
+  padding-bottom: 50px;
+  padding-top: 15px;
   border-right: 2px solid rgb(236, 235, 235);
   overflow: scroll;
   -webkit-overflow-scrolling: touch;
-  padding-top: 5%;
-  padding-bottom: 5%;
   position: absolute;
   transform: translateX(-100%);
   z-index: 10;
