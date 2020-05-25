@@ -3,7 +3,7 @@ const User = require('../../../models/user/User');
 module.exports = (req, res, next) => {
   User.findUser(req.body.email, req.body.password, (err, user) => {
     if (err || !user) {
-      return res.redirect('/auth/login/?err=100');
+      return res.redirect('/auth/login');
     }
 
     // if (user.verified) {

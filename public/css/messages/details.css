@@ -120,14 +120,14 @@
 }
 
 .message-send-wrapper {
-  height: 10%;
   width: 80%;
   border-top: 1px solid rgb(193, 193, 193);
   display: flex;
   align-items: center;
   background: white;
   position: fixed;
-  bottom: 0px;
+  bottom: 0;
+  padding: 15px 0px;
 }
 .new-message-input {
   border: none;

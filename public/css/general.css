@@ -204,8 +204,8 @@ body {
   cursor: pointer;
 }
 .user-profile-icon-wrapper {
-  height: 6vh;
-  width: 6vh;
+  height: 45px;
+  width: 45px;
   border-radius: 100%;
   overflow: hidden;
   display: flex;
@@ -374,7 +374,7 @@ body {
   background-color: white;
   padding-left: 3%;
   padding-right: 0px;
-  padding-bottom: 50px;
+  padding-bottom: 85px;
   padding-top: 15px;
   border-right: 2px solid rgb(236, 235, 235);
   overflow: scroll;

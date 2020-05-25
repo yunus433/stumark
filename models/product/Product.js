@@ -73,7 +73,7 @@ ProductSchema.statics.getNumberOfProducts = function (params, callback) {
   const Product = this;
 
   if (params.keywords) {
-    const keywordsArr = params.keywords.replace('.', '').replace('!', '').replace('?', '').replace('-', ' ').split(" ");
+    const keywordsArr = (engName(params.keywords).split(' ').join('+').split('\n').join('+').split('\t').join('+')).split("+");
 
     if (params.category != "all") {
       if (params.university) {
