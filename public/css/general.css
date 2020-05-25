@@ -61,7 +61,7 @@ body {
 .all-header-responsive {
   display: none;
   flex-direction: column;
-  height: 23vh;
+  height: 170px;
   padding: 0% 5%;
   background: white;
   border-bottom: 2px solid rgb(236, 235, 235);
@@ -75,7 +75,7 @@ body {
 }
 .responsive-category-open-button {
   width: 30%;
-  height: 40%;
+  padding: 8px 0px;
   border: 2px solid rgb(236, 235, 235);
   border-radius: 100px;
   display: flex;
@@ -120,7 +120,7 @@ body {
 .search-bar-wrapper {
   display: flex;
   flex: 1;
-  height: 50%;
+  padding: 10px 0;
   align-items: center;
   justify-content: flex-end;
   margin-left: 4%;
@@ -128,12 +128,9 @@ body {
 .search-bar-input {
   outline: none;
   width: 90%;
-  min-height: 100%;
-  max-height: 100%;
-  border-radius: 120px;
-  padding: 2%;
-  padding-left: 3%;
+  padding: 10px;
   padding-right: 10%;
+  border-radius: 120px;
   font-size: 100%;
   color: rgb(112, 112, 112);
   border-top: 0px;
@@ -148,15 +145,14 @@ body {
   align-items: center;
   justify-content: center;
   width: 20%;
-  min-height: 100%;
-  max-height: 100%;
+  padding: 12px 0;
   margin-left: -10%;
   border-radius: 120px;
   border: 0px;
   z-index: 2;
   background: linear-gradient(45deg, rgb(255, 61, 148), rgb(255, 188, 97));
   color: white;
-  font-size: 125%;
+  font-size: 100%;
   font-weight: 700;
   cursor: pointer;
 }
@@ -484,10 +480,12 @@ body {
     width: 35%;
     margin-left: -17.5%;
     border-radius: 100px;
-    font-size: 115%;
+    padding: 10px 0px;
   }
   .search-bar-input {
     border-radius: 100px;
+    padding-top: 8px;
+    padding-right: 8px;
   }
   .all-header-logo {
     height: auto;
@@ -500,6 +498,6 @@ body {
   }
   .user-name, .user-name-title {
     font-size: 100%;
-  } 
+  }
 }
 

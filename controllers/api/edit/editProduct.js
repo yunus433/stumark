@@ -7,11 +7,11 @@ const engName = word => {
 }
 
 module.exports = (req, res) => {
-  if (req.body && req.body.id && req.body.name && req.body.description && req.body.price && req.body.location) {
+  if (req.body && req.body.id && req.body.name && req.body.description && req.body.price && req.body.city && req.body.town) {
     Product.findByIdAndUpdate(mongoose.Types.ObjectId(req.body.id), {$set: {
       "name": req.body.name,
       "description": req.body.description,
-      "price": req.body.price + "₺",
+      "price": (req.body.price == "ücretsiz"  ? req.body.price : (req.body.price + "₺")),
       "city": engName(req.body.city),
       "city_name": req.body.city,
       "town": req.body.town,

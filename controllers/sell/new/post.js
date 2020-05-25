@@ -39,7 +39,7 @@ module.exports = (req, res, next) => {
       category: req.body.category,
       name: req.body.name,
       description: req.body.description,
-      price: req.body.price + "₺",
+      price: (req.body.price == "ücretsiz"  ? req.body.price : (req.body.price + "₺")),
       productPhotoArray,
       keywords: (engName(req.body.description).split(' ').join('+').split('\n').join('+').split('\t').join('+') + "+" + engName(req.body.name).split(' ').join('+').split('\n').join('+').split('\t').join('+')).split("+"),
       city: engName(req.body.city),
