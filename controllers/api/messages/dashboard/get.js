@@ -49,7 +49,9 @@ module.exports = (req, res) => {
   
         async.times(
           buyerMessages.length,
-          (time, next) => getChatContent(buyerMessages[time], (err, chat) => next(err, chat)),
+          (time, next) => {
+            getChatContent(buyerMessages[time], (err, chat) => next(err, chat))
+          },
           (err, buyerMessages) => {
             if (err) return res.redirect('/');
 

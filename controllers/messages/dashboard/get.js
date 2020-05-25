@@ -15,16 +15,20 @@ const getChatContent = (chat, callback) => {
       Product.findById(mongoose.Types.ObjectId(chat.product), (err, product) => {
         if (err) return callback(err);
 
-        const newChat = {
-          _id: chat._id,
-          messages: chat.messages,
-          buyer,
-          owner,
-          product,
-          createdAt: chat.createdAt
-        };
-  
-        return callback(null, newChat);
+        if (!product) {
+          return callback(null, {_id: null});
+        } else {
+          const newChat = {
+            _id: chat._id,
+            messages: chat.messages,
+            buyer,
+            owner,
+            product,
+            createdAt: chat.createdAt
+          };
+    
+          return callback(null, newChat);
+        }
       });
     });
   });
@@ -62,8 +66,8 @@ module.exports = (req, res) => {
                   includes: {
                     external: ["js", "css", "fontawesome"]
                   },
-                  buyerMessages,
-                  ownerMessages,
+                  buyerMessages: buyerMessages.filter(message => message._id),
+                  ownerMessages: ownerMessages.filter(message => message._id),
                   user: req.session.user
                 });
               }
