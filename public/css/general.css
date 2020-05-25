@@ -86,7 +86,7 @@ body {
   cursor: pointer;
 }
 .close-button-line {
-  margin-bottom: 15px;
+  margin-bottom: 25px;
   display: flex;
   justify-content: flex-end;
   width: 95%;
@@ -394,7 +394,7 @@ body {
   border: 2px solid rgb(236, 235, 235);
   margin-bottom: 15px;
   background-color: white;
-  padding: 10px 15px;
+  padding: 15px;
   width: 95%;
 }
 .category-link-responsive:hover {

@@ -39,7 +39,6 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 5vh;
   margin-top: 25px;
 }
 .form-input {
@@ -50,7 +49,7 @@
   color: rgb(112, 112, 112);
   font-family: "Source Sans Pro";
   outline: none;
-  padding: 7px 10px;
+  padding: 10px;
   margin-bottom: 15px;
   border-radius: 15px;
 }
@@ -112,7 +111,7 @@
   font-size: 125%;
   font-weight: 700;
   outline: none;
-  height: 100%;
+  padding: 5px 0px;
   width: 45%;
   cursor: pointer;
   border-radius: 15px;
@@ -131,7 +130,7 @@
   font-size: 125%;
   font-weight: 700;
   outline: none;
-  height: 100%;
+  padding: 5px 0px;
   width: 45%;
   cursor: pointer;
   border-radius: 15px;
@@ -150,7 +149,7 @@
   font-size: 125%;
   font-weight: 700;
   outline: none;
-  height: 100%;
+  padding: 5px 0px;
   width: 45%;
   cursor: pointer;
   border-radius: 15px;
@@ -173,7 +172,7 @@
   font-size: 125%;
   font-weight: 700;
   outline: none;
-  height: 100%;
+  padding: 5px 0px;
   width: 45%;
   cursor: pointer;
   border-radius: 15px;

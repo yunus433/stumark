@@ -39,7 +39,7 @@ module.exports = (req, res, next) => {
   Product.findOneAndUpdate({    
     "_id": mongoose.Types.ObjectId(req.query.id),
     "owner": req.session.user._id.toString()
-  }, {"price": "SOLD"}, (err, product) => {
+  }, {"price": "SATILDI"}, (err, product) => {
     if (err) return res.redirect('/');
 
     async.times(

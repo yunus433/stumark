@@ -32,26 +32,27 @@ block main
         i.fas.fa-long-arrow-alt-left
   if chat.buyer._id.toString() == user._id.toString()
     .messages-right-side
-      .close-right-side-line
-        i.fas.fa-times
-      span.right-side-title #{__('Seller')}
-      .owner-wrapper
-        img.owner-profile(src=chat.owner.profilePhoto)
-        span.owner-name= chat.owner.name
-      span.right-side-title #{__('Product')}
-      .product-wrapper
-        .product-image-wrapper
-          img.main-product-image(src=chat.product.productPhotoArray[0])
-        .product-images-menu
-          img.product-menu-image.selected-menu-image(src=chat.product.productPhotoArray[0])
-          img.product-menu-image(src=chat.product.productPhotoArray[1])
-          img.product-menu-image(src=chat.product.productPhotoArray[2])
-          img.product-menu-image(src=chat.product.productPhotoArray[3])
-          img.product-menu-image(src=chat.product.productPhotoArray[4])
-        span.main-product-created-at #{__('Added')} #{chat.product.createdAt}
-        span.main-product-title= chat.product.name
-        .main-product-location
-            i.fas.fa-map-marker-alt
-            span #{chat.product.city_name}, #{chat.product.town}
-        span.main-product-description= chat.product.description
-        span.main-product-price= chat.product.price
+      .right-side-inner-wrapper
+        .close-right-side-line
+          i.fas.fa-times
+        span.right-side-title #{__('Seller')}
+        .owner-wrapper
+          img.owner-profile(src=chat.owner.profilePhoto)
+          span.owner-name= chat.owner.name
+        span.right-side-title #{__('Product')}
+        .product-wrapper
+          .product-image-wrapper
+            img.main-product-image(src=chat.product.productPhotoArray[0])
+          .product-images-menu
+            img.product-menu-image.selected-menu-image(src=chat.product.productPhotoArray[0])
+            img.product-menu-image(src=chat.product.productPhotoArray[1])
+            img.product-menu-image(src=chat.product.productPhotoArray[2])
+            img.product-menu-image(src=chat.product.productPhotoArray[3])
+            img.product-menu-image(src=chat.product.productPhotoArray[4])
+          span.main-product-created-at #{__('Added')} #{chat.product.createdAt}
+          span.main-product-title= chat.product.name
+          .main-product-location
+              i.fas.fa-map-marker-alt
+              span #{chat.product.city_name}, #{chat.product.town}
+          span.main-product-description= chat.product.description
+          span.main-product-price= chat.product.price

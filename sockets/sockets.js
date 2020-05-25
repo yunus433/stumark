@@ -50,6 +50,9 @@ module.exports = (socket, io) => {
           }, (err, res) => {
             if (err) console.log(err, res);
           
+            socket.to(params.to).emit("newMessage", {
+              message: newMessageData
+            });
             return callback(undefined, newMessageData);
           });
         });
@@ -69,6 +72,9 @@ module.exports = (socket, io) => {
           }, (err, res) => {
             if (err) console.log(err, res);
           
+            socket.to(params.to).emit("newMessage", {
+              message: newMessageData
+            });
             return callback(undefined, newMessageData);
           });
         });

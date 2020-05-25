@@ -145,7 +145,7 @@
   font-size: 125%;
   font-weight: 700;
   outline: none;
-  padding: 10px 5px;
+  padding: 15px 5px;
   width: 25%;
   cursor: pointer;
   border-radius: 15px;
@@ -172,8 +172,8 @@
   margin-bottom: 100px;
 }
 .each-product {
-  height: 40vh;
-  padding: 2%;
+  height: 325px;
+  padding: 10px;
   background: white;
   display: flex;
   flex-direction: column;
@@ -256,7 +256,7 @@
 
 @media only screen and (max-width: 900px) and (min-width: 600px) {
   .each-product {
-    height: 35vh;
+    height: 325px;
   }
   .product-name {
     width: 27vw;
@@ -271,7 +271,8 @@
 
 @media only screen and (max-width: 600px) and (min-width: 300px) {
   .each-product {
-    height: 40vh;
+    height: 300px;
+    padding: 5px;
   }
   .each-product-image-wrapper {
     width: 40vw;

@@ -8,10 +8,10 @@ block main
     else
       span.form-title #{__('Anzeige Einstellungen')}
       .form-line
-        a.delete-product-button(href="/sell/details/delete/?id=" + product._id) 
+        a.delete-product-button(href="/sell/details/delete/?id=" + product._id onclick="return confirm(\"Bu ürünü silmek istediğinize emin misiniz?\");") 
           .not-read-empty
           span #{__('Lösch die Anzeige')}
-        a.marked-as-sold-product-button(href="/sell/details/sold/?id=" + product._id)
+        a.marked-as-sold-product-button(href="/sell/details/sold/?id=" + product._id onclick="return confirm(\"Bu ürünü satıldı olarak işaretlemek istediğinize emin misiniz?\");")
           span #{__('Markiere das Produkt als Verkauft')}
       span.form-title #{__('Anzeigendetails')}
       input.product-name(type="text" name="name" placeholder="Titel" autocomplete="off" value=product.name)

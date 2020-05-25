@@ -43,14 +43,19 @@ module.exports = (req, res, next) => {
   }, (err, product) => {
     if (err) return res.redirect('/');
 
-    async.times(
-      product.chatList.length,
-      (time, next) => deleteChat(product.chatList[time], err => next(err, true)),
-      err => {
-        if (err) return res.redirect('/');
-
-        return res.redirect('/sell');
-      }
-    );
+    if (product.chatList) {
+      async.times(
+        product.chatList.length,
+        (time, next) => deleteChat(product.chatList[time], err => next(err, true)),
+        err => {
+          if (err) return res.redirect('/');
+  
+          return res.redirect('/sell');
+        }
+      );
+    } else {
+      console.log("NO CHAT LIST!!!");
+      return res.redirect('/sell');
+    }
   });
 };

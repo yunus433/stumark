@@ -116,7 +116,7 @@ window.onload = () => {
 
     form.onsubmit = (event) => {
       event.preventDefault();
-      
+      newMessageInput.focus();
       if (newMessageInput.value) {
         const newMessageObject = {
           content: newMessageInput.value,
@@ -129,7 +129,7 @@ window.onload = () => {
         }, (err, message) => {
           if (err) return alert('Bir hata oluştu, lütfen tekrar deneyin');
 
-          createNewMessage(message, chatObject.buyer, chatObject.seller, userObject);
+          createNewMessage(message, chatObject.buyer, chatObject.owner, userObject);
           messagesBlock.scrollTop = messagesBlock.scrollHeight;
           newMessageInput.value = "";
         });
@@ -137,7 +137,7 @@ window.onload = () => {
     };
 
     socket.on('newMessage', params => {
-      createNewMessage(params.message, chatObject.buyer, chatObject.seller, userObject);
+      createNewMessage(params.message, chatObject.buyer, chatObject.owner, userObject);
       messagesBlock.scrollTop = messagesBlock.scrollHeight;
       newMessageInput.value = "";
     });

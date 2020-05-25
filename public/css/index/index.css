@@ -21,11 +21,13 @@
   text-align: center;
   padding: 50px 0;
 }
-.latest-product-wrapper {
+.latest-product-title-wrapper {
+  width: 90%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 25px;
+  margin-top: 35px;
+  margin-bottom: 25px;
 }
 .latest-product-title {
   width: 90%;
@@ -37,10 +39,10 @@
   display: none;
   justify-content: flex-end;
   align-items: center;
-  height: 50%;
+  height: 30px;
+  margin-left: auto;
   cursor: pointer;
   text-decoration: none;
-  margin-left: 8%;
 }
 .messages-icon-image-index {
   max-height: 100%;
@@ -52,6 +54,7 @@
   margin-right: 10px;
   color: rgb(112, 112, 112);
   font-size: 100%;
+  margin-left: auto;
 }
 .header-messages-wrapper-index:hover {
   text-decoration: underline;
@@ -63,10 +66,11 @@
   grid-gap: 1vw;
   width: 90%;
   margin: 25px 0px;
+  padding-bottom: 100px;
 }
 .each-product {
-  height: 40vh;
-  padding: 2%;
+  height: 325px;
+  padding: 10px;
   background: white;
   display: flex;
   flex-direction: column;
@@ -136,14 +140,15 @@
   .general-info-wrapper {
     font-size: 150%;
   }
-  .header-messages-wrapper {
-    display: flex !important;
+  .header-messages-wrapper-index {
+    display: flex;
   }
 }
 
 @media only screen and (max-width: 900px) and (min-width: 600px) {
   .each-product {
-    height: 35vh;
+    height: 325px;
+    padding: 10px;
   }
   .product-name {
     width: 27vw;
@@ -159,7 +164,8 @@
 
 @media only screen and (max-width: 600px) and (min-width: 300px) {
   .each-product {
-    height: 40vh;
+    height: 300px;
+    padding: 5px;
   }
   .each-product-image-wrapper {
     width: 40vw;
