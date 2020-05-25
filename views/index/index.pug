@@ -4,11 +4,11 @@ block main
     span Stumarkt.com: #{__('Von Studenten für Studenten')}!
   .latest-product-wrapper
     span.latest-product-title #{__('Aktuelle Angebote')}
-    a.header-messages-wrapper(href="/sell/new" )
-      .header-messages-explanation
+    a.header-messages-wrapper-index(href="/sell/new" )
+      .header-messages-explanation-index
         span #{__('Anzeige')}
         span #{__('aufgeben')}
-      img.messages-icon-image(src="/res/images/messagesIcon.png")
+      img.messages-icon-image-index(src="/res/images/messagesIcon.png")
   .latest-product-wrapper
     each product in products
       if product.price == "SOLD"

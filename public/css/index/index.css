@@ -33,14 +33,29 @@
   color: rgb(112, 112, 112);
   font-weight: 700;
 }
-.header-messages-wrapper {
-  display: none !important;
+.header-messages-wrapper-index {
+  display: none;
   justify-content: flex-end;
   align-items: center;
-  height: 100% !important;
+  height: 50%;
+  cursor: pointer;
+  text-decoration: none;
+  margin-left: 8%;
 }
-.header-messages-explanation {
-  margin-right: 5px;
+.messages-icon-image-index {
+  max-height: 100%;
+  max-width: 40%;
+}
+.header-messages-explanation-index {
+  display: flex;
+  flex-direction: column;
+  margin-right: 10px;
+  color: rgb(112, 112, 112);
+  font-size: 100%;
+}
+.header-messages-wrapper-index:hover {
+  text-decoration: underline;
+  text-decoration-color: rgb(112, 112, 112);
 }
 .latest-product-wrapper {
   display: grid;

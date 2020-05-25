@@ -8,27 +8,27 @@ block main
         span #{__('%s Produkte in dieser Kategorie verfügbar. %s Anzeigen pro Seite', number, category, limit)}
     .change-page-wrapper 
       if keywords
-        if page > 0
-          a.fas.fa-angle-left(href=`/buy/?category=${realCategory}&page=${page-1}&keywords=${keywords}&limit=${limit}`)
+        if productPage > 0
+          a.fas.fa-angle-left(href=`/buy/?category=${realCategory}&page=${productPage-1}&keywords=${keywords}&limit=${limit}`)
         else
           i.fas.fa-angle-left
-        - for (let i = 0; i < number; i += limit) {
-          a.each-page-link(href=`/buy/?category=${realCategory}&page=${i}&keywords=${keywords}&limit=${limit}`)= i+1
+        - for (let i = 0; i < number+limit; i += limit) {
+          a.each-page-link(href=`/buy/?category=${realCategory}&page=${(i/limit)}&keywords=${keywords}&limit=${limit}`)= (i/limit)+1
         - }
-        if (page * limit) < number
-          a.fas.fa-angle-right(href=`/buy/?category=${realCategory}&page=${page+1}&keywords=${keywords}&limit=${limit}`)
+        if ((productPage+1) * limit) < number
+          a.fas.fa-angle-right(href=`/buy/?category=${realCategory}&page=${productPage+1}&keywords=${keywords}&limit=${limit}`)
         else
           i.fas.fa-angle-right
       else
-        if page > 0
-          a.fas.fa-angle-left(href=`/buy/?category=${realCategory}&page=${page-1}&limit=${limit}`)
+        if productPage > 0
+          a.fas.fa-angle-left(href=`/buy/?category=${realCategory}&page=${productPage-1}&limit=${limit}`)
         else
           i.fas.fa-angle-left
         - for (let i = 0; i < number; i += limit) {
-          a(.each-page-linkhref=`/buy/?category=${realCategory}&page=${i}&limit=${limit}`)= i+1
+          a.each-page-link(href=`/buy/?category=${realCategory}&page=${(i/limit)}&limit=${limit}`)= (i/limit)+1
         - }
-        if (page * limit) < number
-          a.fas.fa-angle-right(href=`/buy/?category=${realCategory}&page=${page+1}&limit=${limit}`)
+        if ((productPage+1) * limit) < number
+          a.fas.fa-angle-right(href=`/buy/?category=${realCategory}&page=${productPage+1}&limit=${limit}`)
         else
           i.fas.fa-angle-right
   .products-wrapper

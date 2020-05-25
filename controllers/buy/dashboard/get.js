@@ -74,13 +74,13 @@ module.exports = (req, res, next) => {
                 external: ["css", "js", "fontawesome"]
               },
               products,
-              number,
+              number: parseInt(number),
               user: req.session.user,
-              productPage: req.query.page,
+              productPage: parseInt(req.query.page),
               realCategory: req.query.category,
               category,
               keywords: req.query.keywords,
-              limit: req.query.limit
+              limit: parseInt(req.query.limit)
             });
           }
         );
