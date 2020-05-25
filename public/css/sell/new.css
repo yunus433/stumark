@@ -39,7 +39,6 @@
   align-items: center;
 }
 
-/* Category design */
 .category-wrapper {
   padding-left: 25px;
   margin-bottom: 25px;
@@ -60,7 +59,6 @@
   height: 20px;
 }
 
-/* Product name and description design */
 .product-name {
   background: rgb(248, 248, 248);
   border: 2px solid rgb(236, 235, 235);
@@ -77,12 +75,11 @@
   border: 2px solid rgb(236, 235, 235);
   border-radius: 15px;
   font-size: 125%;
-  padding: 1% 2%;
+  padding: 10px 15px;
   font-weight: 300;
   color: rgb(112, 112, 112);
   outline: none;
   margin-bottom: 25px;
-  height: 30vh;
   min-height: 0;
 }
 
@@ -104,8 +101,8 @@
   background: rgb(248, 248, 248);
   border: 2px solid rgb(236, 235, 235);
   border-radius: 15px;
-  font-size: 125%;
-  padding: 1% 2%;
+  font-size: 100%;
+  padding: 10px 15px;
   font-weight: 300;
   color: rgb(112, 112, 112);
   outline: none;
@@ -224,11 +221,13 @@
 @media only screen and (max-width: 1100px) and (min-width: 300px) {
   .product-name,
   .product-description,
-  .price-input,
   .address-input,
   .user-agrement-link,
   .each-category {
     font-size: 100%;
+  }
+  .price-input {
+    font-size: 75%;
   }
   .form-title {
     font-size: 175%;
@@ -248,7 +247,7 @@
   }
   .product-name, .product-description, .address-input {
     margin-bottom: 15px;
-    padding: 2% 3%;
+    padding: 10px 15px;
   }
   .form-line {
     flex-direction: column;

@@ -22,9 +22,9 @@ block content
               span.user-name= user.name.split(" ")[0]
             .user-profile-icon-wrapper
               img.user-profile-icon(src=user.profilePhoto)
-            .not-read-message-icon-wrapper
-              if user.notReadMessage > 0
-                .not-read-message-icon-general
+            //- .not-read-message-icon-wrapper
+            //-   if user.notReadMessage > 0
+            //-     .not-read-message-icon-general
           else
             .login-link-wrapper
               a.login-link(href="/auth/login") #{__('Einloggen')}
@@ -33,10 +33,10 @@ block content
             img.user-login-icon(src="/res/images/userIcon.png")
           .user-menu
             a.user-menu-each(href="/sell") #{__('Anzeigen')}
-            if user && user.notReadMessage > 0
-              a.user-menu-each-not-read(href="/messages") #{__('Nachrichten')}
-            else
-              a.user-menu-each(href="/messages") #{__('Nachrichten')}
+            //- if user && user.notReadMessage > 0
+            //-   a.user-menu-each-not-read(href="/messages") #{__('Nachrichten')}
+            //- else
+            a.user-menu-each(href="/messages") #{__('Nachrichten')}
             a.user-menu-each(href="/edit/user") #{__('Einstellungen')}
             a.user-menu-each-last(href="/auth/logout") #{__('Ausloggen')}
     .all-header-responsive
@@ -50,9 +50,9 @@ block content
               span.user-name= user.name.split(" ")[0]
             .user-profile-icon-wrapper
               img.user-profile-icon(src=user.profilePhoto)
-            .not-read-message-icon-wrapper
-              if user.notReadMessage > 0
-                .not-read-message-icon-general
+            //- .not-read-message-icon-wrapper
+            //-   if user.notReadMessage > 0
+            //-     .not-read-message-icon-general
           else
             .login-link-wrapper
               a.login-link(href="/auth/login") #{__('Einloggen')}
@@ -62,10 +62,10 @@ block content
           .user-menu
             a.user-menu-each(href="/sell") #{__('Anzeigen')}
             a.user-menu-each(href="/sell/new") #{__('Anzeige Aufgeben')}
-            if user && user.notReadMessage > 0
-              a.user-menu-each-not-read(href="/messages") #{__('Nachrichten')}
-            else
-              a.user-menu-each(href="/messages") #{__('Nachrichten')}
+            //- if user && user.notReadMessage > 0
+            //-   a.user-menu-each-not-read(href="/messages") #{__('Nachrichten')}
+            //- else
+            a.user-menu-each(href="/messages") #{__('Nachrichten')}
             a.user-menu-each(href="/edit/user") #{__('Einstellungen')}
             a.user-menu-each-last(href="/auth/logout") #{__('Ausloggen')}
       .all-header-bottom

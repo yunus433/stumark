@@ -8,14 +8,6 @@ block main
     else
       span.form-title #{__('Anzeige Einstellungen')}
       .form-line
-        a.go-to-messages-button(href="/sell/messages/?id=" + product._id) 
-          if (messageNumber > 0)
-            .not-read-empty
-              .not-read-message-icon
-                span= messageNumber
-          else
-            .not-read-empty
-          span #{__('Anzeige Nacrichten')}
         a.delete-product-button(href="/sell/details/delete/?id=" + product._id) 
           .not-read-empty
           span #{__('Lösch die Anzeige')}
@@ -38,10 +30,9 @@ block main
           .each-price-line
             input.price-radio-input#custom-price-input(type="radio" name="price" value=product.price required checked)
             input.price-input(type="text" placeholder="Fiyat ₺" value=product.price.replace("₺", ""))
-          .each-price-line
-            label
-              input.price-radio-input(type="radio" name="price" value="ücretsiz" required)
-              span #{__('Zu Verschenken')}
+          label.each-price-line
+            input.price-radio-input(type="radio" name="price" value="ücretsiz" required)
+            span #{__('Zu Verschenken')}
       span.form-title #{__('Bilder')}
       .images-outer-wrapper
         .images-wrapper

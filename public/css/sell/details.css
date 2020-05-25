@@ -8,7 +8,6 @@
   flex-wrap: nowrap;
 }
 
-/* Form wrapper and content design */
 .new-product-form {
   width: 90%;
   min-height: fit-content;
@@ -37,7 +36,6 @@
 .form-line {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   margin-bottom: 25px;
 }
 
@@ -47,7 +45,7 @@
   border: 2px solid rgb(236, 235, 235);
   border-radius: 15px;
   font-size: 125%;
-  padding: 1% 2%;
+  padding: 10px 15px;
   font-weight: 300;
   color: rgb(112, 112, 112);
   outline: none;
@@ -58,7 +56,7 @@
   border: 2px solid rgb(236, 235, 235);
   border-radius: 15px;
   font-size: 125%;
-  padding: 1% 2%;
+  padding: 10px 15px;
   font-weight: 300;
   color: rgb(112, 112, 112);
   outline: none;
@@ -85,8 +83,8 @@
   background: rgb(248, 248, 248);
   border: 2px solid rgb(236, 235, 235);
   border-radius: 15px;
-  font-size: 125%;
-  padding: 1% 2%;
+  font-size: 100%;
+  padding: 10px 15px;
   font-weight: 300;
   color: rgb(112, 112, 112);
   outline: none;
@@ -231,6 +229,7 @@
   text-align: center;
   margin-top: 15px;
   font-family: "Source Sans Pro";
+  margin-right: 15px;
 }
 .marked-as-sold-product-button-not-allow {
   background: white;
@@ -261,9 +260,14 @@
   .marked-as-sold-product-button,
   .product-name,
   .product-description,
-  .price-input,
   .address-input {
     font-size: 100%;
+  }
+  .price-input {
+    font-size: 75%;
+  }
+  .each-price-line span {
+    font-size: 75%;
   }
   .form-title {
     font-size: 175%;
@@ -294,7 +298,7 @@
   }
   .product-name, .product-description, .address-input {
     margin-bottom: 15px;
-    padding: 2% 3%;
+    padding: 10px 15px;
   }
   .price-wrapper {
     padding-left: 15px;
@@ -310,11 +314,11 @@
   .address-input-big {
     flex: initial;
     margin: 0px;
-    margin-bottom: 10px;
+    margin-bottom: 0px;
   }
 }
 
-@media only screen and (max-width: 900px) and (min-width: 600px) {
+/* @media only screen and (max-width: 900px) and (min-width: 600px) {
   .not-read-message-icon {
     width: 5vw;
     height: 5vw;
@@ -328,4 +332,4 @@
     height: 7vw;
     font-size: 30px;
   }
-}
+} */
