@@ -86,5 +86,7 @@
 	"Bücher": "Kitap",
 	"Musik, Filme": "Müzik, Film",
 	"Spende": "Bağış",
-	"Papierware": "Kırtasiye"
+	"Papierware": "Kırtasiye",
+	"Geschafft, du findest in einer e-Mail den Resetlink": "E-Posta'nıza sıfırlama linki gönderildi, lütfen linke tıklayarak yeni şifrenizi oluşturun.",
+	"Sorry, this email doesn't exist": "Bu e-posta adresi kayıtlı değil."
 }

@@ -137,9 +137,11 @@ window.onload = () => {
     };
 
     socket.on('newMessage', params => {
-      createNewMessage(params.message, chatObject.buyer, chatObject.owner, userObject);
-      messagesBlock.scrollTop = messagesBlock.scrollHeight;
-      newMessageInput.value = "";
+      if (params.message.sendedBy != userObject._id.toString()) {
+        createNewMessage(params.message, chatObject.buyer, chatObject.owner, userObject);
+        messagesBlock.scrollTop = messagesBlock.scrollHeight;
+        newMessageInput.value = "";
+      }
     });
   });
 };

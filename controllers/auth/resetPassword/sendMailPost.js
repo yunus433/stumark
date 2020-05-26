@@ -14,7 +14,7 @@ module.exports = (req, res, next) => {
     }}, (err, user) => {
       if (err || !user) {
         req.session.error = 'not exist email';
-        res.redirect('/auth/reset');
+         return res.redirect('/auth/reset');
       }
 
       sendMail({
