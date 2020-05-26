@@ -9,7 +9,7 @@ module.exports = (req, res, next) => {
       email: req.body.email,
       name: req.body.name,
       university: req.body.university,
-      password: req.body.password
+      password: req.body.password.trim()
     };
 
     const newUser = new User(newUserData);
