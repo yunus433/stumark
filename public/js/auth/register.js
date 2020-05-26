@@ -9,7 +9,7 @@ window.onload = () => {
       error.innerHTML = 'Şifreniz en az 6 karakterli olmalı.';
     }
     else if (document.getElementById('password-input-one').value != document.getElementById('password-input-two').value) {
-      error.innerHTML = 'Lütfen şirenizi tekrar girin.';
+      error.innerHTML = 'Lütfen şifrenizi tekrar girin.';
     }
     else {
       form.submit();

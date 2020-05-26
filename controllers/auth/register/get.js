@@ -4,7 +4,7 @@ module.exports = (req, res, next) => {
     req.session.destroy();
     res.render('auth/register', {
       page: 'auth/register',
-      title: 'Registrierung',
+      title: 'Kaydol',
       includes: {
         external: ['auth_css', 'js', 'fontawesome']
       },
@@ -13,7 +13,7 @@ module.exports = (req, res, next) => {
   } else
     res.render('auth/register', {
       page: 'auth/register',
-      title: 'Çıkış Yap',
+      title: 'Kaydol',
       includes: {
         external: ['auth_css', 'js', 'fontawesome']
       }

@@ -43,7 +43,7 @@ module.exports = (req, res, next) => {
   }, (err, product) => {
     if (err) return res.redirect('/');
 
-    if (product.chatList) {
+    if (product && product.chatList && product.chatList.length) {
       async.times(
         product.chatList.length,
         (time, next) => deleteChat(product.chatList[time], err => next(err, true)),
