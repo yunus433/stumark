@@ -6,7 +6,7 @@ function createNewProductPhoto(imageSrc) {
   const imageWrapper = document.createElement('div');
   imageWrapper.classList.add('each-product-photo');
   const image = document.createElement('img');
-  image.src= "/res/uploads/" +imageSrc;
+  image.src = imageSrc;
   imageWrapper.appendChild(image);
 
   if (productPhotoNameArray.length >= 5) {
@@ -16,6 +16,7 @@ function createNewProductPhoto(imageSrc) {
   document.getElementById('file-name-array').value = productPhotoNameArray.join();
   document.querySelector('.images-wrapper').appendChild(imageWrapper);
   document.querySelector('.images-wrapper').insertBefore(imageWrapper, imageWrapper.previousElementSibling);
+  document.querySelector('.images-wrapper').insertBefore(imageWrapper, imageWrapper.previousElementSibling);
   document.querySelector('.images-outer-wrapper').scrollLeft =  document.querySelector('.images-outer-wrapper').scrollWidth;
 }
 
@@ -24,6 +25,7 @@ window.onload = () => {
 
   const productPhotoInput = document.getElementById('product-image-input');
   productPhotoInput.onchange = (event) => {
+    document.querySelector('.uploading-image-wrapper').style.display = "flex";
     const file = productPhotoInput.files[0];
     var formdata = new FormData();
     formdata.append('file', file);
@@ -34,8 +36,9 @@ window.onload = () => {
     
     xhr.onreadystatechange = function () {
       if (xhr.readyState == 4 && xhr.responseText){
+        document.querySelector('.uploading-image-wrapper').style.display = "none";
         if (xhr.status == 500) {
-          alert("Entschuldigung, dass es ein Error gibt. Versuchen Sie es nochmal bitte!");
+          alert("Bir hata oluştu, lütfen tekrar deneyin.");
           productPhotoInput.value = ''
           if (!/safari/i.test(navigator.userAgent)){
             productPhotoInput.type = ''

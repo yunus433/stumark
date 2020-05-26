@@ -16,6 +16,7 @@ function createNewProductPhoto(imageSrc) {
 
   document.querySelector('.images-wrapper').appendChild(imageWrapper);
   document.querySelector('.images-wrapper').insertBefore(imageWrapper, imageWrapper.previousElementSibling);
+  document.querySelector('.images-wrapper').insertBefore(imageWrapper, imageWrapper.previousElementSibling);
   document.querySelector('.images-outer-wrapper').scrollLeft =  document.querySelector('.images-outer-wrapper').scrollWidth;
 }
 
@@ -33,6 +34,7 @@ window.onload = () => {
   const productPhotoInput = document.getElementById('product-image-input');
   if (productPhotoInput)
     productPhotoInput.onchange = (event) => {
+      document.querySelector('.uploading-image-wrapper').style.display = "flex";
       const file = productPhotoInput.files[0];
       var formdata = new FormData();
       formdata.append('file', file);
@@ -43,8 +45,9 @@ window.onload = () => {
       
       xhr.onreadystatechange = function () {
         if (xhr.readyState == 4 && xhr.responseText){
+          document.querySelector('.uploading-image-wrapper').style.display = "none";
           if (xhr.status == 500) {
-            alert("Entschuldigung, dass es ein Error gibt. Versuchen Sie es nochmal bitte!");
+            alert("Bir hata oluştu, lütfen tekrar deneyin.");
             productPhotoInput.value = ''
             if (!/safari/i.test(navigator.userAgent)){
               productPhotoInput.type = ''

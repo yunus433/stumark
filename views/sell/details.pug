@@ -37,11 +37,14 @@ block main
       .images-outer-wrapper
         .images-wrapper
           input.display-none#file-name-array(type="text" name="productPhotoNameArray")
-          each photo in product.productPhotoArray
-            if photo != "/res/images/notAvailablePhoto.jpg"
-              .each-product-photo
-                img(src=photo)
-                i.each-product-edit-icon.fas.fa-trash(onclick="return confirm('Bu resmi silmek istediğinize emin misiniz?')")
+          if product.productPhotoArray[0] != 'https://res.cloudinary.com/dvnac86j8/image/upload/v1566558525/stumarkt/defaultProductPicture.png'
+            each photo in product.productPhotoArray
+              if photo != "/res/images/notAvailablePhoto.jpg"
+                .each-product-photo
+                  img(src=photo)
+                  i.each-product-edit-icon.fas.fa-trash(onclick="return confirm('Bu resmi silmek istediğinize emin misiniz?')")
+          .uploading-image-wrapper
+            i.fas.fa-spinner.uploading-icon
           if product.productPhotoArray.filter(photo => { return photo != "/res/images/notAvailablePhoto.jpg" }).length < 5
             label.add-new-button
               i.fas.fa-plus

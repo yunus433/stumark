@@ -49,9 +49,11 @@ block main
           input.price-radio-input(type="radio" name="price" value="ücretsiz" required)
           span #{__('Zu Verschenken')}
       span.form-title.required-form-part #{__('Bilder')}
-      input.display-none#file-name-array(type="text" name="productPhotoNameArray" value="")
+      input.display-none#file-name-array(type="text" name="productPhotoArray" value="")
       .images-outer-wrapper
         .images-wrapper
+          .uploading-image-wrapper
+            i.fas.fa-spinner.uploading-icon
           label.add-new-button
             i.fas.fa-plus
             input.display-none#product-image-input(type="file" name="photo" accept="image/*")

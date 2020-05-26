@@ -38,7 +38,7 @@ const ProductSchema = new Schema({
   },
   productPhotoArray: {
     type: Array,
-    required: true
+    default: []
   },
   chatList: {
     type: Array,
