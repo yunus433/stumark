@@ -68,7 +68,14 @@
   margin: 25px 0px;
   padding-bottom: 100px;
 }
+.each-product-outer-wrapper {
+  width: 94%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 6%;
+}
 .each-product {
+  width: 100%;
   height: 325px;
   padding: 10px;
   background: white;
@@ -159,7 +166,6 @@
   .each-product-image-wrapper {
     width: 27vw;
   }
-  
 }
 
 @media only screen and (max-width: 600px) and (min-width: 300px) {

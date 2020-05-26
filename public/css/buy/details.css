@@ -105,7 +105,6 @@
   margin-left: auto;
 }
 
-
 .send-message-wrapper {
   display: flex;
   flex-direction: column;
@@ -170,6 +169,12 @@
   margin-bottom: 25px;
   margin-top: 10px;
   margin-bottom: 100px;
+}
+.each-product-outer-wrapper {
+  width: 94%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 6%;
 }
 .each-product {
   height: 325px;
