@@ -1,12 +1,21 @@
+const AWS = require('aws-sdk');
 const mongoose = require('mongoose');
 
-const Product = require("../../../models/product/Product");
+const Product = require('../../../models/product/Product');
+
+const s3 = new AWS.S3({	
+  accessKeyId: process.env.AWS_ACCESS_KEY_ID,	
+  secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY	
+});
 
 module.exports = (req, res, next) => {
   if (req.body.photo) {
-    req.cloudinary.v2.uploader.destroy(
-      req.body.photo,
-      err => {
+    const params = {	
+      Bucket: process.env.AWS_BUCKET_NAME,	
+      Key: req.body.photo.split('com/')[1]	
+    };
+
+    s3.deleteObject(params, (err, data) => {
         if (err) return res.sendStatus(500);
 
         Product.findByIdAndUpdate(mongoose.Types.ObjectId(req.query.id), {$pull: {
