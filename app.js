@@ -18,7 +18,8 @@ const server = http.createServer(app);
 const io = socketIO(server);
 
 i18n.configure({
-  locales:['tr', 'de', 'en'],
+  // locales:['tr', 'de', 'en'],
+  locales:['tr', 'en'],
   directory: __dirname + '/translations',
   queryParameter: 'lang',
   defaultLocale: 'de'

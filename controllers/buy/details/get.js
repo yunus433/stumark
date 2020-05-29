@@ -12,7 +12,8 @@ module.exports = (req, res, next) => {
         {
           category: JSON.parse(JSON.stringify(product)).category,
           docsToSkip: 0,
-          limit: 9
+          limit: 9,
+          productId: product._id
         },
         (err, latestProducts) => {
           if (err) return res.redirect("/");

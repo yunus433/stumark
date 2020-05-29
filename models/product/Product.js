@@ -178,7 +178,13 @@ ProductSchema.statics.getLatest = function (params, callback) {
     if (params.category != "all") {
       if (params.city) {
         Product
-          .find({keywords: {$all: keywordsArr}, category: params.category, price: {$ne: "SOLD"}, city: {$in: params.city}})
+          .find({
+            keywords: {$all: keywordsArr},
+            category: params.category,
+            price: {$ne: "SOLD"},
+            city: {$in: params.city},
+            _id: (params.productId ? {$nin: [params.productId]} : {$nin: [null]})
+          })
           .sort({"createdAtSecond": -1})
           .skip(params.docsToSkip)
           .limit(params.limit)
@@ -192,7 +198,12 @@ ProductSchema.statics.getLatest = function (params, callback) {
           });
       } else {
         Product
-          .find({keywords: {$all: keywordsArr}, category: params.category, price: {$ne: "SOLD"}})
+          .find({
+            keywords: {$all: keywordsArr},
+            category: params.category,
+            price: {$ne: "SOLD"},
+            _id: (params.productId ? {$nin: [params.productId]} : {$nin: [null]})
+          })
           .sort({"createdAtSecond": -1})
           .skip(params.docsToSkip)
           .limit(params.limit)
@@ -208,7 +219,12 @@ ProductSchema.statics.getLatest = function (params, callback) {
     } else {
       if (params.city) {
         Product
-          .find({keywords: {$all: keywordsArr}, price: {$ne: "SOLD"}, city: {$in: params.city}})
+          .find({
+            keywords: {$all: keywordsArr},
+            price: {$ne: "SOLD"},
+            city: {$in: params.city},
+            _id: (params.productId ? {$nin: [params.productId]} : {$nin: [null]})
+          })
           .sort({"createdAtSecond": -1})
           .skip(params.docsToSkip)
           .limit(params.limit)
@@ -240,7 +256,12 @@ ProductSchema.statics.getLatest = function (params, callback) {
     if (params.category != "all") {
       if (params.city) {
         Product
-          .find({category: params.category, price: {$ne: "SOLD"}, city: {$in: params.city}})
+          .find({
+            category: params.category,
+            price: {$ne: "SOLD"},
+            city: {$in: params.city},
+            _id: (params.productId ? {$nin: [params.productId]} : {$nin: [null]})
+          })
           .sort({"createdAtSecond": -1})
           .skip(params.docsToSkip)
           .limit(params.limit)
@@ -254,7 +275,11 @@ ProductSchema.statics.getLatest = function (params, callback) {
           });
       } else {
         Product
-          .find({category: params.category, price: {$ne: "SOLD"}})
+          .find({
+            category: params.category,
+            price: {$ne: "SOLD"},
+            _id: (params.productId ? {$nin: [params.productId]} : {$nin: [null]})
+          })
           .sort({"createdAtSecond": -1})
           .skip(params.docsToSkip)
           .limit(params.limit)
@@ -270,7 +295,11 @@ ProductSchema.statics.getLatest = function (params, callback) {
     } else {
       if (params.city) {
         Product
-          .find({price: {$ne: "SOLD"}, city: {$in: params.city}})
+          .find({
+            price: {$ne: "SOLD"},
+            city: {$in: params.city},
+            _id: (params.productId ? {$nin: [params.productId]} : {$nin: [null]})
+          })
           .sort({"createdAtSecond": -1})
           .skip(params.docsToSkip)
           .limit(params.limit)
@@ -284,7 +313,10 @@ ProductSchema.statics.getLatest = function (params, callback) {
           });
       } else {
         Product
-          .find({price: {$ne: "SOLD"}})
+          .find({
+            price: {$ne: "SOLD"},
+            _id: (params.productId ? {$nin: [params.productId]} : {$nin: [null]})
+          })
           .sort({"createdAtSecond": -1})
           .skip(params.docsToSkip)
           .limit(params.limit)
