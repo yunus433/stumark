@@ -28,7 +28,7 @@ block main
               span #{__('Zu Verschenken')}
         else
           .each-price-line
-            input.price-radio-input#custom-price-input(type="radio" name="price" value=product.price required checked)
+            input.price-radio-input#custom-price-input(type="radio" name="price" value=product.price.replace("₺", "") required checked)
             input.price-input(type="number" placeholder="Fiyat ₺" value=product.price.replace("₺", ""))
           label.each-price-line
             input.price-radio-input(type="radio" name="price" value="ücretsiz" required)
