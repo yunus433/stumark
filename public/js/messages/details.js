@@ -58,7 +58,7 @@ function createNewMessage(message, buyer, owner, user) {
 
     const messageTime = document.createElement('span');
     messageTime.classList.add('message-time');
-    messageTime.innerHTML = message.createdAt;
+    messageTime.innerHTML = message.time + " / " + message.day;
     messageHeader.appendChild(messageTime);
 
     const messageSender = document.createElement('span');
@@ -107,6 +107,8 @@ window.onload = () => {
   const form = document.querySelector('.message-send-wrapper');
   const newMessageInput = document.querySelector('.new-message-input');
 
+  const message_id_array = [];
+
   const socket = io();
 
   socket.on('connect', function() {
@@ -137,7 +139,8 @@ window.onload = () => {
     };
 
     socket.on('newMessage', params => {
-      if (params.message.sendedBy != userObject._id.toString()) {
+      if (params.message.sendedBy != userObject._id.toString() && ( !message_id_array.length || message_id_array[message_id_array.length-1] != params.message._id )) {
+        message_id_array.push(params.message._id)
         createNewMessage(params.message, chatObject.buyer, chatObject.owner, userObject);
         messagesBlock.scrollTop = messagesBlock.scrollHeight;
         newMessageInput.value = "";

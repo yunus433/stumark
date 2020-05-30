@@ -1,3 +1,4 @@
+const crypto = require('crypto');
 const moment = require('moment-timezone');
 const mongoose = require('mongoose');
 
@@ -22,6 +23,7 @@ module.exports = (socket, io) => {
       return callback('bad request');
 
     const newMessageData = {
+      _id: crypto.randomBytes(17).toString('hex'),
       content: params.message.content,
       sendedBy: params.message.sendedBy,
       read: false,
