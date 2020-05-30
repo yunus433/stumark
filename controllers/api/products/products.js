@@ -24,13 +24,13 @@ module.exports = (req, res) => {
         Product.findById(mongoose.Types.ObjectId(req.query.userFavorites.split(',')[time]), (err, product) => {
           if (err) return next(err);
 
-           next(null, product);
+          next(null, product);
         });
       },
       (err, products) => {
         if (err) return res.status(500).json({ "error": err });
 
-        return res.status(200).json({ products });
+        return res.status(200).json({ products: products.filter(product => product && product._id) });
       }
     );
   } else if (req.query && req.query.owner) {
