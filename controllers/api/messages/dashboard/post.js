@@ -57,6 +57,7 @@ module.exports = (req, res, next) => {
                   data: "Görmek için tıklayın"
                 }]
               }, (err, result) => {
+                console.log(err, result)
                 if (err) console.log(err);
     
                 return res.status(200).json({"id": chat._id.toString()});

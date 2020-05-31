@@ -74,9 +74,13 @@ module.exports = (option, data, callback) => {
           //     });
           //   };
           // };
-        })().then(() => {
-          return callback(null, "no response");
-        });
+        })()
+        .catch(err => {
+          return callback(err);
+        })
+        // .then(() => {
+        //   return callback(null, "no response");
+        // });
       });
     });
   } else if (option == "send many") {
