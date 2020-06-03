@@ -59,13 +59,6 @@ const ProductSchema = new Schema({
   owner: {
     type: String,
     required: true
-  },
-  buyer: {
-    type: String
-  },
-  university: {
-    type: String,
-    required: true
   }
 });
 

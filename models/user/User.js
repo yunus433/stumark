@@ -22,13 +22,25 @@ const UserSchema = new Schema({
     type: String,
     required: true
   },
-  university: {
+  school: {
     type: String, 
     required: true
   },
+  birth_time: {
+    type: Object,
+    default: {
+      day: null,
+      month: null,
+      year: null
+    }
+  },
+  university: {
+    type: String,
+    default: null
+  },
   verified: {
     type: Boolean,
-    default: true
+    default: false
   },
   profilePhoto: {
     type: String,

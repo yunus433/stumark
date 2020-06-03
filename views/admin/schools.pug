@@ -1,0 +1,24 @@
+extends ../partials/adminHeader
+block main
+  .all-content-header
+    .title-wrapper
+      span.title Okullar
+      span.subtitle Bu sayfadan kayıtlı okulları görebilir ve düzenleyebilirsiniz. Bir okulu düzenlemek için üzerine tıklayın.
+    .new-school-button
+      span +
+  .all-content-inner-wrapper
+    each school in schools
+      a.each-school(href="/admin/schools/details?id=" + school._id.toString())
+        span.school-name #{school.name} (#{school.other_names.join(', ')})
+        span.school-number #{school.users.length} kayıtlı öğrenci
+  form.new-form-wrapper(action="/admin/schools" method="POST")
+    span.form-title Yeni Bir Okul Ekle
+    span.form-subtitle Okul İsmi: *
+    input.form-input(type="text" placeholder="İsim" name="name" required)
+    span.form-subtitle Okulun Bulunduğu Şehir: *
+    input.form-input(type="text" placeholder="Şehir" name="city" required)
+    span.form-subtitle Okulun Diğer İsimleri: (Okul arama sonuçlarında gösterilirken kullanılacaklar. Lütfen isimleri araya virgül koyarak ve boşluk bırakmadan yazın)
+    input.form-input(type="text" placeholder="Ör: aaa,bbb,ccc" name="other_names")
+    .buttons-wrapper
+      .back-button Geri
+      button.form-button Oluştur

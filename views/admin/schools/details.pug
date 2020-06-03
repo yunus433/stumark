@@ -1,0 +1,18 @@
+extends ../../partials/adminHeader
+block main
+  .all-content-header
+    .title-wrapper
+      span.title= school.name
+      span.subtitle Bu sayfadan bu okul kaydını görebilir ve düzenleyebilirsiniz. Okul kaydını silmeden önce bu okula bağlı bütün öğrenci kayıtlarını silmelisiniz.
+    if !school.users.length
+      a.delete-school-button(href="/admin/schools/delete?id=" + school._id.toString() onclick="return confirm('Bu okulu silmek istediğinize emin misiniz?')" )
+        span Sil
+  form.new-form-wrapper(action="/admin/schools/details?id=" + school._id.toString() method="POST")
+    span.form-title Okulu Düzenle
+    span.form-subtitle Okul İsmi: *
+    input.form-input(type="text" placeholder="İsim" name="name" value=school.name required)
+    span.form-subtitle Okulun Bulunduğu Şehir: *
+    input.form-input(type="text" placeholder="Şehir" name="city" value=school.city required)
+    span.form-subtitle Okulun Diğer İsimleri: (Okul arama sonuçlarında gösterilirken kullanılacaklar. Lütfen isimleri araya virgül koyarak ve boşluk bırakmadan yazın)
+    input.form-input(type="text" placeholder="Ör: aaa,bbb,ccc" value=school.other_names.join(',') name="other_names")
+    button.form-button Düzenle
