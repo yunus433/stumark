@@ -76,13 +76,13 @@ ProductSchema.statics.getNumberOfProducts = function (params, callback) {
   const keywords = params.keywords ? (engName(params.keywords).split(' ').join('+').split('\n').join('+').split('\t').join('+')).split("+") : [];
 
   const preferences = {
-    _id: params.productId ? { $ne: params.productId } : { $ne: null },
+    _id: params.productId ? { $ne: params.productId } : { $ne: "null" },
     keywords: keywords.length ? { $all: keywords } : { $ne: [] },
-    category: params.category != "all" && params.category ? params.category : { $ne: null },
-    subcategory: params.subcategory != "Tümü" && params.subcategory ? params.subcategory : { $ne: null },
+    category: params.category != "all" && params.category ? params.category : { $ne: "null" },
+    subcategory: params.subcategory != "Tümü" && params.subcategory ? params.subcategory : { $ne: "null" },
     price: { $ne: "SATILDI" },
-    city: params.city ? { $in: params.city } : { $ne: null },
-    town: params.town ? { $in: params.town } : { $ne: null }
+    city: params.city ? { $in: params.city } : { $ne: "null" },
+    town: params.town ? { $in: params.town } : { $ne: "null" }
   }
 
   Product
@@ -104,13 +104,13 @@ ProductSchema.statics.getLatest = function (params, callback) {
   const keywords = params.keywords ? (engName(params.keywords).split(' ').join('+').split('\n').join('+').split('\t').join('+')).split("+") : [];
 
   const preferences = {
-    _id: params.productId ? { $ne: params.productId } : { $ne: null },
+    _id: params.productId ? { $ne: params.productId } : { $ne: "null" },
     keywords: keywords.length ? { $all: keywords } : { $ne: [] },
-    category: params.category != "all" && params.category ? params.category : { $ne: null },
-    subcategory: params.subcategory != "Tümü" && params.subcategory ? params.subcategory : { $ne: null },
+    category: params.category != "all" && params.category ? params.category : { $ne: "null" },
+    subcategory: params.subcategory != "Tümü" && params.subcategory ? params.subcategory : { $ne: "null" },
     price: { $ne: "SATILDI" },
-    city: params.city ? { $in: params.city } : { $ne: null },
-    town: params.town ? { $in: params.town } : { $ne: null }
+    city: params.city ? { $in: params.city } : { $ne: "null" },
+    town: params.town ? { $in: params.town } : { $ne: "null" }
   }
 
   Product
