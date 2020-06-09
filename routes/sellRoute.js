@@ -9,6 +9,7 @@ const isLoggedIn = require('../middleware/isLoggedin');
 const dashboardGetController = require('../controllers/sell/dashboard/get');
 const sellNewGetController = require('../controllers/sell/new/get');
 const sellDetailsGetController = require('../controllers/sell/details/get');
+const townGetController = require('../controllers/sell/new/getTown');
 
 const sellNewPostController = require('../controllers/sell/new/post');
 const sellNewProfilePostController = require('../controllers/sell/new/postPhoto');
@@ -17,40 +18,45 @@ const sellMarkAsSoldPostController = require('../controllers/sell/details/sold')
 
 router.get(
   '/', 
-  isLoggedIn,
-  dashboardGetController
+    isLoggedIn,
+    dashboardGetController
 );
 router.get(
   '/new',
-  isLoggedIn,
-  sellNewGetController
+    isLoggedIn,
+    sellNewGetController
 );
 router.get(
   '/details',
-  isLoggedIn,
-  sellDetailsGetController
+    isLoggedIn,
+    sellDetailsGetController
+);
+router.get(
+  '/town',  
+    isLoggedIn,
+    townGetController
 );
 
 router.post(
   '/new/photo',
-  upload.single('file'),
-  isLoggedIn,
-  sellNewProfilePostController
+    upload.single('file'),
+    isLoggedIn,
+    sellNewProfilePostController
 );
 router.post(
   '/new',
-  isLoggedIn,
-  sellNewPostController
+    isLoggedIn,
+    sellNewPostController
 );
 router.get(
   '/details/delete',
-  isLoggedIn,
-  sellDeletePostController
+    isLoggedIn,
+    sellDeletePostController
 );
 router.get(
   '/details/sold',
-  isLoggedIn,
-  sellMarkAsSoldPostController
+    isLoggedIn,
+    sellMarkAsSoldPostController
 );
 
 module.exports = router;

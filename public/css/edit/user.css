@@ -78,7 +78,7 @@
   height: 15px;
   margin-bottom: 10px;
   width: 100%;
-  color: rgb(255, 61, 148);
+  color: rgb(88, 0, 232);
   font-size: 100%;
 }
 .password-error-line {
@@ -88,7 +88,7 @@
   height: 15px;
   margin-bottom: 10px;
   width: 100%;
-  color: rgb(255, 61, 148);
+  color: rgb(88, 0, 232);
   font-size: 100%;
 }
 
@@ -107,7 +107,7 @@
 .send-form-button {
   background: rgba(255, 108, 128, 0.3);
   border: 2px solid rgba(255, 61, 148, 0.34);
-  color: rgb(255, 61, 148);
+  color: rgb(88, 0, 232);
   font-size: 125%;
   font-weight: 700;
   outline: none;
@@ -126,7 +126,7 @@
 .send-form-button-password {
   background: rgba(255, 108, 128, 0.3);
   border: 2px solid rgba(255, 61, 148, 0.34);
-  color: rgb(255, 61, 148);
+  color: rgb(88, 0, 232);
   font-size: 125%;
   font-weight: 700;
   outline: none;
@@ -145,7 +145,7 @@
 .change-password-button {
   background: white;
   border: 2px solid rgba(255, 61, 148, 0.34);
-  color: rgb(255, 61, 148);
+  color: rgb(88, 0, 232);
   font-size: 125%;
   font-weight: 700;
   outline: none;
@@ -168,7 +168,7 @@
 .back-password-button {
   background: white;
   border: 2px solid rgba(255, 61, 148, 0.34);
-  color: rgb(255, 61, 148);
+  color: rgb(88, 0, 232);
   font-size: 125%;
   font-weight: 700;
   outline: none;

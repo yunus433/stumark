@@ -4,7 +4,7 @@ const User = require('../../../models/user/User');
 const sendMail = require('../../../utils/sendMail');
 
 module.exports = (req, res, next) => {
-  if (!req.query || !req.query.email || !req.query.name || !req.query.university || !req.query.password)
+  if (!req.query || !req.query.email || !req.query.name || !req.query.university || !req.query.password)
     return res.status(400).json({ "error": "Bad request" })
 
   if (validator.isEmail(req.query.email)) {

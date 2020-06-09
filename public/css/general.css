@@ -113,7 +113,7 @@ body {
   width: 1vw;
   height: 1vw;
   transform: translateX(-100%);
-  background: rgb(255, 61, 148);
+  background: rgb(88, 0, 232);
   border-radius: 100%;
 }
 
@@ -150,7 +150,7 @@ body {
   border-radius: 120px;
   border: 0px;
   z-index: 2;
-  background: linear-gradient(45deg, rgb(255, 61, 148), rgb(255, 188, 97));
+  background: rgb(88, 0, 232);
   color: white;
   font-size: 100%;
   font-weight: 700;
@@ -215,7 +215,7 @@ body {
   height: 100%;
 }
 .user-name-title {
-  color: rgb(255, 61, 148);
+  color: rgb(88, 0, 232);
   font-size: 125%;
   font-weight: 600;
 }
@@ -240,7 +240,7 @@ body {
   text-decoration: underline;
 }
 .login-link {
-  color: rgb(255, 61, 148);
+  color: rgb(88, 0, 232);
   text-decoration: none;
   font-size: 125%;
   font-weight: 600;
@@ -292,7 +292,7 @@ body {
   border-bottom: 2px solid rgb(236, 235, 235);
   font-size: 100%;
   text-decoration: none;
-  color: rgb(255, 61, 148);
+  color: rgb(88, 0, 232);
   font-weight: 700;
   background-color: white;
 }
@@ -339,7 +339,7 @@ body {
 .category-header {
   width: 95%;
   font-size: 125%;
-  color: rgb(255, 61, 148);
+  color: rgb(88, 0, 232);
   font-weight: 600;
   margin-bottom: 15px;
 }

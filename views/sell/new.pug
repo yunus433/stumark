@@ -1,5 +1,7 @@
 extends ./../partials/header
 block main
+  input.display-none#subcategories-array(value=JSON.stringify(subcategories))
+  input.display-none#cities(value=JSON.stringify(cities))
   .content-all-wrapper
     form.new-product-form(method="POST" action="/sell/new") 
       span.form-title.required-form-part #{__('Kategorie')}
@@ -14,6 +16,9 @@ block main
           input(type="radio" name="category" value="electronic" required) 
           span #{__('Elektronik')}
         label.each-category
+          input(type="radio" name="category" value="account" required) 
+          span #{__('Ortak Üyelik/Hesap')}
+        label.each-category
           input(type="radio" name="category" value="hobby" required) 
           span #{__('Freizeit, Hobby')}
         label.each-category
@@ -23,22 +28,31 @@ block main
           input(type="radio" name="category" value="lesson" required) 
           span #{__('Unterricht, Kurse')}
         label.each-category
+          input(type="radio" name="category" value="home" required) 
+          span #{__('Ev Eşyaları')}
+        label.each-category
+          input(type="radio" name="category" value="ticket" required) 
+          span #{__('Bilet')}
+        label.each-category
           input(type="radio" name="category" value="exchange" required) 
           span #{__('Zu Verschenken, Tauschen')}
-        label.each-category
-          input(type="radio" name="category" value="fun" required) 
-          span #{__('Musik, Filme')}
         label.each-category
           input(type="radio" name="category" value="donation" required) 
           span #{__('Spende')}
         label.each-category
-          input(type="radio" name="category" value="rented" required) 
-          span #{__('Mietwohnung, Nachmiete')}
-        label.each-category
           input(type="radio" name="category" value="other" required) 
           span #{__('Sonstige')}
+      span.form-title.required-form-part #{__('Alt Kategori')}
+      .subcategories-outer-wrapper
+        .select-subcategory-button
+          input.display-none(type="text" value="Hepsi" name="subcategory")
+          span Hepsi
+          i.fas.fa-chevron-down
+        .subcategories-select-wrapper
+          .subcategories-wrapper
+            span.select-each-subcategory Hepsi
       span.form-title.required-form-part #{__('Anzeigendetails')}
-      input.product-name(type="text" name="name" placeholder="Ürün İsmi" autocomplete="off")
+      input.product-name(type="text" name="name" placeholder="Ürün İsmi")
       textarea.product-description(name="description" placeholder="Ürün Detayları" rows="10" )
       span.form-title.required-form-part #{__('Preis')}
       .price-wrapper
@@ -59,12 +73,20 @@ block main
             input.display-none#product-image-input(type="file" name="photo" accept="image/*")
       span.form-title.required-form-part #{__('Address')}
       .form-line
-        div.address-input-small
-          input.address-input(type="text" required name="city" placeholder="Şehir" autocomplete="off")
-          span.required-input-span *
-        div.address-input-big
-          input.address-input(type="text" required name="town" placeholder="İlçe" autocomplete="off")
-          span.required-input-span *
+        .address-input-outer-wrapper
+          div.address-input-small
+            input.address-input#city-input(type="text" required name="city" placeholder="Şehir" autocomplete="nope")
+            span.required-input-span *
+          .select-city-outer-wrapper
+            .select-city-wrapper
+              each city in cities
+                span.each-city-select= city
+        .address-input-outer-wrapper
+          div.address-input-big
+            input.address-input#town-input(type="text" required name="town" placeholder="İlçe" autocomplete="nope")
+            span.required-input-span *
+          .select-town-outer-wrapper
+            .select-town-wrapper
       span.form-title.required-form-part #{__('Veröffentliche deine Anzeige')}
       .user-agrement-link
         span #{__('Mit der Registrierung erklärst du dich einverstanden mit unseren')}

@@ -98,7 +98,7 @@
   margin-bottom: 20px;
 }
 .main-product-price {
-  color: rgb(255, 61, 148);
+  color: rgb(88, 0, 232);
   font-size: 200%;
   font-weight: 700;
   margin-top: auto;
@@ -138,9 +138,9 @@
   margin-top: 25px;
   margin-left: 100%;
   transform: translateX(-100%);
-  background: rgba(255, 108, 128, 0.3);
-  border: 2px solid rgba(255, 61, 148, 0.34);
-  color: rgb(255, 61, 148);
+  background: rgba(88, 0, 232, 0.1);
+  border: 2px solid rgba(88, 0, 232, 0.34);
+  color: rgb(88, 0, 232);
   font-size: 125%;
   font-weight: 700;
   outline: none;
@@ -150,7 +150,7 @@
   border-radius: 15px;
 }
 .send-message-button:hover {
-  border-color: rgba(255, 61, 148, 0.5);
+  border-color: rgba(88, 0, 232, 0.5);
 }
 
 .other-products-title {
@@ -221,7 +221,7 @@
   margin-bottom: 10px;
 }
 .product-price {
-  color: rgb(255, 61, 148);
+  color: rgb(88, 0, 232);
   font-size: 175%;
   font-weight: 700;
   margin-top: auto;

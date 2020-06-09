@@ -8,11 +8,13 @@ const isApiAuthenticated = require('../middleware/isApiAuthenticated');
 
 const loginGetController = require('../controllers/api/auth/login');
 const registerGetController = require('../controllers/api/auth/register');
-const verifyGetController = require('../controllers/api/auth/verify');
 const usersGetController = require('../controllers/api/users/users');
 const productsGetController = require('../controllers/api/products/products');
 const messagesDashboardGetController = require('../controllers/api/messages/dashboard/get');
 const messagesDetailsGetConroller = require('../controllers/api/messages/details/get');
+
+const loginPostController = require('../controllers/api/auth/login/post');
+const registerPostController = require('../controllers/api/auth/register/post');
 
 const newProductPostController = require('../controllers/api/products/newProduct');
 const newProductImagePostController = require('../controllers/api/products/newProductImage');
@@ -34,11 +36,6 @@ router.get(
     registerGetController
 );
 router.get(
-  '/verify',
-    isApiAuthenticated,
-    verifyGetController
-);
-router.get(
   '/users',
     isApiAuthenticated,
     usersGetController
@@ -57,6 +54,17 @@ router.get(
   '/messages/details',
     isApiAuthenticated,
     messagesDetailsGetConroller
+);
+
+router.post(
+  '/auth/login',
+    isApiAuthenticated,
+    loginPostController
+);
+router.post(
+  '/auth/register',
+    isApiAuthenticated,
+    registerPostController
 );
 
 router.post(

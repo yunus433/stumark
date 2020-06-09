@@ -1,5 +1,6 @@
 extends ./../partials/head
 block content
+  input.display-none#schools-json(value=JSON.stringify(schools))
   .form-main-wrapper
     form.form-wrapper(action="/auth/register" method="post")
       .form-header
@@ -9,10 +10,16 @@ block content
         input.form-input(type="text" autocomplete="off" autofocus required placeholder="E-Posta" name="email")
       .form-line
         i.fas.fa-user
-        input.form-input(type="text" autocomplete="off" autofocus required placeholder="Ad Soyad" name="name")
-      .form-line
-        i.fas.fa-university
-        input.form-input(type="text" autocomplete="off" autofocus required placeholder="Lise / Üniversite" name="university")
+        input.form-input(type="text" autocomplete="off" required placeholder="Ad Soyad" name="name")
+      .schools-outer-wrapper
+        .select-school-button
+          i.fas.fa-university
+          input.display-none(type="text" name="school")
+          input.select-school-input(type="text" autocomplete="off" placeholder="Lise / Üniversite")
+        .schools-wrapper
+          .schools-inner-wrapper
+            each school in schools
+              span.select-each-school(id=school._id.toString())= school.name
       .form-line
         i.fas.fa-key
         input.form-input#password-input-one(type="password" autocomplete="off" autofocus required placeholder="Şifre (en az 6 karakterli)" name="password")
@@ -26,12 +33,14 @@ block content
         a(href="/auth/agreement/one") #{__('Datenschutzerklärung')}
       button.form-send-button #{__('Registrieren')}
       .error-line
-        if err && err == "already taken email"
+        if error && error == "already taken email"
           span.each-error-line #{__('Diese E-mail ist bereits registriert')}
-        else if err && err == "not valid email"
+        else if error && error == "not valid email"
           span.each-error-line #{__('Diese E-mail ist nicht verfügbar')}
+        else if error && error == "school error"
+          span.each-error-line #{__('Lütfen listede bulunan bir okulu seçin')}
         else 
           span.each-error-line
     .form-bottom-info
-      span #{__('Schon registriert')}?
+      span #{__('Schon registriert')}
       a.bottom-link(href="/auth/login") #{__('Einloggen')}

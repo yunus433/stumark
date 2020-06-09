@@ -32,6 +32,97 @@
   color: rgb(112, 112, 112);
   font-family: "Source Sans Pro";
 }
+
+.select-school-button {
+  width: 100%;
+  margin-bottom: 15px;
+  border: 2px solid rgb(236, 235, 235);
+  background: rgb(248, 248, 248);
+  padding: 14px 0;
+  border-radius: 15px;
+  padding-right: 20px;
+  display: flex;
+  align-items: center;
+  color: rgb(112, 112, 112);
+  font-weight: 600;
+}
+.select-school-button:hover {
+  border-color: rgb(236, 235, 235);
+}
+.select-school-button i {
+  font-size: 100%;
+  color: rgb(112, 112, 112);
+  margin: 0px 10px;
+}
+.select-school-input {
+  flex: 1;
+  font-size: 100%;
+  border: none;
+  outline: none;
+  color: rgb(112, 112, 112);
+  background: rgb(248, 248, 248);
+  font-weight: 300;
+  font-family: "Source Sans Pro";
+}
+.clicked {
+  border-bottom: 0px;
+  margin-bottom: 17px;
+  border-bottom-left-radius: 0px !important;
+  border-bottom-right-radius: 0px !important;
+}
+
+.schools-wrapper {
+  display: flex;
+  flex-direction: column;
+  display: none;
+  align-items: center;
+  height: 20vh;
+  position: absolute;
+  width: 95%;
+  padding-right: 4px;
+  margin-top: -17px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  z-index: 2;
+}
+.schools-inner-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 20vh;
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+  width: 100%;
+  border: 2px solid rgb(236, 235, 235);
+  border-top: 0px;
+  background-color: rgb(248, 248, 248);
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  z-index: 2;
+}
+.select-each-school {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-shrink: initial;
+  align-items: center;
+  padding: 15px 0px;
+  min-height: 50px;
+  border-top: 2px solid rgb(236, 235, 235);
+  color: rgb(112, 112, 112);
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.open-schools-animation-class {
+  animation: openSchoolsWrapperAnimation 0.3s ease-in-out 0s 1 forwards;
+  -webkit-animation: openSchoolsWrapperAnimation 0.3s ease-in-out 0s 1 forwards;
+}
+.close-schools-animation-class {
+  animation: closeSchoolsWrapperAnimation 0.3s ease-in-out 0s 1 forwards;
+  -webkit-animation: closeSchoolsWrapperAnimation 0.3s ease-in-out 0s 1 forwards;
+}
+
 .login-logo {
   height: 10vh;
   margin-left: 5%;
@@ -44,8 +135,7 @@
   border: 2px solid rgb(236, 235, 235);
   display: flex;
   flex-direction: column;
-  padding: 10px;
-  padding-left: 5%;
+  padding: 2.5%;
 }
 .form-header {
   display: flex;
@@ -60,7 +150,7 @@
 }
 .lost-password-link {
   font-size: 100%;
-  color: rgb(255, 61, 148);
+  color: rgb(111, 214, 175);
   text-decoration: none;
   display: flex;
   flex-direction: column;
@@ -77,16 +167,16 @@
   margin-bottom: 25px;
 }
 .user-agrement-link a {
-  color: rgb(255, 61, 148);
+  color: rgb(111, 214, 175);
   margin-left: 5px;
 }
 .form-send-button {
   text-align: center;
   width: 100%;
   padding: 12px 0px;
-  background: rgba(255, 108, 128, 0.3);
-  border: 2px solid rgba(255, 61, 148, 0.34);
-  color: rgb(255, 61, 148);
+  background: rgba(88, 0, 232, 0.1);
+  border: 2px solid rgba(88, 0, 232, 0.34);
+  color: rgb(88, 0, 232);
   font-size: 125%;
   font-weight: 700;
   font-family: "Source Sans Pro";
@@ -96,7 +186,7 @@
   margin-bottom: 20px;
 }
 .form-send-button:hover {
-  border: 2px solid rgba(255, 61, 148, 0.5);
+  border: 2px solid rgba(88, 0, 232, 0.5);
 }
 .error-line {
   display: flex;
@@ -107,7 +197,7 @@
   width: 100%;
 }
 .each-error-line {
-  color: rgb(255, 61, 148);
+  color: rgb(111, 214, 175);
   font-size: 100%;
 }
 .each-notification-line {
@@ -124,7 +214,7 @@
   font-weight: 400;
 }
 .bottom-link {
-  color: rgb(255, 61, 148);
+  color: rgb(88, 0, 232);
   text-decoration: none;
   font-weight: 700;
 }
@@ -158,9 +248,9 @@
 }
 .send-new-verify-email {
   margin-top: 25px;
-  background: rgba(255, 108, 128, 0.3);
-  border: 2px solid rgba(255, 61, 148, 0.34);
-  color: rgb(255, 61, 148);
+  background: rgba(88, 0, 232, 0.1);
+  border: 2px solid rgba(88, 0, 232, 0.34);
+  color: rgb(88, 0, 232);
   font-size: 125%;
   font-weight: 700;
   outline: none;
@@ -170,7 +260,7 @@
   border-radius: 15px;
 }
 .send-new-verify-email:hover {
-  border-color: rgba(255, 61, 148, 0.5);
+  border-color: rgba(88, 0, 232, 0.5);
 }
 .verify-go-back-link {
   border: 2px solid rgb(236, 235, 235);
@@ -203,6 +293,40 @@
   }
   to {
     color: rgba(255, 51, 51, 0.7);
+  }
+}
+
+@keyframes openSchoolsWrapperAnimation {
+  from {
+    height: 0vh;
+  }
+  to {
+    height: 25vh;
+  }
+}
+@-webkit-keyframes openSchoolsWrapperAnimation {
+  from {
+    height: 0vh;
+  }
+  to {
+    height: 25vh;
+  }
+}
+
+@keyframes closeSchoolsWrapperAnimation {
+  from {
+    height: 25vh;
+  }
+  to {
+    height: 0vh;
+  }
+}
+@-webkit-keyframes closeSchoolsWrapperAnimation {
+  from {
+    height: 25vh;
+  }
+  to {
+    height: 0vh;
   }
 }
 

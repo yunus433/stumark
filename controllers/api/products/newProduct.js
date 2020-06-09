@@ -46,7 +46,8 @@ module.exports = (req, res) => {
       city_name: req.body.city,
       town: req.body.town,
       owner: req.body.userId,
-      university: req.body.university
+      university: req.body.university,
+      school: req.body.school
     };
   
     const newProduct = new Product(newProductData);

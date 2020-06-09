@@ -88,5 +88,11 @@
 	"Spende": "Bağış",
 	"Papierware": "Kırtasiye",
 	"Geschafft, du findest in einer e-Mail den Resetlink": "E-Posta'nıza sıfırlama linki gönderildi, lütfen linke tıklayarak yeni şifrenizi oluşturun.",
-	"Sorry, this email doesn't exist": "Bu e-posta adresi kayıtlı değil."
+	"Sorry, this email doesn't exist": "Bu e-posta adresi kayıtlı değil.",
+	"Lütfen listede bulunan bir okulu seçin": "Lütfen listede bulunan bir okulu seçin",
+	"Alt Kategori": "Alt Kategori",
+	"Ortak Üyelik/Hesap": "Ortak Üyelik/Hesap",
+	"Ev Eşyaları": "Ev Eşyaları",
+	"Bilet": "Bilet",
+	"Ev Eşyası": "Ev Eşyası"
 }

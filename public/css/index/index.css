@@ -15,7 +15,7 @@
   background: white;
   border: 2px solid rgb(236, 235, 235);
   border-radius: 15px;
-  color: rgb(255, 61, 148);
+  color: rgb(88, 0, 232);
   font-size: 200%;
   font-weight: 600;
   text-align: center;
@@ -120,7 +120,7 @@
   margin-bottom: 10px;
 }
 .product-price {
-  color: rgb(255, 61, 148);
+  color: rgb(88, 0, 232);
   font-size: 175%;
   font-weight: 700;
   margin-top: auto;

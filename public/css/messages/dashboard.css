@@ -29,9 +29,9 @@
 }
 .each-type-button {
   background: white;
-  border-top: 2px solid rgba(255, 61, 148, 0.34);
-  border-right: 2px solid rgba(255, 61, 148, 0.34);
-  color: rgb(255, 61, 148);
+  border-top: 2px solid rgba(88, 0, 232, 0.34);
+  border-right: 2px solid rgba(88, 0, 232, 0.34);
+  color: rgb(88, 0, 232);
   font-size: 125%;
   font-weight: 700;
   width: 35%;
@@ -44,7 +44,7 @@
   z-index: 2;
 }
 .each-type-button:hover {
-  border-color: rgba(255, 61, 148, 0.5);
+  border-color: rgba(88, 0, 232, 0.5);
 }
 .sell-message-button {
   margin-left: -15px;
@@ -136,7 +136,7 @@
   width: 2vw;
   height: 2vw;
   border-radius: 100%;
-  background: rgb(255, 61, 148);
+  background: rgb(88, 0, 232);
   transform: translate(-125%, -125%);
   display: flex;
   align-items: center;

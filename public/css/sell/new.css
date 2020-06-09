@@ -31,7 +31,7 @@
 }
 .required-form-part::after {
   content: "*";
-  color: rgb(255, 61, 148);
+  color: rgb(88, 0, 232);
   font-size: 30px;
 }
 .form-line {
@@ -58,6 +58,65 @@
   width: 20px;
   height: 20px;
 }
+
+.subcategories-outer-wrapper {
+  z-index: 5;
+  margin-bottom: 15px;
+}
+.select-subcategory-button {
+  width: 200px;
+  height: 50px;
+  border: 2px solid rgb(236, 235, 235);
+  background: rgb(248, 248, 248);
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: rgb(112, 112, 112);
+  font-weight: 600;
+}
+.select-subcategory-button i {
+  margin-left: 5px;
+}
+.clicked {
+  border-bottom: 0px;
+  margin-bottom: 17px;
+  border-bottom-left-radius: 0px !important;
+  border-bottom-right-radius: 0px !important;
+}
+
+.subcategories-select-wrapper {
+  width: 200px;
+  height: 10px;
+  z-index: 5;
+}
+.subcategories-wrapper {
+  display: none;
+  width: 200px;
+  max-height: 150px;
+  background-color: rgb(248, 248, 248);
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border: 2px solid rgb(236, 235, 235);
+  border-top: 0px;
+  z-index: 5;
+  overflow: scroll;
+}
+.select-each-subcategory {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-shrink: initial;
+  align-items: center;
+  padding: 15px 0px;
+  min-height: 50px;
+  border-top: 2px solid rgb(236, 235, 235);
+  color: rgb(112, 112, 112);
+  cursor: pointer;
+  font-weight: 600;
+}
+
 
 .product-name {
   background: rgb(248, 248, 248);
@@ -157,7 +216,7 @@
   margin-left: 15px;
   min-height: 15vh;
   min-width: 15vh;
-  background: rgba(255, 108, 128, 0.3);
+  background: rgba(88, 0, 232, 0.1);
   color: rgb(112, 112, 112);
   font-weight: 700;
   font-size: 150%;
@@ -182,6 +241,10 @@
   border-radius: 15px;
 }
 
+.address-input-outer-wrapper {
+  z-index: 5;
+  margin-bottom: 25px;
+}
 .address-input {
   background: rgb(248, 248, 248);
   border: 2px solid rgb(236, 235, 235);
@@ -192,18 +255,43 @@
   font-weight: 300;
   color: rgb(112, 112, 112);
   outline: none;
-  margin-bottom: 25px;
-  width: 90%;
+  width: 200px;
 }
 .address-input-small {
-  flex: 1;
+  margin-right: 5px;
 }
-.address-input-big {
-  flex: 2;
-  margin-left: 5px;
+.select-city-outer-wrapper, .select-town-outer-wrapper {
+  z-index: 5;
+  height: 2px;
+  width: 200px;
+}
+.select-city-wrapper, .select-town-wrapper {
+  display: none;
+  width: 200px;
+  max-height: 150px;
+  background-color: rgb(248, 248, 248);
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border: 2px solid rgb(236, 235, 235);
+  border-top: 0px;
+  z-index: 5;
+  overflow: scroll;
+}
+.each-city-select, .each-town-select {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-shrink: initial;
+  align-items: center;
+  padding: 15px 0px;
+  min-height: 50px;
+  border-top: 2px solid rgb(236, 235, 235);
+  color: rgb(112, 112, 112);
+  cursor: pointer;
+  font-weight: 600;
 }
 .required-input-span {
-  color: rgb(255, 61, 148);
+  color: rgb(88, 0, 232);
   font-size: 30px;
   align-self: flex-start;
   height: 100%;
@@ -217,14 +305,14 @@
   margin-bottom: 25px;
 }
 .user-agrement-link a {
-  color: rgb(255, 61, 148);
+  color: rgb(88, 0, 232);
   margin-left: 5px;
 }
 
 .form-send-button {
-  background: rgba(255, 108, 128, 0.3);
-  border: 2px solid rgba(255, 61, 148, 0.34);
-  color: rgb(255, 61, 148);
+  background: rgba(88, 0, 232, 0.1);
+  border: 2px solid rgba(88, 0, 232, 0.34);
+  color: rgb(88, 0, 232);
   font-size: 125%;
   font-weight: 700;
   outline: none;
@@ -235,7 +323,7 @@
   margin-left: auto;
 }
 .form-send-button:hover {
-  border-color: rgba(255, 61, 148, 0.5);
+  border-color: rgba(88, 0, 232, 0.5);
 }
 
 @keyframes circle {

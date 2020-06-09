@@ -78,7 +78,7 @@
   margin-bottom: 10px;
 }
 .product-price {
-  color: rgb(255, 61, 148);
+  color: rgb(88, 0, 232);
   font-size: 175%;
   font-weight: 700;
   margin-top: auto;
@@ -112,9 +112,9 @@
 .no-product-warning-button {
   margin-top: 15px;
   text-decoration: none;
-  background: rgba(255, 108, 128, 0.3);
-  border: 2px solid rgba(255, 61, 148, 0.34);
-  color: rgb(255, 61, 148);
+  background: rgba(88, 0, 232, 0.1);
+  border: 2px solid rgba(88, 0, 232, 0.34);
+  color: rgb(88, 0, 232);
   font-size: 100%;
   font-weight: 700;
   outline: none;
@@ -127,7 +127,7 @@
   width: 25%;
 }
 .no-product-warning-button:hover {
-  border-color: rgba(255, 61, 148, 0.5);
+  border-color: rgba(88, 0, 232, 0.5);
 }
 
 @media only screen and (max-width: 900px) and (min-width: 600px) {

@@ -24,6 +24,10 @@ const ProductSchema = new Schema({
     type: String,
     required: true
   },
+  subcategory: {
+    type: String,
+    default: "Diğer"
+  },
   city: {
     type: String,
     required: true
@@ -59,271 +63,68 @@ const ProductSchema = new Schema({
   owner: {
     type: String,
     required: true
+  },
+  school: {
+    type: String,
+    required: true
   }
 });
 
 ProductSchema.statics.getNumberOfProducts = function (params, callback) {
   const Product = this;
 
-  if (params.keywords) {
-    const keywordsArr = (engName(params.keywords).split(' ').join('+').split('\n').join('+').split('\t').join('+')).split("+");
+  const keywords = params.keywords ? (engName(params.keywords).split(' ').join('+').split('\n').join('+').split('\t').join('+')).split("+") : [];
 
-    if (params.category != "all") {
-      if (params.university) {
-        Product
-          .find({keywords: {$all: keywordsArr}, category: params.category, price: {$ne: "SOLD"}, university: {$in: params.university}})
-          .countDocuments()
-          .then((number) => {
-            return callback(null, number);
-          })
-          .catch(err => {
-            return callback(err);
-          });
-      } else {
-        Product
-          .find({keywords: {$all: keywordsArr}, category: params.category, price: {$ne: "SOLD"}})
-          .countDocuments()
-          .then((number) => {
-            return callback(null, number);
-          })
-          .catch(err => {
-            return callback(err);
-          });
-      }
-    } else {
-      if (params.university) {
-        Product
-          .find({keywords: {$all: keywordsArr}, price: {$ne: "SOLD"}, university: {$in: params.university}})
-          .countDocuments()
-          .then((number) => {
-            return callback(null, number);
-          })
-          .catch(err => {
-            return callback(err);
-          });
-      } else {
-        Product
-          .find({keywords: {$all: keywordsArr}, price: {$ne: "SOLD"}})
-          .countDocuments()
-          .then((number) => {
-            return callback(null, number);
-          })
-          .catch(err => {
-            return callback(err);
-          });
-      }
-    }
-  } else {
-    if (params.category != "all") {
-      if (params.university) {
-        Product
-          .find({category: params.category, price: {$ne: "SOLD"}, university: {$in: params.university}})
-          .countDocuments()
-          .then((number) => {
-            return callback(null, number);
-          })
-          .catch(err => {
-            return callback(err);
-          });
-      } else {
-        Product
-          .find({category: params.category, price: {$ne: "SOLD"}})
-          .countDocuments()
-          .then((number) => {
-            return callback(null, number);
-          })
-          .catch(err => {
-            return callback(err);
-          });
-      }
-    } else {
-      if (params.university) {
-        Product
-          .find({price: {$ne: "SOLD"}, university: {$in: params.university}})
-          .countDocuments()
-          .then((number) => {
-            return callback(null, number);
-          })
-          .catch(err => {
-            return callback(err);
-          });
-      } else {
-        Product
-          .find({price: {$ne: "SOLD"}})
-          .countDocuments()
-          .then((number) => {
-            return callback(null, number);
-          })
-          .catch(err => {
-            return callback(err);
-          });
-      }
-    }
+  const preferences = {
+    _id: params.productId ? { $ne: params.productId } : { $ne: null },
+    keywords: keywords.length ? { $all: keywords } : { $ne: [] },
+    category: params.category != "all" && params.category ? params.category : { $ne: null },
+    subcategory: params.subcategory != "Tümü" && params.subcategory ? params.subcategory : { $ne: null },
+    price: { $ne: "SATILDI" },
+    city: params.city ? { $in: params.city } : { $ne: null },
+    town: params.town ? { $in: params.town } : { $ne: null }
   }
+
+  Product
+    .find(preferences)
+    .countDocuments()
+    .then(products => {
+      if (products) return callback(null, products);
+            
+      return callback(true);
+    })
+    .catch(err => {
+      return callback(err);
+    });
 }
 
 ProductSchema.statics.getLatest = function (params, callback) {
   const Product = this;
 
-  if (params.keywords) {
-    const keywordsArr = (engName(params.keywords).split(' ').join('+').split('\n').join('+').split('\t').join('+')).split("+");
+  const keywords = params.keywords ? (engName(params.keywords).split(' ').join('+').split('\n').join('+').split('\t').join('+')).split("+") : [];
 
-    if (params.category != "all") {
-      if (params.city) {
-        Product
-          .find({
-            keywords: {$all: keywordsArr},
-            category: params.category,
-            price: {$ne: "SOLD"},
-            city: {$in: params.city},
-            _id: (params.productId ? {$nin: [params.productId]} : {$nin: [null]})
-          })
-          .sort({"createdAtSecond": -1})
-          .skip(params.docsToSkip)
-          .limit(params.limit)
-          .then((products) => {
-            if (products) return callback(null, products);
-            
-            return callback(true);
-          })
-          .catch(err => {
-            callback(err);
-          });
-      } else {
-        Product
-          .find({
-            keywords: {$all: keywordsArr},
-            category: params.category,
-            price: {$ne: "SOLD"},
-            _id: (params.productId ? {$nin: [params.productId]} : {$nin: [null]})
-          })
-          .sort({"createdAtSecond": -1})
-          .skip(params.docsToSkip)
-          .limit(params.limit)
-          .then((products) => {
-            if (products) return callback(null, products);
-            
-            return callback(true);
-          })
-          .catch(err => {
-            callback(err);
-          });
-      }
-    } else {
-      if (params.city) {
-        Product
-          .find({
-            keywords: {$all: keywordsArr},
-            price: {$ne: "SOLD"},
-            city: {$in: params.city},
-            _id: (params.productId ? {$nin: [params.productId]} : {$nin: [null]})
-          })
-          .sort({"createdAtSecond": -1})
-          .skip(params.docsToSkip)
-          .limit(params.limit)
-          .then((products) => {
-            if (products) return callback(null, products);
-            
-            return callback(true);
-          })
-          .catch(err => {
-            callback(err);
-          });
-      } else {
-        Product
-          .find({keywords: {$all: keywordsArr}, price: {$ne: "SOLD"}})
-          .sort({"createdAtSecond": -1})
-          .skip(params.docsToSkip)
-          .limit(params.limit)
-          .then((products) => {
-            if (products) return callback(null, products);
-            
-            return callback(true);
-          })
-          .catch(err => {
-            callback(err);
-          });
-      }
-    }
-  } else {
-    if (params.category != "all") {
-      if (params.city) {
-        Product
-          .find({
-            category: params.category,
-            price: {$ne: "SOLD"},
-            city: {$in: params.city},
-            _id: (params.productId ? {$nin: [params.productId]} : {$nin: [null]})
-          })
-          .sort({"createdAtSecond": -1})
-          .skip(params.docsToSkip)
-          .limit(params.limit)
-          .then((products) => {
-            if (products) return callback(null, products);
-            
-            return callback(true);
-          })
-          .catch(err => {
-            callback(err);
-          });
-      } else {
-        Product
-          .find({
-            category: params.category,
-            price: {$ne: "SOLD"},
-            _id: (params.productId ? {$nin: [params.productId]} : {$nin: [null]})
-          })
-          .sort({"createdAtSecond": -1})
-          .skip(params.docsToSkip)
-          .limit(params.limit)
-          .then((products) => {
-            if (products) return callback(null, products);
-            
-            return callback(true);
-          })
-          .catch(err => {
-            callback(err);
-          });
-      }
-    } else {
-      if (params.city) {
-        Product
-          .find({
-            price: {$ne: "SOLD"},
-            city: {$in: params.city},
-            _id: (params.productId ? {$nin: [params.productId]} : {$nin: [null]})
-          })
-          .sort({"createdAtSecond": -1})
-          .skip(params.docsToSkip)
-          .limit(params.limit)
-          .then((products) => {
-            if (products) return callback(null, products);
-            
-            return callback(true);
-          })
-          .catch(err => {
-            callback(err);
-          });
-      } else {
-        Product
-          .find({
-            price: {$ne: "SOLD"},
-            _id: (params.productId ? {$nin: [params.productId]} : {$nin: [null]})
-          })
-          .sort({"createdAtSecond": -1})
-          .skip(params.docsToSkip)
-          .limit(params.limit)
-          .then((products) => {
-            if (products) return callback(null, products);
-            
-            return callback(true);
-          })
-          .catch(err => {
-            callback(err);
-          });
-      }
-    }
+  const preferences = {
+    _id: params.productId ? { $ne: params.productId } : { $ne: null },
+    keywords: keywords.length ? { $all: keywords } : { $ne: [] },
+    category: params.category != "all" && params.category ? params.category : { $ne: null },
+    subcategory: params.subcategory != "Tümü" && params.subcategory ? params.subcategory : { $ne: null },
+    price: { $ne: "SATILDI" },
+    city: params.city ? { $in: params.city } : { $ne: null },
+    town: params.town ? { $in: params.town } : { $ne: null }
   }
+
+  Product
+    .find(preferences)
+    .sort({ "createdAtSecond": -1 })
+    .limit(params.limit)
+    .then(products => {
+      if (products) return callback(null, products);
+            
+      return callback(true);
+    })
+    .catch(err => {
+      return callback(err);
+    });
 };
 
 ProductSchema.statics.sortByProductPhotoIndex = function (id, callback) {
