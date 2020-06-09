@@ -4,6 +4,10 @@
   justify-content: center;
   align-items: center;
 }
+.admin-all-content span {
+  margin: 10px 20px;
+  text-align: center;
+}
 .admin-all-content a {
   padding: 10px;
   color: black;

@@ -26,7 +26,7 @@
   color: rgb(112, 112, 112);
   font-weight: 300;
 }
-.new-school-button {
+.new-user-button {
   padding: 10px 50px;
   background-color: rgb(248, 248, 248);
   border: 2px solid rgb(236, 236, 236);
@@ -45,7 +45,7 @@
   overflow: scroll;
   -webkit-overflow-scrolling: touch;
 }
-.each-school {
+.each-user {
   display: flex;
   padding: 15px;
   border: 2px solid rgb(236, 236, 236);
@@ -55,17 +55,36 @@
   cursor: pointer;
   text-decoration: none;
   display: flex;
-  flex-direction: column;
+  align-items: center;
 }
-.school-name {
-  margin-bottom: 5px;
+.each-user-profile-wrapper {
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  border-radius: 25px;
+}
+.each-user-profile {
+  width: 50px;
+}
+.each-user-email {
+  margin-left: 10px;
   font-size: 125%;
   color: rgb(112, 112, 112);
   font-weight: 600;
 }
-.school-number {
-  font-weight: 300;
+.each-user-name {
+  margin-left: 10px;
+  font-size: 125%;
   color: rgb(112, 112, 112);
+  font-weight: 300;
+}
+.each-user-school {
+  margin-left: 10px;
+  font-size: 100%;
+  color: rgb(112, 112, 112);
+  font-weight: 300;
 }
 
 .new-form-wrapper {

@@ -1,0 +1,15 @@
+extends ../../partials/adminHeader
+block main
+  .all-content-header
+    .title-wrapper
+      span.title= user.name
+      span.subtitle Bu sayfadan bu okul kaydını görebilir ve e-posta adresini veya şifresini değiştirebilirsiniz. Güvenlik sebepleri ile eski şifre görünemez.
+    a.delete-user-button(href="/admin/users/delete?id=" + user._id.toString() onclick="return confirm('Bu kullanıcıyı silmek istediğinize emin misiniz?')" )
+      span Sil
+  form.new-form-wrapper(action="/admin/users/details?id=" + user._id.toString() method="POST")
+    span.form-title Kullanıcıyı Düzenle
+    span.form-subtitle E-Posta Adresi: *
+    input.form-input(type="text" placeholder="E-Posta Adresi" name="email" value=user.email required)
+    span.form-subtitle Şifre:
+    input.form-input(type="text" placeholder="En az 6 haneli olmalı" name="password")
+    button.form-button Düzenle

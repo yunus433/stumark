@@ -7,6 +7,7 @@ module.exports = (req, res) => {
   const newSchoolData = {
     name: req.body.name,
     city: req.body.city,
+    town: req.body.town,
     other_names: req.body.other_names && req.body.other_names.length ? req.body.other_names.split(',').map(school => school.trim().toLocaleLowerCase()) : []
   };
 

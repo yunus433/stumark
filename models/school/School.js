@@ -11,6 +11,10 @@ const SchoolSchema = new Schema({
     type: String,
     required: true
   },
+  town: {
+    type: String,
+    required: true
+  },
   other_names: {
     type: Array,
     default: []
