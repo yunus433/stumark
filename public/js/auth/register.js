@@ -26,42 +26,24 @@ window.onload = () => {
   const schoolsOuterWrapper = document.querySelector('.schools-wrapper');
   
   document.addEventListener('click', event => {
-    if ((event.target.classList.contains('select-school-button') && event.target.classList.contains('clicked') && !event.target.classList.contains('select-school-input')) || (event.target.parentNode.classList.contains('select-school-button') && event.target.parentNode.classList.contains('clicked') && !event.target.classList.contains('select-school-input'))) {
-      schoolsWrapper.classList.remove('open-schools-animation-class');
-      schoolsWrapper.classList.add('close-schools-animation-class');
-      clicked = false;
-
-      setTimeout(() => {
-        selectCityButton.classList.remove('clicked');
-        schoolsOuterWrapper.style.display = 'none';
-      }, 300);
-    } else if (event.target.classList.contains('select-school-button') || event.target.parentNode.classList.contains('select-school-button')) {
-      document.querySelector('.form-main-wrapper').scrollTop = 0;
-
-      setTimeout(() => {
-        selectCityButton.classList.add('clicked');
-        selectCityInput.focus();
-        clicked = true;
-        schoolsOuterWrapper.style.display = 'flex';
-        schoolsWrapper.classList.remove('close-schools-animation-class');
-        schoolsWrapper.classList.add('open-schools-animation-class');
-      }, 100);
-    } else if (clicked) {
-      schoolsWrapper.classList.remove('open-schools-animation-class');
-      schoolsWrapper.classList.add('close-schools-animation-class');
-
-      setTimeout(() => {
-        selectCityButton.classList.remove('clicked');
-        schoolsOuterWrapper.style.display = 'none';
-      }, 300);
-    }
-
     if (event.target.className == 'select-each-school') {
       selectCityButton.childNodes[1].value = event.target.id;
       selectCityButton.childNodes[2].value = event.target.innerHTML;
       selectedCity = event.target.innerHTML;
     }
   });
+
+  selectCityInput.onfocus = () => {
+    selectCityButton.style.borderBottomLeftRadius = "0px";
+    selectCityButton.style.borderBottomRightRadius = "0px";
+    schoolsOuterWrapper.style.display = "flex";
+  }
+
+  selectCityInput.onblur = () => {
+    selectCityButton.style.borderBottomLeftRadius = "15px";
+    selectCityButton.style.borderBottomRightRadius = "15px";
+    schoolsOuterWrapper.style.display = "none";
+  }
 
   selectCityInput.oninput = (event) => {
     if (!clicked) {
@@ -89,14 +71,5 @@ window.onload = () => {
       }
     });
 
-  };
-
-  document.querySelector('.form-main-wrapper').onscroll = (event) => {
-    schoolsWrapper.classList.remove('open-schools-animation-class');
-    schoolsWrapper.classList.add('close-schools-animation-class');
-    clicked = false;
-  
-    selectCityButton.classList.remove('clicked');
-    schoolsWrapper.style.display = 'none';
   };
 }

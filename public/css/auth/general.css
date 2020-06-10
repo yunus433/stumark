@@ -71,15 +71,14 @@
   border-bottom-right-radius: 0px !important;
 }
 
+.schools-outer-wrapper {
+  height: 70px;
+}
 .schools-wrapper {
-  display: flex;
-  flex-direction: column;
   display: none;
+  flex-direction: column;
   align-items: center;
-  height: 20vh;
-  position: absolute;
-  width: 95%;
-  padding-right: 4px;
+  width: 100%;
   margin-top: -17px;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
@@ -112,15 +111,6 @@
   color: rgb(112, 112, 112);
   cursor: pointer;
   font-weight: 600;
-}
-
-.open-schools-animation-class {
-  animation: openSchoolsWrapperAnimation 0.3s ease-in-out 0s 1 forwards;
-  -webkit-animation: openSchoolsWrapperAnimation 0.3s ease-in-out 0s 1 forwards;
-}
-.close-schools-animation-class {
-  animation: closeSchoolsWrapperAnimation 0.3s ease-in-out 0s 1 forwards;
-  -webkit-animation: closeSchoolsWrapperAnimation 0.3s ease-in-out 0s 1 forwards;
 }
 
 .login-logo {
@@ -293,40 +283,6 @@
   }
   to {
     color: rgba(255, 51, 51, 0.7);
-  }
-}
-
-@keyframes openSchoolsWrapperAnimation {
-  from {
-    height: 0vh;
-  }
-  to {
-    height: 25vh;
-  }
-}
-@-webkit-keyframes openSchoolsWrapperAnimation {
-  from {
-    height: 0vh;
-  }
-  to {
-    height: 25vh;
-  }
-}
-
-@keyframes closeSchoolsWrapperAnimation {
-  from {
-    height: 25vh;
-  }
-  to {
-    height: 0vh;
-  }
-}
-@-webkit-keyframes closeSchoolsWrapperAnimation {
-  from {
-    height: 25vh;
-  }
-  to {
-    height: 0vh;
   }
 }
 
