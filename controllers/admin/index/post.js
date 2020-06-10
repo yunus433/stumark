@@ -7,7 +7,8 @@ const School = require('../../../models/school/School');
 module.exports = (req, res) => {
   School.find({}, {$set: {
     type: "lise"
-  }}, {upsert: true}, (err, products) => {
+  }}, {}, (err, schools) => {
+    if (err) console.log(err);
     if (err) return res.redirect('/');
 
     return res.redirect('/admin');
