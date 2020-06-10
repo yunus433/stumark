@@ -17,7 +17,7 @@ const SchoolSchema = new Schema({
   },
   type: {
     type: String,
-    required: true
+    default: null
   },
   other_names: {
     type: Array,

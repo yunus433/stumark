@@ -64,14 +64,14 @@ window.onload = () => {
   });
 
   selectCityInput.oninput = (event) => {
-    setTimeout(() => {
+    if (!clicked) {
       selectCityButton.classList.add('clicked');
       selectCityInput.focus();
       clicked = true;
       schoolsOuterWrapper.style.display = 'flex';
       schoolsWrapper.classList.remove('close-schools-animation-class');
       schoolsWrapper.classList.add('open-schools-animation-class');
-    }, 100);
+    }
     
     schoolsWrapper.innerHTML = "";
     schools.forEach(school => {
