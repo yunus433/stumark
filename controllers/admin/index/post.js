@@ -6,13 +6,15 @@ const Product = require('../../../models/product/Product');
 const School = require('../../../models/school/School');
 
 module.exports = (req, res) => {
-  School.find({}, (err, schools) => {
+  School.find({
+    "type": {$ne: "Üniversite"}
+  }, (err, schools) => {
     if (err) return res.redirect('/');
 
     async.parallel(
       schools.length,
       (time, next) => {
-        School.findByIdAndUpdate(mongoose.Types.ObjectId(schools[time]._id), {$set: {
+        School.findByIdAndUpdate(mongoose.Types.ObjectId(schools[time]._id.toString()), {$set: {
           "type": "Lise"
         }}, {}, (err, school) => next(err, school));
       },

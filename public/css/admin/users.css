@@ -157,3 +157,26 @@
   font-size: 125%;
   cursor: pointer;
 }
+
+.schools-wrapper {
+  height: 200px;
+  overflow: scroll;
+  margin-bottom: 5px;
+}
+.each-school {
+  display: flex;
+  align-items: center;
+  display: flex;
+  padding: 15px;
+  border: 2px solid rgb(236, 236, 236);
+  border-radius: 10px;
+  background-color: rgb(255, 255, 255);
+  margin-top: 20px;
+  cursor: pointer;
+  text-decoration: none;
+}
+.each-school span {
+  margin-left: 5px;
+  font-size: 100%;
+  color: rgb(112, 112, 112);
+}

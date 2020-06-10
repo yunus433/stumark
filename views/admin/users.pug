@@ -1,6 +1,7 @@
 extends ../partials/adminHeader
 block main
   input.display-none#users-json(type="text" value=JSON.stringify(users))
+  input.display-none#schools-json(type="text" value=JSON.stringify(schools))
   .all-content-header
     .title-wrapper
       span.title Kullanıcılar
@@ -19,7 +20,7 @@ block main
             img.each-user-profile(src=user.profilePhoto)
           span.each-user-email= user.email
           span.each-user-name= user.name
-          span.each-user-school= user.school || user.university
+          span.each-user-school= (user.school ? user.school : user.university)
   form.new-form-wrapper(action="/admin/users" method="POST")
     span.form-title Yeni Bir Kullanıcı Ekle
     span.form-subtitle E-Posta Adresi: *
@@ -29,10 +30,12 @@ block main
     span.form-subtitle Ad Soyad: *
     input.form-input(type="text" placeholder="Ad Soyad" name="name" required)
     span.form-subtitle Okul: *
-    each school in schools
-      .each-school-wrapper
-        input.form-input(type="radio" name="school" value=school._id.toString() required)
-        span= school.name
+    input.form-input#school-search-input(type="text" placeholder="Okul Ara")
+    .schools-wrapper
+      each school in schools
+        label.each-school
+          input(type="radio" name="school" required value=school._id.toString())
+          span= school.name
     .buttons-wrapper
       .back-button Geri
       button.form-button Oluştur
