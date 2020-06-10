@@ -57,8 +57,8 @@ window.onload = () => {
         newSpan.id = school._id.toString();
         schoolsWrapper.appendChild(newSpan);
 
-        while (selectCityInput.value.length && newSpan.previousElementSibling && school.name.toLocaleLowerCase().indexOf(selectCityInput.value.toLocaleLowerCase()) < newSpan.previousElementSibling.innerHTML.toLocaleLowerCase().indexOf(selectCityInput.value.toLocaleLowerCase()))
-          schoolsWrapper.insertBefore(newSpan, newSpan.previousElementSibling);
+        // while (selectCityInput.value.length && newSpan.previousElementSibling && school.name.toLocaleLowerCase().indexOf(selectCityInput.value.toLocaleLowerCase()) < newSpan.previousElementSibling.innerHTML.toLocaleLowerCase().indexOf(selectCityInput.value.toLocaleLowerCase()))
+        //   schoolsWrapper.insertBefore(newSpan, newSpan.previousElementSibling);
 
         if (school.name.toLocaleLowerCase() == selectCityInput.value.toLocaleLowerCase())
           selectCityButton.childNodes[1].value = school._id.toString();
