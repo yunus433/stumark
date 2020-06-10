@@ -1,9 +1,11 @@
 extends ../../partials/adminHeader
 block main
+  input.display-none#schools-json(type="text" value=JSON.stringify(schools))
+  input.display-none#user-json(type="text" value=JSON.stringify(user))
   .all-content-header
     .title-wrapper
       span.title= user.name
-      span.subtitle Bu sayfadan bu okul kaydını görebilir ve e-posta adresini veya şifresini değiştirebilirsiniz. Güvenlik sebepleri ile eski şifre görünemez.
+      span.subtitle Bu sayfadan bu kullanıcı kaydını görebilir ve e-posta adresini, okulunu, veya şifresini değiştirebilirsiniz. Güvenlik sebepleri nedeniyle eski şifre görünemez.
     a.delete-user-button(href="/admin/users/delete?id=" + user._id.toString() onclick="return confirm('Bu kullanıcıyı silmek istediğinize emin misiniz?')" )
       span Sil
   form.new-form-wrapper(action="/admin/users/details?id=" + user._id.toString() method="POST")
@@ -12,4 +14,15 @@ block main
     input.form-input(type="text" placeholder="E-Posta Adresi" name="email" value=user.email required)
     span.form-subtitle Şifre:
     input.form-input(type="text" placeholder="En az 6 haneli olmalı" name="password")
+    span.form-subtitle Okul:
+    span.form-info Kullanıcının eski okulu: #{user.university || "yeni kullanıcı"}
+    input.form-input#school-search-input(type="text" placeholder="Okul Ara")
+    .schools-wrapper
+      each school in schools
+        label.each-school
+          if (user.school == school._id.toString())
+            input(type="radio" name="school" required value=school._id.toString() checked)
+          else
+            input(type="radio" name="school" required value=school._id.toString())
+          span= school.name
     button.form-button Düzenle

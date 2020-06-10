@@ -66,7 +66,7 @@ const ProductSchema = new Schema({
   },
   school: {
     type: String,
-    required: true
+    default: null
   }
 });
 

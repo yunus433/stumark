@@ -26,10 +26,6 @@ const UserSchema = new Schema({
     type: String, 
     required: true
   },
-  school_type: {
-    type: String,
-    required: true
-  },
   birth_time: {
     type: Object,
     default: {
@@ -39,10 +35,6 @@ const UserSchema = new Schema({
     }
   },
   class: {
-    type: String,
-    default: null
-  },
-  university: {
     type: String,
     default: null
   },

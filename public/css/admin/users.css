@@ -45,6 +45,10 @@
   overflow: scroll;
   -webkit-overflow-scrolling: touch;
 }
+.users-wrapper {
+  width: 100%;
+  height: fit-content;
+}
 .each-user {
   display: flex;
   padding: 15px;
@@ -85,6 +89,18 @@
   font-size: 100%;
   color: rgb(112, 112, 112);
   font-weight: 300;
+}
+
+.user-filter-button {
+  display: flex;
+  align-items: center;
+}
+.user-input {
+  margin-right: 10px;
+}
+.user-input-info {
+  font-size: 100%;
+  color: rgb(112, 112, 112);
 }
 
 .new-form-wrapper {

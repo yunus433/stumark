@@ -220,7 +220,9 @@ window.onload = () => {
   const newProductForm = document.querySelector('.new-product-form');
 
   newProductForm.onsubmit = event => {
-    if (!cities.includes(cityInput.value) || !towns.includes(townInput.value))
+    if (!cities.includes(cityInput.value) || !towns.includes(townInput.value)) {
       event.preventDefault();
+      return alert("Lütfen listede olan bir şehir ve ilçeyi seçin!");
+    }
   }
 };

@@ -8,6 +8,7 @@ module.exports = (req, res) => {
     name: req.body.name,
     city: req.body.city,
     town: req.body.town,
+    type: req.body.type,
     other_names: req.body.other_names && req.body.other_names.length ? req.body.other_names.split(',').map(school => school.trim().toLocaleLowerCase()) : []
   };
 

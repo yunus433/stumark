@@ -7,7 +7,8 @@ module.exports = (req, res) => {
     return res.redirect('/admin');
 
   User.findByIdAndUpdate(mongoose.Types.ObjectId(req.query.id), {$set: {
-    email: req.body.email
+    email: req.body.email,
+    school: req.body.school
   }}, {new: true}, (err, user) => {
     if (err) return res.redirect('/admin');
     
