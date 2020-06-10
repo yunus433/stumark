@@ -26,6 +26,10 @@ const UserSchema = new Schema({
     type: String, 
     required: true
   },
+  university: {
+    type: String,
+    default: null
+  },
   birth_time: {
     type: Object,
     default: {

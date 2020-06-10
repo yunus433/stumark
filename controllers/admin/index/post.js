@@ -11,12 +11,14 @@ module.exports = (req, res) => {
   }, (err, schools) => {
     if (err) return res.redirect('/');
 
-    async.parallel(
+    async.times(
       schools.length,
       (time, next) => {
-        School.findByIdAndUpdate(mongoose.Types.ObjectId(schools[time]._id.toString()), {$set: {
+        School.findByIdAndUpdate(mongoose.Types.ObjectId(schools[time]._id), {$set: {
           "type": "Lise"
-        }}, {}, (err, school) => next(err, school));
+        }}, {}, (err, school) => {
+          next(err, school);
+        });
       },
       (err, schools) => {
         if (err) return res.redirect('/');

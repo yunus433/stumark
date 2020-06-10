@@ -15,7 +15,7 @@ block main
     span.form-subtitle Şifre:
     input.form-input(type="text" placeholder="En az 6 haneli olmalı" name="password")
     span.form-subtitle Okul:
-    span.form-info Kullanıcının eski okulu: #{user.university || "yeni kullanıcı"}
+    span.form-info Kullanıcının eski okulu: #{user.university || "Yeni Kullanıcı"}
     input.form-input#school-search-input(type="text" placeholder="Okul Ara")
     .schools-wrapper
       each school in schools
