@@ -18,18 +18,17 @@ window.onload = () => {
 
   const schools = JSON.parse(document.getElementById('schools-json').value);
 
-  let clicked = false;
-  let selectedCity = null;
   const selectCityButton = document.querySelector('.select-school-button');
   const selectCityInput = document.querySelector('.select-school-input');
+  const schoolNoneInput = document.getElementById('school-none-input');
   const schoolsWrapper = document.querySelector('.schools-inner-wrapper');
   const schoolsOuterWrapper = document.querySelector('.schools-wrapper');
   
   document.addEventListener('click', event => {
-    if (event.target.className == 'select-each-school') {
-      selectCityButton.childNodes[1].value = event.target.id;
-      selectCityButton.childNodes[2].value = event.target.innerHTML;
-      selectedCity = event.target.innerHTML;
+    if (event.target.classList.contains('select-each-school') || event.target.parentNode.classList.contains('select-each-school')) {
+      console.log("here");
+      schoolNoneInput.value = event.target.id;
+      selectCityInput.value = event.target.innerHTML;
     }
   });
 
@@ -40,27 +39,22 @@ window.onload = () => {
   }
 
   selectCityInput.onblur = () => {
-    selectCityButton.style.borderBottomLeftRadius = "15px";
-    selectCityButton.style.borderBottomRightRadius = "15px";
-    schoolsOuterWrapper.style.display = "none";
+    setTimeout(() => {
+      selectCityButton.style.borderBottomLeftRadius = "15px";
+      selectCityButton.style.borderBottomRightRadius = "15px";
+      schoolsOuterWrapper.style.display = "none";
+    }, 200);
   }
 
-  selectCityInput.oninput = (event) => {
-    if (!clicked) {
-      selectCityButton.classList.add('clicked');
-      selectCityInput.focus();
-      clicked = true;
-      schoolsOuterWrapper.style.display = 'flex';
-      schoolsWrapper.classList.remove('close-schools-animation-class');
-      schoolsWrapper.classList.add('open-schools-animation-class');
-    }
-    
+  selectCityInput.oninput = () => {
     schoolsWrapper.innerHTML = "";
     schools.forEach(school => {
-      if (school.name.toLocaleLowerCase().indexOf(selectCityInput.value.toLocaleLowerCase()) !== -1) {
+      if (school.name.toLocaleLowerCase().indexOf(selectCityInput.value.toLocaleLowerCase()) !== -1 || !selectCityInput.value.length) {
         const newSpan = document.createElement('span');
         newSpan.classList.add('select-each-school');
         newSpan.innerHTML = school.name;
+        newSpan.classList.add('select-each-school');
+        newSpan.id = school._id.toString();
         schoolsWrapper.appendChild(newSpan);
 
         while (newSpan.previousElementSibling && school.name.toLocaleLowerCase().indexOf(selectCityInput.value.toLocaleLowerCase()) < newSpan.previousElementSibling.innerHTML.toLocaleLowerCase().indexOf(selectCityInput.value.toLocaleLowerCase()))
@@ -70,6 +64,5 @@ window.onload = () => {
           selectCityButton.childNodes[1].value = school._id.toString();
       }
     });
-
   };
 }

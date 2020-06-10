@@ -64,12 +64,6 @@
   font-weight: 300;
   font-family: "Source Sans Pro";
 }
-.clicked {
-  border-bottom: 0px;
-  margin-bottom: 17px;
-  border-bottom-left-radius: 0px !important;
-  border-bottom-right-radius: 0px !important;
-}
 
 .schools-outer-wrapper {
   height: 70px;
