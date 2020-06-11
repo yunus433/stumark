@@ -10,6 +10,7 @@ const loginGetController = require('../controllers/api/auth/login');
 const registerGetController = require('../controllers/api/auth/register');
 const usersGetController = require('../controllers/api/users/users');
 const productsGetController = require('../controllers/api/products/products');
+const productsPostController = require('../controllers/api/products/post');
 const messagesDashboardGetController = require('../controllers/api/messages/dashboard/get');
 const messagesDetailsGetConroller = require('../controllers/api/messages/details/get');
 
@@ -65,6 +66,12 @@ router.post(
   '/auth/register',
     isApiAuthenticated,
     registerPostController
+);
+
+router.post(
+  '/products',
+    isApiAuthenticated,
+    productsPostController
 );
 
 router.post(

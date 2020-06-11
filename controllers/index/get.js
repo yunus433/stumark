@@ -5,6 +5,7 @@ const Product = require('../../models/product/Product');
 module.exports = (req, res) => {
   Product.getLatest({
     category: "all",
+    subcategory: "all",
     docsToSkip: 0,
     limit: 50
   }, (err, latestProducts) => {

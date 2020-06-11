@@ -20,6 +20,7 @@ module.exports = (req, res, next) => {
       name: req.body.name,
       description: req.body.description,
       price: (req.body.price == "ücretsiz"  ? req.body.price : (req.body.price.replace('₺', '') + "₺")),
+      price_number: req.body.price == "ücretsiz" ? 0 : parseInt(req.body.price),
       productPhotoArray: req.body.productPhotoArray.length ? req.body.productPhotoArray.split(',') : ['https://res.cloudinary.com/dvnac86j8/image/upload/v1566558525/stumarkt/defaultProductPicture.png'],
       keywords: (engName(req.body.description).split(' ').join('+').split('\n').join('+').split('\t').join('+') + "+" + engName(req.body.name).split(' ').join('+').split('\n').join('+').split('\t').join('+')).split("+"),
       school: user.school || null,

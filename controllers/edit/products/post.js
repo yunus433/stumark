@@ -11,6 +11,7 @@ module.exports = (req, res, next) => {
     "description": req.body.description,
     "keywords": (engName(req.body.description).split(' ').join('+').split('\n').join('+').split('\t').join('+') + "+" + engName(req.body.name).split(' ').join('+').split('\n').join('+').split('\t').join('+')).split("+"),
     "price": (req.body.price == "ücretsiz" ? req.body.price : (req.body.price.replace('₺', '') + "₺")),
+    "price_number": req.body.price == "ücretsiz" ? 0 : parseInt(req.body.price),
     "city": engName(req.body.city),
     "city_name": req.body.city,
     "town": req.body.town

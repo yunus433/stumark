@@ -13,6 +13,7 @@ const getUserAge = (month, year) => {
 };
 
 module.exports = (user) => {
+  
   School.findById(mongoose.Types.ObjectId(user.school), (err, school) => {
     if (err) return {};
 

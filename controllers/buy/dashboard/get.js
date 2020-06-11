@@ -6,6 +6,7 @@ module.exports = (req, res, next) => {
     Product.getNumberOfProducts({
       keywords: req.query.keywords,
       category: req.query.category,
+      subcategory: "all",
       docsToSkip: parseInt(req.query.page) * parseInt(req.query.limit),
       limit: parseInt(req.query.limit)
     },  (err, number) => {

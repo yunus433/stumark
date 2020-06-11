@@ -40,6 +40,7 @@ module.exports = (req, res) => {
       name: req.body.name,
       description: req.body.description,
       price: (req.body.price == "ücretsiz"  ? req.body.price : (req.body.price.replace('₺', '') + "₺")),
+      price_number: req.body.price == "ücretsiz" ? 0 : parseInt(req.body.price),
       productPhotoArray,
       keywords: (engName(req.body.description).split(' ').join('+').split('\n').join('+').split('\t').join('+') + "+" + engName(req.body.name).split(' ').join('+').split('\n').join('+').split('\t').join('+')).split("+"),
       city: engName(req.body.city),

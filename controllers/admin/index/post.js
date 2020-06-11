@@ -3,24 +3,19 @@ const mongoose = require('mongoose');
 
 const User = require('../../../models/user/User');
 const Product = require('../../../models/product/Product');
-const School = require('../../../models/school/School');
 
 module.exports = (req, res) => {
-  School.find({
-    "type": {$ne: "Üniversite"}
-  }, (err, schools) => {
+  Product.find({}, (err, products) => {
     if (err) return res.redirect('/');
 
     async.times(
-      schools.length,
+      products.length,
       (time, next) => {
-        School.findByIdAndUpdate(mongoose.Types.ObjectId(schools[time]._id), {$set: {
-          "type": "Lise"
-        }}, {}, (err, school) => {
-          next(err, school);
-        });
+        Product.findByIdAndUpdate(mongoose.Types.ObjectId(products[time]._id), {$set: {
+          price_number: products[time].price == "ücretsiz" ? 0 : products[time].price == "SATILDI" ? -1 :  parseInt(products[time].price.split('₺').join(''))
+        }}, {}, err => next(err, true))
       },
-      (err, schools) => {
+      err => {
         if (err) return res.redirect('/');
 
         return res.redirect('/admin');

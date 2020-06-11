@@ -12,6 +12,7 @@ module.exports = (req, res) => {
       "name": req.body.name,
       "description": req.body.description,
       "price": ((req.body.price == "ücretsiz" || req.body.price == "SATILDI") ? req.body.price.replace('₺', '') : (req.body.price + "₺")),
+      "price_number": req.body.price == "ücretsiz" ? 0 : req.body.price == "SATILDI" ? -1 : parseInt(req.body.price),
       "city": engName(req.body.city),
       "city_name": req.body.city,
       "town": req.body.town,

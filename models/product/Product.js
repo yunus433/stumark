@@ -60,6 +60,10 @@ const ProductSchema = new Schema({
     type: String,
     required: true
   },
+  price_number: {
+    type: Number,
+    required: true
+  },
   owner: {
     type: String,
     required: true
@@ -79,10 +83,17 @@ ProductSchema.statics.getNumberOfProducts = function (params, callback) {
     _id: params.productId ? { $ne: params.productId } : { $ne: null },
     keywords: keywords.length ? { $all: keywords } : { $ne: [] },
     category: params.category != "all" && params.category ? params.category : { $ne: "null" },
-    subcategory: params.subcategory != "Tümü" && params.subcategory ? params.subcategory : { $ne: "null" },
-    price: { $ne: "SATILDI" },
-    city: params.city ? { $in: params.city } : { $ne: "null" },
-    town: params.town ? { $in: params.town } : { $ne: "null" }
+    subcategory: params.subcategory != "all" && params.subcategory ? params.subcategory : { $ne: "null" },
+    $and: [
+      { price_number: (params.price != "Tümü" && params.price ? 
+        params.price == "1000+₺" ? { $gte: 1000 } : { $gte: parseInt(params.price.split('-')[0]) }
+      : { $ne: -1 }) },
+      { price_number: (params.price != "Tümü" && params.price ? 
+        params.price == "1000+₺" ? { $gte: 1000 } : { $lte: parseInt(params.price.split('-')[1].replace('₺', '')) }
+      : { $ne: -1 }) }
+    ],
+    city: params.city != "Tümü" ? { $in: params.city } : { $ne: "null" },
+    town: params.town != "Tümü" ? { $in: params.town } : { $ne: "null" }
   }
 
   Product
@@ -107,15 +118,23 @@ ProductSchema.statics.getLatest = function (params, callback) {
     _id: params.productId ? { $ne: params.productId } : { $ne: null },
     keywords: keywords.length ? { $all: keywords } : { $ne: [] },
     category: params.category != "all" && params.category ? params.category : { $ne: "null" },
-    subcategory: params.subcategory != "Tümü" && params.subcategory ? params.subcategory : { $ne: "null" },
-    price: { $ne: "SATILDI" },
-    city: params.city ? { $in: params.city } : { $ne: "null" },
-    town: params.town ? { $in: params.town } : { $ne: "null" }
+    subcategory: params.subcategory != "all" && params.subcategory ? params.subcategory : { $ne: "null" },
+    $and: [
+      { price_number: (params.price != "Tümü" && params.price ? 
+        params.price == "1000+₺" ? { $gte: 1000 } : { $gte: parseInt(params.price.split('-')[0]) }
+      : { $ne: -1 }) },
+      { price_number: (params.price != "Tümü" && params.price ? 
+        params.price == "1000+₺" ? { $gte: 1000 } : { $lte: parseInt(params.price.split('-')[1].replace('₺', '')) }
+      : { $ne: -1 }) }
+    ],
+    city: params.city != "Tümü" ? { $in: params.city } : { $ne: "null" },
+    town: params.town != "Tümü" ? { $in: params.town } : { $ne: "null" }
   }
 
   Product
     .find(preferences)
     .sort({ "createdAtSecond": -1 })
+    .skip(params.docsToSkip)
     .limit(params.limit)
     .then(products => {
       if (products) return callback(null, products);

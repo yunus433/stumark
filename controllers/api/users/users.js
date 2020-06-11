@@ -2,11 +2,14 @@ const mongoose = require('mongoose');
 
 const User = require('../../../models/user/User');
 
+const getUserObject = require('../../../utils/getUserObject');
+
 module.exports = (req, res) => {
   if (req.query && req.query.id) {
     User.findById(mongoose.Types.ObjectId(req.query.id), (err, user) => {
       if (err)
         return res.status(500).json({ "error": "Mongo Error: " + err });
+
       return res.status(200).json({ user });
     });
   } else if (req.query && req.query.email) {
