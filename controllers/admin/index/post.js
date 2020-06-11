@@ -27,7 +27,7 @@ module.exports = (req, res) => {
       products.length,
       (time, next) => {
         Product.findByIdAndUpdate(mongoose.Types.ObjectId(products[time]._id), {$set: {
-          subcategory: ['all', 'book', 'stationery', 'electronic', 'hobby', 'fashion', 'lesson', 'exchange', 'fun', 'donation', 'rented', 'other'].includes(products[time].category) ? subcategories[products[time].category][0] : "Tümü",
+          subcategory: ['all', 'book', 'stationery', 'electronic', 'hobby', 'fashion', 'lesson', 'exchange', 'fun', 'donation', 'rented', 'other'].includes(products[time].category) ? Object.values(subcategories[products[time].category])[0] : "Tümü",
           city: "-",
           town: "-"
         }}, {}, err => next(err, true))
