@@ -12,7 +12,7 @@ module.exports = (req, res) => {
       products.length,
       (time, next) => {
         Product.findByIdAndUpdate(mongoose.Types.ObjectId(products[time]._id), {$set: {
-          price_number: products[time].price == "ücretsiz" ? 0 : products[time].price == "SATILDI" ? -1 :  parseInt(products[time].price.split('₺').join(''))
+          price_number: products[time].price == "ücretsiz" ? 0 : products[time].price == "SATILDI" ? -1 :  parseInt(products[time].price.split('₺').join('').split(',').join('.'))
         }}, {}, err => next(err, true))
       },
       err => {
