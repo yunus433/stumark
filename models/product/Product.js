@@ -92,8 +92,8 @@ ProductSchema.statics.getNumberOfProducts = function (params, callback) {
         params.price == "1000+₺" ? { $gte: 1000 } : { $lte: parseInt(params.price.split('-')[1].replace('₺', '')) }
       : { $ne: -1 }) }
     ],
-    city: params.city != "Tümü" ? { $in: params.city } : { $ne: "null" },
-    town: params.town != "Tümü" ? { $in: params.town } : { $ne: "null" }
+    city: params.city != "Tümü" && params.city ? { $in: params.city } : { $ne: "null" },
+    town: params.town != "Tümü" && params.town ? { $in: params.town } : { $ne: "null" }
   }
 
   Product
@@ -127,8 +127,8 @@ ProductSchema.statics.getLatest = function (params, callback) {
         params.price == "1000+₺" ? { $gte: 1000 } : { $lte: parseInt(params.price.split('-')[1].replace('₺', '')) }
       : { $ne: -1 }) }
     ],
-    city: params.city != "Tümü" ? { $in: params.city } : { $ne: "null" },
-    town: params.town != "Tümü" ? { $in: params.town } : { $ne: "null" }
+    city: params.city != "Tümü" && params.city ? { $in: params.city } : { $ne: "null" },
+    town: params.town != "Tümü" && params.town ? { $in: params.town } : { $ne: "null" }
   }
 
   Product
