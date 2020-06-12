@@ -175,7 +175,7 @@ window.onload = () => {
       cityInput.style.borderBottomLeftRadius = "15px";
       cityInput.style.borderBottomRightRadius = "15px";
       cityInput.style.borderBottomWidth = "2px";
-    }, 100);
+    }, 500);
   }
 
   townInput.onfocus = () => {
@@ -192,7 +192,6 @@ window.onload = () => {
       selectTownWrapper.appendChild(newSpan);
     });
   }
-
   townInput.oninput = () => {
     selectTownWrapper.innerHTML = "";
     towns.forEach(town => {
@@ -207,14 +206,13 @@ window.onload = () => {
       }
     });
   }
-
   townInput.onblur = () => {
     setTimeout(() => {
       selectTownWrapper.style.display = 'none';
       townInput.style.borderBottomLeftRadius = "15px";
       townInput.style.borderBottomRightRadius = "15px";
       townInput.style.borderBottomWidth = "2px";
-    }, 100);
+    }, 500);
   }
 
   const newProductForm = document.querySelector('.new-product-form');
