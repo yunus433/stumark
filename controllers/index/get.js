@@ -4,10 +4,11 @@ const Product = require('../../models/product/Product');
 
 module.exports = (req, res) => {
   Product.getLatest({
-    category: "all",
+    category: "book",
     subcategory: "all",
+    price: "0-5₺",
     docsToSkip: 0,
-    limit: 50
+    limit: 100
   }, (err, latestProducts) => {
     if (err) return console.log(err);
 
