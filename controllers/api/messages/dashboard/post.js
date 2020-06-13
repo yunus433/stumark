@@ -15,7 +15,7 @@ module.exports = (req, res) => {
       product: req.body.product.toString()
     }, (err, chat) => {
       if (err) return res.status(500).json({ "error": "mongo Error: " + err });
-      if (chat) return res.status(400).json({ "error": "chat duplicate" });
+      if (chat) return res.status(400).json({ "error": "chat duplicate", "chat_id": chat._id });
   
       const newChatData = {
         buyer: req.body.buyer.toString(),
