@@ -7,8 +7,16 @@ const Product = require('../../../../models/product/Product');
 
 const sendNotification = require('../../../../utils/sendNotification');
 
-module.exports = (req, res, next) => {
+module.exports = (req, res) => {
   if ( req.body && req.body.buyer && req.body.owner && req.body.product && req.body.content ) {
+    Chat.findOne({
+      buyer: req.body.buyer.toString(),
+      owner: req.body.owner.toString(),
+      product: req.body.product.toString()
+    }, (err, chat) => {
+      if (err) return res.status(500).json({ "error": "mongo Error: " + err });
+      if (chat) return res.status(400).json({ "error": "chat duplicate" });
+  
       const newChatData = {
         buyer: req.body.buyer.toString(),
         owner: req.body.owner.toString(),
@@ -66,6 +74,7 @@ module.exports = (req, res, next) => {
           });
         });
       });
+    });
   } else {
     return res.status(400).json({error: "bad request"});
   }
