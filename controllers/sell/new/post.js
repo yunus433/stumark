@@ -7,7 +7,7 @@ const engName = word => {
   return word.toLocaleLowerCase().split('ş').join('s').split('ı').join('i').split('ö').join('o').split('ç').join('c').split('ü').join('u').split('ğ').join('g');
 }
 
-module.exports = (req, res, next) => {
+module.exports = (req, res) => {
   if (!req.body || !req.body.category || !req.body.subcategory || !req.body.name || !req.body.description || !req.body.price || !req.body.city || !req.body.town)
     return res.redirect('/');
 

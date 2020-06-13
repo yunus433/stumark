@@ -1,6 +1,3 @@
-const fs = require('fs');
-const jimp = require('jimp');
-
 const uploadPhoto = require('../../../utils/uploadPhoto');
 
 module.exports = async (req, res, next) => {

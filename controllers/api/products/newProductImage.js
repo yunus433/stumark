@@ -1,7 +1,13 @@
-module.exports = (req, res) => {
+const uploadPhoto = require('../../../utils/uploadPhoto');
+
+module.exports = async (req, res) => {
   if (req.file && req.file.filename) {
-    return res.status(200).json({"fileName": req.file.filename});
+    uploadPhoto(req.file.filename, req.file.size, (err, location) => {
+      if (err) return res.status(500).json({ error: err })
+
+      res.status(200).json({ url: location });
+    });
   } else {
-    return res.status(400).json({"error": "No file found"});
+    return res.status(500).json({ error: err })
   }
 }
