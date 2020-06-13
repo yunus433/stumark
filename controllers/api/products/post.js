@@ -8,7 +8,6 @@ module.exports = (req, res) => {
     if (err)
         return res.status(500).json({ "error": "Mongo Error: " + err });
 
-    console.log(products);
     return res.status(200).json({ products });
   });
 }
