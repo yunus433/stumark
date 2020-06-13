@@ -40,27 +40,27 @@ module.exports = (req, res) => {
     Chat.find({
       "_id": {$in: user.buyerChatList}
     }, (err, buyerMessages) => {
-      if (err) return res.redirect('/');
+      if (err) return res.status(500).json({ "error": "mongo Error: " + err });
 
       Chat.find({
         "_id": {$in: user.ownerChatList}
       }, (err, ownerMessages) => {
-        if (err) return res.redirect('/');
-  
+        if (err) return res.status(500).json({ "error": "mongo Error: " + err });
+
         async.times(
           buyerMessages.length,
           (time, next) => {
             getChatContent(buyerMessages[time], (err, chat) => next(err, chat))
           },
           (err, buyerMessages) => {
-            if (err) return res.redirect('/');
+            if (err) return res.status(500).json({ "error": "mongo Error: " + err });
 
             async.times(
               ownerMessages.length,
               (time, next) => getChatContent(ownerMessages[time], (err, chat) => next(err, chat)),
               (err, ownerMessages) => {
-                if (err) return res.redirect('/');
-    
+                if (err) return res.status(500).json({ "error": "mongo Error: " + err });
+
                 return res.status(200).json({
                   buyerMessages,
                   ownerMessages
