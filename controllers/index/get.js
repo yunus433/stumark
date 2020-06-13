@@ -8,7 +8,8 @@ module.exports = (req, res) => {
     subcategory: "all",
     price: "0-5₺",
     docsToSkip: 0,
-    limit: 100
+    limit: 100,
+    sort_by: "price"
   }, (err, latestProducts) => {
     if (err) return console.log(err);
 

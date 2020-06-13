@@ -5,7 +5,7 @@ const subcategories = {
   account: ["Hepsi"],
   hobby: ["Hepsi"],
   fashion: ["T-Shirt", "Sweatshirt", "Parfüm", "Aksesuar", "Diğer"],
-  lesson: ["AYt/TYT", "Almanca", "İngilizce", "Fransızca", "Mentorluk", "Ders Notu", "Diğer"],
+  lesson: ["TYT/AYT", "Almanca", "İngilizce", "Fransızca", "Mentorluk", "Ders Notu", "Diğer"],
   home: ["Hepsi"],
   ticket: ["Hepsi"],
   exchange: ["Hepsi"],

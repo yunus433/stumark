@@ -133,7 +133,7 @@ ProductSchema.statics.getLatest = function (params, callback) {
 
   Product
     .find(preferences)
-    .sort({ "price_number": 1 })
+    .sort(params.sort_by == "price" ? {"price_number": 1} : {"createdAtSecond": -1} )
     .skip(params.docsToSkip)
     .limit(params.limit)
     .then(products => {
