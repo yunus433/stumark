@@ -13,7 +13,7 @@ module.exports = (req, res, next) => {
         Product.getLatest(
           {
             category: JSON.parse(JSON.stringify(product)).category,
-            subcategory: "all",
+            subcategory: "Tümü",
             docsToSkip: 0,
             limit: 9,
             productId: product._id

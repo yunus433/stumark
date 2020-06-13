@@ -5,7 +5,7 @@ const Product = require('../../models/product/Product');
 module.exports = (req, res) => {
   Product.getLatest({
     category: "book",
-    subcategory: "all",
+    subcategory: "Tümü",
     price: "0-5₺",
     docsToSkip: 0,
     limit: 100,

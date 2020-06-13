@@ -118,7 +118,7 @@ ProductSchema.statics.getLatest = function (params, callback) {
     _id: params.productId ? { $ne: params.productId } : { $ne: null },
     keywords: keywords.length ? { $all: keywords } : { $ne: [] },
     category: params.category != "all" && params.category ? params.category : { $ne: "null" },
-    subcategory: params.subcategory != "all" && params.subcategory ? params.subcategory : { $ne: "null" },
+    subcategory: params.subcategory != "Tümü" && params.subcategory ? params.subcategory : { $ne: "null" },
     $and: [
       { price_number: (params.price != "Tümü" && params.price ? 
         params.price == "1000+₺" ? { $gte: 1000 } : { $gte: parseInt(params.price.split('-')[0]) }
