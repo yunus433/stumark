@@ -61,10 +61,16 @@ module.exports = (req, res) => {
               (err, ownerMessages) => {
                 if (err) return res.status(500).json({ "error": "mongo Error: " + err });
 
-                return res.status(200).json({
-                  buyerMessages,
-                  ownerMessages
+                const chat_list = buyerMessages.concat(ownerMessages);
+
+                chat_list.sort((a, b) => {
+                  if (a.messages[a.messages.length-1].day != b.messages[b.messages.length-1].day)
+                    return a.messages[a.messages.length-1].day < b.messages[b.messages.length-1].day;
+
+                  a.messages[a.messages.length-1].time != b.messages[b.messages.length-1].time
                 });
+
+                return res.status(200).json({ chat_list });
               }
             );
           }
