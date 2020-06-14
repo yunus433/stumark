@@ -8,6 +8,7 @@ const isApiAuthenticated = require('../middleware/isApiAuthenticated');
 
 const loginGetController = require('../controllers/api/auth/login');
 const registerGetController = require('../controllers/api/auth/register');
+const schoolsGetController = require('../controllers/api/schools/get');
 const usersGetController = require('../controllers/api/users/users');
 const productsGetController = require('../controllers/api/products/products');
 const productsPostController = require('../controllers/api/products/post');
@@ -35,6 +36,11 @@ router.get(
   '/register',
     isApiAuthenticated,
     registerGetController
+);
+router.get(
+  '/schools',
+    isApiAuthenticated,
+    schoolsGetController
 );
 router.get(
   '/users',
