@@ -1,6 +1,17 @@
-const categories = [
-  'book', 'stationery', 'electronic', 'account', 'hobby', 'fashion', 'lesson', 'home', 'ticket', 'exchange', 'donation', 'other'
-];
+const categories = {
+  book: "Kitap",
+  stationery: "Kırtasiye",
+  electronic: "Elektronik",
+  donation: "Bağış",
+  account: "Ortak Üyelik/Hesap",
+  hobby: "Eğlence, Hobi",
+  fashion: "Moda, Giyim",
+  lesson: "Ders, Kurs",
+  home: "Ev Eşyası",
+  ticket: "Bilet",
+  exchange: "Hediye, Takas",
+  other: "Diğer"
+};
 
 const subcategories = {
   book: ["Okuma Kitabı", "TYT/AYT", "SAT/AP", "Abitur", "Yabancı Dil", "IB", "Matura", "Sözlük", "LGS", "KPSS", "DGS", "Diğer"],

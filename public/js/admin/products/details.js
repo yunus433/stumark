@@ -32,6 +32,7 @@ window.onload = () => {
   const cityInput = document.getElementById('city-input');
   const townInput = document.getElementById('town-input');
   const categoryInput = document.getElementById('category-input');
+  const categoryValueInput = document.getElementById('category-value-input');
   const subcategoryInput = document.getElementById('subcategory-input');
 
   const selectInputs = document.querySelectorAll('.select-input');
@@ -70,7 +71,7 @@ window.onload = () => {
             selectWrapper.insertBefore(newSpan, newSpan.previousElementSibling);
         });
       } else if (selectInput.id == "category-input") {
-        categories.forEach(category => {
+        Object.values(categories).forEach(category => {
           const newSpan = document.createElement('span');
           newSpan.classList.add('each-text-select');
           newSpan.innerHTML = category;
@@ -119,7 +120,7 @@ window.onload = () => {
             selectWrapper.insertBefore(newSpan, newSpan.previousElementSibling);
         });
       } else if (selectInput.id == "category-input") {
-        categories.filter(category => engName(category).indexOf(engName(selectInput.value)) != -1 || !selectInput.value.length).forEach(category => {
+        Object.values(categories).filter(category => engName(category).indexOf(engName(selectInput.value)) != -1 || !selectInput.value.length).forEach(category => {
           const newSpan = document.createElement('span');
           newSpan.classList.add('each-text-select');
           newSpan.innerHTML = category;
@@ -163,8 +164,10 @@ window.onload = () => {
       townInput.value = event.target.innerHTML;
     } else if (event.target.id == 'category-select') {
       categoryInput.value = event.target.innerHTML;
-      subcategoryInput.value = subcategories[event.target.innerHTML][0];
-      category = event.target.innerHTML;
+      category = Object.keys(categories)[Object.values(categories).indexOf(event.target.innerHTML)];
+
+      categoryValueInput.value = category;
+      subcategoryInput.value = subcategories[category][0];
     } else if (event.target.id == 'subcategory-select') {
       subcategoryInput.value = event.target.innerHTML;
     }

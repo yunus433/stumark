@@ -19,6 +19,7 @@ block main
     input.form-input(type="text" placeholder="Açıklama" name="description" value=product.description required)
     span.form-subtitle Ürün Fiyatı: *
     input.form-input(type="number" placeholder="Fiyat" name="price" value=product.price_number required)
+    input.display-none#category-value-input(type="text" name="category" value=product.category)
     span.form-subtitle Şehir: *
     .select-input-outer-wrapper(style="z-index: 5")
       .select-input-outer
@@ -36,10 +37,10 @@ block main
     span.form-subtitle Kategori: *
     .select-input-outer-wrapper(style="z-index: 3")
       .select-input-outer
-        input.select-input#category-input(type="text" required name="category" placeholder="Kategori" value=product.category autocomplete="nope")
+        input.select-input#category-input(type="text" required placeholder="Kategori" value=categories[product.category] autocomplete="nope")
       .select-text-outer-wrapper(style="z-index: 3")
         .select-text-wrapper(style="z-index: 3")
-          each category in categories
+          each category in Object.values(categories)
             span.each-text-select#category-select= category
     span.form-subtitle Alt Kategori: *
     .select-input-outer-wrapper(style="z-index: 2")
