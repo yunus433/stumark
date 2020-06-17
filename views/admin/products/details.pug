@@ -1,0 +1,52 @@
+
+extends ../../partials/adminHeader
+block main
+  input.display-none#categories-json(type="text" value=JSON.stringify(categories))
+  input.display-none#subcategories-json(type="text" value=JSON.stringify(subcategories))
+  input.display-none#product-json(type="text" value=JSON.stringify(product))
+  input.display-none#cities-json(type="text" value=JSON.stringify(cities))
+  .all-content-header
+    .title-wrapper
+      span.title= product.name
+      span.subtitle Bu sayfadan bu ürün kaydını görebilir ve düzenleyebilirsiniz.
+    a.delete-product-button(href="/admin/products/delete?id=" + product._id.toString() onclick="return confirm('Bu ürünü silmek istediğinize emin misiniz?')" )
+      span Sil
+  form.new-form-wrapper(action="/admin/products/details?id=" + product._id.toString() method="POST")
+    span.form-title Ürünü Düzenle
+    span.form-subtitle Ürün İsmi: *
+    input.form-input(type="text" placeholder="İsim" name="name" value=product.name required)
+    span.form-subtitle Ürün Açıklaması: *
+    input.form-input(type="text" placeholder="Açıklama" name="description" value=product.description required)
+    span.form-subtitle Ürün Fiyatı: *
+    input.form-input(type="number" placeholder="Fiyat" name="price" value=product.price_number required)
+    span.form-subtitle Şehir: *
+    .select-input-outer-wrapper(style="z-index: 5")
+      .select-input-outer
+        input.select-input#city-input(type="text" required name="city" placeholder="Şehir" value=product.city_name autocomplete="nope")
+      .select-text-outer-wrapper(style="z-index: 5")
+        .select-text-wrapper(style="z-index: 5")
+          each city in cities
+            span.each-text-select#city-select= city
+    span.form-subtitle İlçe: *
+    .select-input-outer-wrapper(style="z-index: 4")
+      .select-input-outer
+        input.select-input#town-input(type="text" required name="town" placeholder="İlçe" value=product.town autocomplete="nope")
+      .select-text-outer-wrapper(style="z-index: 4")
+        .select-text-wrapper(style="z-index: 4")
+    span.form-subtitle Kategori: *
+    .select-input-outer-wrapper(style="z-index: 3")
+      .select-input-outer
+        input.select-input#category-input(type="text" required name="category" placeholder="Kategori" value=product.category autocomplete="nope")
+      .select-text-outer-wrapper(style="z-index: 3")
+        .select-text-wrapper(style="z-index: 3")
+          each category in categories
+            span.each-text-select#category-select= category
+    span.form-subtitle Alt Kategori: *
+    .select-input-outer-wrapper(style="z-index: 2")
+      .select-input-outer
+        input.select-input#subcategory-input(type="text" required name="subcategory" placeholder="Alt Kategori" value=product.subcategory autocomplete="nope")
+      .select-text-outer-wrapper(style="z-index: 2")
+        .select-text-wrapper(style="z-index: 2")
+          each sub in subcategories[product.category]
+            span.each-text-select#category-select= sub
+    button.form-button Düzenle

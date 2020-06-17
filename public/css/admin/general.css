@@ -15,6 +15,17 @@
 }
 .admin-left-side-header span {
   margin-bottom: 10px;
+  color: rgb(112, 112, 112);
+  font-weight: 700;
+}
+.admin-left-side-header a {
+  text-decoration: none;
+  color: rgb(112, 112, 112);
+  font-weight: 300;
+  height: 15px;
+}
+.admin-left-side-header a:hover {
+  text-decoration: underline;
 }
 
 .admin-all-content {

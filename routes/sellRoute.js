@@ -32,8 +32,7 @@ router.get(
     sellDetailsGetController
 );
 router.get(
-  '/town',  
-    isLoggedIn,
+  '/town',
     townGetController
 );
 

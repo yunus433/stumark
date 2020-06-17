@@ -1,0 +1,19 @@
+extends ../partials/adminHeader
+block main
+  input.display-none#products-json(type="text" value=JSON.stringify(products))
+  input.display-none#categories-json(type="text" value=JSON.stringify(different_subcategories))
+  .all-content-header
+    .title-wrapper
+      span.title Ürünler
+      span.subtitle Bu sayfadan oluşturulmuş ürünleri görebilir ve düzenleyebilirsiniz. Bir ürünü düzenlemek için üzerine tıklayın.
+  .all-content-inner-wrapper
+    input.search-product-input(type="text" placeholder="Ürün İsmi")
+    .show-old-products-button
+      input.check-product-input(type="checkbox" checked)
+      span.check-product-text Alt kategorisi bulunmayan ürünleri göster
+    .products-wrapper
+      each product in products.filter(product => product.subcategory == "Tümü" && different_subcategories.includes(product.category)).filter((product, key) => key < 300)
+        a.each-product(href="/admin/products/details?id=" + product._id.toString())
+          .product-image-wrapper
+            img.product-image(src=product.productPhotoArray[0])
+          span.product-name #{product.name}

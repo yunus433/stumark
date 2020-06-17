@@ -11,6 +11,9 @@ const schooolsDeleteGetController = require('../controllers/admin/schools/delete
 const usersGetController = require('../controllers/admin/users/index/get');
 const usersDetailsGetController = require('../controllers/admin/users/details/get');
 const usersDeleteGetController = require('../controllers/admin/users/delete/get');
+const productsGetController = require('../controllers/admin/products/index/get');
+const productsDetailsGetController = require('../controllers/admin/products/details/get');
+const productsDeleteGetController = require('../controllers/admin/products/delete/get');
 
 const loginPostController = require('../controllers/admin/auth/post');
 const indexPostController = require('../controllers/admin/index/post');
@@ -18,6 +21,7 @@ const schoolsPostController = require('../controllers/admin/schools/index/post')
 const schoolsDetailsPostController = require('../controllers/admin/schools/details/post');
 const usersPostController = require('../controllers/admin/users/index/post');
 const usersDetailsPostController = require('../controllers/admin/users/details/post');
+const productsDetailsPostController = require('../controllers/admin/products/details/post');
 
 router.get(
   '/login',
@@ -58,6 +62,21 @@ router.get(
     isAdmin,
     usersDeleteGetController
 );
+router.get(
+  '/products',
+    isAdmin,
+    productsGetController
+);
+router.get(
+  '/products/details',
+    isAdmin,
+    productsDetailsGetController
+);
+router.get(
+  '/products/delete',
+    isAdmin,
+    productsDeleteGetController
+);
 
 router.post(
   '/login',
@@ -87,6 +106,11 @@ router.post(
   '/users/details',
     isAdmin,
     usersDetailsPostController
+);
+router.post(
+  '/products/details',
+    isAdmin,
+    productsDetailsPostController
 );
 
 module.exports = router;
