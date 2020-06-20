@@ -4,7 +4,7 @@ const Product = require('../../../../models/product/Product');
 
 module.exports = (req, res) => {
   Product.find({}, (err, products) => {
-    if (err) return res.redirect('/');
+    if (err) return res.redirect('/admin');
 
     return res.render('admin/products', {
       page: 'admin/products',

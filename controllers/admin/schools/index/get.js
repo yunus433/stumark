@@ -2,7 +2,7 @@ const School = require('../../../../models/school/School');
 
 module.exports = (req, res) => {
   School.find({}, (err, schools) => {
-    if (err) return res.redirect('/');
+    if (err) return res.redirect('/admin');
 
     return res.render('admin/schools', {
       page: 'admin/schools',

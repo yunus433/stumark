@@ -1,0 +1,33 @@
+extends ../partials/adminHeader
+block main
+  input.display-none#campaigns-json(type="text" value=JSON.stringify(campaigns))
+  input.display-none#schools-json(type="text" value=JSON.stringify(schools))
+  .all-content-header
+    .title-wrapper
+      span.title Çekilişler
+      span.subtitle Bu sayfadan eklediğiniz çekilişleri görebilir, düzenleyebilir ve yeni çekilişler yaratabilirsiniz. Bir çekilişi düzenlemek için üzerine tıklayın.
+    .new-campaign-button
+      span +
+  .all-content-inner-wrapper
+    .campaigns-wrapper
+      each campaign in campaigns 
+        a.each-campaign(href=`/admin/campaigns/details?id=${campaign._id.toString()}`)
+          .campaign-photo-wrapper
+            img.each-campaign-photo(src=campaign.photo)
+          span.each-campaign-name= campaign.name
+  form.new-form-wrapper(action="/admin/campaigns" method="POST" enctype="multipart/form-data")
+    span.form-title Yeni Bir Kullanıcı Ekle
+    span.form-subtitle Çekiliş İsmi: *
+    input.form-input(type="text" placeholder="İsim" name="name" required)
+    span.form-subtitle Çekiliş Açıklaması: *
+    input.form-input(type="text" placeholder="Açıklama" name="description" required)
+    span.form-subtitle Son Katılım Tarihi: *
+    .date-input-wrapper
+      input.small-date-input(type="number" placeholder="Gün" name="end_date_day" required)
+      input.small-date-input(type="number" placeholder="Ay" name="end_date_month" required)
+      input.big-date-input(type="number" placeholder="Yıl" name="end_date_year" required)
+    span.form-subtitle Çekiliş Resmi: *
+    input(type="file" name="file" required)
+    .buttons-wrapper
+      .back-button Geri
+      button.form-button Oluştur
