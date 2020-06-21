@@ -213,18 +213,36 @@
   margin-right: 5px;
 }
 
-@media only screen and (max-width: 1150px) and (min-width: 950px) {
-  .general-info-wrapper {
-    font-size: 200%;
-  }
-}
-
 @media only screen and (max-width: 950px) and (min-width: 300px) {
-  .general-info-wrapper {
-    font-size: 150%;
+  .general-info-content {
+    flex-direction: column;
+  }
+  .general-info-image-wrapper {
+    height: 30vh;
+    flex: initial;
+    justify-content: flex-start;
+  }
+  .general-info-image {
+    height: 100%;
+    width: auto;
   }
   .header-messages-wrapper-index {
     display: flex;
+  }
+}
+
+@media only screen and (max-width: 700px) and (min-width: 300px) {
+  .general-info-campaign-name {
+    font-size: 150%;
+  }
+  .general-info-campaign-description, .general-info-campaign-bottom-info, .general-info-campaign-info {
+    font-size: 100%;
+  }
+  .general-info-campaign-winner {
+    font-size: 125%;
+  }
+  .general-info-button {
+    font-size: 100%;
   }
 }
 

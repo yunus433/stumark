@@ -27,7 +27,6 @@ module.exports = (req, res) => {
   
           Campaign.getLastOne((err, campaign) => {
             if (err) return console.log(err);
-            console.log(campaign);
 
             return res.render('index/index', {
               page: 'index/index',
