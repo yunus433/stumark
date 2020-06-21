@@ -73,6 +73,10 @@ const UserSchema = new Schema({
   notificationToken: {
     type: String,
     default: null
+  },
+  campaigns: {
+    type: Array,
+    default: []
   }
 });
 

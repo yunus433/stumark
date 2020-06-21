@@ -1,6 +1,7 @@
 const async = require('async');
 
 const Product = require('../../models/product/Product');
+const Campaign = require('../../models/campaign/Campaign');
 
 module.exports = (req, res) => {
   try {
@@ -24,14 +25,20 @@ module.exports = (req, res) => {
         (err, products) => {
           if (err) return console.log(err);
   
-          return res.render('index/index', {
-            page: 'index/index',
-            title: 'Ana Sayfa',
-            includes: {
-              external: ['js', 'css', 'fontawesome']
-            },
-            products,
-            user: req.session.user || undefined
+          Campaign.getLastOne((err, campaign) => {
+            if (err) return console.log(err);
+            console.log(campaign);
+
+            return res.render('index/index', {
+              page: 'index/index',
+              title: 'Ana Sayfa',
+              includes: {
+                external: ['js', 'css', 'fontawesome']
+              },
+              products,
+              user: req.session.user || undefined,
+              campaign
+            });
           });
         }
       );

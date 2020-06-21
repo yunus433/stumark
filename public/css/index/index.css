@@ -9,18 +9,94 @@
 
 .general-info-wrapper {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
   width: 90%;
+  padding: 20px 0px;
   background: white;
   border: 2px solid rgb(236, 235, 235);
   border-radius: 15px;
-  color: rgb(88, 0, 232);
-  font-size: 200%;
-  font-weight: 600;
-  text-align: center;
-  padding: 50px 0;
 }
+.general-info-title {
+  margin-left: auto;
+  margin-right: 20px;
+  color: rgb(111, 214, 175);
+  font-weight: 400;
+  font-size: 100%;
+}
+.general-info-content {
+  width: 100%;
+  padding: 20px;
+  display: flex;
+}
+.general-info-image-wrapper {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+.general-info-image {
+  width: 100%;
+  height: auto;
+}
+.general-info-inner-content {
+  flex: 1;
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.general-info-campaign-name {
+  font-size: 200%;
+  font-weight: 700;
+  color: rgb(88, 0, 232);
+  margin-bottom: 15px;
+}
+.general-info-campaign-description {
+  font-size: 125%;
+  color: rgb(112, 112, 112);
+  font-weight: 300;
+}
+.general-info-campaign-info {
+  align-self: center;
+  text-align: center;
+  color: rgb(111, 214, 175);
+  font-weight: 400;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.general-info-campaign-winner {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  color: rgb(88, 0, 232);
+  font-weight: 700;
+  font-size: 200%;
+  margin-bottom: 20px;
+}
+.general-info-campaign-bottom-info {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  color: rgb(112, 112, 112);
+  font-weight: 300;
+  font-size: 100%;
+  margin-top: auto;
+}
+.general-info-button {
+  margin-left: auto;
+  margin-top: auto;
+  background-color: rgb(88, 0, 232);
+  color: rgb(254, 254, 254);
+  font-weight: 700;
+  font-size: 125%;
+  text-decoration: none;
+  padding: 20px;
+  border-radius: 25px;
+  box-shadow: 2px 2px 12px 0 rgba(88, 0, 232, 0.7);
+}
+.general-info-button:hover {
+  box-shadow: 2px 3px 10px 0 rgba(88, 0, 232, 0.8);
+}
+
 .latest-product-title-wrapper {
   width: 90%;
   display: flex;
