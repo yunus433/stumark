@@ -15,6 +15,7 @@
   background: white;
   border: 2px solid rgb(236, 235, 235);
   border-radius: 15px;
+  min-height: fit-content;
 }
 .general-info-title {
   margin-left: auto;
@@ -32,6 +33,7 @@
   flex: 1;
   display: flex;
   justify-content: center;
+  align-items: center;
   overflow: hidden;
 }
 .general-info-image {
