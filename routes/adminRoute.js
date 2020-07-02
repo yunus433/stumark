@@ -30,6 +30,7 @@ const usersDetailsPostController = require('../controllers/admin/users/details/p
 const productsDetailsPostController = require('../controllers/admin/products/details/post');
 const campaignsPostController = require('../controllers/admin/campaigns/index/post');
 const campaignsDetailsPostController = require('../controllers/admin/campaigns/details/post');
+const campaignsEndPostController = require('../controllers/admin/campaigns/end/post');
 
 router.get(
   '/login',
@@ -145,6 +146,11 @@ router.post(
   '/campaigns/details',
     isAdmin,
     campaignsDetailsPostController
+);
+router.post(
+  '/campaigns/end',
+    isAdmin,
+    campaignsEndPostController
 );
 
 module.exports = router;

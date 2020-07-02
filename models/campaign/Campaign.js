@@ -27,9 +27,9 @@ const CampaignSchema = new Schema({
     type: Array,
     default: []
   },
-  winner: {
-    type: String,
-    default: null
+  winners: {
+    type: Array,
+    default: []
   },
   ended: {
     type: Boolean,

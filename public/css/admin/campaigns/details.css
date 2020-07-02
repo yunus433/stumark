@@ -55,12 +55,19 @@
   color: rgb(112, 112, 112);
 }
 
-.new-form-wrapper {
+.form-general-wrapper {
   flex: 7;
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+  margin-bottom: 50px;
+}
+.new-form-wrapper {
+  min-height: fit-content;
   display: flex;
   flex-direction: column;
   padding: 0px 20px;
   overflow: scroll;
+  margin-bottom: 20px;
 }
 .form-title {
   font-size: 125%;
@@ -123,25 +130,13 @@
   cursor: pointer;
 }
 
-.campaigns-wrapper {
-  height: 250px;
-  overflow: scroll;
-  margin-bottom: 5px;
+.participants-wrapper {
+  margin-bottom: 20px;
 }
-.each-campaign {
-  display: flex;
-  align-items: center;
-  display: flex;
-  padding: 15px;
-  border: 2px solid rgb(236, 236, 236);
-  border-radius: 10px;
-  background-color: rgb(255, 255, 255);
-  margin-top: 20px;
-  cursor: pointer;
-  text-decoration: none;
-}
-.each-campaign span {
-  margin-left: 5px;
-  font-size: 100%;
+.each-participant {
   color: rgb(112, 112, 112);
+  margin-left: 20px;
+  font-size: 100%;
+  font-weight: 500;
+  margin-bottom: 5px;
 }

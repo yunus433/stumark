@@ -25,8 +25,9 @@ block main
           .general-info-inner-content
             span.general-info-campaign-name= campaign.name
             span.general-info-campaign-description= campaign.description
-            span.general-info-campaign-info Bu haftaki çekilişin kazananı:
-            span.general-info-campaign-winner= campaign.winner
+            span.general-info-campaign-info Bu haftaki çekilişin #{campaign.winners.length != 1 ? "kazananları" : "kazananı"}:
+            each winner in campaign.winners
+              span.general-info-campaign-winner= winner
             span.general-info-campaign-bottom-info Daha fazla ödül için bir sonraki çekilişe katılmayı unutma!
   .latest-product-title-wrapper
     span.latest-product-title #{__('Aktuelle Angebote')}

@@ -6,15 +6,25 @@ block main
       span.subtitle Bu sayfadan bu çekiliş kaydını görebilir ve düzenleyebilirsiniz.
     a.delete-campaign-button(href="/admin/campaigns/delete?id=" + campaign._id.toString() onclick="return confirm('Bu çekilişi silmek istediğinize emin misiniz?')" )
       span Sil
-  form.new-form-wrapper(action="/admin/campaigns/details?id=" + campaign._id.toString() method="POST")
-    span.form-title Çekilişi Düzenle
-    span.form-subtitle Çekiliş İsmi: *
-    input.form-input(type="text" placeholder="İsim" name="name" value=campaign.name required)
-    span.form-subtitle Çekiliş Açıklaması: *
-    input.form-input(type="text" placeholder="Açıklama" name="description" value=campaign.description required)
-    span.form-subtitle Son Katılım Tarihi: *
-    .date-input-wrapper
-      input.small-date-input(type="number" placeholder="Gün" name="end_date_day" value=campaign.end_date.day required)
-      input.small-date-input(type="number" placeholder="Ay" name="end_date_month" value=campaign.end_date.month required)
-      input.big-date-input(type="number" placeholder="Yıl" name="end_date_year" value=campaign.end_date.year required)
-    button.form-button Düzenle
+  .form-general-wrapper
+    form.new-form-wrapper(action="/admin/campaigns/details?id=" + campaign._id.toString() method="POST")
+      span.form-title Çekilişi Düzenle
+      span.form-subtitle Çekiliş İsmi: *
+      input.form-input(type="text" placeholder="İsim" name="name" value=campaign.name required)
+      span.form-subtitle Çekiliş Açıklaması: *
+      input.form-input(type="text" placeholder="Açıklama" name="description" value=campaign.description required)
+      span.form-subtitle Son Katılım Tarihi: *
+      .date-input-wrapper
+        input.small-date-input(type="number" placeholder="Gün" name="end_date_day" value=campaign.end_date.day required)
+        input.small-date-input(type="number" placeholder="Ay" name="end_date_month" value=campaign.end_date.month required)
+        input.big-date-input(type="number" placeholder="Yıl" name="end_date_year" value=campaign.end_date.year required)
+      button.form-button Düzenle
+    form.new-form-wrapper(action="/admin/campaigns/end?id=" + campaign._id.toString() method="POST")
+      span.form-title Çekilişi Bitir
+      span.form-subtitle Çekilişe Katılanlar:
+      .participants-wrapper
+        each participant in participants
+          span.each-participant - #{participant.name} (#{participant.email})
+      span.form-subtitle Kazanan İsimler: * (Lütfen isimleri aralarına sadece virgül koyarak ve boşluk bırakmadan yazın!)
+      input.form-input(type="text" required name="winners" value=campaign.winners.join(',') placeholder="ör: Yunus Gürlek,Yasin Berk Yeşilyurt,Ömer Girgin")
+      button.form-button Çekilişi Bitir
