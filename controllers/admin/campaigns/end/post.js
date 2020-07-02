@@ -8,7 +8,7 @@ module.exports = (req, res) => {
 
   Campaign.findByIdAndUpdate(mongoose.Types.ObjectId(req.query.id), {$set: {
     ended: true,
-    winners: req.body.winners.split(',')
+    winners: req.body.winners.split(',').map(winner => winner.trim())
   }}, {}, err => {
     if (err) return res.redirect('/admin');
 
