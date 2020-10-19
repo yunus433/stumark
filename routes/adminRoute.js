@@ -8,6 +8,7 @@ const isAdmin = require('../middleware/isAdmin');
 
 const loginGetController = require('../controllers/admin/auth/get');
 const indexGetController = require('../controllers/admin/index/get');
+const updateGetController = require('../controllers/admin/update/get');
 const schoolsGetController = require('../controllers/admin/schools/index/get');
 const schoolsDetailsGetController = require('../controllers/admin/schools/details/get');
 const schooolsDeleteGetController = require('../controllers/admin/schools/delete/get');
@@ -40,6 +41,11 @@ router.get(
   '/',
     isAdmin,
     indexGetController
+);
+router.get(
+  '/update',
+    isAdmin,
+    updateGetController
 );
 router.get(
   '/schools',
