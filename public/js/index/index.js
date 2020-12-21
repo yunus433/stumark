@@ -1,3 +1,3 @@
 window.onload = () => {
-  addEventListener(document);
+  // addEventListener(document);
 };
